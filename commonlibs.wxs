@@ -21,7 +21,7 @@
         <File Id="ssleay32.dll" Source="C:\OpenSSL-Win32\bin\ssleay32.dll" Checksum="yes" Vital="yes"/>
       </Component>
       <Component Id="zlib1.dll" Guid="*">
-        <File Source="$(env.PREFIX)\zlib\bin\zlib1.dll" Checksum="yes" Vital="yes"/>
+        <File Source="$(env.CLIENT_PATH)\zlib1.dll" Checksum="yes" Vital="yes"/>
       </Component>
     </DirectoryRef>
     <?if $(var.Platform) = "x64" ?>
