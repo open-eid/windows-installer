@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?define QesteidutilRegistryKey = "Software\Estonian ID Card\QEsteidUtil" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <ComponentGroup Id="qesteidutil">
+            <ComponentRef Id='qesteidutil.exe' />
+            <ComponentRef Id="QesteidutilStartMenuShortcut" />
+            <ComponentRef Id="QesteidutilDesktopShortcut" />
+        </ComponentGroup>
+
+        <DirectoryRef Id="APPLICATIONFOLDER">
+            <Component Id='qesteidutil.exe' Guid='*'>
+                <File Source="$(env.PREFIX)\IdCard\qesteidutil\bin\qesteidutil.exe" Checksum="yes" Vital="yes" />
+            </Component>
+        </DirectoryRef>
+
+        <!-- Program Menu shortcut -->
+        <DirectoryRef Id="EsteidShortcutFolder">
+            <Component Id="QesteidutilStartMenuShortcut" Guid="1fff8263-2d6c-4880-9258-8d06f64df319">
+                <Condition>STARTMENU_SHORTCUT = 1</Condition>
+                <Shortcut Id="QesteidutilStartMenuShortcut"
+                          Advertise="no"
+                          Name="ID-kaardi haldusvahend"
+                          Target="[APPLICATIONFOLDER]qesteidutil.exe"
+                          WorkingDirectory="APPLICATIONFOLDER"/>
+                <RegistryValue Root="HKMU" Key="$(var.QesteidutilRegistryKey)" Name="StartMenuShortcut" Value="1" Type="integer" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+
+        <!-- Desktop shortcut -->
+        <DirectoryRef Id="DesktopFolder">
+            <Component Id="QesteidutilDesktopShortcut" Guid="7175c225-44ca-4b91-aacd-202e47f40c6f">
+                <Condition>DESKTOP_SHORTCUT = 1</Condition>
+                <Shortcut Id="QesteidutilDesktopShortcut"
+                          Advertise="no"
+                          Name="ID-kaardi haldusvahend"
+                          Target="[APPLICATIONFOLDER]qesteidutil.exe"
+                          WorkingDirectory="APPLICATIONFOLDER"/>
+                <RegistryValue Root="HKMU" Key="$(var.QesteidutilRegistryKey)" Name="DesktopShortcut" Value="1" Type="integer" KeyPath="yes"/>
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+</Wix>

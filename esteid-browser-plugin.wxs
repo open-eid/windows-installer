@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?define browserPluginGUID = "{aa84ce40-4253-a00a-8cd6-0800200f9a66}" ?>
+<!--https://developer.mozilla.org/en/Adding_Extensions_using_the_Windows_Registry-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="Pkcs11LoaderExtension">
+      <ComponentRef Id='FirefoxPKCS11Loader_Registry'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_chrome.manifest'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_install.rdf'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_browser.xul'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_id_32.png'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_pkcs11_loader.js'/>
+    </ComponentGroup>
+
+    <ComponentGroup Id="BrowserPlugin">
+      <ComponentRef Id='npesteid_firefox_plugin.dll'/>
+      <ComponentRef Id='npesteid_firefox_pluginCNG.dll'/>
+      <?if $(var.Platform) = "x64" ?>
+      <ComponentRef Id='npesteid_firefox_pluginCNG_X64.dll'/>
+      <?endif ?>
+      <ComponentRef Id='remove_npidcard.dll'/>
+    </ComponentGroup>
+
+    <DirectoryRef Id="APPLICATIONFOLDER">
+      <Component Id="npesteid_firefox_plugin.dll" Guid="987E8C7A-D236-427d-A822-FC61259D2663">
+        <Condition><![CDATA[(VersionNT <= 501)]]></Condition>
+        <File Id="npesteid_firefox_plugin.dll" KeyPath="yes"
+              Source="$(env.PREFIX)\IdCard\FirefoxPlugin\npesteid-firefox-plugin.dll"
+              Checksum="yes" Vital="yes"/>
+        <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
+                       Value="[#npesteid_firefox_plugin.dll]" Type="string" Action="write"/>
+      </Component>
+      <Component Id="npesteid_firefox_pluginCNG.dll" Guid="F765A58E-9766-4a93-8C3E-1017AEF15362">
+        <Condition><![CDATA[(VersionNT > 501)]]></Condition>
+        <File Id="npesteid_firefox_pluginCNG.dll" KeyPath="yes"
+              Source="$(env.PREFIX)\IdCard\FirefoxPluginCNG\npesteid-firefox-plugin.dll"
+              Checksum="yes" Vital="yes"/>
+        <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
+                       Value="[#npesteid_firefox_pluginCNG.dll]" Type="string" Action="write"/>
+      </Component>
+
+      <Directory Id="FirefoxPKCS11Loader" Name="Firefox PKCS11 Loader">
+
+        <Component Id="FirefoxPKCS11Loader_Registry" Guid="*">
+          <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
+                         Value="[FirefoxPKCS11Loader]" Type="string" Action="write"/>
+        </Component>
+
+        <Component Id="FirefoxPKCS11Loader_chrome.manifest" Guid="*">
+          <File Id="chrome.manifest" KeyPath="yes"
+                Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome.manifest"
+                Checksum="yes" Vital="yes"/>
+        </Component>
+
+        <Component Id="FirefoxPKCS11Loader_install.rdf" Guid="*">
+          <File Id="install.rdf" KeyPath="yes"
+                Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\install.rdf"
+                Checksum="yes" Vital="yes"/>
+        </Component>
+
+        <Directory Id="FirefoxPKCS11Loader_Chrome" Name="chrome">
+          <Directory Id="FirefoxPKCS11Loader_Chrome_Content" Name="content">
+            <Component Id="FirefoxPKCS11Loader_browser.xul" Guid="*">
+              <File Id="browser.xul" KeyPath="yes"
+                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\browser.xul"
+                    Checksum="yes" Vital="yes"/>
+            </Component>
+
+            <Component Id="FirefoxPKCS11Loader_id_32.png" Guid="*">
+              <File Id="id_32.png" KeyPath="yes"
+                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\id-32.png"
+                    Checksum="yes" Vital="yes"/>
+            </Component>
+
+            <Component Id="FirefoxPKCS11Loader_pkcs11_loader.js" Guid="*">
+              <File Id="pkcs11_loader.js" KeyPath="yes"
+                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\pkcs11-loader.js"
+                    Checksum="yes"
+                    Vital="yes"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+
+    <?if $(var.Platform) = "x64" ?>
+    <DirectoryRef Id="APPLICATION64FOLDER">
+      <Component Id="npesteid_firefox_pluginCNG_X64.dll" Guid="2b6a8eec-93b6-4c07-9845-1a2132ef8a47" Win64="yes">
+        <Condition><![CDATA[(VersionNT > 501)]]></Condition>
+        <File Id="npesteid_firefox_pluginCNG_X64.dll" KeyPath="yes"
+              Source="$(env.PREFIX)\IdCard\FirefoxPluginCNG\X64\npesteid-firefox-plugin.dll"
+              Checksum="yes" Vital="yes"/>
+        <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
+                       Value="[#npesteid_firefox_pluginCNG_X64.dll]" Type="string" Action="write"/>
+      </Component>
+    </DirectoryRef>
+    <?endif ?>
+
+    <DirectoryRef Id="ProgramFilesFolder">
+      <Directory Id="MozillaFirefox" Name="Mozilla Firefox">
+        <Directory Id="plugins" Name="plugins">
+          <Component Id="remove_npidcard.dll" Guid="">
+            <RemoveFile Id="npidcard.dll" On="install" Name="npidcard.dll"/>
+          </Component>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+
+  </Fragment>
+</Wix>

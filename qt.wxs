@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?define QtPATH = "C:\Qt\5.3\msvc2013" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <ComponentGroup Id="QtLibs">
+            <ComponentRef Id="Qt5Core" />
+            <ComponentRef Id="qwindows.dll" />
+            <ComponentRef Id="qjpeg.dll" />
+            <ComponentRef Id="qtaccessiblewidgets.dll" />
+            <ComponentRef Id="windowsprintersupport.dll" />
+        </ComponentGroup>
+
+        <DirectoryRef Id="APPLICATIONFOLDER">
+            <Component Id="Qt5Core" Guid="10c67888-e9f6-4546-af61-d760064c3caa">
+                <File Source="$(var.QtPATH)\bin\Qt5Core.dll" />
+                <File Source="$(var.QtPATH)\bin\Qt5Gui.dll" />
+                <File Source="$(var.QtPATH)\bin\Qt5Network.dll" />
+                <File Source="$(var.QtPATH)\bin\Qt5PrintSupport.dll" />
+                <File Source="$(var.QtPATH)\bin\Qt5Widgets.dll" />
+                <File Source="$(var.QtPATH)\bin\Qt5WinExtras.dll" />
+                <File Source="$(var.QtPATH)\bin\libEGL.dll" />
+                <File Source="$(var.QtPATH)\bin\libGLESv2.dll" />
+                <File Source="$(var.QtPATH)\bin\icudt52.dll" />
+                <File Source="$(var.QtPATH)\bin\icuin52.dll" />
+                <File Source="$(var.QtPATH)\bin\icuuc52.dll" />
+                <File Source="$(var.QtPATH)\bin\D3DCompiler_47.dll" />
+            </Component>
+
+            <Directory Id="platforms" Name="platforms">
+                <Component Id="qwindows.dll" Guid="*">
+                    <File Source="$(var.QtPATH)\plugins\platforms\qwindows.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="imageformats" Name="imageformats">
+                <Component Id="qjpeg.dll" Guid="*">
+                    <File Source="$(var.QtPATH)\plugins\imageformats\qjpeg.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="accessible" Name="accessible">
+                <Component Id="qtaccessiblewidgets.dll" Guid="*">
+                    <File Source="$(var.QtPATH)\plugins\accessible\qtaccessiblewidgets.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="printsupport" Name="printsupport">
+                <Component Id="windowsprintersupport.dll" Guid="*">
+                    <File Source="$(var.QtPATH)\plugins\printsupport\windowsprintersupport.dll" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+</Wix>

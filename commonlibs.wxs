@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="CommonLibs">
+      <ComponentRef Id="libeay32.dll"/>
+      <ComponentRef Id="ssleay32.dll"/>
+      <ComponentRef Id="zlib1.dll"/>
+      <?if $(var.Platform) = "x64" ?>
+        <ComponentRef Id="libeay32_64.dll"/>
+        <ComponentRef Id="ssleay32_64.dll"/>
+        <ComponentRef Id="zlib1_64.dll"/>
+      <?endif?>
+    </ComponentGroup>
+
+    <DirectoryRef Id="APPLICATIONFOLDER">
+      <Component Id="libeay32.dll" Guid="*">
+        <File Id="libeay32.dll" Source="C:\OpenSSL-Win32\bin\libeay32.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="ssleay32.dll" Guid="*">
+        <File Id="ssleay32.dll" Source="C:\OpenSSL-Win32\bin\ssleay32.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="zlib1.dll" Guid="*">
+        <File Source="$(env.PREFIX)\zlib\bin\zlib1.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <?if $(var.Platform) = "x64" ?>
+    <DirectoryRef Id="APPLICATION64FOLDER">
+      <Component Id="libeay32_64.dll" Guid="*" Win64="yes">
+        <File Id="libeay32_64.dll" Source="C:\OpenSSL-Win64\bin\libeay32.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="ssleay32_64.dll" Guid="*" Win64="yes">
+        <File Id="ssleay32_64.dll" Source="C:\OpenSSL-Win64\bin\ssleay32.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="zlib1_64.dll" Guid="*" Win64="yes">
+        <File Id="zlib1_64.dll" Source="C:\install\zlib\x64\bin\zlib1.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <?endif?>
+  </Fragment>
+</Wix>

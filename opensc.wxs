@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <ComponentGroup Id="OpenSC">
+            <ComponentRef Id="opensc_pkcs11.dll" />
+            <ComponentRef Id="opensc.dll" />
+            <ComponentRef Id="OpenscRegistryConfigFile" />
+        </ComponentGroup>
+
+        <DirectoryRef Id="SystemFolder">
+            <Component Id="opensc_pkcs11.dll" Guid="fdf4cfe4-772a-497a-b941-c450b92350a3">
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc-pkcs11.dll" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\onepin-opensc-pkcs11.dll" />
+            </Component>
+        </DirectoryRef>
+
+        <DirectoryRef Id="APPLICATIONFOLDER">
+            <Component Id="opensc.dll" Guid="2f3992b1-4458-40e1-aad2-ac28f79fcff3">
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc.dll" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc-tool.exe" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\pkcs11-tool.exe" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\pkcs15-tool.exe" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\bin\eidenv.exe" />
+                <File Source="$(env.PREFIX)\IdCard\opensc\etc\opensc.conf" />
+            </Component>
+            <Component Id="OpenscRegistryConfigFile" Guid="*">
+                <Condition>Privileged</Condition>
+                <RegistryKey Root="HKLM"
+                             Key="Software\OpenSC Project\OpenSC"
+                             Action="createAndRemoveOnUninstall">
+                    <RegistryValue Type="string" Name="ConfigFile" Value="[APPLICATIONFOLDER]opensc.conf" />
+                </RegistryKey>
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+</Wix>

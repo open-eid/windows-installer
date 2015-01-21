@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?define CertSourceDir = "certs" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
+  <Product Name="Test certificates for Estonian ID software" UpgradeCode="19C30A37-7C80-45c8-B695-FC982C0A873F"
+      Id="*" Language="1033" Version="1.1.1.3" Manufacturer="RIA">
+    <Package Keywords="Installer" InstallerVersion="405" Compressed="yes"/>
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
+    <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage=
+      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
+    <UI>
+      <UIRef Id="WixUI_Mondo" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="SetupTypeDlg" Order="3">1</Publish>
+      <Publish Dialog="SetupTypeDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="3">1</Publish>
+    </UI>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id='ProgramFilesFolder'>
+        <Directory Id="APPLICATIONFOLDER" Name="Estonian ID Card">
+          <Directory Id="CERTIFICATESFOLDER" Name="$(var.CertSourceDir)" FileSource="$(var.CertSourceDir)">
+            <Component Id="TEST_file" Guid="9e070666-0bac-46f0-af62-a0922b45be76">
+                <File Name="TEST EECCRCA.crt" />
+                <File Name="TEST Juur-SK.crt" />
+                <File Name="TEST-SK.crt" />
+                <File Name="TEST-SK OCSP 2005.crt" />
+                <File Name="TEST SK OCSP 2011.crt" />
+                <File Name="TEST EID-SK 2011.crt" />
+                <File Name="TEST ESTEID-SK 2011.crt" />
+                <File Name="TEST KLASS3 2010.crt" />
+            </Component>
+            <Component Id="TEST_EECCRCA" Guid="6637382A-FDA5-4d68-932A-BF922B37EE9A" KeyPath="yes">
+                <iis:Certificate Id="TEST_EECCRCA"
+                                 Name="TEST_EECCRCA"
+                                 Request="no"
+                                 StoreLocation="localMachine"
+                                 StoreName="root"
+                                 Overwrite="yes"
+                                 BinaryKey="TEST_EECCRCA"
+                                 />
+            </Component>
+            <Component Id="TEST_JUUR_SK" Guid="D2FF1F1F-3CA8-4f42-BB14-1B28E16D7D4F" KeyPath="yes">
+                <iis:Certificate Id="TEST_JUUR_SK"
+                                 Name="TEST_JUUR_SK"
+                                 Request="no"
+                                 StoreLocation="localMachine"
+                                 StoreName="root"
+                                 Overwrite="yes"
+                                 BinaryKey="TEST_JUUR_SK"
+                                 />
+            </Component>
+            <Component Id="TEST_SK" Guid="87E7C890-96C7-4b91-A2D7-6CA5465FB62E" KeyPath="yes">
+                <iis:Certificate Id="TEST_SK"
+                                 Name="TEST_SK"
+                                 Request="no"
+                                 StoreLocation="localMachine"
+                                 StoreName="ca"
+                                 Overwrite="yes"
+                                 BinaryKey="TEST_SK"
+                                 />
+            </Component>
+            <Component Id="TEST_ESTEID_SK_2011" Guid="864E098C-D716-4e41-B2C0-023F36C7E6B9" KeyPath="yes">
+                <iis:Certificate Id="TEST_ESTEID_SK_2011"
+                                 Name="TEST_ESTEID_SK_2011"
+                                 Request="no"
+                                 StoreLocation="localMachine"
+                                 StoreName="ca"
+                                 Overwrite="yes"
+                                 BinaryKey="TEST_ESTEID_SK_2011"
+                                 />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <!-- registers certificates in system -->
+    <Binary Id="TEST_EECCRCA" SourceFile="$(var.CertSourceDir)\TEST EECCRCA.crt" />
+    <Binary Id="TEST_JUUR_SK" SourceFile="$(var.CertSourceDir)\TEST Juur-SK.crt" />
+    <Binary Id="TEST_SK" SourceFile="$(var.CertSourceDir)\TEST-SK.crt" />
+    <Binary Id="TEST_ESTEID_SK_2011" SourceFile="$(var.CertSourceDir)\TEST ESTEID-SK 2011.crt" />
+
+    <Feature Id="Complete" Level="1" Title="Estonian ID Card test certificates" Description="Test certificates for Estonian ID card software"
+             Display="expand" ConfigurableDirectory="APPLICATIONFOLDER">
+      <Feature Id='ProductionCertificates' Title='Test certificates for production' Description='Test certificates needed for production system.' Level='1'>
+        <ComponentRef Id="TEST_file" />
+        <ComponentRef Id="TEST_EECCRCA" />
+        <ComponentRef Id="TEST_JUUR_SK" />
+        <ComponentRef Id="TEST_SK" />
+        <ComponentRef Id="TEST_ESTEID_SK_2011" />
+      </Feature>
+    </Feature>
+  </Product>
+</Wix>

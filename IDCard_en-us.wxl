@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="RemoveOldSoftDlg_Title" Overridable="yes">[ProductName] Setup</String>
+    <String Id="RemoveOldSoftDlgTitle" Overridable="yes">{\WixUI_Font_Title}Upgrading Software</String>
+    <String Id="RemoveOldSoftDlgDescription" Overridable="yes">Setup is going to replace obsolete software.</String>
+    <String Id="RemoveOldSoftDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner</String>
+    <String Id="RemoveOldSoftDlgIntro" Overridable="yes">The Setup Wizard has detected obsolete ID card software on your computer. During the installation any of the following programs will be replaced:</String>
+    <String Id="RemoveOldSoftDlgObsoleteFirefox" Overridable="yes">- ID-kaardi Firefoxi draiver</String>
+    <String Id="RemoveOldSoftDlgObsoleteUtility" Overridable="yes">- ID-kaardi utiliit</String>
+    <String Id="RemoveOldSoftDlgObsoleteDigidoc" Overridable="yes">- DigiDoc Client</String>
+    <String Id="RemoveOldSoftDlgConclusion" Overridable="yes">Click Next to continue with the installation.</String>
+</WixLocalization>

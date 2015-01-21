@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+
+    <ComponentGroup Id="updater">
+      <ComponentRef Id='id_updater.exe' />
+    </ComponentGroup>
+
+    <DirectoryRef Id="APPLICATIONFOLDER">
+      <Component Id='id_updater.exe' Guid='*'>
+        <File Id="id_updater.exe" Source="$(env.PREFIX)\IdCard\IdUpdater\bin\id-updater.exe" Checksum="yes" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <CustomAction Id="ScheduleUpdater" FileKey="id_updater.exe" Impersonate="no" Execute="deferred"
+                      ExeCommand="-weekly"
+                      Return="ignore"/>
+    <CustomAction Id="UnScheduleUpdater" Directory="APPLICATIONFOLDER" Impersonate="no" Execute="deferred"
+                      ExeCommand="id-updater.exe -remove"
+                      Return="ignore"/>
+
+    <InstallExecuteSequence>
+        <Custom Action="ScheduleUpdater" Before="InstallFinalize">(NOT Installed) AND NOT (AUTO_UPDATE = 0)</Custom>
+        <Custom Action="UnScheduleUpdater" After="InstallInitialize">REMOVE="ALL"</Custom>
+    </InstallExecuteSequence>
+
+  </Fragment>
+</Wix>

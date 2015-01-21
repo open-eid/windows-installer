@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define IDCardFolder = "Estonian ID Card" ?>
+<?define ProductName = "Estonian ID Card Software Debug Symbols" ?>
+<?define IDDebugSymbolsLocation = "/install/debug-symbols" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Name="$(var.ProductName)" Id="CFDD934F-CBAB-4b66-AE09-8266CC80A754" UpgradeCode="BA487ED3-E7A4-457f-9AF7-1526841DA0DF"
+           Language="1033" Version="1.1.1.1" Codepage="1251" Manufacturer="RIA">
+    <Package Id="*" Keywords="Installer" Description="$(var.ProductName)" Comments="$(var.ProductName)" Manufacturer="RIA" InstallerVersion="100" Compressed="yes"/>
+    <Media Id="1" Cabinet="Eesti_ID_kaart_debug.cab" EmbedCab="yes" CompressionLevel="high"/>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id='ProgramFilesFolder'>
+        <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)">
+          <Directory Id="DEBUGINFOFOLDER" Name="debug">
+            <Component Id="DebugInfo" Guid="C4BD1B43-93EF-4cf6-B750-55275DFF3390" >
+              <File Id="cdigidoc.pdb" Name="cdigidoc.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/libdigidoc/cdigidoc.pdb"/>
+              <File Id="digidoc.pdb" Name="digidoc.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/libdigidoc/digidoc.pdb"/>
+
+              <File Id="digidoc_tool.pdb" Name="digidoc-tool.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/libdigidocpp/x86-RelWithDebInfo/digidoc-tool.pdb"/>
+              <File Id="digidocpp.pdb" Name="digidocpp.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/libdigidocpp/x86-RelWithDebInfo/digidocpp.pdb"/>
+
+              <File Id="esteidcm.pdb" Name="esteidcm.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/minidriver/debug/x86/esteidcm.pdb"/>
+
+              <File Id="qdigidocclient.pdb" Name="qdigidocclient.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/qdigidoc/qdigidocclient.pdb"/>
+              <!--<File Id="qdigidoccommon.pdb" Name="qdigidoccommon.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/qdigidoc/qdigidoccommon.pdb"/>-->
+              <!--<File Id="qdigidoccrypto.pdb" Name="qdigidoccrypto.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/qdigidoc/qdigidoccrypto.pdb"/>-->
+
+              <File Id="qesteidutil.pdb" Name="qesteidutil.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/qesteidutil/qesteidutil.pdb"/>
+              <!--<File Id="smartcardpp.pdb" Name="smartcardpp.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/qesteidutil/smartcardpp.pdb"/>-->
+
+              <File Id="esteidshellextension.pdb" Name="esteidshellextension.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/shellextension/esteidshellextension.pdb"/>
+
+              <File Id="id_updater.pdb" Name="id-updater.pdb" DiskId="1" Source="$(var.IDDebugSymbolsLocation)/updater/id-updater.pdb"/>
+              <RemoveFolder Id="RemoveDebugInfoFolder" On="uninstall"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="Complete" Level="1" Title="$(var.ProductName)" Display="expand" ConfigurableDirectory="DEBUGINFOFOLDER" Description="$(var.ProductName)">
+      <Feature Id="InstallDebug" Level="1" Title="$(var.ProductName)">
+        <ComponentRef Id="DebugInfo"/>
+      </Feature>
+    </Feature>
+    <Property Id="WIXUI_INSTALLDIR" Value="DEBUGINFOFOLDER"/>
+
+    <UIRef Id="WixUI_InstallDir"/>
+    <UIRef Id="WixUI_ErrorProgressText"/>
+
+  </Product>
+</Wix>

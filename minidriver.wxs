@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?define MinidriverDir = "minidriver" ?>
+<?define IDCardFolder = "Estonian ID Card" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:difx="http://schemas.microsoft.com/wix/DifxAppExtension">
+  <Fragment>
+    <ComponentGroup Id="minidriver">
+      <?if $(var.Platform) = "x64" ?>
+      <ComponentRef Id="RemoveMinidriverRegistrationComponentX64"/>
+      <ComponentRef Id="miniDriverW7x64"/>
+      <ComponentRef Id="miniDriverW7x64Components"/>
+      <ComponentRef Id="miniDriverW7x86Components"/>
+      <ComponentRef Id="miniDriverW8x64"/>
+      <ComponentRef Id="miniDriverW8x64Components"/>
+      <ComponentRef Id="miniDriverW8x86Components"/>
+      <ComponentRef Id="miniDriverW8.1x64"/>
+      <ComponentRef Id="miniDriverW8.1x64Components"/>
+      <ComponentRef Id="miniDriverW8.1x86Components"/>
+      <ComponentRef Id="EnableScPnP64"/>
+      <?endif ?>
+
+      <?if $(var.Platform) = "x86" ?>
+      <ComponentRef Id="miniDriverW7x86"/>
+      <ComponentRef Id="miniDriverW7x86Components"/>
+      <ComponentRef Id="miniDriverW8x86"/>
+      <ComponentRef Id="miniDriverW8x86Components"/>
+      <ComponentRef Id="miniDriverW8.1x86"/>
+      <ComponentRef Id="miniDriverW8.1x86Components"/>
+      <?endif ?>
+
+      <ComponentRef Id="RemoveMinidriverRegistrationComponentX86"/>
+      <ComponentRef Id="EnableScPnP32"/>
+    </ComponentGroup>
+
+    <Property Id="SCPNPENTRY">
+      <RegistrySearch Id="ScPnP" Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Windows\ScPnP" Name="EnableScPnP" Type="raw"/>
+    </Property>
+
+    <DirectoryRef Id="TARGETDIR">
+      <?if $(var.Platform) = "x64" ?>
+      <!-- installing 64-bit part of ATR records on 64-bit machine -->
+      <Component Id="RemoveMinidriverRegistrationComponentX64" Guid="B0DFF274-B96A-48f1-89F1-400A271770DB" Win64="yes">
+        <Condition><![CDATA[(VersionNT >= 501)]]></Condition>
+        <?include minidriver_registry_cleanup.wxi?>
+      </Component>
+
+      <Component Id="EnableScPnP64" Guid="484e65f4-fb21-49a0-8d26-54f8773ef7bf">
+        <Condition><![CDATA[SCPNPENTRY = "#0"]]></Condition>
+        <RegistryKey Root="HKLM"
+                     Key="SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScPnP"
+                     Action="create">
+          <RegistryValue Name="EnableScPnP" Action="write" Type="integer" Value="1"/>
+        </RegistryKey>
+      </Component>
+      <?endif ?>
+
+      <Component Id="EnableScPnP32" Guid="4aac3a1c-2103-4e33-bcbf-8c354e7a8883">
+        <Condition><![CDATA[SCPNPENTRY = "#0"]]></Condition>
+        <RegistryKey Root="HKLM"
+                     Key="SOFTWARE\Policies\Microsoft\Windows\ScPnP"
+                     Action="create">
+          <RegistryValue Name="EnableScPnP" Action="write" Type="integer" Value="1"/>
+        </RegistryKey>
+      </Component>
+
+      <!-- installing 32-bit part of ATR records on both 64-bit and 32-bit machines -->
+      <Component Id="RemoveMinidriverRegistrationComponentX86" Guid="4EEC213A-7D2C-4062-9EEF-BA18BFEB7F12" Win64="no">
+        <Condition><![CDATA[(VersionNT >= 501)]]></Condition>
+        <?include minidriver_registry_cleanup.wxi?>
+      </Component>
+	</DirectoryRef>
+	
+		<DirectoryRef Id="APPLICATIONFOLDER">
+			<Directory Id="minidriverInstall" Name="minidriver">
+			  <!-- WIN 7 -->
+			  <?if $(var.Platform) = "x64" ?>
+			  <Component Id="miniDriverW7x64" Guid="601207ae-2208-4098-bac7-b30aa0f13a8a">
+				<Condition><![CDATA[(VersionNT = 601)]]></Condition>
+				<File Id="esteidcmINFW7x64" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcm64CATW7x64" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\esteidcm64.cat" />
+				<File Id="esteidcmCATW7x64" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\esteidcm.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W7x64" Name="x64">
+				<Component Id="miniDriverW7x64Components" Guid="8f2c4283-9d65-4d75-abc2-ea97a910bc1d">
+				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
+				  <File Id="esteidcmW7x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\esteidcm_64.dll" />
+				  <File Id="atrfiltrW7x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\atrfiltr_64.sys" />
+				</Component>
+			  </Directory>
+			  <Directory Id="minidriver_W7x86" Name="x86">
+				<Component Id="miniDriverW7x86Components" Guid="5c3889e4-c627-4a9e-9d24-8e061c6d635b">
+				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
+				  <File Id="esteidcmW7x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW7x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+
+			  <?if $(var.Platform) = "x86" ?>
+			  <Component Id="miniDriverW7x86" Guid="14397c62-610a-41ee-8168-a70757e71cdc">
+				<Condition><![CDATA[(VersionNT = 601)]]></Condition>
+				<File Id="esteidcmINFW7x86" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcm64CATW7x86" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\esteidcm64.cat" />
+				<File Id="esteidcmCATW7x86" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\esteidcm.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W7x86" Name="x86">
+				<Component Id="miniDriverW7x86Components" Guid="d358fad6-06e9-45cd-aec8-adcc8acbb11f">
+				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
+				  <File Id="esteidcmW7x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW7x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+
+			  <!-- WIN 8 -->
+			  <?if $(var.Platform) = "x64" ?>
+			  <Component Id="miniDriverW8x64" Guid="32af497b-2102-4e98-9378-75a8bab83295">
+				<Condition><![CDATA[(VersionNT = 602)]]></Condition>
+				<File Id="esteidcmINFW8x64" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcm64CATW8x64" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\esteidcm64.cat" />
+				<File Id="esteidcmCATW8x64" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\esteidcm.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W8x64" Name="x64">
+				<Component Id="miniDriverW8x64Components" Guid="abe43de9-ea26-4371-806b-8f26697be521">
+				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
+				  <File Id="esteidcmW8x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\esteidcm_64.dll" />
+				  <File Id="atrfiltrW8x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\atrfiltr_64.sys" />
+				</Component>
+			  </Directory>
+			  <Directory Id="minidriver_W8x86" Name="x86">
+				<Component Id="miniDriverW8x86Components" Guid="574a7cd3-b839-4999-abc6-fb71901f9682">
+				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
+				  <File Id="esteidcmW8x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW8x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+
+			  <?if $(var.Platform) = "x86" ?>
+			  <Component Id="miniDriverW8x86" Guid="1dde947d-1341-48ff-888a-f77bb830bc47">
+				<Condition><![CDATA[(VersionNT = 602)]]></Condition>
+				<File Id="esteidcmINFW8x86" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcmCATW8x86" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\esteidcm.cat" />
+				<File Id="esteidcm64CATW8x86" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\esteidcm64.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W8x86" Name="x86">
+				<Component Id="miniDriverW8x86Components" Guid="de0d45d7-f352-4cc7-9d39-3e79c17a6d9d">
+				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
+				  <File Id="esteidcmW8x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW8x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+
+			  <!-- WIN 8.1 -->
+			  <?if $(var.Platform) = "x64" ?>
+			  <Component Id="miniDriverW8.1x64" Guid="1bb0e498-7de9-41df-86eb-a8e47050915f">
+				<Condition><![CDATA[(VersionNT > 602)]]></Condition>
+				<File Id="esteidcmINFW8.1x64" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcm64CATW8.1x64" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\esteidcm64.cat" />
+				<File Id="esteidcmCATW8.1x64" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\esteidcm.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W8.1x64" Name="x64">
+				<Component Id="miniDriverW8.1x64Components" Guid="a88727be-56ed-4c85-88a8-73859b8852fe">
+				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
+				  <File Id="esteidcmW8.1x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\esteidcm_64.dll" />
+				  <File Id="atrfiltrW8.1x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\atrfiltr_64.sys" />
+				</Component>
+			  </Directory>
+			  <Directory Id="minidriver_W8.1x86" Name="x86">
+				<Component Id="miniDriverW8.1x86Components" Guid="7543e50b-85f8-43ef-95f5-d8f5e9b62153">
+				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
+				  <File Id="esteidcmW8.1x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW8.1x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+
+			  <?if $(var.Platform) = "x86" ?>
+			  <Component Id="miniDriverW8.1x86" Guid="2518d5aa-abbe-4abf-b2f9-d56cb66b855d">
+				<Condition><![CDATA[(VersionNT > 602)]]></Condition>
+				<File Id="esteidcmINFW8.1x86" Name="esteidcm.inf" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\esteidcm.inf" KeyPath="yes"/>
+				<File Id="esteidcmCATW8.1x86" Name="esteidcm.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\esteidcm.cat" />
+				<File Id="esteidcm64CATW8.1x86" Name="esteidcm64.cat" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\esteidcm64.cat" />
+				<difx:Driver PlugAndPlayPrompt="no" ForceInstall="yes"/>
+			  </Component>
+			  <Directory Id="minidriver_W8.1x86" Name="x86">
+				<Component Id="miniDriverW8.1x86Components" Guid="b3478d0c-b848-41fc-a3c7-4532253b60f1">
+				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
+				  <File Id="esteidcmW8.1x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\esteidcm_32.dll" />
+				  <File Id="atrfiltrW8.1x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\atrfiltr_32.sys" />
+				</Component>
+			  </Directory>
+			  <?endif ?>
+			</Directory>
+	  </DirectoryRef>
+	  
+	<CustomAction Id="InstallMinidriver" Directory="APPLICATIONFOLDER" Execute="deferred" Impersonate="no" HideTarget="yes"
+                 ExeCommand="rundll32 syssetup,SetupInfObjectInstallAction DefaultInstall 128 [APPLICATIONFOLDER]\\minidriver\\esteidcm.inf"
+                 Return="ignore"/>
+	<InstallExecuteSequence>
+		<Custom Action="InstallMinidriver" After="InstallFiles">NOT Installed</Custom>
+	</InstallExecuteSequence>
+  </Fragment>
+</Wix>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="et-EE" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="RemoveOldSoftDlg_Title" Overridable="yes">[ProductName] Setup</String>
+    <String Id="RemoveOldSoftDlgTitle" Overridable="yes">{\WixUI_Font_Title}Uuendan tarkvara</String>
+    <String Id="RemoveOldSoftDlgDescription" Overridable="yes">Tarkvara paigaldamine eemaldab mittevajalku tarkvara.</String>
+    <String Id="RemoveOldSoftDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="RemoveOldSoftDlgIntro" Overridable="yes">Tarkvara paigaldamise käigus leiti teie arvutis vanem ID-kaardi tarkvara. Paigaldamise käigus vahetatakse välja alljärgnevad programmid:</String>
+    <String Id="RemoveOldSoftDlgObsoleteFirefox" Overridable="yes">- ID-kaardi Firefoxi draiver</String>
+    <String Id="RemoveOldSoftDlgObsoleteUtility" Overridable="yes">- ID-kaardi utiliit</String>
+    <String Id="RemoveOldSoftDlgObsoleteDigidoc" Overridable="yes">- DigiDoc klient</String>
+    <String Id="RemoveOldSoftDlgConclusion" Overridable="yes">Vajuta Edasi jätkamaks tarkvara paigaldamist.</String>
+    <String Id="InstallDirDlgDescription" Overridable="yes">Vaikekausta paigaldamiseks vajuta Edasi. Kausta muutmiseks vajuta Muuda.</String>
+    <String Id="ExitDialogDescription" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
+	<String Id="FatalErrorDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
+	<String Id="UserExitDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
+	
+    <String Id="InstallDirDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="ProgressDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="BrowseDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="ErrorDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="FatalErrorBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="FilesInUseBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="MsiRMFilesInUseBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="PrepareDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="ResumeDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="UserExitBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="ExitDialogBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="WelcomeDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="ChangeLogDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="VerifyReadyDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="MaintenanceWelcomeDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="MaintenanceTypeDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+    <String Id="OutOfDiskDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
+
+    <String Id="ExitDialogBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="FatalErrorBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="MaintenanceWelcomeDlgBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="PrepareDlgBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="ResumeDlgBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="UserExitBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+    <String Id="WelcomeDlgBitmap" Overridable="yes">WixUI_Bmp_Dialog_EID</String>
+</WixLocalization>

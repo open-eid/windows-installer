@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="APPLICATIONFOLDER">
+      <Component Id="digidoc.dll" Guid="{2EF5C683-22B4-40cc-8ABC-931167365CE5}">
+        <File Source="$(env.CLIENT_PATH)\digidoc.ini" KeyPath="yes"/>
+        <IniFile Id="setCaCertPath" Action="addLine" Directory="APPLICATIONFOLDER" Name="digidoc.ini"
+           Section="ca" Key="CA_CERT_PATH" Value="[APPLICATIONFOLDER]certs"/>
+        <File Source="$(env.CLIENT_PATH)\digidoc.dll" />
+        <File Source="$(env.PREFIX)\IdCard\libdigidoc\x86\bin\cdigidoc.exe" />
+        <File Source="$(env.CLIENT_PATH)\libxml2.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="libdigidoc">
+      <ComponentRef Id="digidoc.dll"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

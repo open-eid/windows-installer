@@ -1,0 +1,6 @@
+LIBRARY "EstEIDFindCertificateAction"
+
+EXPORTS
+
+SetCertificatesStatuses
+UninstallCertificates
