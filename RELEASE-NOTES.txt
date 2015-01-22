@@ -1,0 +1,51 @@
+Packaging version 3.10 release notes
+--------------------------------------
+Changes compared to ver 3.9.1
+
+- Changed Windows installation package, SK's certificates are no longer installed to the certificate store, previously installed SK certificates are removed. The SK CA certificates are distributed through the operating system's native update mechanism.
+- 2010 C++ Runtime is now installed only when msvcp100.dll file is not found in System32 folder to resolve problem with ID-software installation in Windows Server 2012.
+- Fixed problem with Windows Minidriver installation in Windows 8.
+
+
+Packaging version 3.9.1 release notes
+--------------------------------------
+Changes compared to ver 3.9
+
+- Fixed Windows installation package parameter that can be used by administrators to avoid installing the default certificates that are included in the package. Otherwise, the default certificates are re-installed and existing certificates are overwritten.
+- Fixed KLASS3-SK 2010 certificate's installation problem in Windows.
+
+
+Packaging version 3.9 release notes
+--------------------------------------
+Changes compared to ver 3.8.2
+
+- Improved ID-software installer in Windows, now the Windows explorer extension component is not re-built if it hasn't had any changes.
+- Removed packaging support for Windows XP and Vista operating systems.
+- Added new Finnish certificates "VRK CA for Qualified Certificates - G2" or "VRK Gov. CA for Citizen Qualified Certificates - G2" to Finnish certificates' installation packages. 
+- Added Finnish, Latvian, Lithuanian test certificates to test certificates' installation packages. 
+- Added missing KLASS3-SK 2010 certificate (issued by EE Certification Centre Root CA) to ID-software installation package for Windows environment.
+
+
+Packaging version 3.8.2 release notes
+--------------------------------------
+Changes compared to ver 3.8.1
+
+- Added Microsoft Visual C++ 2008 SP1 run-time library for Windows XP SP3 users to fix authentication with smart card in Internet Explorer browser.
+- Fixed the removal of smart card ATR entries during Minidriver installation, existing ATR entries which have been created during installing Minidriver from MS Update are not removed when installing ID-card software package which supports the same Minidriver version. 
+- Changed ID-card software installation in Windows environment to improve EstEID plugin usage in Internet Explorer browsers. During ID-card software installation, the user's group policy settings are altered so that EstEID plugin usage is automatically allowed in Internet Explorer, additional confirmation is no longer asked from the user in the browser. As a result, the EstEID plugin can not be manually disabled in Internet Explorer settings, the user has to uninstall ID-card software package to remove the plugin.
+
+
+Packaging version 3.8.1 release notes
+--------------------------------------
+Changes compared to ver 3.8.0
+
+- Added Qt 4.8 packaging support for Windows XP users who use a certain type of graphic card outdated drivers.
+- Added restoring of parameter EnableScPnP to Windows default value for the installation of Minidriver to succeed in some DELL computers. 
+- Removed smart card ATR records that collide with the Estonian ID card ATR values from ActivIdentity ProtectTools for the installation of Minidriver to succeed in some HP computers.
+
+
+Packaging version 3.8.0 release notes
+--------------------------------------
+
+- Updated the compilation of Windows packages to Visual Studio 2010.
+- Improved Windows installer: added translation to Estonian language and implemented new design.
