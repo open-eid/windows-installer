@@ -13,20 +13,20 @@
     </ComponentGroup>
 
     <ComponentGroup Id="BrowserPlugin">
-      <ComponentRef Id='npesteid_firefox_pluginCNG.dll'/>
+      <ComponentRef Id='npesteid_firefox_plugin.dll'/>
       <?if $(var.Platform) = "x64" ?>
-      <ComponentRef Id='npesteid_firefox_pluginCNG_X64.dll'/>
+      <ComponentRef Id='npesteid_firefox_plugin_X64.dll'/>
       <?endif ?>
       <ComponentRef Id='remove_npidcard.dll'/>
     </ComponentGroup>
 
     <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="npesteid_firefox_pluginCNG.dll" Guid="F765A58E-9766-4a93-8C3E-1017AEF15362">
-        <File Id="npesteid_firefox_pluginCNG.dll" KeyPath="yes"
-              Source="$(env.ARCHIVE)\X86\npesteid-firefox-pluginCNG.dll"
+      <Component Id="npesteid_firefox_plugin.dll" Guid="F765A58E-9766-4a93-8C3E-1017AEF15362">
+        <File Id="npesteid_firefox_plugin.dll" KeyPath="yes"
+              Source="$(env.ARCHIVE)\X86\npesteid-firefox-plugin.dll"
               Checksum="yes" Vital="yes"/>
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
-                       Value="[#npesteid_firefox_pluginCNG.dll]" Type="string" Action="write"/>
+                       Value="[#npesteid_firefox_plugin.dll]" Type="string" Action="write"/>
       </Component>
 
       <Directory Id="FirefoxPKCS11Loader" Name="Firefox PKCS11 Loader">
@@ -75,12 +75,12 @@
 
     <?if $(var.Platform) = "x64" ?>
     <DirectoryRef Id="APPLICATION64FOLDER">
-      <Component Id="npesteid_firefox_pluginCNG_X64.dll" Guid="2b6a8eec-93b6-4c07-9845-1a2132ef8a47" Win64="yes">
-        <File Id="npesteid_firefox_pluginCNG_X64.dll" KeyPath="yes"
-              Source="$(env.ARCHIVE)\X64\npesteid-firefox-pluginCNG.dll"
+      <Component Id="npesteid_firefox_plugin_X64.dll" Guid="2b6a8eec-93b6-4c07-9845-1a2132ef8a47" Win64="yes">
+        <File Id="npesteid_firefox_plugin_X64.dll" KeyPath="yes"
+              Source="$(env.ARCHIVE)\X64\npesteid-firefox-plugin.dll"
               Checksum="yes" Vital="yes"/>
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
-                       Value="[#npesteid_firefox_pluginCNG_X64.dll]" Type="string" Action="write"/>
+                       Value="[#npesteid_firefox_plugin_X64.dll]" Type="string" Action="write"/>
       </Component>
     </DirectoryRef>
     <?endif ?>
