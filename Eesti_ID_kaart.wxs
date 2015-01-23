@@ -325,42 +325,7 @@
         <File Id="atl110.dll_x86" Source="Runtime\x86\atl110.dll" Checksum="yes" Vital="yes"/>
       </Component>
     </DirectoryRef>
-
-    <DirectoryRef Id="System64Folder">
-      <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
-        <Condition>NOT CRT_12_INSTALLED_X64</Condition>
-        <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="System64Folder">
-      <Component Id="msvcr110.dll_x64" Guid="4A2AAF9C-BF01-4B70-8F8D-D5DECE1448FC" Win64="yes">
-        <Condition>NOT CRT_11_INSTALLED_X64</Condition>
-        <File Id="msvcr110.dll_x64" Source="Runtime\x64\msvcr110.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp110.dll_x64" Source="Runtime\x64\msvcp110.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="System64Folder">
-      <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
-        <Condition>NOT CRT_10_INSTALLED_X64</Condition>
-        <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-
-    <DirectoryRef Id="System64Folder">
-      <Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
-        <Condition>NOT ATL_10_INSTALLED_X64</Condition>
-        <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="System64Folder">
-      <Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
-        <Condition>NOT ATL_11_INSTALLED_X64</Condition>
-        <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-
+    
     <Feature Id="Runtimes_X86" Title="Visual C++ 12.0 Runtime CRT 86" AllowAdvertise="no" Display="hidden" Level="1">
     <!--  <ComponentRef Id="msvcr90.dll_x86"/> -->
       <ComponentRef Id="msvcr100.dll_x86"/>
@@ -370,15 +335,51 @@
       <ComponentRef Id="atl110.dll_x86"/>
     </Feature>
 
-    <Feature Id="Runtimes_X64" Title="Visual C++ 12.0 Runtime CRT 64" AllowAdvertise="no" Display="hidden" Level="1">
-    <!--  <ComponentRef Id="msvcr90.dll_x64"/> -->
-      <ComponentRef Id="msvcr100.dll_x64"/>
-      <ComponentRef Id="msvcr110.dll_x64"/>
-      <ComponentRef Id="msvcr120.dll_x64"/>
-      <ComponentRef Id="atl100.dll_x64"/>
-      <ComponentRef Id="atl110.dll_x64"/>
-    </Feature>
-    
+    <?if $(var.Platform)=x64 ?>
+      <DirectoryRef Id="System64Folder">
+        <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
+          <Condition>NOT CRT_12_INSTALLED_X64</Condition>
+          <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
+          <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
+        </Component>
+      </DirectoryRef>
+      <DirectoryRef Id="System64Folder">
+        <Component Id="msvcr110.dll_x64" Guid="4A2AAF9C-BF01-4B70-8F8D-D5DECE1448FC" Win64="yes">
+          <Condition>NOT CRT_11_INSTALLED_X64</Condition>
+          <File Id="msvcr110.dll_x64" Source="Runtime\x64\msvcr110.dll" Checksum="yes" Vital="yes"/>
+          <File Id="msvcp110.dll_x64" Source="Runtime\x64\msvcp110.dll" Checksum="yes" Vital="yes"/>
+        </Component>
+      </DirectoryRef>
+      <DirectoryRef Id="System64Folder">
+        <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
+          <Condition>NOT CRT_10_INSTALLED_X64</Condition>
+          <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
+          <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
+        </Component>
+      </DirectoryRef>
+
+      <DirectoryRef Id="System64Folder">
+        <Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
+          <Condition>NOT ATL_10_INSTALLED_X64</Condition>
+          <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
+        </Component>
+      </DirectoryRef>
+      <DirectoryRef Id="System64Folder">
+        <Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
+          <Condition>NOT ATL_11_INSTALLED_X64</Condition>
+          <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
+        </Component>
+      </DirectoryRef>
+
+      <Feature Id="Runtimes_X64" Title="Visual C++ 12.0 Runtime CRT 64" AllowAdvertise="no" Display="hidden" Level="1">
+      <!--  <ComponentRef Id="msvcr90.dll_x64"/> -->
+        <ComponentRef Id="msvcr100.dll_x64"/>
+        <ComponentRef Id="msvcr110.dll_x64"/>
+        <ComponentRef Id="msvcr120.dll_x64"/>
+        <ComponentRef Id="atl100.dll_x64"/>
+        <ComponentRef Id="atl110.dll_x64"/>
+      </Feature>
+    <?endif ?>
 
     <!-- Install to all users -->
     <Property Id="ALLUSERS" Value="1"/>
