@@ -36,25 +36,56 @@
     <Property Id="ARPPRODUCTICON" Value="IDIcon"/>
     <Property Id="ARPURLINFOABOUT" Value="http://www.ria.ee/"/>
     <Property Id="ARPURLUPDATEINFO" Value="http://www.ria.ee"/>
-    
-    <Property Id="CPP_09_INSTALLED_X86">
-      <DirectorySearch Id="CheckSysDir_09_X86" Path="SystemFolder" Depth="0">
-        <FileSearch Id="CheckFile_09_X86" Name="msvcp90.dll"/>
+
+    <Property Id="CRT_10_INSTALLED_X86">
+      <DirectorySearch Id="CRT_CheckSysDir_10_X86" Path="SystemFolder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_10_X86" Name="msvcr100.dll"/>
       </DirectorySearch>
     </Property>
-    <Property Id="CPP_10_INSTALLED_X86">
-      <DirectorySearch Id="CheckSysDir_10_X86" Path="SystemFolder" Depth="0">
-        <FileSearch Id="CheckFile_10_X86" Name="msvcp100.dll"/>
+    <Property Id="CRT_11_INSTALLED_X86">
+      <DirectorySearch Id="CRT_CheckSysDir_11_X86" Path="SystemFolder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_11_X86" Name="msvcr110.dll"/>
       </DirectorySearch>
     </Property>
-    <Property Id="CPP_11_INSTALLED_X86">
-      <DirectorySearch Id="CheckSysDir_11_X86" Path="SystemFolder" Depth="0">
-        <FileSearch Id="CheckFile_11_X86" Name="msvcp110.dll"/>
+    <Property Id="CRT_12_INSTALLED_X86">
+      <DirectorySearch Id="CRT_CheckSysDir_12_X86" Path="SystemFolder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_12_X86" Name="msvcr120.dll"/>
       </DirectorySearch>
     </Property>
-    <Property Id="CPP_12_INSTALLED_X86">
-      <DirectorySearch Id="CheckSysDir_12_X86" Path="SystemFolder" Depth="0">
-        <FileSearch Id="CheckFile_12_X86" Name="msvcp120.dll"/>
+    <Property Id="ATL_10_INSTALLED_X86">
+      <DirectorySearch Id="ATL_CheckSysDir_10_X86" Path="SystemFolder" Depth="0">
+        <FileSearch Id="ATL_CheckFile_10_X86" Name="atl100.dll"/>
+      </DirectorySearch>
+    </Property>
+    <Property Id="ATL_11_INSTALLED_X86">
+      <DirectorySearch Id="ATL_CheckSysDir_11_X86" Path="SystemFolder" Depth="0">
+        <FileSearch Id="ATL_CheckFile_11_X86" Name="atl110.dll"/>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="CRT_10_INSTALLED_X64">
+      <DirectorySearch Id="CRT_CheckSysDir_10_X64" Path="System64Folder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_10_X64" Name="msvcr100.dll"/>
+      </DirectorySearch>
+    </Property>
+    <Property Id="CRT_11_INSTALLED_X64">
+      <DirectorySearch Id="CRT_CheckSysDir_11_X64" Path="System64Folder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_11_X64" Name="msvcr110.dll"/>
+      </DirectorySearch>
+    </Property>
+    <Property Id="CRT_12_INSTALLED_X64">
+      <DirectorySearch Id="CRT_CheckSysDir_12_X64" Path="System64Folder" Depth="0">
+        <FileSearch Id="CRT_CheckFile_12_X64" Name="msvcr120.dll"/>
+      </DirectorySearch>
+    </Property>
+    <Property Id="ATL_10_INSTALLED_X64">
+      <DirectorySearch Id="ATL_CheckSysDir_10_X64" Path="System64Folder" Depth="0">
+        <FileSearch Id="ATL_CheckFile_10_X64" Name="atl100.dll"/>
+      </DirectorySearch>
+    </Property>
+    <Property Id="ATL_11_INSTALLED_X64">
+      <DirectorySearch Id="ATL_CheckSysDir_11_X64" Path="System64Folder" Depth="0">
+        <FileSearch Id="ATL_CheckFile_11_X64" Name="atl110.dll"/>
       </DirectorySearch>
     </Property>
 
@@ -170,24 +201,6 @@
   </Directory>
 
     <DirectoryRef Id="TARGETDIR">
-      <Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_$(var.MergeVersion)_CRT_x86.msm' DiskId='1'/>
-      <!--Merge Id='ATL' Language='0' SourceFile='$(env.MergeModules)\Microsoft_$(var.MergeVersion)_ATL_x86.msm' DiskId='1'/-->
-      <!-- VS2008 Runtime for 3.8 minidriver -->
-      <Merge Id='CRT90' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_CRT_x86.msm' DiskId='1'/>
-      <Merge Id='ATL90' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_ATL_x86.msm' DiskId='1'/>
-      <!-- VS2010 Runtime for 3.8 shell extention -->
-      <Merge Id='CRT100' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC100_CRT_x86.msm' DiskId='1'/>
-      <Merge Id='ATL100' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC100_ATL_x86.msm' DiskId='1'/>
-
-      <?if $(var.Platform) = "x64" ?>
-      <Merge Id='CRT64' Language='0' SourceFile='$(env.MergeModules)\Microsoft_$(var.MergeVersion)_CRT_x64.msm' DiskId='1'/>
-      <!--Merge Id='ATL64' Language='0' SourceFile='$(env.MergeModules)\Microsoft_$(var.MergeVersion)_ATL_x64.msm' DiskId='1'/-->
-      <Merge Id='CRT6490' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_CRT_x86_x64.msm' DiskId='1'/>
-      <Merge Id='ATL6490' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_ATL_x86_x64.msm' DiskId='1'/>
-      <Merge Id='CRT64100' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC100_CRT_x64.msm' DiskId='1'/>
-      <Merge Id='ATL64100' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC100_ATL_x64.msm' DiskId='1'/>
-      <?endif ?>
-
       <Component Id="Path" Guid="{6CA961A4-C564-4150-8448-B2B1E15CCC04}">
         <Environment Id="PATH" Name="PATH" Value="[APPLICATIONFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
       </Component>
@@ -278,35 +291,94 @@
     <Feature Id="minidrive" Title="Minidriver" AllowAdvertise="no" Display="hidden" Level="1">
       <ComponentGroupRef Id="minidriver"/>
     </Feature>
+    <DirectoryRef Id="SystemFolder">
+      <Component Id="msvcr120.dll_x86" Guid="0ADF75A7-1492-417A-A6CE-C202D46735EB" Win64="no">
+        <Condition>NOT CRT_12_INSTALLED_X86</Condition>
+        <File Id="msvcr120.dll_x86" Source="Runtime\x86\msvcr120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp120.dll_x86" Source="Runtime\x86\msvcp120.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SystemFolder">
+      <Component Id="msvcr110.dll_x86" Guid="4BCD7C7B-F46D-4B8D-9E4D-98167B45ADB0" Win64="no">
+        <Condition>NOT CRT_11_INSTALLED_X86</Condition>
+        <File Id="msvcr110.dll_x86" Source="Runtime\x86\msvcr110.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp110.dll_x86" Source="Runtime\x86\msvcp110.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SystemFolder">
+      <Component Id="msvcr100.dll_x86" Guid="92D9435D-5C8A-4A51-92E6-A94819BBDFC7" Win64="no">
+        <Condition>NOT CRT_10_INSTALLED_X86</Condition>
+        <File Id="msvcr100.dll_x86" Source="Runtime\x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp100.dll_x86" Source="Runtime\x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
 
-    <Feature Id="VCRedist" Title="Visual C++ 11.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
-      <MergeRef Id="CRT"/>
-      <!--MergeRef Id="ATL"/-->
-      <?if $(var.Platform) = "x64" ?>
-      <MergeRef Id="CRT64"/>
-      <!--MergeRef Id="ATL64"/-->
-      <?endif ?>
+    <DirectoryRef Id="SystemFolder">
+      <Component Id="atl100.dll_x86" Guid="D5FA6F7D-1270-457D-95FE-9E41C06175C7" Win64="no">
+        <Condition>NOT ATL_10_INSTALLED_X86</Condition>
+        <File Id="atl100.dll_x86" Source="Runtime\x86\atl100.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SystemFolder">
+      <Component Id="atl110.dll_x86" Guid="CF5274C9-9D81-4D5F-9871-F3667372273C" Win64="no">
+        <Condition>NOT ATL_11_INSTALLED_X86</Condition>
+        <File Id="atl110.dll_x86" Source="Runtime\x86\atl110.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="System64Folder">
+      <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
+        <Condition>NOT CRT_12_INSTALLED_X64</Condition>
+        <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="System64Folder">
+      <Component Id="msvcr110.dll_x64" Guid="4A2AAF9C-BF01-4B70-8F8D-D5DECE1448FC" Win64="yes">
+        <Condition>NOT CRT_11_INSTALLED_X64</Condition>
+        <File Id="msvcr110.dll_x64" Source="Runtime\x64\msvcr110.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp110.dll_x64" Source="Runtime\x64\msvcp110.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="System64Folder">
+      <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
+        <Condition>NOT CRT_10_INSTALLED_X64</Condition>
+        <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="System64Folder">
+      <Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
+        <Condition>NOT ATL_10_INSTALLED_X64</Condition>
+        <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="System64Folder">
+      <Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
+        <Condition>NOT ATL_11_INSTALLED_X64</Condition>
+        <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="Runtimes_X86" Title="Visual C++ 12.0 Runtime CRT 86" AllowAdvertise="no" Display="hidden" Level="1">
+    <!--  <ComponentRef Id="msvcr90.dll_x86"/> -->
+      <ComponentRef Id="msvcr100.dll_x86"/>
+      <ComponentRef Id="msvcr110.dll_x86"/>
+      <ComponentRef Id="msvcr120.dll_x86"/>
+      <ComponentRef Id="atl100.dll_x86"/>
+      <ComponentRef Id="atl110.dll_x86"/>
     </Feature>
-	
-	<Feature Id="VCRedist10" Title="Visual C++ 10.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
-      <Condition Level="0">NOT CPP_10_INSTALLED_x86</Condition>
-      <MergeRef Id="CRT100"/>
-      <MergeRef Id="ATL100"/>
-      <?if $(var.Platform) = "x64" ?>
-      <MergeRef Id="CRT64100"/>
-      <MergeRef Id="ATL64100"/>
-      <?endif ?>
+
+    <Feature Id="Runtimes_X64" Title="Visual C++ 12.0 Runtime CRT 64" AllowAdvertise="no" Display="hidden" Level="1">
+    <!--  <ComponentRef Id="msvcr90.dll_x64"/> -->
+      <ComponentRef Id="msvcr100.dll_x64"/>
+      <ComponentRef Id="msvcr110.dll_x64"/>
+      <ComponentRef Id="msvcr120.dll_x64"/>
+      <ComponentRef Id="atl100.dll_x64"/>
+      <ComponentRef Id="atl110.dll_x64"/>
     </Feature>
-	
-	<Feature Id="VCRedist90" Title="Visual C++ 9.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
-      <Condition Level="0">NOT CPP_09_INSTALLED_x86</Condition>
-      <MergeRef Id="CRT90"/>
-      <MergeRef Id="ATL90"/>
-      <?if $(var.Platform) = "x64" ?>
-      <MergeRef Id="CRT6490"/>
-      <MergeRef Id="ATL6490"/>
-      <?endif ?>
-    </Feature>
+    
 
     <!-- Install to all users -->
     <Property Id="ALLUSERS" Value="1"/>
