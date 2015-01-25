@@ -12,7 +12,7 @@
 
         <DirectoryRef Id="APPLICATIONFOLDER">
             <Component Id='qesteidutil.exe' Guid='*'>
-                <File Source="$(env.PREFIX)\IdCard\qesteidutil\bin\qesteidutil.exe" Checksum="yes" Vital="yes" />
+                <File Source="$(env.UTIL_PATH)\qesteidutil.exe" Checksum="yes" Vital="yes" />
             </Component>
         </DirectoryRef>
 
