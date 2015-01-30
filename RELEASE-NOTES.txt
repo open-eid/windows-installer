@@ -5,6 +5,7 @@ Changes compared to ver 3.9.1
 - Changed Windows installation package, SK's certificates are no longer installed to the certificate store, previously installed SK certificates are removed. The SK CA certificates are distributed through the operating system's native update mechanism. The CA certificates used by DigiDoc3 Client are now taken from TSL (Trust Service Status List).
 - 2010 C++ Runtime is now installed only when msvcp100.dll file is not found in System32 folder to resolve problem with ID-software installation in Windows Server 2012.
 - Fixed problem with Windows Minidriver installation in Windows 8.
+- Updated OpenSC PKCS#11 module, version 0.14.0 is now used in Windows installations. 
 
 
 Packaging version 3.9.1 release notes
