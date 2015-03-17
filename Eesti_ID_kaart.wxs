@@ -220,6 +220,10 @@
       <ComponentGroupRef Id="OpenSC"/>
     </Feature>
 
+    <Feature Id="chromesupport" Title="Chrome Support" AllowAdvertise="no" Level="1">
+      <ComponentRef Id="chromeTokenSigning"/>
+    </Feature>
+
     <Feature Id="common" Title="Common Items" AllowAdvertise="no" Display="hidden" Level="1">
       <ComponentGroupRef Id="SKCertificates"/>
       <ComponentGroupRef Id="updater"/>
