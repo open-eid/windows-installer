@@ -4,7 +4,7 @@
   <Fragment>
     <DirectoryRef Id="APPLICATIONFOLDER">
       <Component Id="chromeTokenSigning" Guid="d5a53e2e-79a9-425f-9109-f153900c8803">
-        <File Source="$(env.CHROME_TOKEN_PATH)/host-windows.exe"/>
+        <File Source="$(env.CHROME_TOKEN_PATH)/chrome-token-signing.exe"/>
         <File Source="$(env.CHROME_TOKEN_PATH)/ee.ria.esteid.json"/>
         <RegistryValue Root='HKLM' Type='string' Value='[APPLICATIONFOLDER]ee.ria.esteid.json'
             Key='SOFTWARE\Google\Chrome\NativeMessagingHosts\ee.ria.esteid'/>
