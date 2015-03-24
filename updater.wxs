@@ -30,7 +30,7 @@
         <Custom Action="ScheduleUpdater" Before="InstallFinalize">(NOT Installed) AND NOT (AUTO_UPDATE = 0)</Custom>
         <Custom Action="UnScheduleUpdater" After="InstallInitialize">REMOVE="ALL"</Custom>
         <Custom Action="WixCloseApplications" After="InstallInitialize">UPGRADINGPRODUCTCODE OR (NOT REMOVE="ALL")</Custom>
-        <Custom Action='ChromeNPAPI' Before='InstallFinalize'/>UPGRADINGPRODUCTCODE OR (NOT REMOVE="ALL")</Custom>
+        <Custom Action='ChromeNPAPI' Before='InstallFinalize'>UPGRADINGPRODUCTCODE OR (NOT REMOVE="ALL")</Custom>
     </InstallExecuteSequence>
 
   </Fragment>
