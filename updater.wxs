@@ -20,8 +20,8 @@
     <CustomAction Id="UnScheduleUpdater" Directory="APPLICATIONFOLDER" Impersonate="no" Execute="deferred"
                       ExeCommand="id-updater.exe -remove"
                       Return="ignore"/>
-    <util:CloseApplication Id="CloseChrome" Description="Google Chrome needs to be closed!"
-                      RebootPrompt="no" Target="chrome.exe" PromptToContinue="yes" ElevatedCloseMessage="yes"/>
+    <util:CloseApplication Id="CloseChrome" Description="Palun sulgege ennem jätkamist Google Chrome!"
+                      RebootPrompt="no" Target="chrome.exe" PromptToContinue="yes" ElevatedCloseMessage="no"/>
     <CustomAction Id="ChromeNPAPI" FileKey="id_updater.exe" Impersonate="no" Execute="deferred"
                       ExeCommand="-chrome-npapi"
                       Return="ignore"/>
