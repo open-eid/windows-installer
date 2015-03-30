@@ -13,6 +13,7 @@
     <String Id="ExitDialogDescription" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
 	<String Id="FatalErrorDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
 	<String Id="UserExitDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
+	<String Id="CloseGoogleChromePrompt" Overridable="yes">Paigalduse jätkamiseks tuleb sulgeda veebilehitseja Google Chrome.</String>
 	
     <String Id="InstallDirDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
     <String Id="ProgressDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner_EID</String>
