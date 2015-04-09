@@ -3,10 +3,8 @@ Packaging version 3.10.2 release notes
 Changes compared to ver 3.10
 
 - Added functionality for enabling NPAPI support in Chrome. Windows installer checks if Chrome is running and executes Updater. The -chrome-npapi flag is set by Updater.
+- Running windows installer with ENABLENPAPI=OFF key disables enabling NPAPI support in Chrome. Windows installer doesn't check if chrome is running and updater is not executed. This makes it possible to run windows installer quietly.
 - C++ Runtime files moved to Application folder to support SCCM and GPO silent install
-
-Known issues:
-- The Windows installer cannot be run quietly (if Chrome is running).
 
 
 Packaging version 3.10 release notes
