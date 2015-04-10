@@ -15,7 +15,7 @@
 <?endif?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="$(var.ProductName) $(var.Version)$(env.VERSION_SUFFIX)$(var.PlatformUserVisible)"
+  <Product Id="*" Name="$(var.ProductName) $(var.Version)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
            Language="1033" Codepage="1251" Version="$(var.Version)" Manufacturer="$(var.ProductManufacturer)"
            UpgradeCode='$(var.UpgradeCode)'>
     <Package Platform="$(var.Platform)" Manufacturer="$(var.ProductManufacturer)"
