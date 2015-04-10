@@ -14,12 +14,6 @@
 <?define PlatformUserVisible="" ?>
 <?endif?>
 
-<?ifdef env.VS120COMNTOOLS ?>
-<?define MergeVersion="VC120" ?>
-<?else?>
-<?define MergeVersion="VC110" ?>
-<?endif?>
-
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Product Id="*" Name="$(var.ProductName) $(var.Version)$(env.VERSION_SUFFIX)$(var.PlatformUserVisible)"
            Language="1033" Codepage="1251" Version="$(var.Version)" Manufacturer="$(var.ProductManufacturer)"
