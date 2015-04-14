@@ -4,6 +4,9 @@ Changes compared to ver 3.10.2
 
 - Running windows installer with ENABLENPAPI=OFF key disables enabling NPAPI support in Chrome. Windows installer doesn't check if chrome is running and updater is not executed. This makes it possible to run windows installer quietly.
 
+Known issues:
+- The ENABLENPAPI=OFF key does not work when upgrading from 3.10.2 to 3.10.3 in which case the Windows installer cannot be run quietly (if Chrome is running). This does not affect a clean install or upgrading from an earlier version.
+
 
 Packaging version 3.10.2 release notes
 --------------------------------------
