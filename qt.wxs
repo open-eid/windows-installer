@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<?define QtPATH = "C:\Qt\5.3\msvc2013" ?>
+<?define QtPATH = "C:\Qt\5.4\msvc2013" ?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
@@ -8,7 +8,6 @@
             <ComponentRef Id="Qt5Core" />
             <ComponentRef Id="qwindows.dll" />
             <ComponentRef Id="qjpeg.dll" />
-            <ComponentRef Id="qtaccessiblewidgets.dll" />
             <ComponentRef Id="windowsprintersupport.dll" />
         </ComponentGroup>
 
@@ -22,10 +21,11 @@
                 <File Source="$(var.QtPATH)\bin\Qt5WinExtras.dll" />
                 <File Source="$(var.QtPATH)\bin\libEGL.dll" />
                 <File Source="$(var.QtPATH)\bin\libGLESv2.dll" />
-                <File Source="$(var.QtPATH)\bin\icudt52.dll" />
-                <File Source="$(var.QtPATH)\bin\icuin52.dll" />
-                <File Source="$(var.QtPATH)\bin\icuuc52.dll" />
+                <File Source="$(var.QtPATH)\bin\icudt53.dll" />
+                <File Source="$(var.QtPATH)\bin\icuin53.dll" />
+                <File Source="$(var.QtPATH)\bin\icuuc53.dll" />
                 <File Source="$(var.QtPATH)\bin\D3DCompiler_47.dll" />
+                <File Source="$(var.QtPATH)\bin\opengl32sw.dll" />
             </Component>
 
             <Directory Id="platforms" Name="platforms">
@@ -36,11 +36,6 @@
             <Directory Id="imageformats" Name="imageformats">
                 <Component Id="qjpeg.dll" Guid="*">
                     <File Source="$(var.QtPATH)\plugins\imageformats\qjpeg.dll" />
-                </Component>
-            </Directory>
-            <Directory Id="accessible" Name="accessible">
-                <Component Id="qtaccessiblewidgets.dll" Guid="*">
-                    <File Source="$(var.QtPATH)\plugins\accessible\qtaccessiblewidgets.dll" />
                 </Component>
             </Directory>
             <Directory Id="printsupport" Name="printsupport">
