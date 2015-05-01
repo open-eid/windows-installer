@@ -3,7 +3,6 @@
 <?define ProductName = "Eesti ID-kaardi tarkvara" ?>
 <?define ProductManufacturer = "RIA" ?>
 <?define IDCardFolder = "Estonian ID Card" ?>
-<?define Version = "$(env.MSI_VERSION)"?>
 <?define UpgradeCode = "{58A1DBA8-81A2-4D58-980B-4A6174D5B66B}" ?>
 
 <?if $(var.Platform) = "x64" ?>
@@ -15,8 +14,8 @@
 <?endif?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="$(var.ProductName) $(var.Version)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
-           Language="1033" Codepage="1251" Version="$(var.Version)" Manufacturer="$(var.ProductManufacturer)"
+  <Product Id="*" Name="$(var.ProductName) $(env.MSI_VERSION)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
+           Language="1033" Codepage="1251" Version="$(env.MSI_VERSION)" Manufacturer="$(var.ProductManufacturer)"
            UpgradeCode='$(var.UpgradeCode)'>
     <Package Platform="$(var.Platform)" Manufacturer="$(var.ProductManufacturer)"
              Description="$(var.ProductName) Installation" Comments="$(var.ProductName) Installation"
@@ -71,20 +70,16 @@
       <UpgradeVersion Maximum="1.4.92.00" IncludeMaximum="yes" Property="REMOVINGSKIDKAART1" IgnoreRemoveFailure="yes"/>
     </Upgrade>
 
-    <!-- See UpgradeCode oli algselt ID-kaart.msi 1.4.92.00 oma, aga kasutasime seda ka endal enne beeta versiooni. -->
+    <!-- ID-kaart.msi 1.4.92.00. -->
     <Upgrade Id="{74BC381F-B648-461B-8E37-4825171B49EB}">
-      <!-- SK soft -->
       <UpgradeVersion Maximum="2.0.0.0" IncludeMaximum="no" Property="REMOVINGSKIDKAART2" IgnoreRemoveFailure="yes"/>
-      <!-- Meie beeta-versiooni eelne variant. Hilisematel versioonidel on uus UpgradeCode. -->
-      <UpgradeVersion Minimum="2.0.0.0" IncludeMinimum="yes" Maximum="2.6.837.329" IncludeMaximum="yes"
-                      Property="REMOVINGALPHA"/>
     </Upgrade>
 
     <!-- Upgrade this MSI -->
     <Upgrade Id="$(var.UpgradeCode)">
-      <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="no" OnlyDetect="yes"
+      <UpgradeVersion Minimum="$(env.MSI_VERSION)" IncludeMinimum="no" OnlyDetect="yes"
                       Property="SAME_OR_NEWER_VERSION_DETECTED"/>
-      <UpgradeVersion Minimum="0.0.0" IncludeMinimum="yes" Maximum="$(var.Version)" IncludeMaximum="yes"
+      <UpgradeVersion Minimum="0.0.0" IncludeMinimum="yes" Maximum="$(env.MSI_VERSION)" IncludeMaximum="yes"
                       MigrateFeatures="yes" Property="OLDERVERSIONBEINGUPGRADED"/>
       <UpgradeVersion Minimum="0.0.0" IncludeMinimum="yes" Maximum="3.5.0" IncludeMaximum="no" OnlyDetect="yes"
                       Property="EXISTING_PRE_3_5_VERSION_DETECTED"/>
@@ -125,9 +120,7 @@
       <Directory Id='ProgramFilesFolder'>
         <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)">
           <Directory Id="CertificatesFolder" Name="certs"/>
-          <Directory Id="DriversFolder" Name="drivers"/>
           <Directory Id="SchemaFolder" Name="schema"/>
-          <Directory Id="MozillaExtensionFolder" Name="Mozilla"/>
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder">
@@ -138,7 +131,6 @@
         <Directory Id='ProgramFiles64Folder'>
           <Directory Id="APPLICATION64FOLDER" Name="$(var.IDCardFolder)"/>
         </Directory>
-        <Directory Id="System64Folder"/>
       <?endif ?>
   </Directory>
 
@@ -196,39 +188,44 @@
 
     <Feature Id="qdigidoc" Title="DigiDoc Client" Level="1">
       <ComponentGroupRef Id="qdigidoc"/>
+      <ComponentGroupRef Id="SKCertificates"/>
       <ComponentGroupRef Id="libdigidoc"/>
       <ComponentGroupRef Id="libdigidocpp"/>
       <ComponentGroupRef Id="OpenSC"/>
       <ComponentGroupRef Id="QtLibs"/>
       <ComponentGroupRef Id="CommonLibs"/>
+      <ComponentRef Id="msvcr100.dll_x86"/> <!-- ShellExtension -->
+      <?if $(var.Platform)=x64 ?>
+      <ComponentRef Id="msvcr100.dll_x64"/> <!-- ShellExtension -->
+      <?endif ?>
     </Feature>
 
     <Feature Id="iesupport" Title="Internet Explorer Support" AllowAdvertise="no" Level="1">
       <ComponentGroupRef Id="BrowserPlugin"/>
       <ComponentGroupRef Id="iesupport"/>
+      <?if $(var.Platform)=x64 ?>
+      <ComponentRef Id="atl100.dll_x64"/>
+      <?endif ?>
+      <ComponentRef Id="atl100.dll_x86"/>
     </Feature>
 
     <Feature Id="firefoxsupport" Title="Mozilla Support" AllowAdvertise="no" Level="1">
       <ComponentGroupRef Id="BrowserPlugin"/>
       <ComponentGroupRef Id="Pkcs11LoaderExtension"/>
+      <ComponentGroupRef Id="CommonLibs"/>
       <ComponentGroupRef Id="OpenSC"/>
     </Feature>
 
     <Feature Id="chromesupport" Title="Chrome Support" AllowAdvertise="no" Level="1">
       <ComponentRef Id="chromeTokenSigning"/>
+      <ComponentGroupRef Id="CommonLibs"/>
     </Feature>
 
     <Feature Id="common" Title="Common Items" AllowAdvertise="no" Display="hidden" Level="1">
-      <ComponentGroupRef Id="SKCertificates"/>
       <ComponentGroupRef Id="updater"/>
-
       <ComponentRef Id="EsteidShortcutComponent"/>
-      <ComponentRef Id="SCardSvrStart"/>
-      <ComponentRef Id="CertPropSvcStart"/>
       <ComponentRef Id="RegistryInfo"/>
-
       <ComponentRef Id="Path"/>
-
       <?if $(var.Platform) = "x64" ?>
         <ComponentRef Id="RegistryInfo_64"/>
       <?endif ?>
@@ -236,84 +233,9 @@
 
     <Feature Id="minidrive" Title="Minidriver" AllowAdvertise="no" Display="hidden" Level="1">
       <ComponentGroupRef Id="minidriver"/>
+      <ComponentRef Id="SCardSvrStart"/>
+      <ComponentRef Id="CertPropSvcStart"/>
     </Feature>
-    <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="msvcr120.dll_x86" Guid="0ADF75A7-1492-417A-A6CE-C202D46735EB" Win64="no">
-        <File Id="msvcr120.dll_x86" Source="Runtime\x86\msvcr120.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp120.dll_x86" Source="Runtime\x86\msvcp120.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="msvcr110.dll_x86" Guid="4BCD7C7B-F46D-4B8D-9E4D-98167B45ADB0" Win64="no">
-        <File Id="msvcr110.dll_x86" Source="Runtime\x86\msvcr110.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp110.dll_x86" Source="Runtime\x86\msvcp110.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="msvcr100.dll_x86" Guid="92D9435D-5C8A-4A51-92E6-A94819BBDFC7" Win64="no">
-        <File Id="msvcr100.dll_x86" Source="Runtime\x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp100.dll_x86" Source="Runtime\x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-
-    <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="atl100.dll_x86" Guid="D5FA6F7D-1270-457D-95FE-9E41C06175C7" Win64="no">
-        <File Id="atl100.dll_x86" Source="Runtime\x86\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    <DirectoryRef Id="APPLICATIONFOLDER">
-      <Component Id="atl110.dll_x86" Guid="CF5274C9-9D81-4D5F-9871-F3667372273C" Win64="no">
-        <File Id="atl110.dll_x86" Source="Runtime\x86\atl110.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-    </DirectoryRef>
-    
-    <Feature Id="Runtimes_X86" Title="Visual C++ 12.0 Runtime CRT 86" AllowAdvertise="no" Display="hidden" Level="1">
-      <ComponentRef Id="msvcr100.dll_x86"/>
-      <ComponentRef Id="msvcr110.dll_x86"/>
-      <ComponentRef Id="msvcr120.dll_x86"/>
-      <ComponentRef Id="atl100.dll_x86"/>
-      <ComponentRef Id="atl110.dll_x86"/>
-    </Feature>
-
-    <?if $(var.Platform)=x64 ?>
-    <DirectoryRef Id="APPLICATION64FOLDER">
-        <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
-          <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
-          <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
-        </Component>
-      </DirectoryRef>
-      <DirectoryRef Id="APPLICATION64FOLDER">
-        <Component Id="msvcr110.dll_x64" Guid="4A2AAF9C-BF01-4B70-8F8D-D5DECE1448FC" Win64="yes">
-          <File Id="msvcr110.dll_x64" Source="Runtime\x64\msvcr110.dll" Checksum="yes" Vital="yes"/>
-          <File Id="msvcp110.dll_x64" Source="Runtime\x64\msvcp110.dll" Checksum="yes" Vital="yes"/>
-        </Component>
-      </DirectoryRef>
-      <DirectoryRef Id="APPLICATION64FOLDER">
-        <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
-          <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
-          <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
-        </Component>
-      </DirectoryRef>
-
-      <DirectoryRef Id="APPLICATION64FOLDER">
-        <Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
-          <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
-        </Component>
-      </DirectoryRef>
-      <DirectoryRef Id="APPLICATION64FOLDER">
-        <Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
-          <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
-        </Component>
-      </DirectoryRef>
-
-      <Feature Id="Runtimes_X64" Title="Visual C++ 12.0 Runtime CRT 64" AllowAdvertise="no" Display="hidden" Level="1">
-      <ComponentRef Id="msvcr100.dll_x64"/>
-        <ComponentRef Id="msvcr110.dll_x64"/>
-      <ComponentRef Id="msvcr120.dll_x64"/>
-      <ComponentRef Id="atl100.dll_x64"/>
-        <ComponentRef Id="atl110.dll_x64"/>
-    </Feature>
-    <?endif ?>
 
     <!-- Install to all users -->
     <Property Id="ALLUSERS" Value="1"/>
@@ -336,10 +258,7 @@
     <Binary Id="WixUI_Bmp_Dialog_EID" SourceFile=".\Bitmaps\dlgbmp.bmp"/>
     <!-- Step 3: Include the custom action -->
     <Property Id="WixShellExecTarget" Value="[#qesteidutil.exe]" />
-    <CustomAction Id="LaunchApplication"
-                  BinaryKey="WixCA"
-                  DllEntry="WixShellExec"
-                  Impersonate="yes" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
 
     <CustomAction Id="SetIdeelaborUninstallerPath" Property="IDEELABOR_PACKAGE_UNINSTALLER"
                   Value="[ProgramFilesFolder]Ideelabor\idCard\unins000.exe"/>
@@ -366,9 +285,6 @@
       <!-- http://jpassing.wordpress.com/2007/06/16/where-to-place-removeexistingproducts-in-a-major-msi-upgrade/ -->
       <!-- http://blog.deploymentengineering.com/2008/05/more-problems-with-ms-vc-8-sp1-merge.html -->
       <RemoveExistingProducts After="InstallValidate"/>
-
-      <!-- Removed because of uninstall problems        <Custom Action="UpdaterSetup" After="InstallFiles">Installed</Custom>
-      <Custom Action="RemoveUpdater" Before="RemoveFiles">REMOVE="ALL"</Custom> -->
 
       <!-- To register certificates we reboot computer after installation in rel 3.5 if previous version was installed and was 3.4 or less-->
       <ScheduleReboot After="InstallFinalize">
