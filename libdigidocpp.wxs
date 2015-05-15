@@ -15,8 +15,6 @@
         <File Source="$(env.CLIENT_PATH)\digidocpp.dll"/>
         <File Source="$(env.CLIENT_PATH)\xerces-c_3_1.dll"/>
         <File Source="$(env.CLIENT_PATH)\xsec_1_7.dll"/>
-        <File Source="$(env.CLIENT_PATH)\xalan-c_1_11.dll"/>
-        <File Source="$(env.CLIENT_PATH)\xalanmessages_1_11.dll"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="SchemaFolder">
