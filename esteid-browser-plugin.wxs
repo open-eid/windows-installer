@@ -10,6 +10,9 @@
       <ComponentRef Id='FirefoxPKCS11Loader_browser.xul'/>
       <ComponentRef Id='FirefoxPKCS11Loader_id_32.png'/>
       <ComponentRef Id='FirefoxPKCS11Loader_pkcs11_loader.js'/>
+      <?if $(var.Platform) = "x64" ?>
+      <ComponentRef Id='FirefoxPKCS11Loader_Registry_X64'/>
+      <?endif ?>
     </ComponentGroup>
 
     <ComponentGroup Id="BrowserPlugin">
@@ -81,6 +84,10 @@
               Checksum="yes" Vital="yes"/>
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
                        Value="[#npesteid_firefox_plugin_X64.dll]" Type="string" Action="write"/>
+      </Component>
+      <Component Id="FirefoxPKCS11Loader_Registry_X64" Guid="*" Win64="yes">
+        <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
+                       Value="[FirefoxPKCS11Loader]" Type="string" Action="write"/>
       </Component>
     </DirectoryRef>
     <?endif ?>

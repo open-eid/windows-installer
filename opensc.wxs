@@ -3,35 +3,40 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <ComponentGroup Id="OpenSC">
-            <ComponentRef Id="opensc_pkcs11.dll" />
             <ComponentRef Id="opensc.dll" />
-            <ComponentRef Id="OpenscRegistryConfigFile" />
+            <ComponentRef Id="onepin_opensc_pkcs11_X86" />
+            <?if $(var.Platform) = "x64" ?>
+            <ComponentRef Id="onepin_opensc_pkcs11_X64" />
+            <?endif?>
         </ComponentGroup>
-
-        <DirectoryRef Id="SystemFolder">
-            <Component Id="opensc_pkcs11.dll" Guid="fdf4cfe4-772a-497a-b941-c450b92350a3">
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc-pkcs11.dll" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\onepin-opensc-pkcs11.dll" />
-            </Component>
-        </DirectoryRef>
 
         <DirectoryRef Id="APPLICATIONFOLDER">
             <Component Id="opensc.dll" Guid="2f3992b1-4458-40e1-aad2-ac28f79fcff3">
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc.dll" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\opensc-tool.exe" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\pkcs11-tool.exe" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\pkcs15-tool.exe" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\bin\eidenv.exe" />
-                <File Source="$(env.PREFIX)\IdCard\opensc\etc\opensc.conf" />
-            </Component>
-            <Component Id="OpenscRegistryConfigFile" Guid="*">
-                <Condition>Privileged</Condition>
-                <RegistryKey Root="HKLM"
-                             Key="Software\OpenSC Project\OpenSC"
-                             Action="createAndRemoveOnUninstall">
+                <File Source="$(env.OPENSC_PATH)\X86\opensc-pkcs11.dll" />
+                <File Source="$(env.OPENSC_PATH)\X86\opensc.dll" />
+                <File Source="$(env.OPENSC_PATH)\X86\opensc-tool.exe" />
+                <File Source="$(env.OPENSC_PATH)\X86\pkcs11-tool.exe" />
+                <File Source="$(env.OPENSC_PATH)\X86\pkcs15-tool.exe" />
+                <File Source="$(env.OPENSC_PATH)\X86\eidenv.exe" />
+                <File Source="$(env.OPENSC_PATH)\X86\opensc.conf" />
+                <RegistryKey Root="HKLM" Key="Software\OpenSC Project\OpenSC" Action="createAndRemoveOnUninstall">
                     <RegistryValue Type="string" Name="ConfigFile" Value="[APPLICATIONFOLDER]opensc.conf" />
                 </RegistryKey>
             </Component>
         </DirectoryRef>
+
+        <DirectoryRef Id="SystemFolder">
+            <Component Id="onepin_opensc_pkcs11_X86" Guid="*">
+                <File Source="$(env.OPENSC_PATH)\X86\onepin-opensc-pkcs11.dll" />
+            </Component>
+        </DirectoryRef>
+
+        <?if $(var.Platform)=x64 ?>
+        <DirectoryRef Id="System64Folder">
+            <Component Id="onepin_opensc_pkcs11_X64" Guid="*" Win64="yes">
+                <File Source="$(env.OPENSC_PATH)\X64\onepin-opensc-pkcs11.dll" Id="onepin_opensc_pkcs11.dll_X64" />
+            </Component>
+        </DirectoryRef>
+        <?endif?>
     </Fragment>
 </Wix>
