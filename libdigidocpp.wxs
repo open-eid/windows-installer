@@ -25,6 +25,7 @@
         <File Source="$(env.CLIENT_PATH)\schema\OpenDocument_manifest.xsd"/>
         <File Source="$(env.CLIENT_PATH)\schema\xmldsig-core-schema.xsd"/>
         <File Source="$(env.CLIENT_PATH)\schema\XAdES.xsd"/>
+        <File Source="$(env.CLIENT_PATH)\schema\XAdESv141.xsd"/>
         <File Source="$(env.CLIENT_PATH)\schema\ts_119612v010101.xsd"/>
         <File Source="$(env.CLIENT_PATH)\schema\ts_102918v010201.xsd"/>
       </Component>
