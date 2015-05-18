@@ -22,7 +22,7 @@
                 <Condition>STARTMENU_SHORTCUT = 1</Condition>
                 <Shortcut Id="QesteidutilStartMenuShortcut"
                           Advertise="no"
-                          Name="ID-kaardi haldusvahend"
+                          Name="!(loc.qesteidutilLabel)"
                           Target="[APPLICATIONFOLDER]qesteidutil.exe"
                           WorkingDirectory="APPLICATIONFOLDER"/>
                 <RegistryValue Root="HKMU" Key="$(var.QesteidutilRegistryKey)" Name="StartMenuShortcut" Value="1" Type="integer" KeyPath="yes"/>
@@ -35,7 +35,7 @@
                 <Condition>DESKTOP_SHORTCUT = 1</Condition>
                 <Shortcut Id="QesteidutilDesktopShortcut"
                           Advertise="no"
-                          Name="ID-kaardi haldusvahend"
+                          Name="!(loc.qesteidutilLabel)"
                           Target="[APPLICATIONFOLDER]qesteidutil.exe"
                           WorkingDirectory="APPLICATIONFOLDER"/>
                 <RegistryValue Root="HKMU" Key="$(var.QesteidutilRegistryKey)" Name="DesktopShortcut" Value="1" Type="integer" KeyPath="yes"/>

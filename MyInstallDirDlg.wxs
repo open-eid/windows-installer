@@ -38,9 +38,9 @@
         <Control Id="ChangeFolder" Type="PushButton" X="20" Y="120" Width="56" Height="17"
                  Text="!(loc.InstallDirDlgChange)"/>
         <Control Id="DesktopShortcutCheckBox" Type="CheckBox" X="20" Y="160" Width="350" Height="17"
-                 Property="DESKTOP_SHORTCUT" CheckBoxValue="1" Text="Paigalda ID-kaardi tarkvara ikoonid töölauale"/>
+                 Property="DESKTOP_SHORTCUT" CheckBoxValue="1" Text="!(loc.DesktopShortcutLabel)"/>
         <Control Id="StartMenuShortcutCheckBox" Type="CheckBox" X="20" Y="180" Width="350" Height="17"
-                 Property="STARTMENU_SHORTCUT" CheckBoxValue="1" Text="Lisa ID-kaardi tarkvara ikoonid Start-menüüsse"/>
+                 Property="STARTMENU_SHORTCUT" CheckBoxValue="1" Text="!(loc.StartMenuShortcutLabel)"/>
       </Dialog>
     </UI>
   </Fragment>

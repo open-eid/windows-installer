@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define ProductName = "Eesti ID-kaardi tarkvara" ?>
-<?define ProductManufacturer = "RIA" ?>
 <?define IDCardFolder = "Estonian ID Card" ?>
 <?define UpgradeCode = "{58A1DBA8-81A2-4D58-980B-4A6174D5B66B}" ?>
 
@@ -14,14 +12,11 @@
 <?endif?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="$(var.ProductName) $(env.MSI_VERSION)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
-           Language="1033" Codepage="1251" Version="$(env.MSI_VERSION)" Manufacturer="$(var.ProductManufacturer)"
+  <Product Id="*" Name="!(loc.ProductName) $(env.MSI_VERSION)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
+           Language="1033" Codepage="1251" Version="$(env.MSI_VERSION)" Manufacturer="RIA"
            UpgradeCode='$(var.UpgradeCode)'>
-    <Package Platform="$(var.Platform)" Manufacturer="$(var.ProductManufacturer)"
-             Description="$(var.ProductName) Installation" Comments="$(var.ProductName) Installation"
-             InstallerVersion="300" Compressed="yes" ShortNames="no"/>
-    <Media Id="1" Cabinet="Eesti_ID_kaart.cab" EmbedCab="yes" CompressionLevel="high"/>
-
+    <Package Platform="$(var.Platform)" InstallerVersion="405" Compressed="yes"/>
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
     <Icon Id="IDIcon" SourceFile="ID.ico"/>
 
     <!-- Properties -->
@@ -29,30 +24,19 @@
     <Property Id="ARPPRODUCTICON" Value="IDIcon"/>
     <Property Id="ARPURLINFOABOUT" Value="http://www.ria.ee/"/>
     <Property Id="ARPURLUPDATEINFO" Value="http://www.ria.ee"/>
-
-    <!-- Don't allow 32 bit MSI to install on an x64 platform. -->
-    <?if $(var.Platform)!=x64 ?>
-    <Condition
-            Message='This package cannot be installed on a 64-bit platform. Please use the 64-bit version of $(var.ProductName) package.'>
-      NOT VersionNT64
-    </Condition>
-    <?endif ?>
-
-    <Condition Message="You need to be an Administrator to install this product.">
-      Privileged
-    </Condition>
-    <Condition Message="ID-tarkvara paigaldamiseks on vaja Windows 7 või uuemat operatsioonisüsteemi.">
-      <![CDATA[Installed OR (VersionNT >= 601)]]>
-    </Condition>
-    <Condition Message="Same or newer version of $(var.ProductName) is already installed.">
-      NOT SAME_OR_NEWER_VERSION_DETECTED
-    </Condition>
-
     <!-- http://msdn.microsoft.com/en-us/library/aa371182%28VS.85%29.aspx
          default: omus
          a - Force all files to be reinstalled, regardless of checksum or version.
          o - Reinstall if the file is missing or is an older version. -->
     <Property Id="REINSTALLMODE" Value="amus"/>
+
+    <!-- Don't allow 32 bit MSI to install on an x64 platform. -->
+    <?if $(var.Platform)!=x64 ?>
+    <Condition Message='!(loc.Win64Only)'>NOT VersionNT64</Condition>
+    <?endif ?>
+    <Condition Message="!(loc.RunAsAdministrator)">Privileged</Condition>
+    <Condition Message="!(loc.Win7OrNewer)"><![CDATA[Installed OR (VersionNT >= 601)]]></Condition>
+    <Condition Message="!(loc.SameVersionInstalled)">NOT SAME_OR_NEWER_VERSION_DETECTED</Condition>
 
     <!-- DigiDoc.msi upgrade tabelis UPGRADE_1 -->
     <Upgrade Id="{F3824017-C4B7-4438-BE1E-A1158988CEE3}">
@@ -124,7 +108,7 @@
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="EsteidShortcutFolder" Name="ID-kaart"/>
+        <Directory Id="EsteidShortcutFolder" Name="!(loc.idcardLabel)"/>
       </Directory>
       <Directory Id="SystemFolder"/>
       <?if $(var.Platform)=x64 ?>
@@ -181,13 +165,13 @@
       </Component>
     </DirectoryRef>
 
-    <Feature Id="qesteidutil" Title="ID Card Utility" Level="1">
+    <Feature Id="qesteidutil" Title="!(loc.qesteidutilLabel)" Level="1">
       <ComponentGroupRef Id="qesteidutil"/>
       <ComponentGroupRef Id="QtLibs"/>
       <ComponentGroupRef Id="CommonLibs"/>
     </Feature>
 
-    <Feature Id="qdigidoc" Title="DigiDoc Client" Level="1">
+    <Feature Id="qdigidoc" Title="!(loc.qdigidocclientLabel)" Level="1">
       <ComponentGroupRef Id="qdigidoc"/>
       <ComponentGroupRef Id="SKCertificates"/>
       <ComponentGroupRef Id="libdigidoc"/>
@@ -242,6 +226,8 @@
     <Property Id="ALLUSERS" Value="1"/>
     <WixVariable Id="WixUISupportPerMachine" Value="1" Overridable="no"/>
     <WixVariable Id="WixUISupportPerUser" Value="0" Overridable="no"/>
+    <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />
 
     <UIRef Id="WixUI_IDCard"/>
     <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONFOLDER"/>
@@ -251,12 +237,10 @@
 
     <SetProperty Id="ARPINSTALLLOCATION" Value="[APPLICATIONFOLDER]" After="CostFinalize"/>
 
-    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Käivita paigaldamise lõppedes ID-kaardi haldusvahend. Haldusvahendis näed oma ID-kaardi sertifikaatide staatust ning teostatakse ka sertifikaatide registreerimine arvutisse. Selleks tuleb ühendada arvutiga ID-kaardi lugeja ning sisestada kaart lugejasse." />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Käivita ID-Kaardi haldusvahend" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="!(loc.RunQesteidUtilDescription)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.RunQesteidUtilLabel)" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
 
-    <Binary Id="WixUI_Bmp_Banner_EID" SourceFile=".\Bitmaps\banner.bmp"/>
-    <Binary Id="WixUI_Bmp_Dialog_EID" SourceFile=".\Bitmaps\dlgbmp.bmp"/>
     <!-- Step 3: Include the custom action -->
     <Property Id="WixShellExecTarget" Value="[#qesteidutil.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />

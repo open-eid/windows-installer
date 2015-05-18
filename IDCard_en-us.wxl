@@ -3,10 +3,28 @@
     <String Id="RemoveOldSoftDlg_Title" Overridable="yes">[ProductName] Setup</String>
     <String Id="RemoveOldSoftDlgTitle" Overridable="yes">{\WixUI_Font_Title}Upgrading Software</String>
     <String Id="RemoveOldSoftDlgDescription" Overridable="yes">Setup is going to replace obsolete software.</String>
-    <String Id="RemoveOldSoftDlgBannerBitmap" Overridable="yes">WixUI_Bmp_Banner</String>
     <String Id="RemoveOldSoftDlgIntro" Overridable="yes">The Setup Wizard has detected obsolete ID card software on your computer. During the installation any of the following programs will be replaced:</String>
     <String Id="RemoveOldSoftDlgObsoleteFirefox" Overridable="yes">- ID-kaardi Firefoxi draiver</String>
     <String Id="RemoveOldSoftDlgObsoleteUtility" Overridable="yes">- ID-kaardi utiliit</String>
     <String Id="RemoveOldSoftDlgObsoleteDigidoc" Overridable="yes">- DigiDoc Client</String>
     <String Id="RemoveOldSoftDlgConclusion" Overridable="yes">Click Next to continue with the installation.</String>
+    <String Id="InstallDirDlgDescription" Overridable="yes">Click Next to install to the default folder or click Change to choose another</String>
+    <String Id="ExitDialogDescription" Overridable="yes">Click the Finish button to exit the Setup.</String>
+    <String Id="FatalErrorDescription2" Overridable="yes">Click the Finish button to exit the Setup.</String>
+    <String Id="UserExitDescription2" Overridable="yes">Click the Finish button to exit the Setup.</String>
+    <String Id="CloseGoogleChromePrompt" Overridable="yes">Please close all Google Chrome windows to continue installation. This includes all accounts on this computer.</String>
+    <String Id="ChangeLogTitle" Overridable="yes">{\WixUI_Font_Title}Change log</String>
+    <String Id="Win7OrNewer" Overridable="yes">ID-sofware requires Windows 7 or newer operating system.</String>
+    <String Id="DesktopShortcutLabel" Overridable="yes">Create ID-card software icons on my desktop</String>
+    <String Id="StartMenuShortcutLabel" Overridable="yes">Create ID-card software icons in my Start Menu Programs folder</String>
+    <String Id="RunQesteidUtilDescription" Overridable="yes">After installation run ID card utility. Utility shows ID-card certificate status and registers certificates to computer. For that you need to connect smart card reader with computer and insert ID-card into the reader.</String>
+    <String Id="RunQesteidUtilLabel" Overridable="yes">Run ID-card utility</String>
+    <String Id="qesteidutilLabel" Overridable="yes">ID-card utility</String>
+    <String Id="qdigidocclientLabel" Overridable="yes">DigiDoc3 client</String>
+    <String Id="qdigidoccryptoLabel" Overridable="yes">DigiDoc3 crypto</String>
+    <String Id="idcardLabel" Overridable="yes">ID-card</String>
+    <String Id="ProductName" Overridable="yes">Estonian ID-card software</String>
+    <String Id="SameVersionInstalled" Overridable="yes">Same or newer version of [ProductName] is already installed.</String>
+    <String Id="Win64Only" Overridable="yes">This package cannot be installed on a 64-bit platform. Please use the 64-bit version of [ProductName] package.</String>
+    <String Id="RunAsAdministrator" Overridable="yes">You need to be an Administrator to install this product.</String>
 </WixLocalization>
