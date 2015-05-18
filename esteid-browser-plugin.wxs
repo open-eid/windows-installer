@@ -41,13 +41,13 @@
 
         <Component Id="FirefoxPKCS11Loader_chrome.manifest" Guid="*">
           <File Id="chrome.manifest" KeyPath="yes"
-                Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome.manifest"
+                Source="$(env.LOADER_PATH)\chrome.manifest"
                 Checksum="yes" Vital="yes"/>
         </Component>
 
         <Component Id="FirefoxPKCS11Loader_install.rdf" Guid="*">
           <File Id="install.rdf" KeyPath="yes"
-                Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\install.rdf"
+                Source="$(env.LOADER_PATH)\install.rdf"
                 Checksum="yes" Vital="yes"/>
         </Component>
 
@@ -55,19 +55,19 @@
           <Directory Id="FirefoxPKCS11Loader_Chrome_Content" Name="content">
             <Component Id="FirefoxPKCS11Loader_browser.xul" Guid="*">
               <File Id="browser.xul" KeyPath="yes"
-                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\browser.xul"
+                    Source="$(env.LOADER_PATH)\chrome\content\browser.xul"
                     Checksum="yes" Vital="yes"/>
             </Component>
 
             <Component Id="FirefoxPKCS11Loader_id_32.png" Guid="*">
               <File Id="id_32.png" KeyPath="yes"
-                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\id-32.png"
+                    Source="$(env.LOADER_PATH)\chrome\content\id-32.png"
                     Checksum="yes" Vital="yes"/>
             </Component>
 
             <Component Id="FirefoxPKCS11Loader_pkcs11_loader.js" Guid="*">
               <File Id="pkcs11_loader.js" KeyPath="yes"
-                    Source="$(env.PREFIX)\IdCard\FirefoxPKCS11ModuleLoader\$(var.browserPluginGUID)\chrome\content\pkcs11-loader.js"
+                    Source="$(env.LOADER_PATH)\chrome\content\pkcs11-loader.js"
                     Checksum="yes"
                     Vital="yes"/>
             </Component>
