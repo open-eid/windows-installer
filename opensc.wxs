@@ -12,13 +12,13 @@
 
         <DirectoryRef Id="APPLICATIONFOLDER">
             <Component Id="opensc.dll" Guid="2f3992b1-4458-40e1-aad2-ac28f79fcff3">
-                <File Source="$(env.OPENSC_PATH)\X86\opensc-pkcs11.dll" />
-                <File Source="$(env.OPENSC_PATH)\X86\opensc.dll" />
-                <File Source="$(env.OPENSC_PATH)\X86\opensc-tool.exe" />
-                <File Source="$(env.OPENSC_PATH)\X86\pkcs11-tool.exe" />
-                <File Source="$(env.OPENSC_PATH)\X86\pkcs15-tool.exe" />
-                <File Source="$(env.OPENSC_PATH)\X86\eidenv.exe" />
-                <File Source="$(env.OPENSC_PATH)\X86\opensc.conf" />
+                <File Source="$(env.ARCHIVE)\X86\opensc-pkcs11.dll" />
+                <File Source="$(env.ARCHIVE)\X86\opensc.dll" />
+                <File Source="$(env.ARCHIVE)\X86\opensc-tool.exe" />
+                <File Source="$(env.ARCHIVE)\X86\pkcs11-tool.exe" />
+                <File Source="$(env.ARCHIVE)\X86\pkcs15-tool.exe" />
+                <File Source="$(env.ARCHIVE)\X86\eidenv.exe" />
+                <File Source="$(env.ARCHIVE)\X86\opensc.conf" />
                 <RegistryKey Root="HKLM" Key="Software\OpenSC Project\OpenSC" Action="createAndRemoveOnUninstall">
                     <RegistryValue Type="string" Name="ConfigFile" Value="[APPLICATIONFOLDER]opensc.conf" />
                 </RegistryKey>
@@ -27,14 +27,14 @@
 
         <DirectoryRef Id="SystemFolder">
             <Component Id="onepin_opensc_pkcs11_X86" Guid="*">
-                <File Source="$(env.OPENSC_PATH)\X86\onepin-opensc-pkcs11.dll" />
+                <File Source="$(env.ARCHIVE)\X86\onepin-opensc-pkcs11.dll" />
             </Component>
         </DirectoryRef>
 
         <?if $(var.Platform)=x64 ?>
         <DirectoryRef Id="System64Folder">
             <Component Id="onepin_opensc_pkcs11_X64" Guid="*" Win64="yes">
-                <File Source="$(env.OPENSC_PATH)\X64\onepin-opensc-pkcs11.dll" Id="onepin_opensc_pkcs11.dll_X64" />
+                <File Source="$(env.ARCHIVE)\X64\onepin-opensc-pkcs11.dll" Id="onepin_opensc_pkcs11.dll_X64" />
             </Component>
         </DirectoryRef>
         <?endif?>
