@@ -17,18 +17,6 @@
            UpgradeCode='$(var.UpgradeCode)'>
     <Package Platform="$(var.Platform)" InstallerVersion="405" Compressed="yes"/>
     <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
-    <Icon Id="IDIcon" SourceFile="ID.ico"/>
-
-    <!-- Properties -->
-    <Property Id="ARPHELPLINK" Value="http://www.ria.ee"/>
-    <Property Id="ARPPRODUCTICON" Value="IDIcon"/>
-    <Property Id="ARPURLINFOABOUT" Value="http://www.ria.ee/"/>
-    <Property Id="ARPURLUPDATEINFO" Value="http://www.ria.ee"/>
-    <!-- http://msdn.microsoft.com/en-us/library/aa371182%28VS.85%29.aspx
-         default: omus
-         a - Force all files to be reinstalled, regardless of checksum or version.
-         o - Reinstall if the file is missing or is an older version. -->
-    <Property Id="REINSTALLMODE" Value="amus"/>
 
     <!-- Don't allow 32 bit MSI to install on an x64 platform. -->
     <?if $(var.Platform)!=x64 ?>
@@ -75,51 +63,31 @@
       </DirectorySearch>
     </Property>
 
-    <!-- Close Firefox before installing OpenSC and Firefox extension. -->
-    <!--
-         CloseApplication in Wix 3.0 RTM doesn't support showing the message.
-         Disabling the custom action for now.
-    <util:CloseApplication Id="CloseFirefox"
-                           CloseMessage="no"
-                           Target="firefox.exe"
-                           RebootPrompt="no"
-                           Description="Firefox is running and needs to be closed." />
-    -->
-
-    <!--
-             http://sourceforge.net/tracker/index.php?func=detail&aid=1989218&group_id=105970&atid=642717
-
-             There is a simpler solution for this. It is possible to use Restart Manager
-             to close the applications for us. We just need to add restart manager
-             resources for each process we need to close before InstallValidate action.
-             During this action RMFilesInUse Dialog will be shown with our process
-             listed with other processes that need to be closed. It works only on Vista
-             though.
-
-             I've created a Custom Action that does the work, I can share the code.
-    -->
-
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="DesktopFolder"/>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="EsteidShortcutFolder" Name="!(loc.idcardLabel)">
+          <Component Id="EsteidShortcutComponent" Guid="*">
+            <RemoveFolder Id="CleanupShortcutFolder" On="uninstall"/>
+            <RegistryValue Root="HKMU" Key="Software\Estonian ID Card" Name="Installed" Value="[APPLICATIONFOLDER]"
+                           Type="string" KeyPath="yes"/>
+         </Component>
+       </Directory>
+      </Directory>
       <Directory Id='ProgramFilesFolder'>
         <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)">
           <Directory Id="CertificatesFolder" Name="certs"/>
           <Directory Id="SchemaFolder" Name="schema"/>
         </Directory>
       </Directory>
-      <Directory Id="ProgramMenuFolder">
-        <Directory Id="EsteidShortcutFolder" Name="!(loc.idcardLabel)"/>
-      </Directory>
       <Directory Id="SystemFolder"/>
       <?if $(var.Platform)=x64 ?>
-        <Directory Id="System64Folder"/>
-        <Directory Id='ProgramFiles64Folder'>
-          <Directory Id="APPLICATION64FOLDER" Name="$(var.IDCardFolder)"/>
-        </Directory>
+      <Directory Id="System64Folder"/>
+      <Directory Id='ProgramFiles64Folder'>
+        <Directory Id="APPLICATION64FOLDER" Name="$(var.IDCardFolder)"/>
+      </Directory>
       <?endif ?>
-  </Directory>
 
-    <DirectoryRef Id="TARGETDIR">
       <Component Id="Path" Guid="{6CA961A4-C564-4150-8448-B2B1E15CCC04}">
         <Environment Id="PATH" Name="PATH" Value="[APPLICATIONFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
       </Component>
@@ -155,15 +123,7 @@
         <Condition><![CDATA[VersionNT >= 600]]></Condition>
         <ServiceControl Id="CertPropSvcStart" Name="CertPropSvc" Start="install" Stop="both" Wait="no"/>
       </Component>
-    </DirectoryRef>
-
-    <DirectoryRef Id="EsteidShortcutFolder">
-      <Component Id="EsteidShortcutComponent" Guid="*">
-        <RemoveFolder Id="CleanupShortcutFolder" On="uninstall"/>
-        <RegistryValue Root="HKMU" Key="Software\Estonian ID Card" Name="Installed" Value="[APPLICATIONFOLDER]"
-                       Type="string" KeyPath="yes"/>
-      </Component>
-    </DirectoryRef>
+    </Directory>
 
     <Feature Id="qesteidutil" Title="!(loc.qesteidutilLabel)" Level="1">
       <ComponentGroupRef Id="qesteidutil"/>
@@ -186,7 +146,6 @@
     </Feature>
 
     <Feature Id="iesupport" Title="Internet Explorer Support" AllowAdvertise="no" Level="1">
-      <ComponentGroupRef Id="BrowserPlugin"/>
       <ComponentGroupRef Id="iesupport"/>
       <?if $(var.Platform)=x64 ?>
       <ComponentRef Id="atl100.dll_x64"/>
@@ -208,6 +167,7 @@
 
     <Feature Id="common" Title="Common Items" AllowAdvertise="no" Display="hidden" Level="1">
       <ComponentGroupRef Id="updater"/>
+      <ComponentGroupRef Id="QtLibs"/>
       <ComponentRef Id="EsteidShortcutComponent"/>
       <ComponentRef Id="RegistryInfo"/>
       <ComponentRef Id="Path"/>
@@ -216,18 +176,30 @@
       <?endif ?>
     </Feature>
 
-    <Feature Id="minidrive" Title="Minidriver" AllowAdvertise="no" Display="hidden" Level="1">
+    <Feature Id="minidriver" Title="Estonian Minidriver" AllowAdvertise="no" Level="1">
       <ComponentGroupRef Id="minidriver"/>
       <ComponentRef Id="SCardSvrStart"/>
       <ComponentRef Id="CertPropSvcStart"/>
     </Feature>
 
+    <!-- Properties -->
     <!-- Install to all users -->
     <Property Id="ALLUSERS" Value="1"/>
     <WixVariable Id="WixUISupportPerMachine" Value="1" Overridable="no"/>
     <WixVariable Id="WixUISupportPerUser" Value="0" Overridable="no"/>
     <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\banner.bmp" />
     <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />
+    <!-- http://msdn.microsoft.com/en-us/library/aa371182%28VS.85%29.aspx
+         default: omus
+         a - Force all files to be reinstalled, regardless of checksum or version.
+         o - Reinstall if the file is missing or is an older version. -->
+    <Property Id="REINSTALLMODE" Value="amus"/>
+
+    <Icon Id="IDIcon" SourceFile="ID.ico"/>
+    <Property Id="ARPHELPLINK" Value="http://www.ria.ee"/>
+    <Property Id="ARPPRODUCTICON" Value="IDIcon"/>
+    <Property Id="ARPURLINFOABOUT" Value="http://www.ria.ee/"/>
+    <Property Id="ARPURLUPDATEINFO" Value="http://www.ria.ee"/>
 
     <UIRef Id="WixUI_IDCard"/>
     <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONFOLDER"/>
@@ -236,10 +208,9 @@
     <Property Id="AUTO_UPDATE" Value="1"/>
 
     <SetProperty Id="ARPINSTALLLOCATION" Value="[APPLICATIONFOLDER]" After="CostFinalize"/>
-
-    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="!(loc.RunQesteidUtilDescription)" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.RunQesteidUtilLabel)" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <SetProperty Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="!(loc.RunQesteidUtilDescription)" After="ExecuteAction" Sequence="ui"><![CDATA[&qesteidutil = 3]]></SetProperty>
+    <SetProperty Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.RunQesteidUtilLabel)" After="ExecuteAction" Sequence="ui"><![CDATA[&qesteidutil = 3]]></SetProperty>
+    <SetProperty Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" After="ExecuteAction" Sequence="ui"><![CDATA[&qesteidutil = 3]]></SetProperty>
 
     <!-- Step 3: Include the custom action -->
     <Property Id="WixShellExecTarget" Value="[#qesteidutil.exe]" />

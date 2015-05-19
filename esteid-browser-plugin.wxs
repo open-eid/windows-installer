@@ -102,5 +102,16 @@
       </Directory>
     </DirectoryRef>
 
+    <!-- Close Firefox before installing OpenSC and Firefox extension. -->
+    <!--
+         CloseApplication in Wix 3.0 RTM doesn't support showing the message.
+         Disabling the custom action for now.
+    <util:CloseApplication Id="CloseFirefox"
+                           CloseMessage="no"
+                           Target="firefox.exe"
+                           RebootPrompt="no"
+                           Description="Firefox is running and needs to be closed." />
+    -->
+
   </Fragment>
 </Wix>

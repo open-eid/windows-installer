@@ -65,19 +65,14 @@
             </Component>
 
             <Component Id="InstallRegWild" Guid="*">
-                <RegistryValue Root="HKCR"
-                               Key="*\shellex\ContextMenuHandlers\EsteidShellExtension"
-                               Value="$(var.ShellExtId)"
-                               Type="string" />
+                <RegistryValue Root="HKCR" Key="*\shellex\ContextMenuHandlers\EsteidShellExtension"
+                               Value="$(var.ShellExtId)" Type="string" />
             </Component>
 
             <Component Id="InstallRegApproved" Guid="*">
                 <Condition>Privileged</Condition>
-                <RegistryValue Root="HKLM"
-                               Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
-                               Name="$(var.ShellExtId)"
-                               Value="Estonian ID Card Shell Extension"
-                               Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
+                               Name="$(var.ShellExtId)" Value="Estonian ID Card Shell Extension" Type="string" />
             </Component>
         </DirectoryRef>
 
@@ -93,19 +88,14 @@
             </Component>
 
             <Component Id="InstallRegWild_64" Guid="*" Win64="yes">
-                <RegistryValue Root="HKCR"
-                               Key="*\shellex\ContextMenuHandlers\EsteidShellExtension"
-                               Value="$(var.ShellExtId)"
-                               Type="string" />
+                <RegistryValue Root="HKCR" Key="*\shellex\ContextMenuHandlers\EsteidShellExtension"
+                               Value="$(var.ShellExtId)" Type="string" />
             </Component>
 
             <Component Id="InstallRegApproved_64" Guid="*" Win64="yes">
                 <Condition>Privileged</Condition>
-                <RegistryValue Root="HKLM"
-                               Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
-                               Name="$(var.ShellExtId)"
-                               Value="Estonian ID Card Shell Extension"
-                               Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
+                               Name="$(var.ShellExtId)" Value="Estonian ID Card Shell Extension" Type="string" />
             </Component>
         </DirectoryRef>
         <?endif ?>
@@ -114,17 +104,10 @@
         <DirectoryRef Id="EsteidShortcutFolder">
             <Component Id="QdigidocStartMenuShortcut" Guid="a6217e8c-894e-4a88-982b-50a748ee7e28">
                 <Condition>STARTMENU_SHORTCUT = 1</Condition>
-                <Shortcut Id="QdigidocClientStartMenuShortcut"
-                          Advertise="no"
-                          Name="!(loc.qdigidocclientLabel)"
-                          Target="[#qdigidocclient.exe]"
-                          WorkingDirectory="APPLICATIONFOLDER"/>
-                <Shortcut Id="QdigidocCryptoStartMenuShortcut"
-                          Advertise="no"
-                          Name="!(loc.qdigidoccryptoLabel)"
-                          Target="[#qdigidocclient.exe]"
-                          Arguments="-crypto"
-                          Icon="Icon.exe"
+                <Shortcut Id="QdigidocClientStartMenuShortcut" Advertise="no" Name="!(loc.qdigidocclientLabel)"
+                          Target="[#qdigidocclient.exe]" WorkingDirectory="APPLICATIONFOLDER"/>
+                <Shortcut Id="QdigidocCryptoStartMenuShortcut" Advertise="no" Name="!(loc.qdigidoccryptoLabel)"
+                          Target="[#qdigidocclient.exe]" Arguments="-crypto" Icon="Icon.exe"
                           WorkingDirectory="APPLICATIONFOLDER">
                 <Icon Id="Icon.exe" SourceFile="crypto_48x48.ico"/>
                 </Shortcut>
@@ -136,17 +119,10 @@
         <DirectoryRef Id="DesktopFolder">
             <Component Id="QdigidocDesktopShortcut" Guid="d983cdc6-c957-4f07-b195-6401702fc55e">
                 <Condition>DESKTOP_SHORTCUT = 1</Condition>
-                <Shortcut Id="QdigidocClientDesktopShortcut"
-                          Advertise="no"
-                          Name="!(loc.qdigidocclientLabel)"
-                          Target="[#qdigidocclient.exe]"
-                          WorkingDirectory="APPLICATIONFOLDER"/>
-                <Shortcut Id="QdigidocCryptoDesktopShortcut"
-                          Advertise="no"
-                          Name="!(loc.qdigidoccryptoLabel)"
-                          Target="[#qdigidocclient.exe]"
-                          Arguments="-crypto"
-                          Icon="Icon.exe"
+                <Shortcut Id="QdigidocClientDesktopShortcut" Advertise="no" Name="!(loc.qdigidocclientLabel)"
+                          Target="[#qdigidocclient.exe]" WorkingDirectory="APPLICATIONFOLDER"/>
+                <Shortcut Id="QdigidocCryptoDesktopShortcut" Advertise="no" Name="!(loc.qdigidoccryptoLabel)"
+                          Target="[#qdigidocclient.exe]" Arguments="-crypto" Icon="Icon.exe"
                           WorkingDirectory="APPLICATIONFOLDER"/>
                 <RegistryValue Root="HKMU" Key="$(var.QdigidocRegistryKey)" Name="DesktopShortcut" Value="1" Type="integer" KeyPath="yes"/>
             </Component>

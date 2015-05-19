@@ -205,7 +205,7 @@
                  ExeCommand="rundll32 syssetup,SetupInfObjectInstallAction DefaultInstall 128 [APPLICATIONFOLDER]\\minidriver\\esteidcm.inf"
                  Return="ignore"/>
 	<InstallExecuteSequence>
-		<Custom Action="InstallMinidriver" After="InstallFiles">NOT Installed</Custom>
+		<Custom Action="InstallMinidriver" After="InstallFiles">NOT Installed AND &amp;minidriver = 3</Custom>
 	</InstallExecuteSequence>
   </Fragment>
 </Wix>
