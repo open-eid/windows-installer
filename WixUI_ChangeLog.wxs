@@ -16,13 +16,19 @@
         <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 
         <Control Id="ChangeLogEst" Type="Text" X="20" Y="60" Width="30" Height="30" NoPrefix="yes" Text="EST:" />
-        <Control Id="ChangeLogEstText" Type="Text" X="60" Y="60"  Width="220" Height="30" NoPrefix="yes" Text="http://www.id.ee/changelog" />
+        <Control Id="ChangeLogEstText" Type="Hyperlink" X="60" Y="60"  Width="220" Height="30">
+            <Text><![CDATA[<a href="http://www.id.ee/changelog">http://www.id.ee/changelog</a>]]></Text> 
+        </Control>
 
         <Control Id="ChangeLogEng" Type="Text" X="20" Y="120" Width="30" Height="30" NoPrefix="yes" Text="ENG:" />
-        <Control Id="ChangeLogEngText" Type="Text" X="60" Y="120"  Width="220" Height="30" NoPrefix="yes" Text="http://www.id.ee/eng/changelog" />
+        <Control Id="ChangeLogEngText" Type="Hyperlink" X="60" Y="120"  Width="220" Height="30">
+            <Text><![CDATA[<a href="http://www.id.ee/eng/changelog">http://www.id.ee/eng/changelog</a>]]></Text> 
+        </Control>
 
         <Control Id="ChangeLogRus" Type="Text" X="20" Y="180" Width="30" Height="30" NoPrefix="yes" Text="RUS:" />
-        <Control Id="ChangeLogRusText" Type="Text" X="60" Y="180"  Width="220" Height="30" NoPrefix="yes" Text="http://www.id.ee/rus/changelog" />
+        <Control Id="ChangeLogRusText" Type="Hyperlink" X="60" Y="180"  Width="220" Height="30">
+            <Text><![CDATA[<a href="http://www.id.ee/rus/changelog">http://www.id.ee/rus/changelog</a>]]></Text> 
+        </Control>
 
       </Dialog>
     </UI>
