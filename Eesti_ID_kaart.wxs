@@ -147,10 +147,6 @@
 
     <Feature Id="iesupport" Title="Internet Explorer Support" AllowAdvertise="no" Level="1">
       <ComponentGroupRef Id="iesupport"/>
-      <?if $(var.Platform)=x64 ?>
-      <ComponentRef Id="atl100.dll_x64"/>
-      <?endif ?>
-      <ComponentRef Id="atl100.dll_x86"/>
     </Feature>
 
     <Feature Id="firefoxsupport" Title="Mozilla Support" AllowAdvertise="no" Level="1">

@@ -37,9 +37,9 @@
         <File Id="msvcr100.dll_x86" Source="Runtime\x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
         <File Id="msvcp100.dll_x86" Source="Runtime\x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
-      <Component Id="atl100.dll_x86" Guid="D5FA6F7D-1270-457D-95FE-9E41C06175C7" Win64="no">
+      <!--Component Id="atl100.dll_x86" Guid="D5FA6F7D-1270-457D-95FE-9E41C06175C7" Win64="no">
         <File Id="atl100.dll_x86" Source="Runtime\x86\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
+      </Component-->
       <!--Component Id="atl110.dll_x86" Guid="CF5274C9-9D81-4D5F-9871-F3667372273C" Win64="no">
         <File Id="atl110.dll_x86" Source="Runtime\x86\atl110.dll" Checksum="yes" Vital="yes"/>
       </Component-->
@@ -59,9 +59,9 @@
         <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
         <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
-      <Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
+      <!--Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
         <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
+      </Component-->
       <!--Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
         <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
       </Component-->
