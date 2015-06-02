@@ -88,8 +88,8 @@
       -->
       <Component Id="esteid_plugin_ie_64.dll" Guid="{86DFD242-790A-425a-B0B6-C3860A8674E4}" Win64="yes">
         <AppId Description="IE plugin for Estonian ID Card" Id="{545B4ED6-A2FE-49F1-AF8E-FA18B6261E48}"/>
-        <File Id="esteid_plugin_ie_64.dll" KeyPath="yes"
-              Source="$(env.ARCHIVE)\X64\IE Token Signing Plugin\esteid-plugin-ie.dll">
+        <File Id="esteid_plugin_ie_64.dll" KeyPath="yes" Name="esteid-plugin-ie.dll" 
+              Source="$(env.ARCHIVE)\X64\IE Token Signing Plugin\esteid-plugin-ie64.dll">
           <TypeLib Id="{23EF5046-6402-4C39-B34B-3C47826805D1}" Description="esteidpluginie 1.0 Type Library"
                    Language="0" MajorVersion="1" MinorVersion="0">
             <Class Id="{2615B13B-A08B-442C-8032-4D9981060190}" Context="InprocServer32"
