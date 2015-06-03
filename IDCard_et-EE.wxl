@@ -8,7 +8,7 @@
     <String Id="RemoveOldSoftDlgObsoleteUtility" Overridable="yes">- ID-kaardi utiliit</String>
     <String Id="RemoveOldSoftDlgObsoleteDigidoc" Overridable="yes">- DigiDoc klient</String>
     <String Id="RemoveOldSoftDlgConclusion" Overridable="yes">Vajuta Edasi jätkamaks tarkvara paigaldamist.</String>
-    <String Id="InstallDirDlgDescription" Overridable="yes">Vaikekausta paigaldamiseks klõpsake käsul Edasi. Kausta muutmiseks klõpsake käsul Muuda.</String>
+    <String Id="InstallDirDlgDescription" Overridable="yes">Vaikekausta paigaldamiseks klõpsake Edasi. Kausta muutmiseks klõpsake Muuda.</String>
     <String Id="ExitDialogDescription" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
     <String Id="FatalErrorDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
     <String Id="UserExitDescription2" Overridable="yes">Klõpsake installiviisardist väljumiseks nupul Valmis.</String>
