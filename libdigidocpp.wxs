@@ -10,7 +10,7 @@
     <DirectoryRef Id="APPLICATIONFOLDER">
       <Component Id="digidocpp" Guid="ae935841-bed0-4327-a986-9e087dbf97b3">
         <File Source="$(env.CLIENT_PATH)\digidocpp.conf"/>
-        <File Source="$(env.CLIENT_PATH)\73411.p12"/>
+        <File Source="$(env.CLIENT_PATH)\878252.p12"/>
         <File Source="$(env.CLIENT_PATH)\digidoc-tool.exe"/>
         <File Source="$(env.CLIENT_PATH)\digidocpp.dll"/>
         <File Source="$(env.CLIENT_PATH)\xerces-c_3_1.dll"/>
