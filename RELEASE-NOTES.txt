@@ -3,7 +3,11 @@ Packaging version 3.11.0 release notes
 Changes compared to ver 3.10.3
 
 - Register Firefox PKCS11 Module on X64 bit Firefox Browser
-- Option to Customize installed components
+- Added option to customize the selection of components that are being installed
+- Started using SHA-256 algorithm when signing the installation package
+- Updated the base libraries versions
+
+List of known issues: https://github.com/open-eid/windows-installer/wiki/Known-issues
 
 
 Packaging version 3.10.3 release notes
