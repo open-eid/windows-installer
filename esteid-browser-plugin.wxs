@@ -4,12 +4,9 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="Pkcs11LoaderExtension">
-      <ComponentRef Id='FirefoxPKCS11Loader_Registry'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_chrome.manifest'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_install.rdf'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_browser.xul'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_id_32.png'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_pkcs11_loader.js'/>
+      <ComponentRef Id='FirefoxPKCS11Loader'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_chrome'/>
+      <ComponentRef Id='FirefoxPKCS11Loader_METAINF'/>
       <?if $(var.Platform) = "x64" ?>
       <ComponentRef Id='FirefoxPKCS11Loader_Registry_X64'/>
       <?endif ?>
@@ -25,53 +22,33 @@
 
     <DirectoryRef Id="APPLICATIONFOLDER">
       <Component Id="npesteid_firefox_plugin.dll" Guid="F765A58E-9766-4a93-8C3E-1017AEF15362">
-        <File Id="npesteid_firefox_plugin.dll" KeyPath="yes"
-              Source="$(env.ARCHIVE)\X86\npesteid-firefox-plugin.dll"
-              Checksum="yes" Vital="yes"/>
+        <File Source="$(env.ARCHIVE)\X86\npesteid-firefox-plugin.dll" />
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
                        Value="[#npesteid_firefox_plugin.dll]" Type="string" Action="write"/>
       </Component>
 
       <Directory Id="FirefoxPKCS11Loader" Name="Firefox PKCS11 Loader">
-
-        <Component Id="FirefoxPKCS11Loader_Registry" Guid="*">
+        <Component Id="FirefoxPKCS11Loader" Guid="cf9e4ad5-8015-42f8-9400-3742a521071d">
           <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
                          Value="[FirefoxPKCS11Loader]" Type="string" Action="write"/>
+          <File Source="$(env.LOADER_PATH)\chrome.manifest" />
+          <File Source="$(env.LOADER_PATH)\install.rdf" />
         </Component>
-
-        <Component Id="FirefoxPKCS11Loader_chrome.manifest" Guid="*">
-          <File Id="chrome.manifest" KeyPath="yes"
-                Source="$(env.LOADER_PATH)\chrome.manifest"
-                Checksum="yes" Vital="yes"/>
-        </Component>
-
-        <Component Id="FirefoxPKCS11Loader_install.rdf" Guid="*">
-          <File Id="install.rdf" KeyPath="yes"
-                Source="$(env.LOADER_PATH)\install.rdf"
-                Checksum="yes" Vital="yes"/>
-        </Component>
-
         <Directory Id="FirefoxPKCS11Loader_Chrome" Name="chrome">
           <Directory Id="FirefoxPKCS11Loader_Chrome_Content" Name="content">
-            <Component Id="FirefoxPKCS11Loader_browser.xul" Guid="*">
-              <File Id="browser.xul" KeyPath="yes"
-                    Source="$(env.LOADER_PATH)\chrome\content\browser.xul"
-                    Checksum="yes" Vital="yes"/>
-            </Component>
-
-            <Component Id="FirefoxPKCS11Loader_id_32.png" Guid="*">
-              <File Id="id_32.png" KeyPath="yes"
-                    Source="$(env.LOADER_PATH)\chrome\content\id-32.png"
-                    Checksum="yes" Vital="yes"/>
-            </Component>
-
-            <Component Id="FirefoxPKCS11Loader_pkcs11_loader.js" Guid="*">
-              <File Id="pkcs11_loader.js" KeyPath="yes"
-                    Source="$(env.LOADER_PATH)\chrome\content\pkcs11-loader.js"
-                    Checksum="yes"
-                    Vital="yes"/>
+            <Component Id="FirefoxPKCS11Loader_chrome" Guid="fa258cdb-8fc8-47c5-ab03-fac8fb40d01d">
+              <File Source="$(env.LOADER_PATH)\chrome\content\browser.xul" />
+              <File Source="$(env.LOADER_PATH)\chrome\content\id-32.png" />
+              <File Source="$(env.LOADER_PATH)\chrome\content\pkcs11-loader.js" />
             </Component>
           </Directory>
+        </Directory>
+        <Directory Id="FirefoxPKCS11Loader_METAINF" Name="META-INF">
+          <Component Id="FirefoxPKCS11Loader_METAINF" Guid="1ce86f88-d1b9-4dd7-9e0f-00774366d78f">
+            <File Source="$(env.LOADER_PATH)\META-INF\manifest.mf" />
+            <File Source="$(env.LOADER_PATH)\META-INF\mozilla.rsa" />
+            <File Source="$(env.LOADER_PATH)\META-INF\mozilla.sf" />
+          </Component>
         </Directory>
       </Directory>
     </DirectoryRef>
@@ -79,9 +56,7 @@
     <?if $(var.Platform) = "x64" ?>
     <DirectoryRef Id="APPLICATION64FOLDER">
       <Component Id="npesteid_firefox_plugin_X64.dll" Guid="2b6a8eec-93b6-4c07-9845-1a2132ef8a47" Win64="yes">
-        <File Id="npesteid_firefox_plugin_X64.dll" KeyPath="yes"
-              Source="$(env.ARCHIVE)\X64\npesteid-firefox-plugin.dll"
-              Checksum="yes" Vital="yes"/>
+        <File Id="npesteid_firefox_plugin_X64.dll" Source="$(env.ARCHIVE)\X64\npesteid-firefox-plugin.dll" />
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
                        Value="[#npesteid_firefox_plugin_X64.dll]" Type="string" Action="write"/>
       </Component>
