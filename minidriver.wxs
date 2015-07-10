@@ -87,6 +87,8 @@
 				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
 				  <File Id="esteidcmW7x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\esteidcm_64.dll" />
 				  <File Id="atrfiltrW7x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\atrfiltr_64.sys" />
+				  <File Id="msvcp90W7x64DLL" Name="msvcp90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\msvcp90_64.dll" />
+				  <File Id="msvcr90W7x64DLL" Name="msvcr90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x64\msvcr90_64.dll" />
 				</Component>
 			  </Directory>
 			  <Directory Id="minidriver_W7x86" Name="x86">
@@ -94,6 +96,8 @@
 				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
 				  <File Id="esteidcmW7x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW7x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W7x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W7x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x64\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
@@ -111,6 +115,8 @@
 				  <Condition><![CDATA[(VersionNT = 601)]]></Condition>
 				  <File Id="esteidcmW7x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW7x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W7x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W7x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\7x86\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
@@ -129,6 +135,8 @@
 				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
 				  <File Id="esteidcmW8x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\esteidcm_64.dll" />
 				  <File Id="atrfiltrW8x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\atrfiltr_64.sys" />
+				  <File Id="msvcp90W8x64DLL" Name="msvcp90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\msvcp90_64.dll" />
+				  <File Id="msvcr90W8x64DLL" Name="msvcr90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x64\msvcr90_64.dll" />
 				</Component>
 			  </Directory>
 			  <Directory Id="minidriver_W8x86" Name="x86">
@@ -136,6 +144,8 @@
 				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
 				  <File Id="esteidcmW8x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW8x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W8x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W8x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x64\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
@@ -153,6 +163,8 @@
 				  <Condition><![CDATA[(VersionNT = 602)]]></Condition>
 				  <File Id="esteidcmW8x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW8x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W8x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W8x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8x86\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
@@ -171,6 +183,8 @@
 				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
 				  <File Id="esteidcmW8.1x64DLL" Name="esteidcm_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\esteidcm_64.dll" />
 				  <File Id="atrfiltrW8.1x64DLL" Name="atrfiltr_64.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\atrfiltr_64.sys" />
+				  <File Id="msvcp90W8.1x64DLL" Name="msvcp90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\msvcp90_64.dll" />
+				  <File Id="msvcr90W8.1x64DLL" Name="msvcr90_64.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x64\msvcr90_64.dll" />
 				</Component>
 			  </Directory>
 			  <Directory Id="minidriver_W8.1x86" Name="x86">
@@ -178,6 +192,8 @@
 				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
 				  <File Id="esteidcmW8.1x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW8.1x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W8.1x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W8.1x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x64\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
@@ -195,6 +211,8 @@
 				  <Condition><![CDATA[(VersionNT > 602)]]></Condition>
 				  <File Id="esteidcmW8.1x86DLL" Name="esteidcm_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\esteidcm_32.dll" />
 				  <File Id="atrfiltrW8.1x86DLL" Name="atrfiltr_32.sys" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\atrfiltr_32.sys" />
+				  <File Id="msvcp90W8.1x86DLL" Name="msvcp90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\msvcp90_32.dll" />
+				  <File Id="msvcr90W8.1x86DLL" Name="msvcr90_32.dll" DiskId="1" Source="$(env.PREFIX)\minidriver\8.1x86\Package\x86\msvcr90_32.dll" />
 				</Component>
 			  </Directory>
 			  <?endif ?>
