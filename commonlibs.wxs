@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<?define QtPATH = "C:\Qt\5.4\msvc2013" ?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="CommonLibs">
@@ -67,42 +69,14 @@
         <File Id="msvcr120.dll_x86" Source="Runtime\x86\msvcr120.dll" Checksum="yes" Vital="yes"/>
         <File Id="msvcp120.dll_x86" Source="Runtime\x86\msvcp120.dll" Checksum="yes" Vital="yes"/>
       </Component>
-      <!--Component Id="msvcr110.dll_x86" Guid="4BCD7C7B-F46D-4B8D-9E4D-98167B45ADB0" Win64="no">
-        <File Id="msvcr110.dll_x86" Source="Runtime\x86\msvcr110.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp110.dll_x86" Source="Runtime\x86\msvcp110.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
       <Component Id="msvcr100.dll_x86" Guid="92D9435D-5C8A-4A51-92E6-A94819BBDFC7" Win64="no">
         <File Id="msvcr100.dll_x86" Source="Runtime\x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
         <File Id="msvcp100.dll_x86" Source="Runtime\x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
-      <!--Component Id="atl100.dll_x86" Guid="D5FA6F7D-1270-457D-95FE-9E41C06175C7" Win64="no">
-        <File Id="atl100.dll_x86" Source="Runtime\x86\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
-      <!--Component Id="atl110.dll_x86" Guid="CF5274C9-9D81-4D5F-9871-F3667372273C" Win64="no">
-        <File Id="atl110.dll_x86" Source="Runtime\x86\atl110.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
     </DirectoryRef>
 
     <?if $(var.Platform)=x64 ?>
     <DirectoryRef Id="APPLICATION64FOLDER">
-      <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
-        <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-      <!--Component Id="msvcr110.dll_x64" Guid="4A2AAF9C-BF01-4B70-8F8D-D5DECE1448FC" Win64="yes">
-        <File Id="msvcr110.dll_x64" Source="Runtime\x64\msvcr110.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp110.dll_x64" Source="Runtime\x64\msvcp110.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
-      <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
-        <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
-      </Component>
-      <!--Component Id="atl100.dll_x64" Guid="ECB62CE0-D59F-44A0-A094-9B8B284C02F2" Win64="yes">
-        <File Id="atl100.dll_x64" Source="Runtime\x64\atl100.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
-      <!--Component Id="atl110.dll_x64" Guid="1A2D3BB8-986F-4CBA-840A-7B3FEF39CC39" Win64="yes">
-        <File Id="atl110.dll_x64" Source="Runtime\x64\atl110.dll" Checksum="yes" Vital="yes"/>
-      </Component-->
       <Component Id="libeay32_64.dll" Guid="*" Win64="yes">
         <File Id="libeay32_64.dll" Source="C:\OpenSSL-Win64\bin\libeay32.dll" Checksum="yes" Vital="yes"/>
       </Component>
@@ -111,6 +85,14 @@
       </Component>
       <Component Id="zlib1_64.dll" Guid="*" Win64="yes">
         <File Id="zlib1_64.dll" Source="C:\install\zlib\x64\bin\zlib1.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
+        <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
+      </Component>
+      <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
+        <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
     </DirectoryRef>
     <?endif?>
