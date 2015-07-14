@@ -111,8 +111,6 @@
     <Feature Id="qdigidoc" Title="!(loc.qdigidocclientLabel)" Level="1">
       <ComponentGroupRef Id="qdigidoc"/>
       <ComponentGroupRef Id="SKCertificates"/>
-      <ComponentGroupRef Id="libdigidoc"/>
-      <ComponentGroupRef Id="libdigidocpp"/>
       <ComponentGroupRef Id="OpenSC"/>
       <ComponentGroupRef Id="QtLibs"/>
       <ComponentGroupRef Id="CommonLibs"/>
