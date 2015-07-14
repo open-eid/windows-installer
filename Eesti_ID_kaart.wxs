@@ -92,18 +92,6 @@
         <Environment Id="PATH" Name="PATH" Value="[APPLICATIONFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
       </Component>
 
-      <Component Id="RegistryInfo" Guid="*">
-        <Condition>Privileged</Condition>
-        <RegistryKey Root="HKLM" Key="Software\Estonian ID Card" Action="createAndRemoveOnUninstall">
-          <RegistryValue Type="string" Name="Installed" Value="[APPLICATIONFOLDER]"/>
-        </RegistryKey>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\EstEID National ID Card (cold ATR)" Root="HKLM"/>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\EstEID National ID Card (short ATR)" Root="HKLM"/>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\EstEID National ID Card (MultOS)" Root="HKLM"/>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Defaults\Provider\EstEID Card CSP" Root="HKLM"/>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\EstEID National ID Card" Root="HKLM"/>
-        <RemoveRegistryKey Action="removeOnInstall" Key="SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\EstEID" Root="HKLM"/>
-      </Component>
       <?if $(var.Platform) = "x64" ?>
       <Component Id="RegistryInfo_64" Guid="*" Win64="yes">
         <Condition>Privileged</Condition>
@@ -112,17 +100,6 @@
         </RegistryKey>
       </Component>
       <?endif ?>
-
-      <!-- Restart Smart Card service -->
-      <Component Id="SCardSvrStart" Guid="{0AFDDA6E-A145-40B6-8ABD-FE502FD9C31D}" KeyPath="yes"
-                 Win64="$(var.Win64YesNo)">
-        <ServiceControl Id="SCardSvrStart" Name="SCardSvr" Start="install" Stop="both" Wait="no"/>
-      </Component>
-      <Component Id="CertPropSvcStart" Guid="{4BF6CF46-3AC5-4B5A-A698-6B7BB0584800}" KeyPath="yes"
-                 Win64="$(var.Win64YesNo)">
-        <Condition><![CDATA[VersionNT >= 600]]></Condition>
-        <ServiceControl Id="CertPropSvcStart" Name="CertPropSvc" Start="install" Stop="both" Wait="no"/>
-      </Component>
     </Directory>
 
     <Feature Id="qesteidutil" Title="!(loc.qesteidutilLabel)" Level="1">
@@ -165,7 +142,6 @@
       <ComponentGroupRef Id="updater"/>
       <ComponentGroupRef Id="QtLibs"/>
       <ComponentRef Id="EsteidShortcutComponent"/>
-      <ComponentRef Id="RegistryInfo"/>
       <ComponentRef Id="Path"/>
       <?if $(var.Platform) = "x64" ?>
         <ComponentRef Id="RegistryInfo_64"/>
@@ -174,8 +150,6 @@
 
     <Feature Id="minidriver" Title="Estonian Minidriver" AllowAdvertise="no" Level="1">
       <ComponentGroupRef Id="minidriver"/>
-      <ComponentRef Id="SCardSvrStart"/>
-      <ComponentRef Id="CertPropSvcStart"/>
     </Feature>
 
     <!-- Properties -->
