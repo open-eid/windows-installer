@@ -20,17 +20,10 @@
     <CustomAction Id="UnScheduleUpdater" Directory="APPLICATIONFOLDER" Impersonate="no" Execute="deferred"
                       ExeCommand="id-updater.exe -remove"
                       Return="ignore"/>
-    <util:CloseApplication Id="CloseChrome" Description="!(loc.CloseGoogleChromePrompt)"
-                      RebootPrompt="no" Target="chrome.exe" PromptToContinue="yes" ElevatedCloseMessage="no"/>
-    <CustomAction Id="ChromeNPAPI" FileKey="id_updater.exe" Impersonate="no" Execute="deferred"
-                      ExeCommand="-chrome-npapi"
-                      Return="ignore"/>
 
     <InstallExecuteSequence>
         <Custom Action="ScheduleUpdater" Before="InstallFinalize">(NOT Installed) AND NOT (AUTO_UPDATE = 0)</Custom>
         <Custom Action="UnScheduleUpdater" After="InstallInitialize">REMOVE="ALL"</Custom>
-        <Custom Action="WixCloseApplications" After="InstallInitialize">(NOT ENABLENPAPI="OFF") AND (UPGRADINGPRODUCTCODE OR (NOT REMOVE="ALL"))</Custom>
-        <Custom Action='ChromeNPAPI' Before='InstallFinalize'>(NOT ENABLENPAPI="OFF") AND (UPGRADINGPRODUCTCODE OR (NOT REMOVE="ALL"))</Custom>
     </InstallExecuteSequence>
 
   </Fragment>
