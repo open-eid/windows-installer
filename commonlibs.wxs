@@ -12,7 +12,7 @@
       <?if $(var.Platform) = "x64" ?>
         <ComponentRef Id="libeay32_64.dll"/>
         <ComponentRef Id="ssleay32_64.dll"/>
-        <ComponentRef Id="zlib1_64.dll"/>
+        <!--ComponentRef Id="zlib1_64.dll"/-->
         <ComponentRef Id="msvcr120.dll_x64"/>
       <?endif?>
     </ComponentGroup>
@@ -66,12 +66,12 @@
         <File Source="$(env.CLIENT_PATH)\zlib1.dll" Checksum="yes" Vital="yes"/>
       </Component>
       <Component Id="msvcr120.dll_x86" Guid="0ADF75A7-1492-417A-A6CE-C202D46735EB" Win64="no">
-        <File Id="msvcr120.dll_x86" Source="Runtime\x86\msvcr120.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp120.dll_x86" Source="Runtime\x86\msvcp120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcr120.dll_x86" Source="$(env.VCINSTALLDIR)\redist\x86\Microsoft.VC120.CRT\msvcr120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp120.dll_x86" Source="$(env.VCINSTALLDIR)\redist\x86\Microsoft.VC120.CRT\msvcp120.dll" Checksum="yes" Vital="yes"/>
       </Component>
       <Component Id="msvcr100.dll_x86" Guid="92D9435D-5C8A-4A51-92E6-A94819BBDFC7" Win64="no">
-        <File Id="msvcr100.dll_x86" Source="Runtime\x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp100.dll_x86" Source="Runtime\x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcr100.dll_x86" Source="x86\msvcr100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp100.dll_x86" Source="x86\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
     </DirectoryRef>
 
@@ -83,16 +83,16 @@
       <Component Id="ssleay32_64.dll" Guid="*" Win64="yes">
         <File Id="ssleay32_64.dll" Source="C:\OpenSSL-Win64\bin\ssleay32.dll" Checksum="yes" Vital="yes"/>
       </Component>
-      <Component Id="zlib1_64.dll" Guid="*" Win64="yes">
+      <!--Component Id="zlib1_64.dll" Guid="*" Win64="yes">
         <File Id="zlib1_64.dll" Source="C:\install\zlib\x64\bin\zlib1.dll" Checksum="yes" Vital="yes"/>
-      </Component>
+      </Component-->
       <Component Id="msvcr120.dll_x64" Guid="74CCB83C-31F8-4790-AEB5-71364FDA52AA" Win64="yes">
-        <File Id="msvcr120.dll_x64" Source="Runtime\x64\msvcr120.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp120.dll_x64" Source="Runtime\x64\msvcp120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcr120.dll_x64" Source="$(env.VCINSTALLDIR)\redist\x64\Microsoft.VC120.CRT\msvcr120.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp120.dll_x64" Source="$(env.VCINSTALLDIR)\redist\x64\Microsoft.VC120.CRT\msvcp120.dll" Checksum="yes" Vital="yes"/>
       </Component>
       <Component Id="msvcr100.dll_x64" Guid="840D6314-B49C-4EE5-A764-A8BEB03E0BD8" Win64="yes">
-        <File Id="msvcr100.dll_x64" Source="Runtime\x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
-        <File Id="msvcp100.dll_x64" Source="Runtime\x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcr100.dll_x64" Source="x64\msvcr100.dll" Checksum="yes" Vital="yes"/>
+        <File Id="msvcp100.dll_x64" Source="x64\msvcp100.dll" Checksum="yes" Vital="yes"/>
       </Component>
     </DirectoryRef>
     <?endif?>

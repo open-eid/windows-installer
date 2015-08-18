@@ -41,7 +41,7 @@
                 <IniFile Id="setCaCertPath" Action="addLine" Directory="APPLICATIONFOLDER" Name="digidoc.ini"
                     Section="ca" Key="CA_CERT_PATH" Value="[APPLICATIONFOLDER]certs"/>
                 <File Source="$(env.CLIENT_PATH)\digidoc.dll" />
-                <File Source="$(env.PREFIX)\IdCard\libdigidoc\x86\bin\cdigidoc.exe" />
+                <File Source="$(env.CLIENT_PATH)\cdigidoc.exe" />
                 <File Source="$(env.CLIENT_PATH)\libxml2.dll" />
             </Component>
             <Component Id="digidocpp" Guid="ae935841-bed0-4327-a986-9e087dbf97b3">

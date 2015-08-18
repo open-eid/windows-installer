@@ -2,6 +2,11 @@
 
 <?define IDCardFolder = "Estonian ID Card" ?>
 <?define UpgradeCode = "{58A1DBA8-81A2-4D58-980B-4A6174D5B66B}" ?>
+<?ifdef env.VER_SUFFIX ?>
+<?define VER_SUFFIX=$(env.VER_SUFFIX) ?>
+<?else?>
+<?define VER_SUFFIX="" ?>
+<?endif ?>
 
 <?if $(var.Platform) = "x64" ?>
 <?define Win64YesNo="yes" ?>
@@ -12,7 +17,7 @@
 <?endif?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="!(loc.ProductName) $(env.MSI_VERSION)$(env.VER_SUFFIX)$(var.PlatformUserVisible)"
+  <Product Id="*" Name="!(loc.ProductName) $(env.MSI_VERSION)$(var.VER_SUFFIX)$(var.PlatformUserVisible)"
            Language="1033" Codepage="1251" Version="$(env.MSI_VERSION)" Manufacturer="RIA"
            UpgradeCode='$(var.UpgradeCode)'>
     <Package Platform="$(var.Platform)" InstallerVersion="405" Compressed="yes"/>

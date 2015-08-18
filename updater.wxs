@@ -10,7 +10,7 @@
 
     <DirectoryRef Id="APPLICATIONFOLDER">
       <Component Id='id_updater.exe' Guid='*'>
-        <File Id="id_updater.exe" Source="$(env.PREFIX)\IdCard\IdUpdater\bin\id-updater.exe" Checksum="yes" Vital="yes" />
+        <File Id="id_updater.exe" Source="id-updater.exe" Checksum="yes" Vital="yes" />
       </Component>
     </DirectoryRef>
 

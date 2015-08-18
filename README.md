@@ -1,0 +1,33 @@
+windows-installer
+=================
+
+A MSI with DigiDoc, ID-card utility and package with various drivers.
+
+1. Fetch the source
+
+        git clone --recursive https://github.com/open-eid/windows-installer
+        cd windows-installer
+
+2. Download dependencies to packages folder
+   * Digidoc3_Client.msi
+   * ID-card_utility.msi
+   * chrome-token-signing.msi
+   * esteid-plugin-ie_x64.msi
+   * esteid-plugin-ie_x86.msi
+   * id-updater.exe
+   * estonian_id_card_pkcs11_module_loader.xpi
+   * esteidcm*.zip
+   * OpenSC binaries
+
+3. Run build.ps1 script, optional parameter -version
+
+        powershell -ExecutionPolicy ByPass -File build.ps1 -version 3.12.0.0
+
+4. Execute
+
+        Eesti_ID_kaart.msi 
+
+## Support
+Official builds are provided through official distribution point [installer.id.ee](https://installer.id.ee). If you want support, you need to be using official builds. Contact for assistance by email [abi@id.ee](mailto:abi@id.ee) or [www.id.ee](http://www.id.ee).
+
+Source code is provided on "as is" terms with no warranty (see license for more information). Do not file Github issues with generic support requests.
