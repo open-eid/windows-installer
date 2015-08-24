@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?define browserPluginGUID = "{aa84ce40-4253-a00a-8cd6-0800200f9a66}" ?>
+<?define browserPluginGUID = "{aa84ce40-4253-a00a-8cd6-0800200f9a67}" ?>
 <!--https://developer.mozilla.org/en/Adding_Extensions_using_the_Windows_Registry-->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="Pkcs11LoaderExtension">
       <ComponentRef Id='FirefoxPKCS11Loader'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_chrome'/>
-      <ComponentRef Id='FirefoxPKCS11Loader_METAINF'/>
       <?if $(var.Platform) = "x64" ?>
       <ComponentRef Id='FirefoxPKCS11Loader_Registry_X64'/>
       <?endif ?>
@@ -27,30 +25,11 @@
                        Value="[#npesteid_firefox_plugin.dll]" Type="string" Action="write"/>
       </Component>
 
-      <Directory Id="FirefoxPKCS11Loader" Name="Firefox PKCS11 Loader">
-        <Component Id="FirefoxPKCS11Loader" Guid="cf9e4ad5-8015-42f8-9400-3742a521071d">
-          <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
-                         Value="[FirefoxPKCS11Loader]" Type="string" Action="write"/>
-          <File Source="$(env.LOADER_PATH)\chrome.manifest" />
-          <File Source="$(env.LOADER_PATH)\install.rdf" />
-        </Component>
-        <Directory Id="FirefoxPKCS11Loader_Chrome" Name="chrome">
-          <Directory Id="FirefoxPKCS11Loader_Chrome_Content" Name="content">
-            <Component Id="FirefoxPKCS11Loader_chrome" Guid="fa258cdb-8fc8-47c5-ab03-fac8fb40d01d">
-              <File Source="$(env.LOADER_PATH)\chrome\content\browser.xul" />
-              <File Source="$(env.LOADER_PATH)\chrome\content\id-32.png" />
-              <File Source="$(env.LOADER_PATH)\chrome\content\pkcs11-loader.js" />
-            </Component>
-          </Directory>
-        </Directory>
-        <Directory Id="FirefoxPKCS11Loader_METAINF" Name="META-INF">
-          <Component Id="FirefoxPKCS11Loader_METAINF" Guid="1ce86f88-d1b9-4dd7-9e0f-00774366d78f">
-            <File Source="$(env.LOADER_PATH)\META-INF\manifest.mf" />
-            <File Source="$(env.LOADER_PATH)\META-INF\mozilla.rsa" />
-            <File Source="$(env.LOADER_PATH)\META-INF\mozilla.sf" />
-          </Component>
-        </Directory>
-      </Directory>
+      <Component Id="FirefoxPKCS11Loader" Guid="cf9e4ad5-8015-42f8-9400-3742a521071d">
+        <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
+                       Value="[APPLICATIONFOLDER]\$(var.browserPluginGUID).xpi" Type="string" Action="write"/>
+        <File Source="$(var.browserPluginGUID).xpi" />
+      </Component>
     </DirectoryRef>
 
     <?if $(var.Platform) = "x64" ?>
@@ -62,7 +41,7 @@
       </Component>
       <Component Id="FirefoxPKCS11Loader_Registry_X64" Guid="*" Win64="yes">
         <RegistryValue Root="HKLM" Key="Software\Mozilla\Firefox\Extensions\" Name="$(var.browserPluginGUID)"
-                       Value="[FirefoxPKCS11Loader]" Type="string" Action="write"/>
+                       Value="[APPLICATIONFOLDER]\$(var.browserPluginGUID).xpi" Type="string" Action="write"/>
       </Component>
     </DirectoryRef>
     <?endif ?>

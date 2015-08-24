@@ -13,7 +13,6 @@ $env:CLIENT_PATH = "libs\DigiDoc3 Client"
 $env:UTIL_PATH = "libs\ID-card utility"
 $env:CHROME_TOKEN_PATH = "libs\Chrome Token Signing"
 $env:ARCHIVE = "."
-$env:LOADER_PATH = "libs\loader"
 if( !(Test-Path Env:\VCINSTALLDIR) ) {
     $env:VCINSTALLDIR = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\"
 }
@@ -24,15 +23,13 @@ $filename = "Eesti_ID_kaart-$version$env:VER_SUFFIX"
 $cwd = Split-Path $MyInvocation.MyCommand.Path
 $shell = new-object -com shell.application
 
-mkdir -Force -Path $env:LOADER_PATH
+mkdir -Force -Path "libs"
 msiexec /qn /a Digidoc3_Client.msi TARGETDIR="$cwd\libs" | Out-Null
 msiexec /qn /a ID-card_utility.msi TARGETDIR="$cwd\libs" | Out-Null
 msiexec /qn /a chrome-token-signing.msi TARGETDIR="$cwd\libs" | Out-Null
 msiexec /qn /a esteid-plugin-ie_x64.msi TARGETDIR="$cwd\X64" | Out-Null
 msiexec /qn /a esteid-plugin-ie_x86.msi TARGETDIR="$cwd\X86" | Out-Null
-foreach($item in $shell.NameSpace("$cwd\esteid-pkcs11-module-loader.zip").items()) {
-    $shell.Namespace("$cwd\$env:LOADER_PATH").CopyHere($item,0x14)
-}
+
 
 Remove-Item "$env:CLIENT_PATH\certs\TEST*.crt"
 & $heat dir "$env:CLIENT_PATH\certs" -gg -scom -sreg -sfrag -srd -cg SKCertificates `
