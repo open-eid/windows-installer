@@ -62,18 +62,14 @@
                        Name="{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}"
                        Value="51667a6c4c1d3b1bb4895b3145e674018a3f8b3a27bb3b2e" Type="binary" Action="write"/>
 
-        <RegistryKey Root="HKLM"
-                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}"
-                     Action="createAndRemoveOnUninstall"/>
-        <RegistryKey Root="HKLM"
-                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"
-                     Action="createAndRemoveOnUninstall"/>
-        <RegistryKey Root="HKCR"
-                     Key="CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"
-                     Action="createAndRemoveOnUninstall"/>
-      <RegistryKey Root="HKLM"
-                   Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID"
-                   Action="create"/>
+        <RegistryKey Root="HKLM" ForceCreateOnInstall="yes"
+                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}"/>
+        <RegistryKey Root="HKLM" ForceCreateOnInstall="yes"
+                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"/>
+        <RegistryKey Root="HKCR" ForceCreateOnInstall="yes"
+                     Key="CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"/>
+      <RegistryKey Root="HKLM" ForceCreateOnInstall="yes"
+                   Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID"/>
       <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID"
                      Name="{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}" Value="1" Action="write" Type="string"/>
       </Component>
@@ -132,15 +128,12 @@
                        Name="{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}"
                        Value="51667a6c4c1d3b1bb4895b3145e674018a3f8b3a27bb3b2e" Type="binary" Action="write"/>
 
-        <RegistryKey Root="HKLM"
-                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}"
-                     Action="createAndRemoveOnUninstall"/>
-        <RegistryKey Root="HKLM"
-                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"
-                     Action="createAndRemoveOnUninstall"/>
-        <RegistryKey Root="HKCR"
-                     Key="CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"
-                     Action="createAndRemoveOnUninstall"/>
+        <RegistryKey Root="HKLM" ForceCreateOnInstall="yes"
+                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{7DD95801-9882-11CF-9FA9-00AA006C42C4}"/>
+        <RegistryKey Root="HKLM" ForceCreateOnInstall="yes"
+                     Key="SOFTWARE\Classes\CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"/>
+        <RegistryKey Root="HKCR" ForceCreateOnInstall="yes"
+                     Key="CLSID\{2A4E94A4-B275-491A-9E32-CD7A26FC7C3B}\Implemented Categories\{59fb2056-d625-48d0-a944-1a85b5ab2640}"/>
 
       </Component>
     </DirectoryRef>

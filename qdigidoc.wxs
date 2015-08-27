@@ -89,7 +89,7 @@
             <!-- Always install 32 bit shell extension. -->
             <Component Id="EsteidShellExtension.dll" Guid="*">
                 <File Source="$(env.ARCHIVE)\X86\EsteidShellExtension.dll" Checksum="yes" Vital="yes" />
-                <RegistryKey Root="HKCR" Key="CLSID\$(var.ShellExtId)\InprocServer32" Action="createAndRemoveOnUninstall">
+                <RegistryKey Root="HKCR" Key="CLSID\$(var.ShellExtId)\InprocServer32">
                     <RegistryValue Type="string" Value="[APPLICATIONFOLDER]EsteidShellExtension.dll"/>
                     <RegistryValue Type="string" Name="ThreadingModel" Value="Apartment" />
                 </RegistryKey>
@@ -112,7 +112,7 @@
         <DirectoryRef Id="APPLICATION64FOLDER">
             <Component Id="EsteidShellExtension_64.dll" Guid="*" Win64="yes">
                 <File Id="EsteidShellExtension_64.dll" Source="$(env.ARCHIVE)\X64\EsteidShellExtension.dll" Checksum="yes" Vital="yes" />
-                <RegistryKey Root="HKCR" Key="CLSID\$(var.ShellExtId)\InprocServer32" Action="createAndRemoveOnUninstall">
+                <RegistryKey Root="HKCR" Key="CLSID\$(var.ShellExtId)\InprocServer32">
                     <RegistryValue Type="string" Value="[#EsteidShellExtension_64.dll]"/>
                     <RegistryValue Type="string" Name="ThreadingModel" Value="Apartment" />
                 </RegistryKey>

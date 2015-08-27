@@ -19,9 +19,8 @@
                 <File Source="$(env.ARCHIVE)\X86\pkcs15-tool.exe" />
                 <File Source="$(env.ARCHIVE)\X86\eidenv.exe" />
                 <File Source="$(env.ARCHIVE)\X86\opensc.conf" />
-                <RegistryKey Root="HKLM" Key="Software\OpenSC Project\OpenSC" Action="createAndRemoveOnUninstall">
-                    <RegistryValue Type="string" Name="ConfigFile" Value="[APPLICATIONFOLDER]opensc.conf" />
-                </RegistryKey>
+                <RegistryValue Root="HKLM" Key="Software\OpenSC Project\OpenSC"
+                    Type="string" Name="ConfigFile" Value="[APPLICATIONFOLDER]opensc.conf" />
             </Component>
         </DirectoryRef>
 

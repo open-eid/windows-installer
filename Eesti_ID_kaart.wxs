@@ -74,8 +74,8 @@
         <Directory Id="EsteidShortcutFolder" Name="!(loc.idcardLabel)">
           <Component Id="EsteidShortcutComponent" Guid="*">
             <RemoveFolder Id="CleanupShortcutFolder" On="uninstall"/>
-            <RegistryValue Root="HKMU" Key="Software\Estonian ID Card" Name="Installed" Value="[APPLICATIONFOLDER]"
-                           Type="string" KeyPath="yes"/>
+            <RegistryValue Root="HKMU" Key="Software\Estonian ID Card"
+                Name="Installed" Value="[APPLICATIONFOLDER]" Type="string" KeyPath="yes"/>
          </Component>
        </Directory>
       </Directory>
@@ -97,9 +97,8 @@
       <?if $(var.Platform) = "x64" ?>
       <Component Id="RegistryInfo_64" Guid="*" Win64="yes">
         <Condition>Privileged</Condition>
-        <RegistryKey Root="HKLM" Key="Software\Estonian ID Card" Action="createAndRemoveOnUninstall">
-          <RegistryValue Type="string" Name="Installed" Value="[APPLICATIONFOLDER]"/>
-        </RegistryKey>
+        <RegistryValue Root="HKLM" Key="Software\Estonian ID Card"
+            Name="Installed" Value="[APPLICATIONFOLDER]" Type="string"/>
       </Component>
       <?endif ?>
     </Directory>
