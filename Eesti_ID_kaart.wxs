@@ -80,10 +80,7 @@
        </Directory>
       </Directory>
       <Directory Id='ProgramFilesFolder'>
-        <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)">
-          <Directory Id="CertificatesFolder" Name="certs"/>
-          <Directory Id="SchemaFolder" Name="schema"/>
-        </Directory>
+        <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)"/>
       </Directory>
       <Directory Id="SystemFolder"/>
       <?if $(var.Platform)=x64 ?>

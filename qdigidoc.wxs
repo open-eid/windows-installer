@@ -23,8 +23,10 @@
             <?endif ?>
         </ComponentGroup>
 
-        <DirectoryRef Id="SchemaFolder">
-            <Component Id="schema" Guid="cd21ad2f-0098-413b-8c6e-c9132d5f0e56">
+        <DirectoryRef Id="APPLICATIONFOLDER">
+            <Directory Id="CertificatesFolder" Name="certs"/>
+            <Directory Id="SchemaFolder" Name="schema">
+              <Component Id="schema" Guid="cd21ad2f-0098-413b-8c6e-c9132d5f0e56">
                 <File Source="$(env.CLIENT_PATH)\schema\conf.xsd"/>
                 <File Source="$(env.CLIENT_PATH)\schema\OpenDocument_manifest.xsd"/>
                 <File Source="$(env.CLIENT_PATH)\schema\xmldsig-core-schema.xsd"/>
@@ -33,9 +35,7 @@
                 <File Source="$(env.CLIENT_PATH)\schema\ts_119612v010101.xsd"/>
                 <File Source="$(env.CLIENT_PATH)\schema\ts_102918v010201.xsd"/>
             </Component>
-        </DirectoryRef>
-
-        <DirectoryRef Id="APPLICATIONFOLDER">
+           </Directory>
             <Component Id="digidoc" Guid="{2EF5C683-22B4-40cc-8ABC-931167365CE5}">
                 <File Source="$(env.CLIENT_PATH)\digidoc.ini" KeyPath="yes"/>
                 <IniFile Id="setCaCertPath" Action="addLine" Directory="APPLICATIONFOLDER" Name="digidoc.ini"
