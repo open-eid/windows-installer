@@ -1,0 +1,91 @@
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+    xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+    xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Bundle Name="$(var.filename)" Version="$(env.MSI_VERSION)" Manufacturer="RIA"
+      UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
+      Copyright="RIA" IconSourceFile="ID.ico" AboutUrl="http://www.id.ee"
+      Condition="(VersionNT >= v6.1)" DisableModify="yes">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
+      <bal:WixStandardBootstrapperApplication
+          LicenseUrl=""
+          SuppressRepair="yes"
+          LogoFile="Bitmaps\banner.bmp"
+          LogoSideFile="Bitmaps\dlgbmp.bmp"
+          ThemeFile="HyperlinkSidebarTheme.xml"
+          LaunchTarget="[InstallFolder]\qesteidutil.exe"/>
+        <Payload Name="1033\thm.wxl" SourceFile="HyperlinkSidebarTheme.en.wxl"/>
+        <Payload Name="1061\thm.wxl" SourceFile="HyperlinkSidebarTheme.et.wxl"/>
+    </BootstrapperApplicationRef>
+    <Variable Name="IconsDesktop" Type="numeric" Value="1"/>
+    <Variable Name="IcondStartMenu" Type="numeric" Value="1"/>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFilesFolder]$(env.IDCardFolder)"/>
+    <util:RegistrySearch Id="PreviousInstallFolderSearch" Root='HKLM' Key='Software\Estonian ID Card'
+      Value='Installed' Variable='PreviousInstallFolder'/>
+    <util:DirectorySearch Path='[PreviousInstallFolder]' Variable='InstallFolder'
+      After='PreviousInstallFolderSearch' Condition='PreviousInstallFolder'/>
+    <Chain>
+<?ifdef env.URL ?>
+<?define embed="no" ?>
+<?define URL=$(env.URL) ?>
+<?else?>
+<?define embed="yes" ?>
+<?define URL="https://installer.id.ee/media/windows/{2}" ?>
+<?endif ?>
+      <MsiPackage Id="CustomPackage.en_US.X64" InstallCondition="(NOT (UserLanguageID = 1061)) AND (VersionNT64) AND CustomizeInstall"
+          SourceFile="$(var.filename)_en-US.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
+        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+      <MsiPackage Id="CustomPackage.et_EE.X64" InstallCondition="(UserLanguageID = 1061) AND (VersionNT64) AND CustomizeInstall"
+          SourceFile="$(var.filename)_et-EE.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
+        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="CustomPackage.en_US.X86" InstallCondition="(NOT (UserLanguageID = 1061)) AND (NOT VersionNT64) AND CustomizeInstall"
+          SourceFile="$(var.filename)_en-US.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
+        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+      <MsiPackage Id="CustomPackage.et_EE.X86" InstallCondition="(UserLanguageID = 1061) AND (NOT VersionNT64) AND CustomizeInstall"
+          SourceFile="$(var.filename)_et-EE.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
+        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="MainPackage.en_US.X64" InstallCondition="(NOT (UserLanguageID = 1061)) AND (VersionNT64) AND NOT CustomizeInstall"
+          SourceFile="$(var.filename)_en-US.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+      <MsiPackage Id="MainPackage.et_EE.X64" InstallCondition="(UserLanguageID = 1061) AND (VersionNT64) AND NOT CustomizeInstall"
+          SourceFile="$(var.filename)_et-EE.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="MainPackage.en_US.X86" InstallCondition="(NOT (UserLanguageID = 1061)) AND (NOT VersionNT64) AND NOT CustomizeInstall"
+          SourceFile="$(var.filename)_en-US.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+      <MsiPackage Id="MainPackage.et_EE.X86" InstallCondition="(UserLanguageID = 1061) AND (NOT VersionNT64) AND NOT CustomizeInstall"
+          SourceFile="$(var.filename)_et-EE.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>

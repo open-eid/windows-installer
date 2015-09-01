@@ -4,6 +4,7 @@ param(
    [string]$candle = "$env:WIX\bin\candle.exe",
    [string]$light = "$env:WIX\bin\light.exe",
    [string]$torch = "$env:WIX\bin\torch.exe",
+   [string]$insignia = "$env:WIX\bin\insignia.exe",
    [string]$msbuild = "C:\Program Files (x86)\MSBuild\12.0\Bin\MSBuild.exe",
    [string]$version = "3.12.0.0",
    [string]$sign = $null
@@ -14,6 +15,7 @@ $env:CLIENT_PATH = "libs\DigiDoc3 Client"
 $env:UTIL_PATH = "libs\ID-card utility"
 $env:CHROME_TOKEN_PATH = "libs\Chrome Token Signing"
 $env:ARCHIVE = "."
+$env:IDCardFolder = "Estonian ID Card"
 if( !(Test-Path Env:\VCINSTALLDIR) ) {
     $env:VCINSTALLDIR = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\"
 }
@@ -25,6 +27,18 @@ $installer = new-object -comobject WindowsInstaller.Installer
 Function Sign ($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /t http://timestamp.verisign.com/scripts/timstamp.dll "$filename"
+}
+
+Function CreateBurn ($suffix) {
+    & $candle bootstrapper.wxs "-dfilename=$filename" -nologo -ext WixBalExtension -ext WixUtilExtension
+    & $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename.$suffix"
+    if($sign) {
+        cp "$filename.$suffix" "unsigned"
+        & $insignia -nologo -ib "$filename.$suffix" -o engine.exe
+        Sign("engine.exe")
+        & $insignia -nologo -ab engine.exe "$filename.$suffix" -o "$filename.$suffix"
+        Sign("$filename.$suffix")
+    }
 }
 
 Function CreateProductsXML ($msi, $out) {
@@ -101,3 +115,9 @@ foreach($platform in @("x86", "x64")) {
       "$($filename)_$($cultures[1]).$platform.msi"
     CreateProductsXML "$($filename)_$($cultures[1]).$platform.msi" "products_$platform.xml"
 }
+
+if( (Test-Path Env:\URL) ) {
+    CreateBurn("URL.exe")
+}
+$env:URL = ""
+CreateBurn("exe")

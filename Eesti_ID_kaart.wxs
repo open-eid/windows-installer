@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define IDCardFolder = "Estonian ID Card" ?>
 <?define UpgradeCode = "{58A1DBA8-81A2-4D58-980B-4A6174D5B66B}" ?>
 <?ifdef env.VER_SUFFIX ?>
 <?define VER_SUFFIX=$(env.VER_SUFFIX) ?>
@@ -80,13 +79,13 @@
        </Directory>
       </Directory>
       <Directory Id='ProgramFilesFolder'>
-        <Directory Id="APPLICATIONFOLDER" Name="$(var.IDCardFolder)"/>
+        <Directory Id="APPLICATIONFOLDER" Name="$(env.IDCardFolder)"/>
       </Directory>
       <Directory Id="SystemFolder"/>
       <?if $(var.Platform)=x64 ?>
       <Directory Id="System64Folder"/>
       <Directory Id='ProgramFiles64Folder'>
-        <Directory Id="APPLICATION64FOLDER" Name="$(var.IDCardFolder)"/>
+        <Directory Id="APPLICATION64FOLDER" Name="$(env.IDCardFolder)"/>
       </Directory>
       <?endif ?>
 
@@ -176,6 +175,7 @@
     <Property Id="STARTMENU_SHORTCUT" Value="1"/>
     <Property Id="AUTO_UPDATE" Value="1"/>
     <Property Id="AUTO_RUN" Value="1"/>
+    <Property Id="SKIPWELCOME" Value="0"/>
 
     <SetProperty Id="ARPINSTALLLOCATION" Value="[APPLICATIONFOLDER]" After="CostFinalize"/>
     <SetProperty Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="!(loc.RunQesteidUtilDescription)" After="ExecuteAction" Sequence="ui"><![CDATA[&qesteidutil = 3]]></SetProperty>
@@ -221,7 +221,8 @@
 
     <InstallUISequence>
       <FindRelatedProducts Before="LaunchConditions"/>
+      <Show Dialog="WelcomeDlg" Before="ProgressDlg">(NOT Installed OR PATCH) AND SKIPWELCOME = 0</Show>
+      <Show Dialog="CustomizeDlg" Before="ProgressDlg">(NOT Installed OR PATCH) AND SKIPWELCOME = 1</Show>
     </InstallUISequence>
-
   </Product>
 </Wix>
