@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<?define QtPATH = "C:\Qt\5.4\msvc2013" ?>
+<?define QtPATH = "C:\Qt\5.5\msvc2013" ?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
@@ -33,9 +33,9 @@
         <File Source="$(var.QtPATH)\bin\Qt5WinExtras.dll" />
         <File Source="$(var.QtPATH)\bin\libEGL.dll" />
         <File Source="$(var.QtPATH)\bin\libGLESv2.dll" />
-        <File Source="$(var.QtPATH)\bin\icudt53.dll" />
-        <File Source="$(var.QtPATH)\bin\icuin53.dll" />
-        <File Source="$(var.QtPATH)\bin\icuuc53.dll" />
+        <File Source="$(var.QtPATH)\bin\icudt54.dll" />
+        <File Source="$(var.QtPATH)\bin\icuin54.dll" />
+        <File Source="$(var.QtPATH)\bin\icuuc54.dll" />
         <File Source="$(var.QtPATH)\bin\D3DCompiler_47.dll" />
         <File Source="$(var.QtPATH)\bin\opengl32sw.dll" />
       </Component>
