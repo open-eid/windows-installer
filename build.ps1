@@ -18,16 +18,39 @@ if( !(Test-Path Env:\VCINSTALLDIR) ) {
     $env:VCINSTALLDIR = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\"
 }
 $filename = "Eesti_ID_kaart-$version$env:VER_SUFFIX"
+$cwd = Split-Path $MyInvocation.MyCommand.Path
+$shell = new-object -com shell.application
+$installer = new-object -comobject WindowsInstaller.Installer
 
 Function Sign ($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /t http://timestamp.verisign.com/scripts/timstamp.dll "$filename"
 }
 
-& $msbuild "/p:Configuration=Release;Platform=Win32" EstEIDFindCertificateAction\EstEIDFindCertificateAction.vcxproj
+Function CreateProductsXML ($msi, $out) {
+    $db = $installer.GetType().InvokeMember("OpenPackage","InvokeMethod",$Null,$installer,@("$cwd\$msi",1))
+    if(!$db) {
+        return
+    }
 
-$cwd = Split-Path $MyInvocation.MyCommand.Path
-$shell = new-object -com shell.application
+    $xml = New-Object System.XMl.XmlTextWriter("$cwd\$out",$Null)
+    $xml.Formatting = "Indented"
+    $xml.Indentation = "4"
+    $xml.WriteStartDocument()
+    $xml.WriteStartElement("products")
+    $xml.WriteStartElement("product")
+    $xml.WriteAttributeString("filename", $msi)
+    foreach($property in @("ProductName", "ProductVersion", "Manufacturer", "ProductCode", "UpgradeCode")) {
+        $xml.WriteAttributeString($property, $db.GetType().InvokeMember("Property","GetProperty",$Null,$db,$property))
+    }
+    $xml.WriteEndElement()
+    $xml.WriteEndElement()
+    $xml.WriteEndDocument()
+    $xml.Close()
+    [System.Runtime.Interopservices.Marshal]::ReleaseComObject($db)
+}
+
+& $msbuild "/p:Configuration=Release;Platform=Win32" EstEIDFindCertificateAction\EstEIDFindCertificateAction.vcxproj
 
 mkdir -Force -Path "libs"
 mkdir -Force -Path "unsigned"
@@ -76,6 +99,5 @@ foreach($platform in @("x86", "x64")) {
       "$($filename)_$($cultures[1]).$platform.mst" `
       "$($filename)_$($cultures[0]).$platform.msi" `
       "$($filename)_$($cultures[1]).$platform.msi"
-    cscript query.wsf "$($filename)_$($cultures[1]).$platform.msi"
-    mv -Force products.xml "products_$platform.xml"
+    CreateProductsXML "$($filename)_$($cultures[1]).$platform.msi" "products_$platform.xml"
 }
