@@ -20,7 +20,7 @@
 
     <DirectoryRef Id="APPLICATIONFOLDER">
       <Component Id="npesteid_firefox_plugin.dll" Guid="F765A58E-9766-4a93-8C3E-1017AEF15362">
-        <File Source="$(env.ARCHIVE)\X86\npesteid-firefox-plugin.dll" />
+        <File Source="$(env.ARCHIVE)\X86\Firefox Token Signing Plugin\npesteid-firefox-plugin.dll" />
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
                        Value="[#npesteid_firefox_plugin.dll]" Type="string" Action="write"/>
       </Component>
@@ -35,7 +35,7 @@
     <?if $(var.Platform) = "x64" ?>
     <DirectoryRef Id="APPLICATION64FOLDER">
       <Component Id="npesteid_firefox_plugin_X64.dll" Guid="2b6a8eec-93b6-4c07-9845-1a2132ef8a47" Win64="yes">
-        <File Id="npesteid_firefox_plugin_X64.dll" Source="$(env.ARCHIVE)\X64\npesteid-firefox-plugin.dll" />
+        <File Id="npesteid_firefox_plugin_X64.dll" Source="$(env.ARCHIVE)\X64\Firefox Token Signing Plugin\npesteid-firefox-plugin.dll" />
         <RegistryValue Root="HKLM" Key="Software\MozillaPlugins\@RIA/esteid-firefox-plugin" Name="Path"
                        Value="[#npesteid_firefox_plugin_X64.dll]" Type="string" Action="write"/>
       </Component>
@@ -55,17 +55,5 @@
         </Directory>
       </Directory>
     </DirectoryRef>
-
-    <!-- Close Firefox before installing OpenSC and Firefox extension. -->
-    <!--
-         CloseApplication in Wix 3.0 RTM doesn't support showing the message.
-         Disabling the custom action for now.
-    <util:CloseApplication Id="CloseFirefox"
-                           CloseMessage="no"
-                           Target="firefox.exe"
-                           RebootPrompt="no"
-                           Description="Firefox is running and needs to be closed." />
-    -->
-
   </Fragment>
 </Wix>

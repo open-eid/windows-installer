@@ -36,6 +36,8 @@ msiexec /qn /a ID-card_utility.msi TARGETDIR="$cwd\libs" | Out-Null
 msiexec /qn /a chrome-token-signing.msi TARGETDIR="$cwd\libs" | Out-Null
 msiexec /qn /a esteid-plugin-ie_x64.msi TARGETDIR="$cwd\X64" | Out-Null
 msiexec /qn /a esteid-plugin-ie_x86.msi TARGETDIR="$cwd\X86" | Out-Null
+msiexec /qn /a firefox-token-signing_x86.msi TARGETDIR="$cwd\X86" | Out-Null
+msiexec /qn /a firefox-token-signing_x64.msi TARGETDIR="$cwd\X64" | Out-Null
 
 Remove-Item "$env:CLIENT_PATH\certs\TEST*.crt"
 & $heat dir "$env:CLIENT_PATH\certs" -nologo -gg -scom -sreg -sfrag -srd -cg SKCertificates `
