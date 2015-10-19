@@ -1,90 +1,172 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <Bundle Name="$(var.filename)" Version="$(env.MSI_VERSION)" Manufacturer="RIA"
+  <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
       Copyright="RIA" IconSourceFile="ID.ico" AboutUrl="http://www.id.ee"
-      Condition="(VersionNT >= v6.1)" DisableModify="yes">
+      Condition="(VersionNT >= v6.1)"><!-- DisableModify="yes"-->
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
-          SuppressRepair="yes"
-          LogoFile="Bitmaps\banner.bmp"
-          LogoSideFile="Bitmaps\dlgbmp.bmp"
-          ThemeFile="HyperlinkSidebarTheme.xml"
-          LaunchTarget="[InstallFolder]\qesteidutil.exe"/>
+          LogoFile="banner.bmp"
+          LogoSideFile="dlgbmp.bmp"
+          ThemeFile="HyperlinkSidebarTheme.xml"/>
+          <!--SuppressRepair="yes"-->
         <Payload Name="1033\thm.wxl" SourceFile="HyperlinkSidebarTheme.en.wxl"/>
         <Payload Name="1061\thm.wxl" SourceFile="HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
-    <Variable Name="IconsDesktop" Type="numeric" Value="1"/>
-    <Variable Name="IcondStartMenu" Type="numeric" Value="1"/>
-    <Variable Name="InstallFolder" Type="string" Value="[ProgramFilesFolder]$(env.IDCardFolder)"/>
-    <util:RegistrySearch Id="PreviousInstallFolderSearch" Root='HKLM' Key='Software\Estonian ID Card'
-      Value='Installed' Variable='PreviousInstallFolder'/>
-    <util:DirectorySearch Path='[PreviousInstallFolder]' Variable='InstallFolder'
-      After='PreviousInstallFolderSearch' Condition='PreviousInstallFolder'/>
+
+    <Variable Name="REGPath" Type="string" Value="Software\[WixBundleManufacturer]\Open-EID"/>
+    <Variable Name="IESupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="QdigidocInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="QesteidutilInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="IconsDesktop" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="AutoUpdate" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="RunQesteidutil" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]\Open-EID"/>
+
+    <!--util:RegistrySearch Root="HKLM" Key="Software\Estonian ID Card" Value="Installed" Variable="EstEIDInstallFolder"/-->
+    <!--util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="Installed" Variable="PreviousInstallFolder"/-->
+    <!--util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="Installed" Variable="PreviousX64InstallFolder" Win64="yes"/-->
+    <!--util:DirectorySearch Path="[EstEIDInstallFolder]" Variable="InstallFolder" Condition="EstEIDInstallFolder"/-->
+    <!--util:DirectorySearch Path="[PreviousInstallFolder]" Variable="InstallFolder" Condition="PreviousInstallFolder"/-->
+    <!--util:DirectorySearch Path="[PreviousX64InstallFolder]" Variable="InstallFolder" Condition="PreviousX64InstallFolder"/-->
+
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="IESupport" Variable="IESupportExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="IESupport" Variable="IESupport" Condition="IESupportExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="ChromeSupport" Variable="ChromeSupportExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="ChromeSupport" Variable="ChromeSupport" Condition="ChromeSupportExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="FirefoxSupport" Variable="FirefoxSupportExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="QdigidocInstall" Variable="QdigidocInstallExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="QdigidocInstall" Variable="QdigidocInstall" Condition="QdigidocInstallExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="QesteidutilInstall" Variable="QesteidutilInstallExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="QesteidutilInstall" Variable="QesteidutilInstall" Condition="QesteidutilInstallExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="[REGPath]" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists"/>
+
     <Chain>
-<?ifdef env.URL ?>
-<?define embed="no" ?>
-<?define URL=$(env.URL) ?>
-<?else?>
-<?define embed="yes" ?>
-<?define URL="https://installer.id.ee/media/windows/{2}" ?>
-<?endif ?>
-      <MsiPackage Id="CustomPackage.en_US.X64" InstallCondition="(NOT (UserLanguageID = 1061)) AND (VersionNT64) AND CustomizeInstall"
-          SourceFile="$(var.filename)_en-US.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
-        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+      <MsiPackage Id="Uninstaller" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Minidriver.X64" InstallCondition="VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="Minidriver.X86" InstallCondition="NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.minidriver).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="IE.X64" InstallCondition="VersionNT64 AND IESupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.ieplugin)_x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="APPLICATION64FOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="IE.X86" InstallCondition="NOT VersionNT64 AND IESupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.ieplugin)_x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Chrome.X86" InstallCondition="ChromeSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.chrome).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.firefox)_x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <!--MsiPackage Id="Firefox.X64" InstallCondition="VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.firefox)_x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage-->
+
+      <MsiPackage Id="Updater.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.updater).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
+      </MsiPackage>
+      <MsiPackage Id="Updater.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.updater).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="FirefoxLoader.X64"  InstallCondition="VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.loader).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="FirefoxLoader.X86"  InstallCondition="NOT VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.loader).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="qdigidoc.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
-      <MsiPackage Id="CustomPackage.et_EE.X64" InstallCondition="(UserLanguageID = 1061) AND (VersionNT64) AND CustomizeInstall"
-          SourceFile="$(var.filename)_et-EE.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
-        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+      <MsiPackage Id="qdigidoc.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
-      <MsiPackage Id="CustomPackage.en_US.X86" InstallCondition="(NOT (UserLanguageID = 1061)) AND (NOT VersionNT64) AND CustomizeInstall"
-          SourceFile="$(var.filename)_en-US.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
-        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+      <MsiPackage Id="qdigidoc.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND NOT VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
-      <MsiPackage Id="CustomPackage.et_EE.X86" InstallCondition="(UserLanguageID = 1061) AND (NOT VersionNT64) AND CustomizeInstall"
-          SourceFile="$(var.filename)_et-EE.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)" DisplayInternalUI="yes">
-        <MsiProperty Name="SKIPWELCOME" Value="1"/>
+      <MsiPackage Id="qdigidoc.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND NOT VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
-      <MsiPackage Id="MainPackage.en_US.X64" InstallCondition="(NOT (UserLanguageID = 1061)) AND (VersionNT64) AND NOT CustomizeInstall"
-          SourceFile="$(var.filename)_en-US.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="qesteidutil.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND VersionNT64 AND QesteidutilInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qesteidutil).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="RUN_UTIL" Value="[RunQesteidutil]"/>
       </MsiPackage>
-      <MsiPackage Id="MainPackage.et_EE.X64" InstallCondition="(UserLanguageID = 1061) AND (VersionNT64) AND NOT CustomizeInstall"
-          SourceFile="$(var.filename)_et-EE.x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="qesteidutil.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND VersionNT64 AND QesteidutilInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qesteidutil).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="RUN_UTIL" Value="[RunQesteidutil]"/>
       </MsiPackage>
 
-      <MsiPackage Id="MainPackage.en_US.X86" InstallCondition="(NOT (UserLanguageID = 1061)) AND (NOT VersionNT64) AND NOT CustomizeInstall"
-          SourceFile="$(var.filename)_en-US.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="qesteidutil.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND NOT VersionNT64 AND QesteidutilInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qesteidutil).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="RUN_UTIL" Value="[RunQesteidutil]"/>
       </MsiPackage>
-      <MsiPackage Id="MainPackage.et_EE.X86" InstallCondition="(UserLanguageID = 1061) AND (NOT VersionNT64) AND NOT CustomizeInstall"
-          SourceFile="$(var.filename)_et-EE.x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="qesteidutil.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND NOT VersionNT64 AND QesteidutilInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qesteidutil).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="STARTMENU_SHORTCUT" Value="[IcondStartMenu]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="RUN_UTIL" Value="[RunQesteidutil]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
+        <MsiProperty Name="IESupport" Value="[IESupport]"/>
+        <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]"/>
+        <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]"/>
+        <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]"/>
+        <MsiProperty Name="QdigidocInstall" Value="[QdigidocInstall]"/>
+        <MsiProperty Name="QesteidutilInstall" Value="[QesteidutilInstall]"/>
+        <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]"/>
+        <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]"/>
       </MsiPackage>
     </Chain>
   </Bundle>

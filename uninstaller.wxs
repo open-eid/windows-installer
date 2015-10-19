@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+  <Product Id='*' Name='Open-EID Uninstaller' Language='1033' Version='$(var.MSI_VERSION)'
+           UpgradeCode='58A1DBA8-81A2-4D58-980B-4A6174D5B66B' Manufacturer='RIA'>
+    <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
+    <Media Id='1' />
+    <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
+      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
+    <Directory Id='TARGETDIR' Name='SourceDir'/>
+    <Feature Id='MainFeature' Level='1'>
+      <Component Id='Content' Directory='TARGETDIR' Transitive="yes" Guid="e7487483-9ca8-42f5-bb66-070d8f3503ee"/>
+    </Feature>
+  </Product>
+</Wix>

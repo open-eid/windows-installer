@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+  <Product Id='*' Name='Open-EID Metapackage' Language='1033' Version='$(var.MSI_VERSION)'
+           UpgradeCode='42137cbc-8356-4ac4-9295-735f258b5abb' Manufacturer='RIA'>
+    <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
+    <Media Id='1' />
+    <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
+      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
+    <Property Id='IESUPPORT' Value="0"/>
+    <Property Id='CHROMESUPPORT' Value="0"/>
+    <Property Id='FIREFOXSUPPORT' Value="0"/>
+    <Property Id='MINIDRIVERINSTALL' Value="0"/>
+    <Property Id='QDIGIDOCINSTALL' Value="0"/>
+    <Property Id='QESTEIDUTILINSTALL' Value="0"/>
+    <Property Id='AUTOUPDATE' Value="0"/>
+    <Property Id='ICONSDESKTOP' Value="0"/>
+    <Directory Id='TARGETDIR' Name='SourceDir'/>
+    <Feature Id='MainFeature' Level='1'>
+      <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='IESupport' Value='[IESUPPORT]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='ChromeSupport' Value='[CHROMESUPPORT]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='MinidriverInstall' Value='[MINIDRIVERINSTALL]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='QdigidocInstall' Value='[QDIGIDOCINSTALL]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='QesteidutilInstall' Value='[QESTEIDUTILINSTALL]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='AutoUpdate' Value='[AUTOUPDATE]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='IconsDesktop' Value='[ICONSDESKTOP]' Type='integer' />
+      </Component>
+    </Feature>
+  </Product>
+</Wix>

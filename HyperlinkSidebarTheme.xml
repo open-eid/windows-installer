@@ -31,14 +31,32 @@
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
     <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
     <Text X="11" Y="80" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
-    <Text X="11" Y="121" Width="-11" Height="17" FontId="3">#(loc.OptionsLocationLabel)</Text>
-    <Editbox Name="FolderEditbox" X="11" Y="143" Width="-91" Height="21" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" />
-    <Button Name="BrowseButton" X="-11" Y="142" Width="75" Height="23" TabStop="yes" FontId="3">#(loc.OptionsBrowseButton)</Button>
-    <Checkbox Name="CustomizeInstall" X="11" Y="166" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsCustomizeInstall)</Checkbox>
-    <Checkbox Name="IconsDesktop" X="11" Y="188" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
-    <Checkbox Name="IcondStartMenu" X="11" Y="210" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsStartMenu)</Checkbox>
+    <!--Text X="11" Y="121" Width="-11" Height="17" FontId="3">#(loc.OptionsLocationLabel)</Text-->
+    <!--Editbox Name="FolderEditbox" X="11" Y="143" Width="-91" Height="21" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" /-->
+    <!--Button Name="BrowseButton" X="-11" Y="142" Width="75" Height="23" TabStop="yes" FontId="3">#(loc.OptionsBrowseButton)</Button-->
+    <Checkbox Name="IESupport" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
+    <Checkbox Name="MinidriverInstall" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.minidriver)</Checkbox>
+    <Checkbox Name="QdigidocInstall" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qdigidoc)</Checkbox>
+    <Checkbox Name="QesteidutilInstall" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qesteidutil)</Checkbox>
+    <Checkbox Name="IconsDesktop" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Checkbox Name="RunQesteidutil" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.RunQesteidUtilDescription)</Checkbox>
     <Button Name="OptionsOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsOkButton)</Button>
     <Button Name="OptionsCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsCancelButton)</Button>
+  </Page>
+  <Page Name="FilesInUse">
+    <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
+    <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
+    <Text X="11" Y="80" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.FilesInUseHeader)</Text>
+    <Text X="11" Y="121" Width="-11" Height="34" FontId="3" DisablePrefix="yes">#(loc.FilesInUseLabel)</Text>
+    <Text Name="FilesInUseText" X="11" Y="150" Width="-11" Height="-86" FontId="3" DisablePrefix="yes" HexStyle="0x0000000C"></Text>
+
+    <Button Name="FilesInUseCloseRadioButton" X="11" Y="-60" Width="-11" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes" HexStyle="0x000009">#(loc.FilesInUseCloseRadioButton)</Button>
+    <Button Name="FilesInUseDontCloseRadioButton" X="11" Y="-40" Width="-11" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes" HexStyle="0x000009">#(loc.FilesInUseDontCloseRadioButton)</Button>
+
+    <Button Name="FilesInUseOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.FilesInUseOkButton)</Button>
+    <Button Name="FilesInUseCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.FilesInUseCancelButton)</Button>
   </Page>
   <Page Name="Progress">
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
@@ -50,9 +68,19 @@
     <Button Name="ProgressCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ProgressCancelButton)</Button>
   </Page>
   <Page Name="Modify">
-    <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
+    <!--Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Text>
+    <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Text-->
+    <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
+    <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
+    <Text X="11" Y="80" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
+    <Checkbox Name="IESupport" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
+    <Checkbox Name="MinidriverInstall" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.minidriver)</Checkbox>
+    <Checkbox Name="QdigidocInstall" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qdigidoc)</Checkbox>
+    <Checkbox Name="QesteidutilInstall" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qesteidutil)</Checkbox>
+    <Checkbox Name="IconsDesktop" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Button Name="RepairButton" X="-171" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
     <Button Name="UninstallButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyUninstallButton)</Button>
     <Button Name="ModifyCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyCloseButton)</Button>
@@ -60,17 +88,22 @@
   <Page Name="Success">
     <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.SuccessHeader)</Text>
+    <Text Name="SuccessHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessHeader)</Text>
+    <Text Name="SuccessInstallHeader" X="185" Y="50" Width="-11" Height="100" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessInstallHeader)</Text>
+    <Text Name="SuccessRepairHeader" X="185" Y="50" Width="-11" Height="100" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessRepairHeader)</Text> 	
+    <Text Name="SuccessUninstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessUninstallHeader)</Text>	
     <Button Name="LaunchButton" X="-91" Y="-11" Width="175" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>
     <Text Name="SuccessRestartText" X="185" Y="-51" Width="400" Height="34" FontId="3" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessRestartText)</Text>
-    <Text X="185" Y="-111" Width="-11" Height="80" FontId="3" DisablePrefix="yes">#(loc.RunQesteidUtilDescription)</Text>
     <Button Name="SuccessRestartButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessRestartButton)</Button>
     <Button Name="SuccessCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.SuccessCloseButton)</Button>
   </Page>
   <Page Name="Failure">
     <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.FailureHeader)</Text>
+    <Text Name="FailureHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureHeader)</Text>
+    <Text Name="FailureInstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureInstallHeader)</Text>
+    <Text Name="FailureUninstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureUninstallHeader)</Text>
+    <Text Name="FailureRepairHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureRepairHeader)</Text>
     <Hypertext Name="FailureLogFileLink" X="185" Y="121" Width="-11" Height="68" FontId="3" TabStop="yes" HideWhenDisabled="yes">#(loc.FailureHyperlinkLogText)</Hypertext>
     <Hypertext Name="FailureMessageText" X="185" Y="-115" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes" />
     <Text Name="FailureRestartText" X="185" Y="-57" Width="-11" Height="80" FontId="3" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureRestartText)</Text>

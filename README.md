@@ -1,7 +1,7 @@
 windows-installer
 =================
 
-A MSI with DigiDoc, ID-card utility and package with various drivers.
+A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various drivers.
 
 1. Fetch the source
 
@@ -9,15 +9,14 @@ A MSI with DigiDoc, ID-card utility and package with various drivers.
         cd windows-installer
 
 2. Download dependencies to packages folder
-   * Digidoc3_Client.msi
-   * ID-card_utility.msi
-   * chrome-token-signing.msi
-   * esteid-plugin-ie_x64.msi
-   * esteid-plugin-ie_x86.msi
-   * id-updater.exe
-   * estonian_id_card_pkcs11_module_loader.xpi
-   * esteidcm*.zip
-   * OpenSC binaries
+   * Digidoc3_Client*.msi
+   * ID-card_utility*.msi
+   * ID-Updater*.msi
+   * chrome-token-signing*.msi
+   * esteid-plugin-ie*.msi
+   * firefox_pkcs11_loader*.msi
+   * firefox-token-signing*.msi
+   * minidriver*.msi
 
 3. Run build.ps1 script, optional parameter -version
 
@@ -25,7 +24,7 @@ A MSI with DigiDoc, ID-card utility and package with various drivers.
 
 4. Execute
 
-        Eesti_ID_kaart.msi 
+        Open-EID.exe
 
 ## Support
 Official builds are provided through official distribution point [installer.id.ee](https://installer.id.ee). If you want support, you need to be using official builds. Contact for assistance by email [abi@id.ee](mailto:abi@id.ee) or [www.id.ee](http://www.id.ee).
