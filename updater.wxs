@@ -17,12 +17,16 @@
     <CustomAction Id="ScheduleUpdater" FileKey="id_updater.exe" Impersonate="no" Execute="deferred"
                       ExeCommand="-weekly"
                       Return="ignore"/>
+    <CustomAction Id="RunUpdater" FileKey="id_updater.exe" Impersonate="no" Execute="deferred"
+                      ExeCommand="-task"
+                      Return="ignore"/>
     <CustomAction Id="UnScheduleUpdater" Directory="APPLICATIONFOLDER" Impersonate="no" Execute="deferred"
                       ExeCommand="id-updater.exe -remove"
                       Return="ignore"/>
 
     <InstallExecuteSequence>
         <Custom Action="ScheduleUpdater" Before="InstallFinalize">(NOT Installed) AND NOT (AUTO_UPDATE = 0)</Custom>
+        <Custom Action="RunUpdater" Before="InstallFinalize">(NOT Installed) AND (AUTO_UPDATE = 1) AND (AUTO_RUN = 1)</Custom>
         <Custom Action="UnScheduleUpdater" After="InstallInitialize">REMOVE="ALL"</Custom>
     </InstallExecuteSequence>
 

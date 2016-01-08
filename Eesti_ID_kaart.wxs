@@ -175,6 +175,7 @@
     <Property Id="DESKTOP_SHORTCUT" Value="1"/>
     <Property Id="STARTMENU_SHORTCUT" Value="1"/>
     <Property Id="AUTO_UPDATE" Value="1"/>
+    <Property Id="AUTO_RUN" Value="1"/>
 
     <SetProperty Id="ARPINSTALLLOCATION" Value="[APPLICATIONFOLDER]" After="CostFinalize"/>
     <SetProperty Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="!(loc.RunQesteidUtilDescription)" After="ExecuteAction" Sequence="ui"><![CDATA[&qesteidutil = 3]]></SetProperty>
