@@ -1,3 +1,13 @@
+Packaging version 3.12 release notes
+--------------------------------------
+Changes compared to ver 3.11.1
+
+- Improved installation package of eID software, it is now possible during installation process to customize the set of software components that will be installed. 
+- 64-bit versions of DigiDoc3 Client and ID-card utility are now supported in case of 64-bit Windows operating systems.
+- Improved OpenSC driver that is included in installation, added Dell 3G modem ATR values in order to avoid Firefox crashing if the Dell 3G card is used.
+- Changed branding.
+
+
 Packaging version 3.11.1 release notes
 --------------------------------------
 Changes compared to ver 3.11.0
