@@ -3,7 +3,7 @@
   <String Id="Caption">[WixBundleName] setup</String>
   <String Id="Title">[WixBundleName]</String>
   <String Id="InstallHeader">Welcome!</String>
-  <String Id="InstallMessage">Setup will install [WixBundleName] on your computer. Click Customize to modify installation options, Install to perform standard installation or Close to exit.</String>
+  <String Id="InstallMessage">Setup will install [WixBundleName] on your computer. ID-software allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit.</String>
   <String Id="InstallVersion">Version [WixBundleVersion]</String>
   <String Id="ConfirmCancelMessage">Are you sure you want to cancel?</String>
   <String Id="ExecuteUpgradeRelatedBundleMessage">Previous version</String>

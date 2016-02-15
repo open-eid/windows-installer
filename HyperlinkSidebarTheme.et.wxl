@@ -3,7 +3,7 @@
   <String Id="Caption">eID tarkvara paigaldus</String>
   <String Id="Title">eID tarkvara</String>
   <String Id="InstallHeader">Tere tulemast!</String>
-  <String Id="InstallMessage">Viisard paigaldab sellesse arvutisse rakenduse eID tarkvara. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu.</String>
+  <String Id="InstallMessage">Jätkamisel paigaldakse teie arvutisse ID-kaardiga allkirjastamise tarkvara. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu.</String>
   <String Id="InstallVersion">Versioon [WixBundleVersion]</String>
   <String Id="ConfirmCancelMessage">Oled kindel, et soovid katkestada?</String><!--Aga vastusenupud?--> 
   <String Id="ExecuteUpgradeRelatedBundleMessage">Eelmine versioon</String>
