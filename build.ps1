@@ -8,6 +8,7 @@ param(
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$updater = "ID-Updater",
    [string]$qdigidoc = "Digidoc3_Client",
+   [string]$shellext = "Digidoc3_ShellExt",
    [string]$qesteid = "ID-card_utility",
    [string]$minidriver = "minidriver",
    [string]$ieplugin = "ie-token-signing",
@@ -33,6 +34,7 @@ Function GetBaseName($find, $substring) {
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
 $qdigidoc = GetBaseName $qdigidoc 10
+$shellext = GetBaseName $shellext 4
 $qesteid = GetBaseName $qesteid 10
 $updater = GetBaseName $updater 4
 $ieplugin = GetBaseName $ieplugin 4
@@ -49,7 +51,7 @@ Function Create($filename, $defaultX64) {
     & $candle "$path\bootstrapper.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" `
         "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dminidriver=$minidriver" `
-        "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dfirefox=$firefox" "-dloader=$loader"
+        "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dfirefox=$firefox" "-dloader=$loader" "-dshellext=$shellext" 
     & $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"

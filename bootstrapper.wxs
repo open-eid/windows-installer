@@ -135,6 +135,15 @@
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
+      <MsiPackage Id="shellext.X86" InstallCondition="NOT VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="shellext.X64" InstallCondition="VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.shellext).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
       <MsiPackage Id="qesteidutil.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND QesteidutilInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.qesteidutil).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
