@@ -59,6 +59,7 @@ Function Create($filename, $defaultX64) {
         Sign("$filename.engine.exe")
         & $insignia -nologo -ab "$filename.engine.exe" "$filename" -o "$filename"
         Sign("$filename")
+        Remove-Item "$filename.engine.exe"
     }
 }
 
