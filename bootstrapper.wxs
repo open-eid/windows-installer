@@ -56,7 +56,6 @@
     <util:FileSearch Path="[ProgramFiles64Folder]\Open-EID\ID-Updater.exe" Variable="InstallX64" Result="exists" Condition="Installed"/>
 
     <Chain>
-      <ExePackage SourceFile="$(var.path)\FixMinidriver.cmd" PerMachine="yes" Compressed="yes" />
       <MsiPackage Id="Uninstaller" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
