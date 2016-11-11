@@ -37,8 +37,12 @@
   <String Id="ModifyCloseButton">&amp;Close</String>
   <String Id="SuccessRepairHeader">Repair completed successfully.</String>
   <String Id="SuccessUninstallHeader">Uninstall completed</String>
-  <String Id="SuccessInstallHeader">Installation completed successfully.</String> 
-  <String Id="SuccessHeader">Setup successful</String>	
+  <String Id="SuccessInstallHeader">Installation completed successfully.</String>
+  <String Id="SuccessInstallMessage"><![CDATA[
+
+]]>In order to use digital signing in online services the browser token plugin must be enabled in Your web browser.
+Instructions on how to enable token plugin can be found &lt;a href="http://id.ee/?lang=en&amp;id=36639"&gt;here&lt;/a&gt;.</String>
+  <String Id="SuccessHeader">Setup successful</String>
   <String Id="SuccessLaunchButton">&amp;Launch ID-card utility</String>
   <String Id="SuccessRestartText">You must restart your computer before you can use the software.</String>
   <String Id="SuccessRestartButton">&amp;Restart</String>

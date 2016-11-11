@@ -37,7 +37,11 @@
   <String Id="ModifyCloseButton">&amp;Sulge</String>
   <String Id="SuccessRepairHeader">Tarkvara parandus õnnestus</String>
   <String Id="SuccessUninstallHeader">Tarkvara eemaldatud</String>
-  <String Id="SuccessInstallHeader">Tarkvara paigaldus õnnestus</String>
+  <String Id="SuccessInstallHeader">Tarkvara paigaldus õnnestus!</String>
+  <String Id="SuccessInstallMessage"><![CDATA[
+
+]]>E-teenustes ID-kaardiga allkirjastamiseks on Teil vajalik veel aktiveerida veebilehitsejas allkirjastamise plugin.
+Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"&gt;siit&lt;/a&gt;.</String>
   <String Id="SuccessHeader">Toiming õnnestus</String>
   <String Id="SuccessLaunchButton">&amp;Käivita ID-kaardi haldusvahend</String>
   <String Id="SuccessRestartText">Enne tarkvara kasutamist tuleb arvuti taaskäivitada.</String>
