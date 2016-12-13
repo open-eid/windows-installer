@@ -27,7 +27,6 @@
     <Variable Name="RunQesteidutil" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallX64" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="$(var.defaultX64)"/>
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]\Open-EID"/>
-    <Variable Name="InstallFolder32" Type="string" Value="[ProgramFilesFolder]\Open-EID"/>
 
     <?define REGPath = "Software\[WixBundleManufacturer]\Open-EID"?>
     <!--util:RegistrySearch Root="HKLM" Key="Software\Estonian ID Card" Value="Installed" Variable="EstEIDInstallFolder"/-->
@@ -128,13 +127,11 @@
       <MsiPackage Id="qdigidoc.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QdigidocInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="APPLICATIONFOLDER32" Value="[InstallFolder32]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
       <MsiPackage Id="qdigidoc.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QdigidocInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="APPLICATIONFOLDER32" Value="[InstallFolder32]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
