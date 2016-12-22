@@ -135,7 +135,7 @@
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
-      <MsiPackage Id="shellext.X86" InstallCondition="NOT VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="shellext.X86" InstallCondition="QdigidocInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
