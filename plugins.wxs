@@ -1,0 +1,41 @@
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+    xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+    xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Bundle Name="eID software browser plugins" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
+      UpgradeCode="68071ee6-cad4-46f4-b8dd-26b524c501fa"
+      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee"
+      Condition="(VersionNT >= v6.1)">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
+      <bal:WixStandardBootstrapperApplication
+          LicenseUrl=""
+          SuppressOptionsUI="yes"
+          LogoFile="$(var.path)\banner.bmp"
+          LogoSideFile="$(var.path)\dlgbmp.bmp"
+          ThemeFile="$(var.path)\HyperlinkSidebarTheme.xml"/>
+        <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl"/>
+        <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
+    </BootstrapperApplicationRef>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
+    <Chain>
+      <MsiPackage Id="IE.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.ieplugin)_x64.msi" Compressed="yes">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="APPLICATION64FOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="IE.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.ieplugin)_x86.msi" Compressed="yes">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Chrome.X86" ForcePerMachine="yes"
+          SourceFile="$(var.chrome).msi" Compressed="yes">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Firefox.X86" ForcePerMachine="yes"
+          SourceFile="$(var.firefox)_x86.msi" Compressed="yes">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>
