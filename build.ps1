@@ -67,9 +67,12 @@ Function Create($filename, $defaultX64) {
 & $light -nologo -out "metainfo.msi" metainfo.wixobj
 & $candle -nologo "$path\uninstaller.wxs" "-dMSI_VERSION=$msiversion"
 & $light -nologo -out "uninstaller.msi" uninstaller.wixobj
+& $candle -nologo "$path\adobe.wxs" "-dMSI_VERSION=$msiversion"
+& $light -nologo -out "adobe.msi" adobe.wixobj
 if($sign) {
     Sign("metainfo.msi")
     Sign("uninstaller.msi")
+    Sign("adobe.msi")
 }
 Create $filename".exe" 1
 Create $filename"_x86.exe" 0

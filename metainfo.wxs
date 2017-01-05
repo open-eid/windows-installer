@@ -33,6 +33,8 @@
                        Name='AutoUpdate' Value='[AUTOUPDATE]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='IconsDesktop' Value='[ICONSDESKTOP]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='AdobeConfig' Value='[ADOBECONFIG]' Type='integer' />
       </Component>
     </Feature>
   </Product>
