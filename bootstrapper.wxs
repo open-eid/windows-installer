@@ -135,12 +135,14 @@
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
-      <MsiPackage Id="shellext.X86" InstallCondition="QdigidocInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
       <MsiPackage Id="shellext.X64" InstallCondition="VersionNT64 AND QdigidocInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <!-- x86 shell extension package must be installed after the x64 since previous versions of shell extensions used same upgrade code;
+           Installation of x64 after x86 shall remove previous package, including newly installed registry entries -->
+      <MsiPackage Id="shellext.X86" InstallCondition="QdigidocInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
