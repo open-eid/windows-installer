@@ -79,9 +79,13 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Chrome.X86" InstallCondition="ChromeSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.chrome).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64 AND ChromeSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.chrome).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND ChromeSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.chrome).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
 
       <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxSupport = 1" ForcePerMachine="yes"
