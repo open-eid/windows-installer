@@ -1,3 +1,10 @@
+Packaging version [17.01](https://github.com/open-eid/windows-installer/releases/tag/v17.01) release notes
+--------------------------------------------
+- Fix chrome-token-signing install with Firefox components
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v3.12.5...v17.01)
+
+
 Packaging version 3.12.2 release notes
 --------------------------------------
 Changes compared to ver 3.12.1
