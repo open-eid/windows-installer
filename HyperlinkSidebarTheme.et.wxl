@@ -51,7 +51,7 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="FailureInstallHeader">Tarkvara paigaldus ebaõnnestus</String>
   <String Id="FailureUninstallHeader">Tarkvara eemaldamine ebaõnnestus</String>
   <String Id="FailureRepairHeader">Tarkvara parandus ebaõnnestus</String>
-  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Palun lahenda probleem ja proovi uuesti. Rohkem informatsiooni leiad &lt;a href="#"&gt;logifailist&lt;/a&gt;.</String>
+  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Palun lahenda probleemid - näiteks veendu, et internetiühendus on olemas - ja proovi uuesti. Rohkem informatsiooni leiad &lt;a href="#"&gt;logifailist&lt;/a&gt;.</String>
   <String Id="FailureRestartText">Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada.</String>
   <String Id="FailureRestartButton">&amp;Taaskäivita</String>
   <String Id="FailureCloseButton">&amp;Sulge</String>

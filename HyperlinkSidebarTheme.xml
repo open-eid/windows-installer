@@ -109,8 +109,8 @@
     <Text Name="FailureInstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureInstallHeader)</Text>
     <Text Name="FailureUninstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureUninstallHeader)</Text>
     <Text Name="FailureRepairHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureRepairHeader)</Text>
-    <Hypertext Name="FailureLogFileLink" X="185" Y="121" Width="-11" Height="68" FontId="3" TabStop="yes" HideWhenDisabled="yes">#(loc.FailureHyperlinkLogText)</Hypertext>
-    <Hypertext Name="FailureMessageText" X="185" Y="-115" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes" />
+    <Hypertext Name="FailureLogFileLink" X="185" Y="121" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes">#(loc.FailureHyperlinkLogText)</Hypertext>
+    <Hypertext Name="FailureMessageText" X="185" Y="-100" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes" />
     <Text Name="FailureRestartText" X="185" Y="-57" Width="-11" Height="80" FontId="3" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.FailureRestartText)</Text>
     <Button Name="FailureRestartButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.FailureRestartButton)</Button>
     <Button Name="FailureCloseButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.FailureCloseButton)</Button>

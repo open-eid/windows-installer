@@ -51,7 +51,7 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="FailureInstallHeader">Installation failed</String>
   <String Id="FailureUninstallHeader">Uninstall failed</String>
   <String Id="FailureRepairHeader">Repair failed</String> 
-  <String Id="FailureHyperlinkLogText">One or more issues caused the setup to fail. Please fix the issues and then retry setup. For more information see the &lt;a href="#"&gt;log file&lt;/a&gt;.</String>
+  <String Id="FailureHyperlinkLogText">One or more issues caused the setup to fail. Please fix the issues - for example ensure that internet connection is established - and then retry setup. For more information see the &lt;a href="#"&gt;log file&lt;/a&gt;.</String>
   <String Id="FailureRestartText">You must restart your computer to complete the rollback of the software.</String>
   <String Id="FailureRestartButton">&amp;Restart</String>
   <String Id="FailureCloseButton">&amp;Close</String>
