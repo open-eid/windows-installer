@@ -30,6 +30,8 @@
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='QesteidutilInstall' Value='[QESTEIDUTILINSTALL]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='TeRaInstall' Value='[TERAINSTALL]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='AutoUpdate' Value='[AUTOUPDATE]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='IconsDesktop' Value='[ICONSDESKTOP]' Type='integer' />

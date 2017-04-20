@@ -12,6 +12,7 @@ A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various dr
    * Digidoc3_Client*.msi
    * ID-card_utility*.msi
    * ID-Updater*.msi
+   * TeRa*.msi
    * chrome-token-signing*.msi
    * esteid-plugin-ie*.msi
    * firefox_pkcs11_loader*.msi
