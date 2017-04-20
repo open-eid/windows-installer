@@ -15,21 +15,33 @@ param(
    [string]$chrome = "chrome-token-signing",
    [string]$firefox = "firefox-token-signing",
    [string]$loader = "firefox-pkcs11-loader",
+   [string]$tera = "TeRa",
+   [string]$teraVersion = $null,
    [string]$embed = "no",
    [string]$sign = $null
 )
 
-Function GetBaseName($find, $substring) {
+Function GetFileName($find) {
     $list = Get-ChildItem "$find*"
     if($list -is [system.array]) {
         $find = $list[0].BaseName
     } else {
         $find = $list.BaseName
     }
+    return $find
+}
+
+Function GetBaseName($find, $substring) {
+    $find = GetFileName $find
     if($substring) {
         $find = $find.Substring(0, $find.Length - $substring)
     }
     return $find
+}
+
+Function GetVersion($find) {
+    $find = GetFileName $find
+    return $find.Substring($find.IndexOf('.') + 1)
 }
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
@@ -42,6 +54,7 @@ $chrome = GetBaseName $chrome 4
 $firefox = GetBaseName $firefox 4
 $loader = GetBaseName $loader 4
 $minidriver = GetBaseName $minidriver 4
+$teraVersion = GetVersion $tera
 
 Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
@@ -50,7 +63,7 @@ Function Sign($filename) {
 Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" `
-        "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dminidriver=$minidriver" `
+        "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" "-dminidriver=$minidriver" `
         "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dfirefox=$firefox" "-dloader=$loader" "-dshellext=$shellext" 
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
