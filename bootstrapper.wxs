@@ -60,6 +60,7 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
+      <ExePackage SourceFile="$(var.path)\FixMinidriver.cmd" PerMachine="yes" Compressed="yes" InstallCondition="MinidriverInstall = 1" />
       <MsiPackage Id="Minidriver.X64" InstallCondition="VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
