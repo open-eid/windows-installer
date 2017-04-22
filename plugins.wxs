@@ -11,7 +11,7 @@
           SuppressOptionsUI="yes"
           LogoFile="$(var.path)\banner.bmp"
           LogoSideFile="$(var.path)\dlgbmp.bmp"
-          ThemeFile="$(var.path)\HyperlinkSidebarTheme.xml"/>
+          ThemeFile="$(var.path)\HyperlinkSidebarTheme_plugins.xml"/>
         <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl"/>
         <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
