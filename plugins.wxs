@@ -28,11 +28,11 @@
       </MsiPackage>
 
       <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.chrome).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+          SourceFile="$(var.chrome).x86.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
       <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.chrome).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+          SourceFile="$(var.chrome).x64.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
 
