@@ -73,4 +73,5 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="chromeplugin">Chrome ja Firefox allkirjastamise tugi</String>
   <String Id="firefoxplugin">Firefox legacy allkirjastamise ja autentimise tugi</String>
   <String Id="minidriver">Eesti ID-kaardi tugi</String>
+  <String Id="AdobeConfig">Experimental: Configure Adobe Reader DC for signing and validation</String>
 </WixLocalization>

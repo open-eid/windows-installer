@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Name="RIA Adobe Configuration" UpgradeCode="83ce67cf-f9a1-423e-91ae-0d4d878c25d0"
+      Id="*" Language="1033" Version="$(var.MSI_VERSION)" Codepage="1251" Manufacturer="RIA">
+    <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
+    <Media Id='1' />
+    <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
+      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
+    <Directory Id='TARGETDIR' Name='SourceDir'/>
+    <Feature Id='MainFeature' Level='1'>
+      <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
+        <!-- http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Security.html -->
+        <!-- Signature settings -->
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cPubSec'
+                       Name='aSignFormat' Value='ETSI.CAdES.detached' Type='string' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_LTVProvider'
+                       Name='iAutoAddLTV' Value='2' Type='integer' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cSPIs\cRevocationChecker'
+                       Name='t0' Value='Adobe_OCSPRevChecker' Type='string' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cASPKI\cSign'
+                       Name='iReqRevCheck' Value='3' Type='integer' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_LTVProvider'
+                       Name='bIsEnabled' Value='1' Type='integer' />
+        <!-- OCSP settings -->
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_OCSPRevChecker'
+                       Name='bSendNonce' Value='0' Type='integer' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_OCSPRevChecker'
+                       Name='iSendNonce' Value='0' Type='integer' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_OCSPRevChecker'
+                       Name='iURLToConsult' Value='2' Type='integer' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_OCSPRevChecker'
+                       Name='sURL' Value='http://aia.sk.ee/esteid2011/' Type='string' />
+        <!-- TS settings -->
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cASPKI\cAdobe_TSPProvider'
+                       Name='sURL' Value='http://tsa.sk.ee/' Type='string' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cPPKHandler\cTimeStampServers\c0'
+                       Name='tServer' Value='http://tsa.sk.ee/' Type='string' />
+        <RegistryValue Root='HKCU' Key='Software\Adobe\Acrobat Reader\DC\Security\cPPKHandler\cTimeStampServers\c0'
+                       Name='tName' Value='SK TIMESTAMPING AUTHORITY' Type='string' />
+      </Component>
+    </Feature>
+  </Product>
+</Wix>

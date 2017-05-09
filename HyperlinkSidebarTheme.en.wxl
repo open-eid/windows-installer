@@ -73,4 +73,5 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="chromeplugin">Chrome and Firefox signing support</String>
   <String Id="firefoxplugin">Firefox legacy signing and authentication support</String>
   <String Id="minidriver">Estonian ID-card support</String>
+  <String Id="AdobeConfig">Experimental: Configure Adobe Reader DC for signing and validation</String>
 </WixLocalization>

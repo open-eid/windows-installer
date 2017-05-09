@@ -45,6 +45,7 @@
     <Static X="30" Y="253" Width="-30" Height="1" />
     <Checkbox Name="IconsDesktop" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Checkbox Name="RunQesteidutil" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.RunQesteidUtilDescription)</Checkbox>
+    <Checkbox Name="AdobeConfig" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.AdobeConfig)</Checkbox>
     <Button Name="OptionsOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsOkButton)</Button>
     <Button Name="OptionsCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsCancelButton)</Button>
   </Page>
