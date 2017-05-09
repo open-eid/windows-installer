@@ -45,7 +45,7 @@ $minidriver = GetBaseName $minidriver 4
 
 Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
-        /t http://timestamp.verisign.com/scripts/timstamp.dll "$filename"
+        /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /td SHA256 "$filename"
 }
 Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
