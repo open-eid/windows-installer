@@ -181,9 +181,11 @@
 
       <MsiPackage Id="TeRa_x86" InstallCondition="NOT VersionNT64 AND TeRaInstall = 1" ForcePerMachine="yes"
           SourceFile="TeRa_x86.$(var.teraVersion).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
       <MsiPackage Id="TeRa_x64" InstallCondition="VersionNT64 AND TeRaInstall = 1" ForcePerMachine="yes"
           SourceFile="TeRa_x64.$(var.teraVersion).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
