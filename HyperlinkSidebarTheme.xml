@@ -38,13 +38,14 @@
     <Checkbox Name="MinidriverInstall" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.minidriver)</Checkbox>
     <Checkbox Name="QdigidocInstall" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qdigidoc)</Checkbox>
     <Checkbox Name="QesteidutilInstall" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qesteidutil)</Checkbox>
-    <Static X="30" Y="187" Width="-30" Height="1" />
-    <Checkbox Name="IESupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
-    <Checkbox Name="ChromeSupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
-    <Checkbox Name="FirefoxSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
-    <Static X="30" Y="253" Width="-30" Height="1" />
-    <Checkbox Name="IconsDesktop" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
-    <Checkbox Name="RunQesteidutil" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.RunQesteidUtilDescription)</Checkbox>
+    <Checkbox Name="TeRaInstall" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.tera)</Checkbox>
+    <Static X="30" Y="209" Width="-30" Height="1" />
+    <Checkbox Name="IESupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
+    <Static X="30" Y="275" Width="-30" Height="1" />
+    <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Checkbox Name="RunQesteidutil" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.RunQesteidUtilDescription)</Checkbox>
     <Button Name="OptionsOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsOkButton)</Button>
     <Button Name="OptionsCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsCancelButton)</Button>
   </Page>
@@ -80,11 +81,11 @@
     <Checkbox Name="MinidriverInstall" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.minidriver)</Checkbox>
     <Checkbox Name="QdigidocInstall" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qdigidoc)</Checkbox>
     <Checkbox Name="QesteidutilInstall" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.qesteidutil)</Checkbox>
-    <Static X="30" Y="187" Width="-30" Height="1" />
-    <Checkbox Name="IESupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
-    <Checkbox Name="ChromeSupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
-    <Checkbox Name="FirefoxSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
-    <Checkbox Name="TeRaInstall" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.tera)</Checkbox>
+    <Checkbox Name="TeRaInstall" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.tera)</Checkbox>
+    <Static X="30" Y="209" Width="-30" Height="1" />
+    <Checkbox Name="IESupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.install) #(loc.firefoxplugin)</Checkbox>
     <Static X="30" Y="275" Width="-30" Height="1" />
     <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Button Name="RepairButton" X="-171" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
