@@ -91,15 +91,6 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
 
-      <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.firefox)_x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <!--MsiPackage Id="Firefox.X64" InstallCondition="VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.firefox)_x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage-->
-
       <MsiPackage Id="Updater.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes"
           SourceFile="$(var.updater).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>

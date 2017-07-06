@@ -35,11 +35,6 @@
           SourceFile="$(var.chrome).x64.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
-
-      <MsiPackage Id="Firefox.X86" ForcePerMachine="yes"
-          SourceFile="$(var.firefox)_x86.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
     </Chain>
   </Bundle>
 </Wix>

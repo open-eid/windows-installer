@@ -13,7 +13,6 @@ param(
    [string]$minidriver = "minidriver",
    [string]$ieplugin = "ie-token-signing",
    [string]$chrome = "chrome-token-signing",
-   [string]$firefox = "firefox-token-signing",
    [string]$loader = "firefox-pkcs11-loader",
    [string]$tera = "TeRa",
    [string]$teraVersion = $null,
@@ -51,7 +50,6 @@ $qesteid = GetBaseName $qesteid 10
 $updater = GetBaseName $updater 4
 $ieplugin = GetBaseName $ieplugin 4
 $chrome = GetBaseName $chrome 4
-$firefox = GetBaseName $firefox 4
 $loader = GetBaseName $loader 4
 $minidriver = GetBaseName $minidriver 4
 $teraVersion = GetVersion $tera
@@ -64,7 +62,7 @@ Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" `
         "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" "-dminidriver=$minidriver" `
-        "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dfirefox=$firefox" "-dloader=$loader" "-dshellext=$shellext" 
+        "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"
