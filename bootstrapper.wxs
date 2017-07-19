@@ -25,7 +25,6 @@
     <Variable Name="TeRaInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="IconsDesktop" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="AutoUpdate" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="RunQesteidutil" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallX64" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="$(var.defaultX64)"/>
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
 
@@ -186,7 +185,6 @@
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]"/>
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]"/>
       </MsiPackage>
-      <ExePackage SourceFile="$(var.path)\RunQesteidutil.cmd" PerMachine="no" Compressed="yes" InstallCommand="[RunQesteidutil]" Vital="no" />
     </Chain>
   </Bundle>
 </Wix>
