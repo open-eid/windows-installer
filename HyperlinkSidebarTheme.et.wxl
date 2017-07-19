@@ -65,7 +65,6 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
   <String Id="OptionsDesktop">Paigalda ID-kaardi tarkvara ikoonid töölauale</String>
   <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String>
-  <String Id="RunQesteidUtilDescription">Käivita paigalduse lõppedes ID-kaardi haldusvahend</String>
   <String Id="install">Paigalda</String>
   <String Id="qdigidoc">DigiDoc3 klient</String>
   <String Id="qesteidutil">ID-kaardi haldusvahend</String>
