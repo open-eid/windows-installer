@@ -73,10 +73,12 @@ Function Create($wxs, $filename, $defaultX64) {
         Remove-Item "$filename.engine.exe"
     }
 }
-& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" "-dqtconf=$path\qt.conf" -arch x86
+& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x86
 & $light -nologo -out "qtconf.x86.msi" qtconf.wixobj
-& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" "-dqtconf=$path\qt.conf" -arch x64
+& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x64
 & $light -nologo -out "qtconf.x64.msi" qtconf.wixobj
+& $candle -nologo "$path\ffuninstall.wxs" "-dMSI_VERSION=$msiversion" -arch x86
+& $light -nologo -out "ffuninstall.x86.msi" ffuninstall.wixobj
 & $candle -nologo "$path\metainfo.wxs" "-dMSI_VERSION=$msiversion"
 & $light -nologo -out "metainfo.msi" metainfo.wixobj
 & $candle -nologo "$path\uninstaller.wxs" "-dMSI_VERSION=$msiversion"
@@ -84,6 +86,7 @@ Function Create($wxs, $filename, $defaultX64) {
 if($sign) {
     Sign("qtconf.x86.msi")
     Sign("qtconf.x64.msi")
+    Sign("ffuninstall.x86.msi")
     Sign("metainfo.msi")
     Sign("uninstaller.msi")
 }
