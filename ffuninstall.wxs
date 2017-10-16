@@ -1,14 +1,14 @@
 <?xml version='1.0'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
-  <Product Id='*' Name='Open-EID QtConf Uninstaller' Language='1033' Version='$(var.MSI_VERSION)'
-           UpgradeCode='471cf7f5-b418-4463-9a55-e3895c8519e0' Manufacturer='RIA'>
+  <Product Id='*' Name='FF Token Signing Uninstaller' Language='1033' Version='$(var.MSI_VERSION)'
+           UpgradeCode='4e7f96ae-a8c9-45ae-bcf1-1fb64597df5b' Manufacturer='RIA'>
     <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
     <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
       "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
     <Directory Id='TARGETDIR' Name='SourceDir'/>
     <Feature Id='MainFeature' Level='1'>
-      <Component Id='Content' Directory='TARGETDIR' Transitive="yes" Guid="dee9d06d-205a-437f-8d70-53434e050ff1"/>
+      <Component Id='Content' Directory='TARGETDIR' Transitive="yes" Guid="0e55d565-68a2-4350-8d10-2662f2d6b255"/>
     </Feature>
   </Product>
 </Wix>

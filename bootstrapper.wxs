@@ -62,6 +62,17 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
+      <MsiPackage Id="QtConf.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
+        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="QtConf.X86" InstallCondition="NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
+        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
+      </MsiPackage>
+
+      <MsiPackage Id="Firefox.X86" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
+        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
+      </MsiPackage>
+
       <MsiPackage Id="Minidriver.X64" InstallCondition="VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
@@ -99,13 +110,6 @@
           SourceFile="$(var.updater).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
-      </MsiPackage>
-
-      <MsiPackage Id="QtConf.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
-        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <MsiPackage Id="QtConf.X86" InstallCondition="NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
-        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
       <MsiPackage Id="FirefoxLoader.X64"  InstallCondition="VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
