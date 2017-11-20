@@ -70,7 +70,7 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="qesteidutil">ID-kaardi haldusvahend</String>
   <String Id="tera">TeRa klient</String>
   <String Id="ieplugin">Internet Exploreri allkirjastamise tugi</String>
-  <String Id="chromeplugin">Chrome ja Firefox allkirjastamise tugi</String>
-  <String Id="firefoxplugin">Firefox legacy allkirjastamise ja autentimise tugi</String>
+  <String Id="chromeplugin">Chrome allkirjastamise tugi</String>
+  <String Id="firefoxplugin">Firefox allkirjastamise ja autentimise tugi</String>
   <String Id="minidriver">Eesti ID-kaardi tugi</String>
 </WixLocalization>

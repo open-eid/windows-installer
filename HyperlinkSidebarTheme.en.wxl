@@ -70,7 +70,7 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="qesteidutil">ID-card utility</String>
   <String Id="tera">TeRa Client</String>
   <String Id="ieplugin">Internet Explorer browser signing support</String>
-  <String Id="chromeplugin">Chrome and Firefox signing support</String>
-  <String Id="firefoxplugin">Firefox legacy signing and authentication support</String>
+  <String Id="chromeplugin">Chrome signing support</String>
+  <String Id="firefoxplugin">Firefox signing and authentication support</String>
   <String Id="minidriver">Estonian ID-card support</String>
 </WixLocalization>

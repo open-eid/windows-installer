@@ -29,13 +29,6 @@
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
 
     <?define REGPath = "Software\[WixBundleManufacturer]\Open-EID"?>
-    <!--util:RegistrySearch Root="HKLM" Key="Software\Estonian ID Card" Value="Installed" Variable="EstEIDInstallFolder"/-->
-    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Installed" Variable="PreviousInstallFolder"/-->
-    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Installed" Variable="PreviousX64InstallFolder" Win64="yes"/-->
-    <!--util:DirectorySearch Path="[EstEIDInstallFolder]" Variable="InstallFolder" Condition="EstEIDInstallFolder"/-->
-    <!--util:DirectorySearch Path="[PreviousInstallFolder]" Variable="InstallFolder" Condition="PreviousInstallFolder"/-->
-    <!--util:DirectorySearch Path="[PreviousX64InstallFolder]" Variable="InstallFolder" Condition="PreviousX64InstallFolder"/-->
-
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IESupport" Variable="IESupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IESupport" Variable="IESupport" Condition="IESupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupportExists" Result="exists"/>
@@ -58,20 +51,23 @@
     <util:FileSearch Path="[ProgramFiles64Folder]\Open-EID\ID-Updater.exe" Variable="InstallX64" Result="exists" Condition="Installed"/>
     <util:ProductSearch Id="VCREDIST_140_x86" UpgradeCode="65E5BD06-6392-3027-8C26-853107D3CF1A" Result="version" Variable="VCREDIST_140_x86" />
     <util:ProductSearch Id="VCREDIST_140_x64" UpgradeCode="36F68A90-239C-34DF-B58C-64B30153CE35" Result="version" Variable="VCREDIST_140_x64" />
+    <util:ProductSearch Id="Old311_Installed" UpgradeCode="58A1DBA8-81A2-4D58-980B-4A6174D5B66B" Result="version" Variable="Old311Installed" />
+    <util:ProductSearch Id="QtConf_Installed" UpgradeCode="471cf7f5-b418-4463-9a55-e3895c8519e0" Result="version" Variable="QtConfInstalled" />
+    <util:ProductSearch Id="Firefox_Installed" UpgradeCode="4e7f96ae-a8c9-45ae-bcf1-1fb64597df5b" Result="version" Variable="FirefoxInstalled" />
 
     <Chain>
-      <MsiPackage Id="Uninstaller" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
+      <MsiPackage Id="Uninstaller" InstallCondition="Old311Installed &gt;= v1.0.0.0" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="QtConf.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
-      <MsiPackage Id="QtConf.X86" InstallCondition="NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Firefox.X86" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
+      <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxInstalled &gt;= v1.0.0.0" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
@@ -107,11 +103,11 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64 AND ChromeSupport = 1" ForcePerMachine="yes"
+      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64 AND (ChromeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.chrome).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
-      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND ChromeSupport = 1" ForcePerMachine="yes"
+      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND (ChromeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.chrome).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
