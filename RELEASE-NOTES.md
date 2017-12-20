@@ -1,3 +1,34 @@
+Packaging version [17.12](https://github.com/open-eid/windows-installer/releases/tag/v17.12) release notes
+--------------------------------------------
+- Include new Fireofx PKCS11 loader for Firefox 58
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.11...v17.12)
+
+Packaging version [17.11](https://github.com/open-eid/windows-installer/releases/tag/v17.11) release notes
+--------------------------------------------
+- Include VC redistributable packages to install Windows Universal Runtimes
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.10...v17.11)
+
+Packaging version [17.10](https://github.com/open-eid/windows-installer/releases/tag/v17.10) release notes
+--------------------------------------------
+- Remove NPAPI plugin
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.08...v17.10)
+
+Packaging version [17.08](https://github.com/open-eid/windows-installer/releases/tag/v17.08) release notes
+--------------------------------------------
+- Don't run ID-Card utility at end
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.06...v17.08)
+
+Packaging version [17.06](https://github.com/open-eid/windows-installer/releases/tag/v17.06) release notes
+--------------------------------------------
+- Include TeRa time-stamping application
+- Separate plugins installer
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.01...v17.06)
+
 Packaging version [17.01](https://github.com/open-eid/windows-installer/releases/tag/v17.01) release notes
 --------------------------------------------
 - Fix chrome-token-signing install with Firefox components
