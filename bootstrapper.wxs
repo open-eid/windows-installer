@@ -56,18 +56,18 @@
     <util:ProductSearch Id="Firefox_Installed" UpgradeCode="4e7f96ae-a8c9-45ae-bcf1-1fb64597df5b" Result="version" Variable="FirefoxInstalled" />
 
     <Chain>
-      <MsiPackage Id="Uninstaller" InstallCondition="Old311Installed &gt;= v1.0.0.0" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
+      <MsiPackage Id="Uninstaller" InstallCondition="Old311Installed &gt;= v1.0.0.0 AND Old311Installed &lt; v3.12.0.0" ForcePerMachine="yes" SourceFile="uninstaller.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
-      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxInstalled &gt;= v1.0.0.0" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
+      <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxInstalled &gt;= v1.0.0.0 AND FirefoxInstalled &lt; v17.10.0.0" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
