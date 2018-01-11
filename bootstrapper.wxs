@@ -71,13 +71,13 @@
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <ExePackage Id="vcredist_x86" Cache="no" PerMachine="yes" SourceFile="vcredist_x86.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)"
+      <ExePackage Id="vcredist_x86" Cache="no" PerMachine="yes" SourceFile="$(var.vcredist).x86.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)"
           InstallCommand="/install /quiet /norestart" Permanent="yes" DetectCondition="(VCREDIST_140_x86 &gt;= v14.0.24215.0)">
         <ExitCode Value="3010" Behavior="forceReboot"/>
         <!-- Ignore "Newer version installed" error -->
         <ExitCode Value="1638" Behavior="success"/>
       </ExePackage>
-      <ExePackage Id="vcredist_x64" Cache="no" PerMachine="yes" SourceFile="vcredist_x64.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)" InstallCondition="VersionNT64"
+      <ExePackage Id="vcredist_x64" Cache="no" PerMachine="yes" SourceFile="$(var.vcredist).x64.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)" InstallCondition="VersionNT64"
           InstallCommand="/install /quiet /norestart" Permanent="yes" DetectCondition="(VCREDIST_140_x64 &gt;= v14.0.24215.0)">
         <ExitCode Value="3010" Behavior="forceReboot"/>
         <!-- Ignore "Newer version installed" error -->
