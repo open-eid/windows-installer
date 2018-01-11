@@ -6,6 +6,7 @@ param(
    [string]$msiversion = "3.12.0.0",
    [string]$url = "https://installer.id.ee/media/windows/{2}",
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
+   [string]$vcredist = "vcredist",
    [string]$updater = "ID-Updater",
    [string]$qdigidoc = "Digidoc3_Client",
    [string]$shellext = "Digidoc3_ShellExt",
@@ -44,6 +45,7 @@ Function GetVersion($find) {
 }
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
+$vcredist = GetBaseName $vcredist 4
 $qdigidoc = GetBaseName $qdigidoc 10
 $shellext = GetBaseName $shellext 4
 $qesteid = GetBaseName $qesteid 10
@@ -60,7 +62,7 @@ Function Sign($filename) {
 }
 Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" `
+        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
         "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" "-dminidriver=$minidriver" `
         "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
