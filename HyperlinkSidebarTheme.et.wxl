@@ -33,7 +33,7 @@
   <String Id="ProgressCancelButton">&amp;Katkesta</String>
   <String Id="ModifyHeader">Muuda paigaldust</String>
   <String Id="ModifyRepairButton">&amp;Paranda</String>
-  <String Id="ModifyUninstallButton">&amp;Eemalda</String>
+  <String Id="ModifyUninstallButton">&amp;Eemalda kõik</String>
   <String Id="ModifyCloseButton">&amp;Sulge</String>
   <String Id="SuccessRepairHeader">Tarkvara parandus õnnestus</String>
   <String Id="SuccessUninstallHeader">Tarkvara eemaldatud</String>
@@ -65,7 +65,6 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
   <String Id="OptionsDesktop">Paigalda ID-kaardi tarkvara ikoonid töölauale</String>
   <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String>
-  <String Id="install">Paigalda</String>
   <String Id="qdigidoc">DigiDoc3 klient</String>
   <String Id="qesteidutil">ID-kaardi haldusvahend</String>
   <String Id="tera">TeRa klient</String>
