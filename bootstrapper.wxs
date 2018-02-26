@@ -93,6 +93,8 @@
           SourceFile="$(var.minidriver).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
+        <!-- https://github.com/wixtoolset/issues/issues/5266 -->
+        <MsiProperty Name="INSTALL_DRIVER" Value="0"/>
       </MsiPackage>
 
       <MsiPackage Id="IE.X64" InstallCondition="VersionNT64 AND IESupport = 1" ForcePerMachine="yes"
