@@ -1,3 +1,12 @@
+Packaging version [18.03](https://github.com/open-eid/windows-installer/releases/tag/v18.03) release notes
+--------------------------------------------
+- Remove uninstall/upgrade msi-s (#25)
+- Add versioned vcredist (#26)
+- Set REINSTALLMODE to "amus" (#28)
+- Dont install driver on X86 for workaround wix bootstrapper bug (#29)
+
+[Full Changelog](https://github.com/open-eid/windows-installer/compare/v17.12...v17.03)
+
 Packaging version [17.12](https://github.com/open-eid/windows-installer/releases/tag/v17.12) release notes
 --------------------------------------------
 - Include new Fireofx PKCS11 loader for Firefox 58
