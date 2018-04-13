@@ -43,8 +43,9 @@
     <Checkbox Name="IESupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
     <Checkbox Name="ChromeSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
     <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
-    <Static X="30" Y="275" Width="-30" Height="1" />
-    <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Hypertext X="46" Y="279" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
+    <Static X="30" Y="297" Width="-30" Height="1" />
+    <Checkbox Name="IconsDesktop" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Button Name="OptionsOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsOkButton)</Button>
     <Button Name="OptionsCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsCancelButton)</Button>
   </Page>
@@ -85,8 +86,9 @@
     <Checkbox Name="IESupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
     <Checkbox Name="ChromeSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
     <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
-    <Static X="30" Y="275" Width="-30" Height="1" />
-    <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Hypertext X="46" Y="279" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
+    <Static X="30" Y="297" Width="-30" Height="1" />
+    <Checkbox Name="IconsDesktop" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Button Name="RepairButton" X="-171" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
     <Button Name="UninstallButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyUninstallButton)</Button>
     <Button Name="ModifyCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyCloseButton)</Button>
@@ -95,7 +97,7 @@
     <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
     <Text Name="SuccessHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessHeader)</Text>
-    <Hypertext Name="SuccessInstallHeader" X="185" Y="50" Width="-11" Height="250" FontId="5" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessInstallHeader) #(loc.SuccessInstallMessage)</Hypertext>
+    <Hypertext Name="SuccessInstallHeader" X="185" Y="50" Width="-11" Height="250" FontId="5" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessInstallHeader) #(loc.SuccessInstallMessage) #(loc.edge)</Hypertext>
     <Text Name="SuccessRepairHeader" X="185" Y="50" Width="-11" Height="100" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessRepairHeader)</Text> 	
     <Text Name="SuccessUninstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessUninstallHeader)</Text>	
     <Button Name="LaunchButton" X="-91" Y="-11" Width="175" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>
