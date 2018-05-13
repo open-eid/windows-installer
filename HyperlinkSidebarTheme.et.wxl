@@ -65,6 +65,7 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
   <String Id="OptionsDesktop">Paigalda ID-kaardi tarkvara ikoonid töölauale</String>
   <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String>
+  <String Id="qdigidoc4">DigiDoc4 klient</String>
   <String Id="qdigidoc">DigiDoc3 klient</String>
   <String Id="qesteidutil">ID-kaardi haldusvahend</String>
   <String Id="tera">TeRa klient</String>
