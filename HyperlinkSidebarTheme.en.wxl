@@ -65,6 +65,7 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="OptionsCustomizeInstall">Customize install</String>
   <String Id="OptionsDesktop">Create ID-card software icons on my desktop</String>
   <String Id="OptionsStartMenu">Create ID-card software icons in my Start Menu Programs folder</String>
+  <String Id="qdigidoc4">DigiDoc4 Client</String>
   <String Id="qdigidoc">DigiDoc3 Client</String>
   <String Id="qesteidutil">ID-card utility</String>
   <String Id="tera">TeRa Client</String>

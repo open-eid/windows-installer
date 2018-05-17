@@ -8,8 +8,9 @@ param(
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$vcredist = "vcredist",
    [string]$updater = "ID-Updater",
+   [string]$qdigidoc4 = "Digidoc4_Client",
    [string]$qdigidoc = "Digidoc3_Client",
-   [string]$shellext = "Digidoc3_ShellExt",
+   [string]$shellext = "Digidoc_ShellExt",
    [string]$qesteid = "ID-card_utility",
    [string]$minidriver = "minidriver",
    [string]$ieplugin = "ie-token-signing",
@@ -46,6 +47,7 @@ Function GetVersion($find) {
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
 $vcredist = GetBaseName $vcredist 4
+$qdigidoc4 = GetBaseName $qdigidoc4 10
 $qdigidoc = GetBaseName $qdigidoc 10
 $shellext = GetBaseName $shellext 4
 $qesteid = GetBaseName $qesteid 10
@@ -63,8 +65,8 @@ Function Sign($filename) {
 Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
-        "-dupdater=$updater" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" "-dminidriver=$minidriver" `
-        "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
+        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" `
+        "-dminidriver=$minidriver" "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"

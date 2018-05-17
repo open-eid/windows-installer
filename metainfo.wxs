@@ -10,9 +10,10 @@
     <Property Id='CHROMESUPPORT' Value="0"/>
     <Property Id='FIREFOXSUPPORT' Value="0"/>
     <Property Id='MINIDRIVERINSTALL' Value="0"/>
+    <Property Id='QDIGIDOC4INSTALL' Value="0"/>
     <Property Id='QDIGIDOCINSTALL' Value="0"/>
     <Property Id='QESTEIDUTILINSTALL' Value="0"/>
-	<Property Id='TERAINSTALL' Value="0"/>
+    <Property Id='TERAINSTALL' Value="0"/>
     <Property Id='AUTOUPDATE' Value="0"/>
     <Property Id='ICONSDESKTOP' Value="0"/>
     <Directory Id='TARGETDIR' Name='SourceDir'/>
@@ -26,6 +27,8 @@
                        Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='MinidriverInstall' Value='[MINIDRIVERINSTALL]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='Qdigidoc4Install' Value='[QDIGIDOC4INSTALL]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='QdigidocInstall' Value='[QDIGIDOCINSTALL]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'

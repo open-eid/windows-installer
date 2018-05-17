@@ -1,3 +1,7 @@
+Packaging version [18.06](https://github.com/open-eid/windows-installer/releases/tag/v18.06) release notes
+--------------------------------------------
+- Include DigiDoc4 client in the Open-EID installer
+
 Packaging version [18.03](https://github.com/open-eid/windows-installer/releases/tag/v18.03) release notes
 --------------------------------------------
 - Remove uninstall/upgrade msi-s (#25)

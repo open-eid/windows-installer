@@ -9,6 +9,7 @@ A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various dr
         cd windows-installer
 
 2. Download dependencies to packages folder
+   * Digidoc4_Client*.msi
    * Digidoc3_Client*.msi
    * ID-card_utility*.msi
    * ID-Updater*.msi
@@ -19,9 +20,9 @@ A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various dr
    * firefox-token-signing*.msi
    * minidriver*.msi
 
-3. Run build.ps1 script, optional parameter -version
+3. Run build.ps1 script, optional parameter -msiversion
 
-        powershell -ExecutionPolicy ByPass -File build.ps1 -version 3.12.0.0
+        powershell -ExecutionPolicy ByPass -File build.ps1 -msiversion 3.12.0.0
 
 4. Execute
 
