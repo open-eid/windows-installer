@@ -147,55 +147,37 @@
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND QdigidocInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qdigidoc.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND QdigidocInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
-      <MsiPackage Id="qdigidoc.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QdigidocInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qdigidoc.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QdigidocInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
-      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
+        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
