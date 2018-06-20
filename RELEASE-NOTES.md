@@ -1,3 +1,9 @@
+Packaging version [18.12](https://github.com/open-eid/osx-installer/releases/tag/v18.12) release notes
+--------------------------------------------
+- Include IDEMIA drivers
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v18.10...v18.12)
+
 Packaging version [18.06](https://github.com/open-eid/windows-installer/releases/tag/v18.06) release notes
 --------------------------------------------
 - Include DigiDoc4 client in the Open-EID installer
