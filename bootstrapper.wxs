@@ -66,7 +66,7 @@
       <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
-      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND (NOT VersionNT64 OR InstallX64 = 0)" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
