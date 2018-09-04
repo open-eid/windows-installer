@@ -10,8 +10,6 @@ A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various dr
 
 2. Download dependencies to packages folder
    * Digidoc4_Client*.msi
-   * Digidoc3_Client*.msi
-   * ID-card_utility*.msi
    * ID-Updater*.msi
    * TeRa*.msi
    * chrome-token-signing*.msi
