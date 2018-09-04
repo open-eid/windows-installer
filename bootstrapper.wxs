@@ -21,8 +21,6 @@
     <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="Qdigidoc4Install" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="QdigidocInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="QesteidutilInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="TeRaInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="IconsDesktop" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="AutoUpdate" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -38,12 +36,8 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="QdigidocInstall" Variable="QdigidocInstallExists" Result="exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="QdigidocInstall" Variable="QdigidocInstall" Condition="QdigidocInstallExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4InstallExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4Install" Condition="Qdigidoc4InstallExists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="QesteidutilInstall" Variable="QesteidutilInstallExists" Result="exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="QesteidutilInstall" Variable="QesteidutilInstall" Condition="QesteidutilInstallExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="TeRaInstall" Variable="TeRaInstallExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="TeRaInstall" Variable="TeRaInstall" Condition="TeRaInstallExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists"/>
@@ -147,76 +141,46 @@
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
         <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
         <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
         <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC3" Value="[QdigidocInstall]"/>
         <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="shellext.X64" InstallCondition="VersionNT64 AND (QdigidocInstall = 1 OR Qdigidoc4Install = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="shellext.X64" InstallCondition="VersionNT64 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
       <!-- x86 shell extension package must be installed after the x64 since previous versions of shell extensions used same upgrade code;
            Installation of x64 after x86 shall remove previous package, including newly installed registry entries -->
-      <MsiPackage Id="shellext.X86" InstallCondition="QdigidocInstall = 1 OR Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="shellext.X86" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
-      <MsiPackage Id="qesteidutil.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND QesteidutilInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qesteidutil).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qesteidutil.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND QesteidutilInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qesteidutil).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
-      <MsiPackage Id="qesteidutil.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QesteidutilInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qesteidutil).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qesteidutil.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND QesteidutilInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qesteidutil).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
@@ -237,8 +201,6 @@
         <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]"/>
         <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]"/>
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]"/>
-        <MsiProperty Name="QdigidocInstall" Value="[QdigidocInstall]"/>
-        <MsiProperty Name="QesteidutilInstall" Value="[QesteidutilInstall]"/>
         <MsiProperty Name="TeRaInstall" Value="[TeRaInstall]"/>
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]"/>
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]"/>
