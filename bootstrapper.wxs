@@ -4,14 +4,13 @@
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
       Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee"
-      Condition="(VersionNT >= v6.1)"><!-- DisableModify="yes"-->
+      Condition="(VersionNT >= v6.1)">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
           LogoFile="$(var.path)\banner.bmp"
           LogoSideFile="$(var.path)\dlgbmp.bmp"
           ThemeFile="$(var.path)\HyperlinkSidebarTheme.xml"/>
-          <!--SuppressRepair="yes"-->
         <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl"/>
         <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
@@ -94,6 +93,23 @@
         <MsiProperty Name="INSTALL_DRIVER" Value="0"/>
       </MsiPackage>
 
+      <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.idemia).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.idemia).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="IDEMIA.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.idemia).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+      <MsiPackage Id="IDEMIA.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.idemia).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+      </MsiPackage>
+
       <MsiPackage Id="IE.X64" InstallCondition="VersionNT64 AND IESupport = 1" ForcePerMachine="yes"
           SourceFile="$(var.ieplugin)_x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
@@ -145,14 +161,12 @@
           SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
       <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
@@ -160,14 +174,12 @@
           SourceFile="$(var.qdigidoc4).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
       <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="INSTALL_DIGIDOC4" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
