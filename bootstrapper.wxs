@@ -17,6 +17,7 @@
 
     <Variable Name="IESupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="ForceChromeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="Qdigidoc4Install" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -126,11 +127,13 @@
           SourceFile="$(var.chrome).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
+        <MsiProperty Name="FORCEINSTALL" Value="[ForceChromeExtensionActivation]"/>
       </MsiPackage>
       <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND (ChromeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.chrome).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
+        <MsiProperty Name="FORCEINSTALL" Value="[ForceChromeExtensionActivation]"/>
       </MsiPackage>
 
       <MsiPackage Id="Updater.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes"
