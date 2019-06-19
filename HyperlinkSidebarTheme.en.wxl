@@ -69,6 +69,7 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="tera">TeRa Client</String>
   <String Id="ieplugin">Internet Explorer browser signing support</String>
   <String Id="chromeplugin">Chrome signing support</String>
+  <String Id="chromepluginpolicy">Chrome signing plug-in will be activated automatically</String>
   <String Id="firefoxplugin">Firefox signing and authentication support</String>
   <String Id="minidriver">Estonian ID-card support</String>
   <String Id="edge">Support for the Edge browser is available &lt;a href="https://www.microsoft.com/store/apps/9N5FKX7GTDRQ"&gt;here&lt;/a&gt;</String>
