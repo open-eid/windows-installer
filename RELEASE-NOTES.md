@@ -1,3 +1,9 @@
+Packaging version [19.07](https://github.com/open-eid/osx-installer/releases/tag/v19.07) release notes
+--------------------------------------------
+- Option to disable Chrome extension activation policy
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v18.12...v19.07)
+
 Packaging version [18.12](https://github.com/open-eid/osx-installer/releases/tag/v18.12) release notes
 --------------------------------------------
 - Include IDEMIA drivers
