@@ -73,4 +73,5 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="firefoxplugin">Firefox allkirjastamise ja autentimise tugi</String>
   <String Id="minidriver">Eesti ID-kaardi tugi</String>
   <String Id="edge">Microsoft Edge-i toe lisamiseks kliki &lt;a href="https://www.microsoft.com/store/apps/9N5FKX7GTDRQ"&gt;siia&lt;/a&gt;</String>
+  <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid ka arvutist</String>
 </WixLocalization>
