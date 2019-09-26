@@ -18,8 +18,8 @@
   <Page Name="Install">
     <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="185" Y="50" Width="-11" Height="32" FontId="2" DisablePrefix="yes">#(loc.InstallHeader)</Text>
-    <Text X="185" Y="91" Width="-11" Height="90" FontId="3" DisablePrefix="yes">#(loc.InstallMessage)</Text><!-- HexStyle="0x800000" -->
+    <Text X="185" Y="50" Width="-11" Height="32" TabStop="yes" FontId="2" DisablePrefix="yes">#(loc.InstallHeader)</Text>
+    <Text X="185" Y="91" Width="-11" Height="90" TabStop="yes" FontId="3" DisablePrefix="yes">#(loc.InstallMessage)</Text><!-- HexStyle="0x800000" -->
     <Hypertext X="185" Y="-111" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ChangeLogLink)</Hypertext>
     <Hypertext Name="EulaHyperlink" X="185" Y="-111" Width="-11" Height="17" TabStop="yes" FontId="3" HideWhenDisabled="yes">#(loc.InstallLicenseLinkText)</Hypertext>
     <Text Name="InstallVersion" X="185" Y="-81" Width="-11" Height="17" FontId="3" DisablePrefix="yes" HideWhenDisabled="yes">#(loc.InstallVersion)</Text>
@@ -31,7 +31,7 @@
   <Page Name="Options">
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
     <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="11" Y="66" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
+    <Text X="11" Y="66" Width="-11" Height="30" TabStop="yes" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
     <!--Text X="11" Y="121" Width="-11" Height="17" FontId="3">#(loc.OptionsLocationLabel)</Text-->
     <!--Editbox Name="FolderEditbox" X="11" Y="143" Width="-91" Height="21" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" /-->
     <!--Button Name="BrowseButton" X="-11" Y="142" Width="75" Height="23" TabStop="yes" FontId="3">#(loc.OptionsBrowseButton)</Button-->
@@ -78,7 +78,7 @@
     <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Text-->
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
     <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="11" Y="66" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
+    <Text X="11" Y="66" Width="-11" Height="30" TabStop="yes" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
     <Checkbox Name="MinidriverInstall" X="30" Y="102" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
     <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
     <Checkbox Name="TeRaInstall" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.tera)</Checkbox>
@@ -98,7 +98,7 @@
     <Image X="0" Y="0" Width="165" Height="400" ImageFile="logoside.png"/>
     <Text X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
     <Text Name="SuccessHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessHeader)</Text>
-    <Hypertext Name="SuccessInstallHeader" X="185" Y="50" Width="-11" Height="250" FontId="5" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessInstallHeader) #(loc.SuccessInstallMessage) #(loc.edge)</Hypertext>
+    <Hypertext Name="SuccessInstallHeader" X="185" Y="50" Width="-11" Height="250" TabStop="yes" FontId="5" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessInstallHeader) #(loc.SuccessInstallMessage) #(loc.edge)</Hypertext>
     <Text Name="SuccessRepairHeader" X="185" Y="50" Width="-11" Height="100" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessRepairHeader)</Text> 	
     <Text Name="SuccessUninstallHeader" X="185" Y="50" Width="-11" Height="30" FontId="2" HideWhenDisabled="yes" DisablePrefix="yes">#(loc.SuccessUninstallHeader)</Text>	
     <Button Name="LaunchButton" X="-91" Y="-11" Width="175" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>
