@@ -31,21 +31,22 @@
   <Page Name="Options">
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
     <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="11" Y="80" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
+    <Text X="11" Y="66" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
     <!--Text X="11" Y="121" Width="-11" Height="17" FontId="3">#(loc.OptionsLocationLabel)</Text-->
     <!--Editbox Name="FolderEditbox" X="11" Y="143" Width="-91" Height="21" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" /-->
     <!--Button Name="BrowseButton" X="-11" Y="142" Width="75" Height="23" TabStop="yes" FontId="3">#(loc.OptionsBrowseButton)</Button-->
-    <Checkbox Name="MinidriverInstall" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
-    <Checkbox Name="Qdigidoc4Install" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
-    <Checkbox Name="TeRaInstall" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.tera)</Checkbox>
-    <Static X="30" Y="187" Width="-30" Height="1" />
-    <Checkbox Name="IESupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
-    <Checkbox Name="ChromeSupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
-    <Checkbox Name="ForceChromeExtensionActivation" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
-    <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
-    <Hypertext X="46" Y="279" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
-    <Static X="30" Y="297" Width="-30" Height="1" />
-    <Checkbox Name="IconsDesktop" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Checkbox Name="MinidriverInstall" X="30" Y="102" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
+    <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
+    <Checkbox Name="TeRaInstall" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.tera)</Checkbox>
+    <Static X="30" Y="165" Width="-30" Height="1" />
+    <Checkbox Name="IESupport" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="ForceChromeExtensionActivation" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
+    <Hypertext X="46" Y="257" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
+    <Static X="30" Y="275" Width="-30" Height="1" />
+    <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Checkbox Name="InstallCertSynchronizer" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.certsynchronizer)</Checkbox>
     <Button Name="OptionsOkButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsOkButton)</Button>
     <Button Name="OptionsCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.OptionsCancelButton)</Button>
   </Page>
@@ -77,18 +78,18 @@
     <Text X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Text-->
     <Image X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
     <Text X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Text>
-    <Text X="11" Y="80" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
-    <Checkbox Name="MinidriverInstall" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
-    <Checkbox Name="Qdigidoc4Install" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
-    <Checkbox Name="TeRaInstall" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.tera)</Checkbox>
-    <Static X="30" Y="187" Width="-30" Height="1" />
-    <Checkbox Name="IESupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
-    <Checkbox Name="ChromeSupport" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
-    <Checkbox Name="ForceChromeExtensionActivation" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
-    <Checkbox Name="FirefoxSupport" X="30" Y="256" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
-    <Hypertext X="46" Y="279" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
-    <Static X="30" Y="297" Width="-30" Height="1" />
-    <Checkbox Name="IconsDesktop" X="30" Y="300" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
+    <Text X="11" Y="66" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Text>
+    <Checkbox Name="MinidriverInstall" X="30" Y="102" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
+    <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
+    <Checkbox Name="TeRaInstall" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.tera)</Checkbox>
+    <Static X="30" Y="165" Width="-30" Height="1" />
+    <Checkbox Name="IESupport" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ieplugin)</Checkbox>
+    <Checkbox Name="ChromeSupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
+    <Checkbox Name="ForceChromeExtensionActivation" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
+    <Checkbox Name="FirefoxSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
+    <Hypertext X="46" Y="257" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edge)</Hypertext>
+    <Static X="30" Y="275" Width="-30" Height="1" />
+    <Checkbox Name="IconsDesktop" X="30" Y="278" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
     <Button Name="RepairButton" X="-171" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
     <Button Name="UninstallButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyUninstallButton)</Button>
     <Button Name="ModifyCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyCloseButton)</Button>
