@@ -15,8 +15,6 @@ param(
    [string]$ieplugin = "ie-token-signing",
    [string]$chrome = "chrome-token-signing",
    [string]$loader = "firefox-pkcs11-loader",
-   [string]$tera = "TeRa",
-   [string]$teraVersion = $null,
    [string]$embed = "no",
    [string]$sign = $null
 )
@@ -54,7 +52,6 @@ $chrome = GetBaseName $chrome 4
 $loader = GetBaseName $loader 4
 $minidriver = GetBaseName $minidriver 4
 $idemia = GetBaseName $idemia 10
-$teraVersion = GetVersion $tera
 
 Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
@@ -63,7 +60,7 @@ Function Sign($filename) {
 Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
-        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" "-dteraVersion=$teraVersion" `
+        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" `
         "-dminidriver=$minidriver" "-didemia=$idemia" "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
