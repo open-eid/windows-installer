@@ -8,6 +8,7 @@
       "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
     <Property Id='IESUPPORT' Value="0"/>
     <Property Id='CHROMESUPPORT' Value="0"/>
+    <Property Id='EDGESUPPORT' Value="0"/>
     <Property Id='FIREFOXSUPPORT' Value="0"/>
     <Property Id='MINIDRIVERINSTALL' Value="0"/>
     <Property Id='QDIGIDOC4INSTALL' Value="0"/>
@@ -21,6 +22,8 @@
                        Name='IESupport' Value='[IESUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='ChromeSupport' Value='[CHROMESUPPORT]' Type='integer' />
+        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
+                       Name='EdgeSupport' Value='[EDGESUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
