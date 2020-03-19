@@ -17,7 +17,9 @@
 
     <Variable Name="IESupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="EdgeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ForceChromeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="ForceEdgeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallCertSynchronizer" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -33,6 +35,8 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IESupport" Variable="IESupport" Condition="IESupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupport" Condition="ChromeSupportExists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupportExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupport" Condition="EdgeSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists"/>
@@ -128,20 +132,24 @@
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64 AND (ChromeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64 AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.chrome).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
         <MsiProperty Name="FORCEINSTALL" Value="[ForceChromeExtensionActivation]"/>
         <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]"/>
+        <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]"/>
+        <MsiProperty Name="EDGEFORCEINSTALL" Value="[ForceEdgeExtensionActivation]"/>
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
       </MsiPackage>
-      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND (ChromeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64 AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.chrome).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
         <MsiProperty Name="FORCEINSTALL" Value="[ForceChromeExtensionActivation]"/>
         <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]"/>
+        <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]"/>
+        <MsiProperty Name="EDGEFORCEINSTALL" Value="[ForceEdgeExtensionActivation]"/>
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
@@ -222,6 +230,7 @@
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
         <MsiProperty Name="IESupport" Value="[IESupport]"/>
         <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]"/>
+        <MsiProperty Name="EdgeSupport" Value="[EdgeSupport]"/>
         <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]"/>
         <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]"/>
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]"/>
