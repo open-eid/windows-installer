@@ -103,21 +103,25 @@
           SourceFile="$(var.idemia).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
+        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
       <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
+        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
       <MsiPackage Id="IDEMIA.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
+        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
       <MsiPackage Id="IDEMIA.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
+        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
 
       <MsiPackage Id="IE.X64" InstallCondition="VersionNT64 AND IESupport = 1" ForcePerMachine="yes"
