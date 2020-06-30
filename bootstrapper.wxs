@@ -37,6 +37,10 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupport" Condition="ChromeSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupport" Condition="EdgeSupportExists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation" Variable="ForceChromeExtensionActivationExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation" Variable="ForceChromeExtensionActivation" Condition="ForceChromeExtensionActivationExists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation" Variable="ForceEdgeExtensionActivationExists" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation" Variable="ForceEdgeExtensionActivation" Condition="ForceEdgeExtensionActivationExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists"/>
@@ -235,6 +239,8 @@
         <MsiProperty Name="IESupport" Value="[IESupport]"/>
         <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]"/>
         <MsiProperty Name="EdgeSupport" Value="[EdgeSupport]"/>
+        <MsiProperty Name="ForceChromeExtensionActivation" Value="[ForceChromeExtensionActivation]"/>
+        <MsiProperty Name="ForceEdgeExtensionActivation" Value="[ForceEdgeExtensionActivation]"/>
         <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]"/>
         <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]"/>
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]"/>
