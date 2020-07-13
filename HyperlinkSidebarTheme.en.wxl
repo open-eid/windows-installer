@@ -3,7 +3,7 @@
   <String Id="Caption">[WixBundleName] setup</String>
   <String Id="Title">[WixBundleName]</String>
   <String Id="InstallHeader">Welcome!</String>
-  <String Id="InstallMessage">Setup will install [WixBundleName] on your computer. [WixBundleName] allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit.</String>
+  <String Id="InstallMessage">Setup will install [WixBundleName] on your computer. Close all other applications before installing the software. [WixBundleName] allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit.</String>
   <String Id="InstallVersion">Version [WixBundleVersion]</String>
   <String Id="ConfirmCancelMessage">Are you sure you want to cancel?</String>
   <String Id="ExecuteUpgradeRelatedBundleMessage">Previous version</String>
@@ -38,10 +38,7 @@
   <String Id="SuccessRepairHeader">Repair completed successfully.</String>
   <String Id="SuccessUninstallHeader">Uninstall completed</String>
   <String Id="SuccessInstallHeader">Installation completed successfully.</String>
-  <String Id="SuccessInstallMessage"><![CDATA[
-
-]]>In order to use digital signing in online services the browser token plugin must be enabled in Your web browser.
-Instructions on how to enable token plugin can be found &lt;a href="http://id.ee/?lang=en&amp;id=36639"&gt;here&lt;/a&gt;.</String>
+  <String Id="SuccessInstallMessage">You can find answers to questions about the electronic use of ID-card and mobile-ID on the id.ee webpage.</String>
   <String Id="SuccessHeader">Setup successful</String>
   <String Id="SuccessLaunchButton">&amp;Launch ID-card utility</String>
   <String Id="SuccessRestartText">You must restart your computer before you can use the software.</String>
@@ -50,8 +47,9 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="FailureHeader">Setup failed</String>
   <String Id="FailureInstallHeader">Installation failed</String>
   <String Id="FailureUninstallHeader">Uninstall failed</String>
-  <String Id="FailureRepairHeader">Repair failed</String> 
-  <String Id="FailureHyperlinkLogText">One or more issues caused the setup to fail. Please fix the issues - for example ensure that internet connection is established - and then retry setup. For more information see the &lt;a href="#"&gt;log file&lt;/a&gt;.</String>
+  <String Id="FailureRepairHeader">Repair failed</String>
+  <String Id="FailureHyperlinkLogText">Operation failed. You can find help for installing the software on the id.ee website.
+&lt;a href="#"&gt;For more information see the log file&lt;/a&gt;.</String>
   <String Id="FailureRestartText">You must restart your computer to complete the rollback of the software.</String>
   <String Id="FailureRestartButton">&amp;Restart</String>
   <String Id="FailureCloseButton">&amp;Close</String>
@@ -61,9 +59,9 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="FilesInUseDontCloseRadioButton">&amp;Do not close the applications. A reboot will be required.</String>
   <String Id="FilesInUseOkButton">&amp;OK</String>
   <String Id="FilesInUseCancelButton">&amp;Cancel</String>
-  <String Id="ChangeLogLink">Changelog: &lt;a href="http://www.id.ee/eng/changelog"&gt;http://www.id.ee/eng/changelog&lt;/a&gt;.</String>
+  <String Id="ChangeLogLink">&lt;a href="http://www.id.ee/eng/changelog"&gt;Changelog&lt;/a&gt;</String>
   <String Id="OptionsCustomizeInstall">Customize install</String>
-  <String Id="OptionsDesktop">Create ID-card software icons on my desktop</String>
+  <String Id="OptionsDesktop">Create ID-software icons on my desktop</String>
   <String Id="OptionsStartMenu">Create ID-card software icons in my Start Menu Programs folder</String>
   <String Id="qdigidoc4">DigiDoc4 Client</String>
   <String Id="ieplugin">Internet Explorer browser signing support</String>
@@ -71,8 +69,8 @@ Instructions on how to enable token plugin can be found &lt;a href="http://id.ee
   <String Id="chromepluginpolicy">Chrome signing plug-in will be activated automatically</String>
   <String Id="firefoxplugin">Firefox signing and authentication support</String>
   <String Id="minidriver">Estonian ID-card support</String>
-  <String Id="edge">Support for the Edge browser is available &lt;a href="https://www.microsoft.com/store/apps/9N5FKX7GTDRQ"&gt;here&lt;/a&gt;</String>
   <String Id="certsynchronizer">Delete the ID-card certificates from the computer upon removing the card</String>
   <String Id="edgeplugin">Edge Chromium signing support</String>
   <String Id="edgepluginpolicy">Edge Chromium signing plug-in will be activated automatically</String>
+  <String Id="SupportedWindows">You are using an unsupported operating system. You'll need Windows 8.1 or later to successfully install ID-software.</String>
 </WixLocalization>
