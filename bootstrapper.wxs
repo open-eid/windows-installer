@@ -24,7 +24,6 @@
     <Variable Name="InstallCertSynchronizer" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="Qdigidoc4Install" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="TeRaInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="IconsDesktop" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="AutoUpdate" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallX64" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="$(var.defaultX64)"/>
@@ -47,8 +46,6 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4InstallExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4Install" Condition="Qdigidoc4InstallExists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="TeRaInstall" Variable="TeRaInstallExists" Result="exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="TeRaInstall" Variable="TeRaInstall" Condition="TeRaInstallExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists"/>
@@ -224,17 +221,6 @@
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="TeRa_x86" InstallCondition="NOT VersionNT64 AND TeRaInstall = 1" ForcePerMachine="yes"
-          SourceFile="TeRa_x86.$(var.teraVersion).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="TeRa_x64" InstallCondition="VersionNT64 AND TeRaInstall = 1" ForcePerMachine="yes"
-          SourceFile="TeRa_x64.$(var.teraVersion).msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
         <MsiProperty Name="IESupport" Value="[IESupport]"/>
         <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]"/>
@@ -244,7 +230,6 @@
         <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]"/>
         <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]"/>
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]"/>
-        <MsiProperty Name="TeRaInstall" Value="[TeRaInstall]"/>
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]"/>
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]"/>
       </MsiPackage>
