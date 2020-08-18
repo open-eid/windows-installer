@@ -3,8 +3,7 @@
     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
-      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee"
-      Condition="(VersionNT >= v6.1)">
+      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
@@ -14,6 +13,8 @@
         <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl"/>
         <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
+
+    <bal:Condition Message="#(loc.SupportedWindows)">VersionNT >= v6.3</bal:Condition>
 
     <Variable Name="IESupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>

@@ -3,7 +3,7 @@
   <String Id="Caption">eID tarkvara paigaldus</String>
   <String Id="Title">eID tarkvara</String>
   <String Id="InstallHeader">Tere tulemast!</String>
-  <String Id="InstallMessage">Jätkamisel paigaldakse teie arvutisse ID-kaardiga allkirjastamise tarkvara. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu.</String>
+  <String Id="InstallMessage">Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu.</String>
   <String Id="InstallVersion">Versioon [WixBundleVersion]</String>
   <String Id="ConfirmCancelMessage">Oled kindel, et soovid katkestada?</String><!--Aga vastusenupud?--> 
   <String Id="ExecuteUpgradeRelatedBundleMessage">Eelmine versioon</String>
@@ -38,12 +38,9 @@
   <String Id="SuccessRepairHeader">Tarkvara parandus õnnestus</String>
   <String Id="SuccessUninstallHeader">Tarkvara eemaldatud</String>
   <String Id="SuccessInstallHeader">Tarkvara paigaldus õnnestus!</String>
-  <String Id="SuccessInstallMessage"><![CDATA[
-
-]]>E-teenustes ID-kaardiga allkirjastamiseks on Teil vajalik veel aktiveerida veebilehitsejas allkirjastamise plugin.
-Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"&gt;siit&lt;/a&gt;.</String>
+  <String Id="SuccessInstallMessage">ID-kaardi ja mobiil-ID elektroonilist kasutamist puudutavatele küsimustele leiad vastused id.ee veebilehelt.</String>
   <String Id="SuccessHeader">Toiming õnnestus</String>
-  <String Id="SuccessLaunchButton">&amp;Käivita ID-kaardi haldusvahend</String>
+  <String Id="SuccessLaunchButton">&amp;Käivita ID-kaardi haldusvahend</String><!--Seda teadet ei kuvata.-->
   <String Id="SuccessRestartText">Enne tarkvara kasutamist tuleb arvuti taaskäivitada.</String>
   <String Id="SuccessRestartButton">&amp;Taaskäivita</String>
   <String Id="SuccessCloseButton">&amp;Sulge</String>
@@ -51,7 +48,8 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="FailureInstallHeader">Tarkvara paigaldus ebaõnnestus</String>
   <String Id="FailureUninstallHeader">Tarkvara eemaldamine ebaõnnestus</String>
   <String Id="FailureRepairHeader">Tarkvara parandus ebaõnnestus</String>
-  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Palun lahenda probleemid - näiteks veendu, et internetiühendus on olemas - ja proovi uuesti. Rohkem informatsiooni leiad &lt;a href="#"&gt;logifailist&lt;/a&gt;.</String>
+  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt.
+&lt;a href="#"&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;.</String>
   <String Id="FailureRestartText">Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada.</String>
   <String Id="FailureRestartButton">&amp;Taaskäivita</String>
   <String Id="FailureCloseButton">&amp;Sulge</String>
@@ -61,18 +59,18 @@ Juhend aktiveerimiseks on leitav &lt;a href="http://id.ee/?lang=et&amp;id=36636"
   <String Id="FilesInUseDontCloseRadioButton">&amp;Ära sulge rakendusi. Arvuti tuleb taaskäivitada.</String>
   <String Id="FilesInUseOkButton">&amp;OK</String>
   <String Id="FilesInUseCancelButton">&amp;Katkesta</String>
-  <String Id="ChangeLogLink">Muudatuste loetelu &lt;a href="http://www.id.ee/changelog"&gt;http://www.id.ee/changelog&lt;/a&gt;.</String>
+  <String Id="ChangeLogLink">&lt;a href="http://www.id.ee/changelog"&gt;Muudatuste loetelu&lt;/a&gt;</String>
   <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
-  <String Id="OptionsDesktop">Paigalda ID-kaardi tarkvara ikoonid töölauale</String>
-  <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String>
+  <String Id="OptionsDesktop">Paigalda ID-tarkvara ikoonid töölauale</String>
+  <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String><!--Seda teadet ei kuvata.-->
   <String Id="qdigidoc4">DigiDoc4 klient</String>
   <String Id="ieplugin">Internet Exploreri allkirjastamise tugi</String>
   <String Id="chromeplugin">Chrome allkirjastamise tugi</String>
   <String Id="chromepluginpolicy">Chrome allkirjastamise tugi aktiveeritakse automaatselt</String>
   <String Id="firefoxplugin">Firefox allkirjastamise ja autentimise tugi</String>
   <String Id="minidriver">Eesti ID-kaardi tugi</String>
-  <String Id="edge">Microsoft Edge-i toe lisamiseks kliki &lt;a href="https://www.microsoft.com/store/apps/9N5FKX7GTDRQ"&gt;siia&lt;/a&gt;</String>
   <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid ka arvutist</String>
   <String Id="edgeplugin">Edge Chromium allkirjastamise tugi</String>
   <String Id="edgepluginpolicy">Edge Chromium allkirjastamise tugi aktiveeritakse automaatselt</String>
+  <String Id="SupportedWindows">Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 8.1 või uuemat operatsioonisüsteemi.</String>
 </WixLocalization>
