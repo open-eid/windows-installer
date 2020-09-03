@@ -53,8 +53,6 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists"/>
     <util:DirectorySearch Path="[InstallFolder]" Variable="Installed" Result="exists"/>
     <util:FileSearch Path="[ProgramFiles64Folder]\Open-EID\ID-Updater.exe" Variable="InstallX64" Result="exists" Condition="Installed"/>
-    <util:ProductSearch Id="VCREDIST_140_x86" UpgradeCode="65E5BD06-6392-3027-8C26-853107D3CF1A" Result="version" Variable="VCREDIST_140_x86" />
-    <util:ProductSearch Id="VCREDIST_140_x64" UpgradeCode="36F68A90-239C-34DF-B58C-64B30153CE35" Result="version" Variable="VCREDIST_140_x64" />
     <util:ProductSearch Id="Old311_Installed" UpgradeCode="58A1DBA8-81A2-4D58-980B-4A6174D5B66B" Result="version" Variable="Old311Installed" />
     <util:ProductSearch Id="QtConf_Installed" UpgradeCode="471cf7f5-b418-4463-9a55-e3895c8519e0" Result="version" Variable="QtConfInstalled" />
     <util:ProductSearch Id="Firefox_Installed" UpgradeCode="4e7f96ae-a8c9-45ae-bcf1-1fb64597df5b" Result="version" Variable="FirefoxInstalled" />
@@ -74,19 +72,6 @@
       <MsiPackage Id="Firefox.X86" InstallCondition="FirefoxInstalled &gt;= v1.0.0.0 AND FirefoxInstalled &lt; v17.10.0.0" ForcePerMachine="yes" SourceFile="ffuninstall.x86.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
-
-      <ExePackage Id="vcredist_x86" Cache="no" PerMachine="yes" SourceFile="$(var.vcredist).x86.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)"
-          InstallCommand="/install /quiet /norestart" Permanent="yes" DetectCondition="(VCREDIST_140_x86 &gt;= v14.16.27033.0)">
-        <ExitCode Value="3010" Behavior="forceReboot"/>
-        <!-- Ignore "Newer version installed" error -->
-        <ExitCode Value="1638" Behavior="success"/>
-      </ExePackage>
-      <ExePackage Id="vcredist_x64" Cache="no" PerMachine="yes" SourceFile="$(var.vcredist).x64.exe" Compressed="$(var.embed)" DownloadUrl="$(var.URL)" InstallCondition="VersionNT64"
-          InstallCommand="/install /quiet /norestart" Permanent="yes" DetectCondition="(VCREDIST_140_x64 &gt;= v14.16.27033.0)">
-        <ExitCode Value="3010" Behavior="forceReboot"/>
-        <!-- Ignore "Newer version installed" error -->
-        <ExitCode Value="1638" Behavior="success"/>
-      </ExePackage>
 
       <MsiPackage Id="Minidriver.X64" InstallCondition="VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
