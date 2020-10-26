@@ -8,8 +8,8 @@
       "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
     <Property Id='CHROMESUPPORT' Value="0"/>
     <Property Id='EDGESUPPORT' Value="0"/>
-    <Property Id='FORCECHROMEEXTENSIONACTIVATION2' Value="0"/>
-    <Property Id='FORCEEDGEEXTENSIONACTIVATION2' Value="0"/>
+    <Property Id='FORCECHROMEEXTENSIONACTIVATION' Value="0"/>
+    <Property Id='FORCEEDGEEXTENSIONACTIVATION' Value="0"/>
     <Property Id='FIREFOXSUPPORT' Value="0"/>
     <Property Id='MINIDRIVERINSTALL' Value="0"/>
     <Property Id='QDIGIDOC4INSTALL' Value="0"/>
@@ -23,9 +23,9 @@
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='EdgeSupport' Value='[EDGESUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='FORCECHROMEEXTENSIONACTIVATION2' Value='[FORCECHROMEEXTENSIONACTIVATION2]' Type='integer' />
+                       Name='FORCECHROMEEXTENSIONACTIVATION' Value='[FORCECHROMEEXTENSIONACTIVATION]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='FORCEEDGEEXTENSIONACTIVATION2' Value='[FORCEEDGEEXTENSIONACTIVATION2]' Type='integer' />
+                       Name='FORCEEDGEEXTENSIONACTIVATION' Value='[FORCEEDGEEXTENSIONACTIVATION]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'

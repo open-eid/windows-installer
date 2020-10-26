@@ -11,7 +11,6 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
 2. Download dependencies to packages folder
    * Digidoc4_Client*.msi
    * ID-Updater*.msi
-   * firefox_pkcs11_loader*.msi
    * web-eid*.msi
    * minidriver*.msi
    * AWP*.msi
