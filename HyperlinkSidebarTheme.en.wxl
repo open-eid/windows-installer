@@ -64,13 +64,12 @@
   <String Id="OptionsDesktop">Create ID-software icons on my desktop</String>
   <String Id="OptionsStartMenu">Create ID-card software icons in my Start Menu Programs folder</String>
   <String Id="qdigidoc4">DigiDoc4 Client</String>
-  <String Id="ieplugin">Internet Explorer browser signing support</String>
-  <String Id="chromeplugin">Chrome signing support</String>
-  <String Id="chromepluginpolicy">Chrome signing plug-in will be activated automatically</String>
-  <String Id="firefoxplugin">Firefox signing and authentication support</String>
+  <String Id="chromeplugin">Chrome authentication and signing support</String>
+  <String Id="chromepluginpolicy">Chrome extension will be activated automatically</String>
+  <String Id="firefoxplugin">Firefox authentication and signing support</String>
   <String Id="minidriver">Estonian ID-card support</String>
   <String Id="certsynchronizer">Delete the ID-card certificates from the computer upon removing the card</String>
-  <String Id="edgeplugin">Edge Chromium signing support</String>
-  <String Id="edgepluginpolicy">Edge Chromium signing plug-in will be activated automatically</String>
+  <String Id="edgeplugin">Edge authentication and signing support</String>
+  <String Id="edgepluginpolicy">Edge extension will be activated automatically</String>
   <String Id="SupportedWindows">You are using an unsupported operating system. You'll need Windows 8.1 or later to successfully install ID-software.</String>
 </WixLocalization>
