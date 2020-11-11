@@ -59,7 +59,7 @@
   <String Id="FilesInUseDontCloseRadioButton">&amp;Ära sulge rakendusi. Arvuti tuleb taaskäivitada.</String>
   <String Id="FilesInUseOkButton">&amp;OK</String>
   <String Id="FilesInUseCancelButton">&amp;Katkesta</String>
-  <String Id="ChangeLogLink">&lt;a href="http://www.id.ee/changelog"&gt;Muudatuste loetelu&lt;/a&gt;</String>
+  <String Id="ChangeLogLink">&lt;a href="https://www.id.ee/artikkel/id-tarkvara-versioonide-info-release-notes/"&gt;Muudatuste loetelu&lt;/a&gt;</String>
   <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
   <String Id="OptionsDesktop">Paigalda ID-tarkvara ikoonid töölauale</String>
   <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String><!--Seda teadet ei kuvata.-->
