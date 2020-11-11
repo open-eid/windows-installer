@@ -59,7 +59,7 @@
   <String Id="FilesInUseDontCloseRadioButton">&amp;Do not close the applications. A reboot will be required.</String>
   <String Id="FilesInUseOkButton">&amp;OK</String>
   <String Id="FilesInUseCancelButton">&amp;Cancel</String>
-  <String Id="ChangeLogLink">&lt;a href="http://www.id.ee/eng/changelog"&gt;Changelog&lt;/a&gt;</String>
+  <String Id="ChangeLogLink">&lt;a href="https://www.id.ee/en/article/id-software-versions-info-release-notes/"&gt;Changelog&lt;/a&gt;</String>
   <String Id="OptionsCustomizeInstall">Customize install</String>
   <String Id="OptionsDesktop">Create ID-software icons on my desktop</String>
   <String Id="OptionsStartMenu">Create ID-card software icons in my Start Menu Programs folder</String>
