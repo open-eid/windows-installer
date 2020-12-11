@@ -14,7 +14,7 @@
         <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
 
-    <bal:Condition Message="#(loc.SupportedWindows)">VersionNT >= v6.3</bal:Condition>
+    <bal:Condition Message="#(loc.SupportedWindows)">VersionNT >= v6.1</bal:Condition>
 
     <Variable Name="IESupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
