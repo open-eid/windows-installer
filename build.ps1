@@ -76,18 +76,12 @@ Function Create($wxs, $filename, $defaultX64) {
 & $light -nologo -out "qtconf.x86.msi" qtconf.wixobj
 & $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x64
 & $light -nologo -out "qtconf.x64.msi" qtconf.wixobj
-& $candle -nologo "$path\ffuninstall.wxs" "-dMSI_VERSION=$msiversion" -arch x86
-& $light -nologo -out "ffuninstall.x86.msi" ffuninstall.wixobj
 & $candle -nologo "$path\metainfo.wxs" "-dMSI_VERSION=$msiversion"
 & $light -nologo -out "metainfo.msi" metainfo.wixobj
-& $candle -nologo "$path\uninstaller.wxs" "-dMSI_VERSION=$msiversion"
-& $light -nologo -out "uninstaller.msi" uninstaller.wixobj
 if($sign) {
     Sign("qtconf.x86.msi")
     Sign("qtconf.x64.msi")
-    Sign("ffuninstall.x86.msi")
     Sign("metainfo.msi")
-    Sign("uninstaller.msi")
 }
 Create "bootstrapper" $filename".exe" 1
 Create "bootstrapper" $filename"_x86.exe" 0
