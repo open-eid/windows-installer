@@ -1,7 +1,7 @@
 windows-installer
 =================
 
-A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers.
+A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and browser plugins.
 
 1. Fetch the source
 
