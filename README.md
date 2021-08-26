@@ -1,7 +1,7 @@
 windows-installer
 =================
 
-A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various drivers.
+A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers.
 
 1. Fetch the source
 
@@ -11,12 +11,11 @@ A WIX bootstrapper EXE with DigiDoc, ID-card utility and package with various dr
 2. Download dependencies to packages folder
    * Digidoc4_Client*.msi
    * ID-Updater*.msi
-   * TeRa*.msi
    * chrome-token-signing*.msi
-   * esteid-plugin-ie*.msi
+   * ie-token-signing*.msi
    * firefox_pkcs11_loader*.msi
-   * firefox-token-signing*.msi
    * minidriver*.msi
+   * AWP*.msi
 
 3. Run build.ps1 script, optional parameter -msiversion
 
