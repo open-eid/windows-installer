@@ -17,22 +17,12 @@
     </BootstrapperApplicationRef>
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
     <Chain>
-      <MsiPackage Id="IE.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.ieplugin)_x64.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="APPLICATION64FOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <MsiPackage Id="IE.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.ieplugin)_x86.msi" Compressed="yes">
+      <MsiPackage Id="WebEID.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.webeid).x86.qt.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
       </MsiPackage>
-
-      <MsiPackage Id="Chrome.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.chrome).x86.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <MsiPackage Id="Chrome.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.chrome).x64.msi" Compressed="yes">
+      <MsiPackage Id="WebEID.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
+          SourceFile="$(var.webeid).x64.qt.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
     </Chain>

@@ -64,13 +64,12 @@
   <String Id="OptionsDesktop">Paigalda ID-tarkvara ikoonid töölauale</String>
   <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String><!--Seda teadet ei kuvata.-->
   <String Id="qdigidoc4">DigiDoc4 klient</String>
-  <String Id="ieplugin">Internet Exploreri allkirjastamise tugi</String>
-  <String Id="chromeplugin">Chrome allkirjastamise tugi</String>
-  <String Id="chromepluginpolicy">Chrome allkirjastamise tugi aktiveeritakse automaatselt</String>
-  <String Id="firefoxplugin">Firefox allkirjastamise ja autentimise tugi</String>
+  <String Id="chromeplugin">Chrome isikutuvastamise ja allkirjastamise tugi</String>
+  <String Id="chromepluginpolicy">Chrome laiendus aktiveeritakse automaatselt</String>
+  <String Id="firefoxplugin">Firefox isikutuvastamise ja allkirjastamise tugi</String>
   <String Id="minidriver">Eesti ID-kaardi tugi</String>
-  <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid ka arvutist</String>
-  <String Id="edgeplugin">Edge Chromium allkirjastamise tugi</String>
-  <String Id="edgepluginpolicy">Edge Chromium allkirjastamise tugi aktiveeritakse automaatselt</String>
+  <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid arvutist</String>
+  <String Id="edgeplugin">Edge isikutuvastamise ja allkirjastamise tugi</String>
+  <String Id="edgepluginpolicy">Edge laiendus aktiveeritakse automaatselt</String>
   <String Id="SupportedWindows">Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 8.1 või uuemat operatsioonisüsteemi.</String>
 </WixLocalization>

@@ -3,7 +3,7 @@ param(
    [string]$candle = "$env:WIX\bin\candle.exe",
    [string]$light = "$env:WIX\bin\light.exe",
    [string]$insignia = "$env:WIX\bin\insignia.exe",
-   [string]$msiversion = "3.12.0.0",
+   [string]$msiversion = (Get-Date -Format "%y.%M.%d.0"),
    [string]$url = "https://installer.id.ee/media/windows/{2}",
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$vcredist = "vcredist",
@@ -12,9 +12,8 @@ param(
    [string]$shellext = "Digidoc_ShellExt",
    [string]$minidriver = "minidriver",
    [string]$idemia = "AWP",
-   [string]$ieplugin = "ie-token-signing",
-   [string]$chrome = "chrome-token-signing",
    [string]$loader = "firefox-pkcs11-loader",
+   [string]$webeid = "web-eid",
    [string]$embed = "no",
    [string]$sign = $null
 )
@@ -47,9 +46,8 @@ $vcredist = GetBaseName $vcredist 4
 $qdigidoc4 = GetBaseName $qdigidoc4 10
 $shellext = GetBaseName $shellext 4
 $updater = GetBaseName $updater 4
-$ieplugin = GetBaseName $ieplugin 4
-$chrome = GetBaseName $chrome 4
 $loader = GetBaseName $loader 4
+$webeid = GetBaseName $webeid 4
 $minidriver = GetBaseName $minidriver 4
 $idemia = GetBaseName $idemia 10
 
@@ -61,7 +59,7 @@ Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
         "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" `
-        "-dminidriver=$minidriver" "-didemia=$idemia" "-dieplugin=$ieplugin" "-dchrome=$chrome" "-dloader=$loader" "-dshellext=$shellext" 
+        "-dminidriver=$minidriver" "-didemia=$idemia" "-dloader=$loader" "-dwebeid=$webeid" "-dshellext=$shellext"
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"

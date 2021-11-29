@@ -6,11 +6,10 @@
     <Media Id='1' />
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
       "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
-    <Property Id='IESUPPORT' Value="0"/>
     <Property Id='CHROMESUPPORT' Value="0"/>
     <Property Id='EDGESUPPORT' Value="0"/>
-    <Property Id='FORCECHROMEEXTENSIONACTIVATION' Value="0"/>
-    <Property Id='FORCEEDGEEXTENSIONACTIVATION' Value="0"/>
+    <Property Id='FORCECHROMEEXTENSIONACTIVATION2' Value="0"/>
+    <Property Id='FORCEEDGEEXTENSIONACTIVATION2' Value="0"/>
     <Property Id='FIREFOXSUPPORT' Value="0"/>
     <Property Id='MINIDRIVERINSTALL' Value="0"/>
     <Property Id='QDIGIDOC4INSTALL' Value="0"/>
@@ -20,15 +19,13 @@
     <Feature Id='MainFeature' Level='1'>
       <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='IESupport' Value='[IESUPPORT]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='ChromeSupport' Value='[CHROMESUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='EdgeSupport' Value='[EDGESUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='ForceChromeExtensionActivation' Value='[FORCECHROMEEXTENSIONACTIVATION]' Type='integer' />
+                       Name='FORCECHROMEEXTENSIONACTIVATION2' Value='[FORCECHROMEEXTENSIONACTIVATION2]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='ForceEdgeExtensionActivation' Value='[FORCEEDGEEXTENSIONACTIVATION]' Type='integer' />
+                       Name='FORCEEDGEEXTENSIONACTIVATION2' Value='[FORCEEDGEEXTENSIONACTIVATION2]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
