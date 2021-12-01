@@ -98,7 +98,7 @@
         <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
 
-      <MsiPackage Id="WebEID.X86" InstallCondition="NOT VersionNT64 AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="WebEID.X86" InstallCondition="(NOT VersionNT64 OR InstallX64 = 0) AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.webeid).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
@@ -109,7 +109,7 @@
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
-      <MsiPackage Id="WebEID.X64" InstallCondition="VersionNT64 AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="WebEID.X64" InstallCondition="(VersionNT64 AND InstallX64 = 1) AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.webeid).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
