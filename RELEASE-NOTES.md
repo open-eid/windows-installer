@@ -1,3 +1,48 @@
+Packaging version [22.01](https://github.com/open-eid/osx-installer/releases/tag/v22.01) release notes
+--------------------------------------------
+- Include Web-eID support
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v21.02...v22.01)
+
+Packaging version [21.02](https://github.com/open-eid/osx-installer/releases/tag/v21.02) release notes
+--------------------------------------------
+- Remove VC Redistributable (#61)
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v20.12...v21.02)
+
+Packaging version [20.12](https://github.com/open-eid/osx-installer/releases/tag/v20.12) release notes
+--------------------------------------------
+- Update id.ee URLs
+- Improve accessibility
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v20.09...v20.12)
+
+Packaging version [20.09](https://github.com/open-eid/osx-installer/releases/tag/v20.09) release notes
+--------------------------------------------
+- Disable install on Windows 7 (#59)
+- Remove Tera (#55)
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v20.05...v20.09)
+
+Packaging version [20.05](https://github.com/open-eid/osx-installer/releases/tag/v20.05) release notes
+--------------------------------------------
+- Edge Chromium support (#56)
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v20.01...v20.05)
+
+Packaging version [20.01](https://github.com/open-eid/osx-installer/releases/tag/v20.01) release notes
+--------------------------------------------
+- Add Wix CustomAction to edit FirefoxAction registry key content (#54)
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v19.10...v20.01)
+
+Packaging version [19.10](https://github.com/open-eid/osx-installer/releases/tag/v19.10) release notes
+--------------------------------------------
+- Support new chrome-token-signing package layout
+- Use Visual Studio 2017 runtimes
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v19.07...v19.10)
+
 Packaging version [19.07](https://github.com/open-eid/osx-installer/releases/tag/v19.07) release notes
 --------------------------------------------
 - Option to disable Chrome extension activation policy
