@@ -131,6 +131,8 @@ Windows Registry Editor Version 5.00
 ; Web eID - 32-bit (unikaalsed)
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Chrome\Extensions\ncibgoaomkmdpilpocfeponihegamlic]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Edge\Extensions\gnmckgbandlkacikdndelhfghdejfido]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Google\Chrome\NativeMessagingHosts\eu.webeid]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Mozilla\NativeMessagingHosts\eu.webeid]
 
 ; IE Token Signing Plugin
 [-HKEY_CLASSES_ROOT\esteidpluginie.EstEIDCertificate]
