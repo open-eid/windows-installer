@@ -12,7 +12,6 @@ param(
    [string]$shellext = "Digidoc_ShellExt",
    [string]$minidriver = "minidriver",
    [string]$idemia = "AWP",
-   [string]$loader = "firefox-pkcs11-loader",
    [string]$webeid = "web-eid",
    [string]$embed = "no",
    [string]$sign = $null
@@ -46,7 +45,6 @@ $vcredist = GetBaseName $vcredist 4
 $qdigidoc4 = GetBaseName $qdigidoc4 10
 $shellext = GetBaseName $shellext 4
 $updater = GetBaseName $updater 4
-$loader = GetBaseName $loader 4
 $webeid = GetBaseName $webeid 4
 $minidriver = GetBaseName $minidriver 4
 $idemia = GetBaseName $idemia 10
@@ -59,7 +57,7 @@ Function Create($wxs, $filename, $defaultX64) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
         "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
         "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" `
-        "-dminidriver=$minidriver" "-didemia=$idemia" "-dloader=$loader" "-dwebeid=$webeid" "-dshellext=$shellext"
+        "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid" "-dshellext=$shellext"
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"

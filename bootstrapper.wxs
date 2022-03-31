@@ -133,17 +133,6 @@
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="FirefoxLoader.X64"  InstallCondition="VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.loader).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="FirefoxLoader.X86"  InstallCondition="NOT VersionNT64 AND FirefoxSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.loader).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
       <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
