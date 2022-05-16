@@ -78,5 +78,5 @@ Juhend on leitav &lt;a href="https://www.id.ee/artikkel/veebibrauserite-seadista
   <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid arvutist</String>
   <String Id="edgeplugin">Edge isikutuvastamise ja allkirjastamise tugi</String>
   <String Id="edgepluginpolicy">Edge laiendus aktiveeritakse automaatselt</String>
-  <String Id="SupportedWindows">Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 8.1 või uuemat operatsioonisüsteemi.</String>
+  <String Id="SupportedWindows">Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 10 või uuemat 64-bitist operatsioonisüsteemi.</String>
 </WixLocalization>

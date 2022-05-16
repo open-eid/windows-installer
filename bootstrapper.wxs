@@ -14,7 +14,7 @@
         <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl"/>
     </BootstrapperApplicationRef>
 
-    <bal:Condition Message="#(loc.SupportedWindows)">VersionNT >= v6.3</bal:Condition>
+    <bal:Condition Message="#(loc.SupportedWindows)">VersionNT >= v10.0 AND VersionNT64</bal:Condition>
 
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="EdgeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -26,7 +26,6 @@
     <Variable Name="Qdigidoc4Install" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="IconsDesktop" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="AutoUpdate" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="InstallX64" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="$(var.defaultX64)"/>
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
 
     <?define REGPath = "Software\[WixBundleManufacturer]\Open-EID"?>
@@ -48,68 +47,33 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists"/>
-    <util:DirectorySearch Path="[InstallFolder]" Variable="Installed" Result="exists"/>
-    <util:FileSearch Path="[ProgramFiles64Folder]\Open-EID\ID-Updater.exe" Variable="InstallX64" Result="exists" Condition="Installed"/>
     <util:ProductSearch Id="QtConf_Installed" UpgradeCode="471cf7f5-b418-4463-9a55-e3895c8519e0" Result="version" Variable="QtConfInstalled" />
 
     <Chain>
-      <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
-        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <MsiPackage Id="QtConf.X86" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0 AND (NOT VersionNT64 OR InstallX64 = 0)" ForcePerMachine="yes" SourceFile="qtconf.x86.msi" Compressed="yes">
+      <MsiPackage Id="QtConf.X64" InstallCondition="QtConfInstalled &gt;= v1.0.0.0 AND QtConfInstalled &lt; v17.10.0.0" ForcePerMachine="yes" SourceFile="qtconf.x64.msi" Compressed="yes">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Minidriver.X64" InstallCondition="VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="Minidriver.X64" InstallCondition="MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="Minidriver.X86" InstallCondition="NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.minidriver).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-        <!-- https://github.com/wixtoolset/issues/issues/5266 -->
-        <MsiProperty Name="INSTALL_DRIVER" Value="0"/>
-      </MsiPackage>
 
-      <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
         <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
-      <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
         <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
-      <MsiPackage Id="IDEMIA.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.idemia).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
-        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
-      </MsiPackage>
-      <MsiPackage Id="IDEMIA.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND NOT VersionNT64 AND MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.idemia).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]"/>
-        <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
-      </MsiPackage>
 
-      <MsiPackage Id="WebEID.X86" InstallCondition="(NOT VersionNT64 OR InstallX64 = 0) AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
-          SourceFile="$(var.webeid).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-        <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]"/>
-        <MsiProperty Name="CHROMEPOLICY" Value="[ForceChromeExtensionActivation2]"/>
-        <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]"/>
-        <MsiProperty Name="EDGEPOLICY" Value="[ForceEdgeExtensionActivation2]"/>
-        <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
-      </MsiPackage>
-
-      <MsiPackage Id="WebEID.X64" InstallCondition="(VersionNT64 AND InstallX64 = 1) AND (ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
+      <MsiPackage Id="WebEID.X64" InstallCondition="(ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.webeid).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
@@ -120,54 +84,28 @@
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Updater.X64" InstallCondition="VersionNT64 AND InstallX64 = 1" ForcePerMachine="yes"
+      <MsiPackage Id="Updater.X64" ForcePerMachine="yes"
           SourceFile="$(var.updater).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="Updater.X86" InstallCondition="NOT VersionNT64 OR InstallX64 = 0" ForcePerMachine="yes"
-          SourceFile="$(var.updater).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND (VersionNT64 AND InstallX64 = 1) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.qdigidoc4).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X86" InstallCondition="NOT UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4).x86.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X86" InstallCondition="UserLanguageID = 1061 AND (NOT VersionNT64 OR InstallX64 = 0) AND Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4).x86.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
-      <MsiPackage Id="shellext.X64" InstallCondition="VersionNT64 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
+      <MsiPackage Id="shellext.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <!-- x86 shell extension package must be installed after the x64 since previous versions of shell extensions used same upgrade code;
-           Installation of x64 after x86 shall remove previous package, including newly installed registry entries -->
-      <MsiPackage Id="shellext.X86" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
