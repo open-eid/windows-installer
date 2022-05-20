@@ -53,9 +53,9 @@ Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /td SHA256 "$filename"
 }
-Function Create($wxs, $filename, $defaultX64) {
+Function Create($wxs, $filename) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-ddefaultX64=$defaultX64" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
+        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
         "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" `
         "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid" "-dshellext=$shellext"
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
@@ -68,17 +68,13 @@ Function Create($wxs, $filename, $defaultX64) {
         Remove-Item "$filename.engine.exe"
     }
 }
-& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x86
-& $light -nologo -out "qtconf.x86.msi" qtconf.wixobj
 & $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x64
 & $light -nologo -out "qtconf.x64.msi" qtconf.wixobj
 & $candle -nologo "$path\metainfo.wxs" "-dMSI_VERSION=$msiversion"
 & $light -nologo -out "metainfo.msi" metainfo.wixobj
 if($sign) {
-    Sign("qtconf.x86.msi")
     Sign("qtconf.x64.msi")
     Sign("metainfo.msi")
 }
-Create "bootstrapper" $filename".exe" 1
-Create "bootstrapper" $filename"_x86.exe" 0
-Create "plugins" $filename"-plugins.exe" 0
+Create "bootstrapper" $filename".exe"
+Create "plugins" $filename"-plugins.exe"

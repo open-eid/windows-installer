@@ -78,5 +78,5 @@ The guide can be found &lt;a href="https://www.id.ee/en/article/configuring-brow
   <String Id="certsynchronizer">Delete the ID-card certificates from the computer upon removing the card</String>
   <String Id="edgeplugin">Edge authentication and signing support</String>
   <String Id="edgepluginpolicy">Edge extension will be activated automatically</String>
-  <String Id="SupportedWindows">You are using an unsupported operating system. You'll need Windows 8.1 or later to successfully install ID-software.</String>
+  <String Id="SupportedWindows">You are using an unsupported operating system. You'll need Windows 10 or later 64-bit operating system to successfully install ID-software.</String>
 </WixLocalization>

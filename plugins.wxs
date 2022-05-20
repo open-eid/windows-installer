@@ -17,11 +17,7 @@
     </BootstrapperApplicationRef>
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles6432Folder]Open-EID"/>
     <Chain>
-      <MsiPackage Id="WebEID.X86" InstallCondition="NOT VersionNT64" ForcePerMachine="yes"
-          SourceFile="$(var.webeid).x86.qt.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-      </MsiPackage>
-      <MsiPackage Id="WebEID.X64" InstallCondition="VersionNT64" ForcePerMachine="yes"
+      <MsiPackage Id="WebEID.X64" ForcePerMachine="yes"
           SourceFile="$(var.webeid).x64.qt.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[ProgramFilesFolder]\Open-EID"/>
       </MsiPackage>
