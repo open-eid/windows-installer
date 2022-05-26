@@ -39,9 +39,9 @@
     <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
     <Static X="30" Y="143" Width="-30" Height="1" />
     <Checkbox Name="ChromeSupport" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
-    <Checkbox Name="ForceChromeExtensionActivation2" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
+    <Checkbox Name="ForceChromeExtensionActivation" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox>
     <Checkbox Name="EdgeSupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgeplugin)</Checkbox>
-    <Checkbox Name="ForceEdgeExtensionActivation2" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgepluginpolicy)</Checkbox>
+    <Checkbox Name="ForceEdgeExtensionActivation" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgepluginpolicy)</Checkbox>
     <Checkbox Name="FirefoxSupport" X="30" Y="234" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
     <Static X="30" Y="258" Width="-30" Height="1" />
     <Checkbox Name="IconsDesktop" X="30" Y="261" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
@@ -82,9 +82,9 @@
     <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
     <Static X="30" Y="143" Width="-30" Height="1" />
     <Checkbox Name="ChromeSupport" X="30" Y="146" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromeplugin)</Checkbox>
-    <!--Checkbox Name="ForceChromeExtensionActivation2" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox-->
+    <!--Checkbox Name="ForceChromeExtensionActivation" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.chromepluginpolicy)</Checkbox-->
     <Checkbox Name="EdgeSupport" X="30" Y="168" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgeplugin)</Checkbox>
-    <!--Checkbox Name="ForceEdgeExtensionActivation2" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgepluginpolicy)</Checkbox-->
+    <!--Checkbox Name="ForceEdgeExtensionActivation" X="30" Y="212" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.edgepluginpolicy)</Checkbox-->
     <Checkbox Name="FirefoxSupport" X="30" Y="190" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.firefoxplugin)</Checkbox>
     <Static X="30" Y="214" Width="-30" Height="1" />
     <Checkbox Name="IconsDesktop" X="30" Y="217" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>

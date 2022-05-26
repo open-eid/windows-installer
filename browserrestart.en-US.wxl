@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-US" Codepage="utf-8" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="restartChrome" Overridable="yes">Google Chrome/Microsoft Edge/Firefox browser must me closed before the installation can proceed. Press Ignore to close the browser or close the browser and press Retry. To cancel the installation press Abort.</String>
+    <String Id="restartEdge" Overridable="yes">Google Chrome/Microsoft Edge/Firefox browser must me closed before the installation can proceed. Press Ignore to close the browser or close the browser and press Retry. To cancel the installation press Abort.</String>
+    <String Id="restartFirefox" Overridable="yes">Google Chrome/Microsoft Edge/Firefox browser must me closed before the installation can proceed. Press Ignore to close the browser or close the browser and press Retry. To cancel the installation press Abort.</String>
+</WixLocalization>

@@ -6,7 +6,6 @@ param(
    [string]$msiversion = (Get-Date -Format "%y.%M.%d.0"),
    [string]$url = "https://installer.id.ee/media/windows/{2}",
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
-   [string]$vcredist = "vcredist",
    [string]$updater = "ID-Updater",
    [string]$qdigidoc4 = "Digidoc4_Client",
    [string]$shellext = "Digidoc_ShellExt",
@@ -41,7 +40,6 @@ Function GetVersion($find) {
 }
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
-$vcredist = GetBaseName $vcredist 4
 $qdigidoc4 = GetBaseName $qdigidoc4 10
 $shellext = GetBaseName $shellext 4
 $updater = GetBaseName $updater 4
@@ -55,9 +53,9 @@ Function Sign($filename) {
 }
 Function Create($wxs, $filename) {
     & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" "-dvcredist=$vcredist" `
-        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dqesteidutil=$qesteid" "-dqdigidoc=$qdigidoc" `
-        "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid" "-dshellext=$shellext"
+        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" `
+        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
+        "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid"
     & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
     if($sign) {
         cp "$filename" "unsigned"
@@ -68,12 +66,14 @@ Function Create($wxs, $filename) {
         Remove-Item "$filename.engine.exe"
     }
 }
-& $candle -nologo "$path\qtconf.wxs" "-dMSI_VERSION=$msiversion" -arch x64
-& $light -nologo -out "qtconf.x64.msi" qtconf.wixobj
+& $candle -nologo -ext WixUtilExtension "$path\browserrestart.wxs" "-dMSI_VERSION=$msiversion"
+& $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.en-US.wxl" -cultures:en-US -out browserrestart.en-US.msi browserrestart.wixobj
+& $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.et-EE.wxl" -cultures:et-EE -out browserrestart.et-EE.msi browserrestart.wixobj
 & $candle -nologo "$path\metainfo.wxs" "-dMSI_VERSION=$msiversion"
-& $light -nologo -out "metainfo.msi" metainfo.wixobj
+& $light -nologo -out metainfo.msi metainfo.wixobj
 if($sign) {
-    Sign("qtconf.x64.msi")
+    Sign("browserrestart.en-US.msi")
+    Sign("browserrestart.et-EE.msi")
     Sign("metainfo.msi")
 }
 Create "bootstrapper" $filename".exe"
