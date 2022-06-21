@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
@@ -20,7 +21,7 @@
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="EdgeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ForceChromeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="ForceEdgeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
+    <Variable Name="ForceEdgeExtensionActivation" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
     <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallCertSynchronizer" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -48,6 +49,8 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists"/>
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledSet" Result="exists"/>
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledValue" Condition="StartupBoostEnabledSet"/>
     <util:ProductSearch Id="OpenEID_Installed" UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Variable="Installed" />
     <util:ProductSearch Id="WebEID_Installed" UpgradeCode="4f0e0fef-0dbc-481b-9d81-08921740f781" Variable="WebEIDInstalled" />
 
@@ -140,6 +143,8 @@
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]"/>
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]"/>
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]"/>
+        <MsiProperty Name="StartupBoostEnabledSet" Value="[StartupBoostEnabledSet]"/>
+        <MsiProperty Name="StartupBoostEnabledValue" Value="[StartupBoostEnabledValue]"/>
       </MsiPackage>
     </Chain>
   </Bundle>
