@@ -122,6 +122,13 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
+      <!-- x86 shell extension package must be installed after the x64 since previous versions of shell extensions used same upgrade code;
+           Installation of x64 after x86 shall remove previous package, including newly installed registry entries -->
+      <MsiPackage Id="shellext.X86" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
+          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
+      </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
         <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]"/>
