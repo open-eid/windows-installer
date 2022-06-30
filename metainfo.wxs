@@ -15,6 +15,8 @@
     <Property Id='QDIGIDOC4INSTALL' Value="0"/>
     <Property Id='AUTOUPDATE' Value="0"/>
     <Property Id='ICONSDESKTOP' Value="0"/>
+    <Property Id='STARTUPBOOSTENABLEDSET' Value='0'/>
+    <Property Id='STARTUPBOOSTENABLEDVALUE' Value='0'/>
     <Directory Id='TARGETDIR' Name='SourceDir'/>
     <Feature Id='MainFeature' Level='1'>
       <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
@@ -36,6 +38,15 @@
                        Name='AutoUpdate' Value='[AUTOUPDATE]' Type='integer' />
         <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
                        Name='IconsDesktop' Value='[ICONSDESKTOP]' Type='integer' />
+      </Component>
+      <Component Id='SetEdgeStartupBoost' Directory='TARGETDIR' Transitive="yes" Permanent='yes'>
+        <Condition><![CDATA[(STARTUPBOOSTENABLEDSET = 1)]]></Condition>
+        <RegistryValue Root='HKLM' Type='integer' Name='StartupBoostEnabled' Value='[STARTUPBOOSTENABLEDVALUE]'
+            Key='SOFTWARE\Policies\Microsoft\Edge' />
+      </Component>
+      <Component Id='RemoveEdgeStartupBoost' Directory='TARGETDIR' Transitive="yes" Guid="1bd81ad3-772c-4935-bffe-50d6cbf8727b">
+        <Condition><![CDATA[(STARTUPBOOSTENABLEDSET = 0)]]></Condition>
+        <RemoveRegistryValue Root='HKLM' Key='SOFTWARE\Policies\Microsoft\Edge' Name='StartupBoostEnabled' />
       </Component>
     </Feature>
   </Product>
