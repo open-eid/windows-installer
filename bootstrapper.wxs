@@ -21,7 +21,7 @@
     <Variable Name="ChromeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="EdgeSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="ForceChromeExtensionActivation2" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
-    <Variable Name="ForceEdgeExtensionActivation2" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
+    <Variable Name="ForceEdgeExtensionActivation2" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="FirefoxSupport" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
     <Variable Name="InstallCertSynchronizer" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="0"/>
     <Variable Name="MinidriverInstall" Persisted="yes" bal:Overridable="yes" Type="numeric" Value="1"/>
@@ -35,10 +35,10 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupport" Condition="ChromeSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupport" Condition="EdgeSupportExists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2Exists" Result="exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2" Condition="ForceChromeExtensionActivation2Exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2Exists" Result="exists"/>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2" Condition="ForceEdgeExtensionActivation2Exists"/>
+    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2Exists" Result="exists"/-->
+    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2" Condition="ForceChromeExtensionActivation2Exists"/-->
+    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2Exists" Result="exists"/-->
+    <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2" Condition="ForceEdgeExtensionActivation2Exists"/-->
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupportExists" Result="exists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists"/>
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists"/>
@@ -56,17 +56,17 @@
 
     <Chain>
       <MsiPackage Id="BrowserRestart.EN" ForcePerMachine="yes" SourceFile="browserrestart.en-US.msi" Compressed="yes"
-          InstallCondition="NOT UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR (EdgeSupport AND ForceEdgeExtensionActivation2) OR FirefoxSupport)">
+          InstallCondition="NOT UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
         <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]"/>
-        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/>
+        <!--MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/-->
         <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]"/>
       </MsiPackage>
       <MsiPackage Id="BrowserRestart.ET" ForcePerMachine="yes" SourceFile="browserrestart.et-EE.msi" Compressed="yes"
-          InstallCondition="UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR (EdgeSupport AND ForceEdgeExtensionActivation2) OR FirefoxSupport)">
+          InstallCondition="UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
         <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]"/>
-        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/>
+        <!--MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/-->
         <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
