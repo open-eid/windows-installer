@@ -89,6 +89,13 @@
         <MsiProperty Name="INSTALL_DRIVER" Value="1"/>
       </MsiPackage>
 
+      <MsiPackage Id="Updater.X64" ForcePerMachine="yes"
+          SourceFile="$(var.updater).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
+        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
+        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
+      </MsiPackage>
+
       <MsiPackage Id="WebEID.X64" InstallCondition="(ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
           SourceFile="$(var.webeid).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
@@ -98,13 +105,6 @@
         <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]"/>
         <MsiProperty Name="EDGEPOLICY" Value="[ForceEdgeExtensionActivation2]"/>
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
-      </MsiPackage>
-
-      <MsiPackage Id="Updater.X64" ForcePerMachine="yes"
-          SourceFile="$(var.updater).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
 
       <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
@@ -122,13 +122,6 @@
 
       <MsiPackage Id="shellext.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
           SourceFile="$(var.shellext).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <!-- x86 shell extension package must be installed after the x64 since previous versions of shell extensions used same upgrade code;
-           Installation of x64 after x86 shall remove previous package, including newly installed registry entries -->
-      <MsiPackage Id="shellext.X86" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext).x86.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>
       </MsiPackage>
