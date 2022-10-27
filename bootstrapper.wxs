@@ -59,14 +59,14 @@
           InstallCondition="NOT UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
         <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]"/>
-        <!--MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/-->
+        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/>
         <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]"/>
       </MsiPackage>
       <MsiPackage Id="BrowserRestart.ET" ForcePerMachine="yes" SourceFile="browserrestart.et-EE.msi" Compressed="yes"
           InstallCondition="UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
         <MsiProperty Name="TARGETDIR" Value="[InstallFolder]"/>
         <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]"/>
-        <!--MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/-->
+        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]"/>
         <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]"/>
       </MsiPackage>
 

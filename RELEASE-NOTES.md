@@ -1,3 +1,16 @@
+Packaging version [22.11](https://github.com/open-eid/osx-installer/releases/tag/v22.11) release notes
+--------------------------------------------
+- Deploy only X64 Shell Extension
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v22.06...v22.11)
+
+Packaging version [22.06](https://github.com/open-eid/osx-installer/releases/tag/v22.06) release notes
+--------------------------------------------
+- Firefox PKCS11 loader removed from installer (Firefox uses minidriver for authentication)
+- Upgrade to Qt 6 packages
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v22.01...v22.06)
+
 Packaging version [22.01](https://github.com/open-eid/osx-installer/releases/tag/v22.01) release notes
 --------------------------------------------
 - Include Web-eID support
