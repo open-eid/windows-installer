@@ -5,7 +5,9 @@
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
       Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
-    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
+    <BootstrapperApplicationRef
+        Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense"
+        bal:UseUILanguages="yes">
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
           LogoFile="$(var.path)\banner.bmp"

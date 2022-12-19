@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
@@ -5,7 +6,9 @@
       UpgradeCode="68071ee6-cad4-46f4-b8dd-26b524c501fa"
       Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee"
       Condition="(VersionNT >= v6.1)">
-    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
+    <BootstrapperApplicationRef
+        Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense"
+        bal:UseUILanguages="yes">
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
           SuppressOptionsUI="yes"
