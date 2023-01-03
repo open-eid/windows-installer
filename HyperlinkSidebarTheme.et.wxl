@@ -51,7 +51,7 @@ Juhend on leitav &lt;a href="https://www.id.ee/artikkel/veebibrauserite-seadista
   <String Id="FailureInstallHeader">Tarkvara paigaldus ebaõnnestus</String>
   <String Id="FailureUninstallHeader">Tarkvara eemaldamine ebaõnnestus</String>
   <String Id="FailureRepairHeader">Tarkvara parandus ebaõnnestus</String>
-  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt.</String>
+  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Palun veendu, et internetiühendus on olemas ja proovi uuesti. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt.</String>
   <String Id="FailureHyperlinkLogLink">&lt;a href="#"&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;.</String>
   <String Id="FailureRestartText">Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada.</String>
   <String Id="FailureRestartButton">&amp;Taaskäivita</String>

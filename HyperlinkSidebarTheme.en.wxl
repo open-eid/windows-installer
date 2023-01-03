@@ -51,7 +51,7 @@ The guide can be found &lt;a href="https://www.id.ee/en/article/configuring-brow
   <String Id="FailureInstallHeader">Installation failed</String>
   <String Id="FailureUninstallHeader">Uninstall failed</String>
   <String Id="FailureRepairHeader">Repair failed</String>
-  <String Id="FailureHyperlinkLogText">Operation failed. You can find help for installing the software on the id.ee website.</String>
+  <String Id="FailureHyperlinkLogText">Operation failed. Please ensure that internet connection is established and then try again. You can find help for installing the software on the id.ee website.</String>
   <String Id="FailureHyperlinkLogLink">&lt;a href="#"&gt;For more information see the log file&lt;/a&gt;.</String>
   <String Id="FailureRestartText">You must restart your computer to complete the rollback of the software.</String>
   <String Id="FailureRestartButton">&amp;Restart</String>
