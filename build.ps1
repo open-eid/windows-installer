@@ -1,4 +1,4 @@
-#powershell -ExecutionPolicy ByPass -File build.ps1 -msiversion 3.12.0.0
+#powershell -ExecutionPolicy ByPass -File build.ps1
 param(
    [string]$candle = "$env:WIX\bin\candle.exe",
    [string]$light = "$env:WIX\bin\light.exe",
@@ -51,21 +51,6 @@ Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /td SHA256 "$filename"
 }
-Function Create($wxs, $filename) {
-    & $candle "$path\$wxs.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-        "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" `
-        "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
-        "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid"
-    & $light "$wxs.wixobj" -nologo -ext WixBalExtension -out "$filename"
-    if($sign) {
-        cp "$filename" "unsigned"
-        & $insignia -nologo -ib "$filename" -o "$filename.engine.exe"
-        Sign("$filename.engine.exe")
-        & $insignia -nologo -ab "$filename.engine.exe" "$filename" -o "$filename"
-        Sign("$filename")
-        Remove-Item "$filename.engine.exe"
-    }
-}
 & $candle -nologo -ext WixUtilExtension "$path\browserrestart.wxs" "-dMSI_VERSION=$msiversion"
 & $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.en-US.wxl" -cultures:en-US -out browserrestart.en-US.msi browserrestart.wixobj
 & $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.et-EE.wxl" -cultures:et-EE -out browserrestart.et-EE.msi browserrestart.wixobj
@@ -76,5 +61,16 @@ if($sign) {
     Sign("browserrestart.et-EE.msi")
     Sign("metainfo.msi")
 }
-Create "bootstrapper" $filename".exe"
-Create "plugins" $filename"-plugins.exe"
+& $candle "$path\bootstrapper.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
+    "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" `
+    "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
+    "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid"
+& $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename.exe"
+if($sign) {
+    cp "$filename.exe" "unsigned"
+    & $insignia -nologo -ib "$filename.exe" -o "$filename.engine.exe"
+    Sign("$filename.engine.exe")
+    & $insignia -nologo -ab "$filename.engine.exe" "$filename.exe" -o "$filename.exe"
+    Sign("$filename.exe")
+    Remove-Item "$filename.engine.exe"
+}
