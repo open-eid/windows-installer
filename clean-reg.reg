@@ -125,6 +125,10 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Edge\Extensions\gnmckgbandlkacikdndelhfghdejfido]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist]
 "56790"=-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist]
+"56791"=-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist]
+"56791"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Chrome\NativeMessagingHosts\eu.webeid]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\NativeMessagingHosts\eu.webeid]
 
@@ -282,13 +286,20 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\9F3275CDF68318548A279B8C32FD4EF0]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\9F3275CDF68318548A279B8C32FD4EF0]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\CC2AADA75F3CE2E43AD8D5C9790344E4]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved\{310AAB39-76FE-401B-8A7F-0F578C5F6AB5}]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+"{310AAB39-76FE-401B-8A7F-0F578C5F6AB5}"=-
 ; EstEID Shell Extension - x86
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\EAD5B4C89ABD54445848D351A684AD72]
 [-HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{310AAB39-76FE-401B-8A7F-0F578C5F6AB5}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\EAD5B4C89ABD54445848D351A684AD72]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\2849DA0007727CD45B466F28863D4F75]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved\{310AAB39-76FE-401B-8A7F-0F578C5F6AB5}]
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+"{310AAB39-76FE-401B-8A7F-0F578C5F6AB5}"=-
+; DigiDoc4 Shell Extension
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\DigiDoc4ShellExtensionx64]
+[-HKEY_CLASSES_ROOT\CLSID\{5606A547-759D-43DA-AEEB-D3BF1D1E816D}]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+"{5606A547-759D-43DA-AEEB-D3BF1D1E816D}"=-
 
 ; ID-card utility
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\B9451F302BAC92047A4D80607D608F07]
@@ -312,6 +323,9 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\CBC7312465384CA4295937F552B8A5BB]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\CBC7312465384CA4295937F552B8A5BB]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\ED6E578F30486EE589570AF4594DD832]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\7DA6A303409AF075DBA803489BFE1739]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\CA4D480F225DC715B844C9BCA61228A6]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\3DA18DB1C2775394FBEF056DBC8F27B7]
 
 ; ----- Open-EID-3.12.0.1638 -----
 
@@ -3339,7 +3353,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{EA515788-340A-428E-8DE6-F79C84CBBFCA}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{EA515788-340A-428E-8DE6-F79C84CBBFCA}]
 
------ Open-EID 22.11.0.1934 -----
+; ----- Open-EID 22.11.0.1934 -----
 
 ; eID software - 64-bit
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{05d63b2c-5c66-4a4b-b7fa-7579312d776c}]
