@@ -9,7 +9,6 @@ param(
    [string]$updater = "ID-Updater",
    [string]$qdigidoc4 = "Digidoc4_Client",
    [string]$shellext = "Digidoc_ShellExt",
-   [string]$minidriver = "minidriver",
    [string]$idemia = "AWP",
    [string]$webeid = "web-eid",
    [string]$embed = "no",
@@ -44,7 +43,6 @@ $qdigidoc4 = GetBaseName $qdigidoc4 10
 $shellext = GetBaseName $shellext 4
 $updater = GetBaseName $updater 4
 $webeid = GetBaseName $webeid 4
-$minidriver = GetBaseName $minidriver 4
 $idemia = GetBaseName $idemia 10
 
 Function Sign($filename) {
@@ -64,7 +62,7 @@ if($sign) {
 & $candle "$path\bootstrapper.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
     "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" `
     "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
-    "-dminidriver=$minidriver" "-didemia=$idemia" "-dwebeid=$webeid"
+    "-didemia=$idemia" "-dwebeid=$webeid"
 & $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename.exe"
 if($sign) {
     cp "$filename.exe" "unsigned"

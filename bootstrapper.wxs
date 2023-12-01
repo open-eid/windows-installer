@@ -72,12 +72,6 @@
         <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
-      <MsiPackage Id="Minidriver.X64" InstallCondition="MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.minidriver).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-
       <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>

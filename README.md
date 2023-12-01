@@ -12,7 +12,6 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
    * Digidoc4_Client*.msi
    * ID-Updater*.msi
    * web-eid*.msi
-   * minidriver*.msi
    * AWP*.msi
 
 3. Run build.ps1 script, optional parameter -msiversion
