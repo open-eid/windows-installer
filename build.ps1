@@ -4,14 +4,12 @@ param(
    [string]$light = "$env:WIX\bin\light.exe",
    [string]$insignia = "$env:WIX\bin\insignia.exe",
    [string]$msiversion = (Get-Date -Format "%y.%M.%d.0"),
-   [string]$url = "https://installer.id.ee/media/windows/{2}",
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$updater = "ID-Updater",
    [string]$qdigidoc4 = "Digidoc4",
    [string]$shellext = "Digidoc_ShellExt",
    [string]$idemia = "AWP",
    [string]$webeid = "web-eid",
-   [string]$embed = "no",
    [string]$sign = $null
 )
 
@@ -60,9 +58,9 @@ if($sign) {
     Sign("metainfo.msi")
 }
 & $candle "$path\bootstrapper.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-    "-dMSI_VERSION=$msiversion" "-dpath=$path" "-dURL=$url" "-dembed=$embed" `
-    "-dupdater=$updater" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
-    "-didemia=$idemia" "-dwebeid=$webeid"
+    "-dMSI_VERSION=$msiversion" "-dpath=$path" "-didemia=$idemia" "-dupdater=$updater" `
+    "-dwebeid=$webeid" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
+
 & $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename.exe"
 if($sign) {
     cp "$filename.exe" "unsigned"
