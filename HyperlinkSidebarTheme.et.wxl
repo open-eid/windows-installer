@@ -1,78 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
-<WixLocalization Culture="et-ee" Language="1061" xmlns="http://schemas.microsoft.com/wix/2006/localization">
-  <String Id="Caption">eID tarkvara paigaldus</String>
-  <String Id="Title">eID tarkvara</String>
-  <String Id="InstallHeader">Tere tulemast!</String>
-  <String Id="InstallMessage">Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu.</String>
-  <String Id="InstallVersion">Versioon [WixBundleVersion]</String>
-  <String Id="ConfirmCancelMessage">Oled kindel, et soovid katkestada?</String><!--Aga vastusenupud?--> 
-  <String Id="ExecuteUpgradeRelatedBundleMessage">Eelmine versioon</String>
-  <String Id="HelpHeader">Setup help</String>
-  <String Id="HelpText">/install | /repair | /uninstall | /layout [directory] - installs, repairs, uninstalls or
-   creates a complete local copy of the bundle in directory. Install is the default.
-
-/passive | /quiet -  displays minimal UI with no prompts or displays no UI and
-   no prompts. By default UI and all prompts are displayed.
-
-/norestart   - suppress any attempts to restart. By default UI will prompt before restart.
-/log log.txt - logs to a specific file. By default a log file is created in %TEMP%.</String>
-  <String Id="HelpCloseButton">&amp;Sulge</String>
-  <String Id="InstallLicenseLinkText">[WixBundleName] &lt;a href="#"&gt;license terms&lt;/a&gt;.</String><!--Seda teadet ei kuvata.-->
-  <String Id="InstallAcceptCheckbox">I &amp;agree to the license terms and conditions</String><!--Seda teadet ei kuvata.-->
-  <String Id="InstallOptionsButton">&amp;Valikud</String>
-  <String Id="InstallInstallButton">&amp;Edasi</String>
-  <String Id="InstallCloseButton">&amp;Loobu</String>
-  <String Id="OptionsHeader">Paigalduse valikud</String>
-  <String Id="OptionsLocationLabel">Sihtkaust:</String>
-  <String Id="OptionsBrowseButton">S&amp;irvimine...</String>
-  <String Id="OptionsOkButton">&amp;OK</String>
-  <String Id="OptionsCancelButton">&amp;Katkesta</String>
-  <String Id="ProgressHeader">Seadistuse edenemine</String>
-  <String Id="ProgressLabel">Edenemine:</String>
-  <String Id="OverallProgressPackageText">Alustan...</String>
-  <String Id="ProgressCancelButton">&amp;Katkesta</String>
-  <String Id="ModifyHeader">Muuda paigaldust</String>
-  <String Id="ModifyRepairButton">&amp;Paranda</String>
-  <String Id="ModifyUninstallButton">&amp;Eemalda kõik</String>
-  <String Id="ModifyCloseButton">&amp;Sulge</String>
-  <String Id="SuccessRepairHeader">Tarkvara parandus õnnestus</String>
-  <String Id="SuccessUninstallHeader">Tarkvara eemaldatud</String>
-  <String Id="SuccessInstallHeader">Tarkvara paigaldus õnnestus!</String>
-  <String Id="SuccessInstallMessage">
-
-Taaskäivita veebilehitseja ning veendu, et Web eID nimeline laiendus on veebilehitsejas aktiveeritud.
-Juhend on leitav &lt;a href="https://www.id.ee/artikkel/veebibrauserite-seadistamine-id-kaardi-kasutamiseks/"&gt;siit&lt;/a&gt;.</String>
-  <String Id="SuccessHeader">Toiming õnnestus</String>
-  <String Id="SuccessLaunchButton">&amp;Käivita ID-kaardi haldusvahend</String><!--Seda teadet ei kuvata.-->
-  <String Id="SuccessRestartText">Enne tarkvara kasutamist tuleb arvuti taaskäivitada.</String>
-  <String Id="SuccessRestartButton">&amp;Taaskäivita</String>
-  <String Id="SuccessCloseButton">&amp;Sulge</String>
-  <String Id="FailureHeader">Toiming ebaõnnestus</String>
-  <String Id="FailureInstallHeader">Tarkvara paigaldus ebaõnnestus</String>
-  <String Id="FailureUninstallHeader">Tarkvara eemaldamine ebaõnnestus</String>
-  <String Id="FailureRepairHeader">Tarkvara parandus ebaõnnestus</String>
-  <String Id="FailureHyperlinkLogText">Toiming ebaõnnestus. Palun veendu, et internetiühendus on olemas ja proovi uuesti. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt.</String>
-  <String Id="FailureHyperlinkLogLink">&lt;a href="#"&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;.</String>
-  <String Id="FailureRestartText">Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada.</String>
-  <String Id="FailureRestartButton">&amp;Taaskäivita</String>
-  <String Id="FailureCloseButton">&amp;Sulge</String>
-  <String Id="FilesInUseHeader">Failid on kasutuses</String>
-  <String Id="FilesInUseLabel">Allnimetatud rakendused kasutavad faile, mida tuleb uuendada.</String>
-  <String Id="FilesInUseCloseRadioButton">Sulge &amp;rakendused ja proovi need taaskäivitada.</String>
-  <String Id="FilesInUseDontCloseRadioButton">&amp;Ära sulge rakendusi. Arvuti tuleb taaskäivitada.</String>
-  <String Id="FilesInUseOkButton">&amp;OK</String>
-  <String Id="FilesInUseCancelButton">&amp;Katkesta</String>
-  <String Id="ChangeLogLink">&lt;a href="https://www.id.ee/artikkel/id-tarkvara-versioonide-info-release-notes/"&gt;Muudatuste loetelu&lt;/a&gt;</String>
-  <String Id="OptionsCustomizeInstall">Kohanda paigaldust</String>
-  <String Id="OptionsDesktop">Paigalda ID-tarkvara ikoonid töölauale</String>
-  <String Id="OptionsStartMenu">Lisa ID-kaardi tarkvara ikoonid Start-menüüsse</String><!--Seda teadet ei kuvata.-->
-  <String Id="qdigidoc4">DigiDoc4 klient</String>
-  <String Id="chromeplugin">Chrome isikutuvastamise ja allkirjastamise tugi</String>
-  <String Id="chromepluginpolicy">Chrome laiendus aktiveeritakse automaatselt</String>
-  <String Id="firefoxplugin">Firefox isikutuvastamise ja allkirjastamise tugi</String>
-  <String Id="minidriver">Eesti ID-kaardi tugi</String>
-  <String Id="certsynchronizer">Kustuta pärast ID-kaardi välja võtmist sertifikaadid arvutist</String>
-  <String Id="edgeplugin">Edge isikutuvastamise ja allkirjastamise tugi</String>
-  <String Id="edgepluginpolicy">Edge laiendus aktiveeritakse automaatselt</String>
-  <String Id="SupportedWindows">Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 10 või uuemat 64-bitist operatsioonisüsteemi.</String>
+﻿<WixLocalization Culture="et-ee" Language="1061" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+  <String Id="Caption" Value="eID tarkvara paigaldus" />
+  <String Id="Title" Value="eID tarkvara" />
+  <String Id="InstallHeader" Value="Tere tulemast!" />
+  <String Id="InstallMessage" Value="Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu." />
+  <String Id="InstallMessageOptions" Value="Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu." />
+  <String Id="InstallVersion" Value="Versioon [WixBundleVersion]" />
+  <String Id="ConfirmCancelMessage" Value="Oled kindel, et soovid katkestada?" /><!--Aga vastusenupud?--> 
+  <String Id="ExecuteUpgradeRelatedBundleMessage" Value="Eelmine versioon" />
+  <String Id="HelpHeader" Value="Setup help" />
+  <String Id="HelpText" Value="/install | /repair | /uninstall | /layout [directory] - installs, repairs, uninstalls or&#xA;   creates a complete local copy of the bundle in directory. Install is the default.&#xA;&#xA;/passive | /quiet -  displays minimal UI with no prompts or displays no UI and&#xA;   no prompts. By default UI and all prompts are displayed.&#xA;&#xA;/norestart   - suppress any attempts to restart. By default UI will prompt before restart.&#xA;/log log.txt - logs to a specific file. By default a log file is created in %TEMP%." />
+  <String Id="HelpCloseButton" Value="&amp;Sulge" />
+  <String Id="InstallLicenseLinkText" Value="[WixBundleName] &lt;a href=&quot;#&quot;&gt;license terms&lt;/a&gt;." /><!--Seda teadet ei kuvata.-->
+  <String Id="InstallAcceptCheckbox" Value="I &amp;agree to the license terms and conditions" /><!--Seda teadet ei kuvata.-->
+  <String Id="InstallOptionsButton" Value="&amp;Valikud" />
+  <String Id="InstallInstallButton" Value="&amp;Edasi" />
+  <String Id="InstallCancelButton" Value="&amp;Loobu" />
+  <String Id="OptionsHeader" Value="Paigalduse valikud" />
+  <String Id="OptionsLocationLabel" Value="Sihtkaust:" />
+  <String Id="OptionsBrowseButton" Value="S&amp;irvimine..." />
+  <String Id="OptionsOkButton" Value="&amp;OK" />
+  <String Id="OptionsCancelButton" Value="&amp;Katkesta" />
+  <String Id="ProgressHeader" Value="Seadistuse edenemine" />
+  <String Id="ProgressLabel" Value="Edenemine:" />
+  <String Id="OverallProgressPackageText" Value="Alustan..." />
+  <String Id="ProgressCancelButton" Value="&amp;Katkesta" />
+  <String Id="ModifyHeader" Value="Muuda paigaldust" />
+  <String Id="ModifyRepairButton" Value="&amp;Paranda" />
+  <String Id="ModifyUninstallButton" Value="&amp;Eemalda kõik" />
+  <String Id="ModifyCancelButton" Value="&amp;Sulge" />
+  <String Id="SuccessRepairHeader" Value="Tarkvara parandus õnnestus" />
+  <String Id="SuccessUninstallHeader" Value="Tarkvara eemaldatud" />
+  <String Id="SuccessInstallHeader" Value="Tarkvara paigaldus õnnestus!" />
+  <String Id="SuccessInstallMessage" Value="Taaskäivita veebilehitseja ning veendu, et Web eID nimeline laiendus on veebilehitsejas aktiveeritud.&#xA;Juhend on leitav &lt;a href=&quot;https://www.id.ee/artikkel/veebibrauserite-seadistamine-id-kaardi-kasutamiseks/&quot;&gt;siit&lt;/a&gt;." />
+  <String Id="SuccessHeader" Value="Toiming õnnestus" />
+  <String Id="SuccessLaunchButton" Value="&amp;Käivita ID-kaardi haldusvahend" /><!--Seda teadet ei kuvata.-->
+  <String Id="SuccessRestartText" Value="Enne tarkvara kasutamist tuleb arvuti taaskäivitada." />
+  <String Id="SuccessRestartButton" Value="&amp;Taaskäivita" />
+  <String Id="SuccessCloseButton" Value="&amp;Sulge" />
+  <String Id="FailureHeader" Value="Toiming ebaõnnestus" />
+  <String Id="FailureInstallHeader" Value="Tarkvara paigaldus ebaõnnestus" />
+  <String Id="FailureUninstallHeader" Value="Tarkvara eemaldamine ebaõnnestus" />
+  <String Id="FailureRepairHeader" Value="Tarkvara parandus ebaõnnestus" />
+  <String Id="FailureHyperlinkLogText" Value="Toiming ebaõnnestus. Palun veendu, et internetiühendus on olemas ja proovi uuesti. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt." />
+  <String Id="FailureHyperlinkLogLink" Value="&lt;a href=&quot;#&quot;&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;." />
+  <String Id="FailureRestartText" Value="Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada." />
+  <String Id="FailureRestartButton" Value="&amp;Taaskäivita" />
+  <String Id="FailureCloseButton" Value="&amp;Sulge" />
+  <String Id="FilesInUseHeader" Value="Failid on kasutuses" />
+  <String Id="FilesInUseLabel" Value="Allnimetatud rakendused kasutavad faile, mida tuleb uuendada." />
+  <String Id="FilesInUseCloseRadioButton" Value="Sulge &amp;rakendused ja proovi need taaskäivitada." />
+  <String Id="FilesInUseDontCloseRadioButton" Value="&amp;Ära sulge rakendusi. Arvuti tuleb taaskäivitada." />
+  <String Id="FilesInUseOkButton" Value="&amp;OK" />
+  <String Id="FilesInUseCancelButton" Value="&amp;Katkesta" />
+  <String Id="ChangeLogLink" Value="&lt;a href=&quot;https://www.id.ee/artikkel/id-tarkvara-versioonide-info-release-notes/&quot;&gt;Muudatuste loetelu&lt;/a&gt;" />
+  <String Id="OptionsCustomizeInstall" Value="Kohanda paigaldust" />
+  <String Id="OptionsDesktop" Value="Paigalda ID-tarkvara ikoonid töölauale" />
+  <String Id="OptionsStartMenu" Value="Lisa ID-kaardi tarkvara ikoonid Start-menüüsse" /><!--Seda teadet ei kuvata.-->
+  <String Id="qdigidoc4" Value="DigiDoc4 klient" />
+  <String Id="chromeplugin" Value="Chrome isikutuvastamise ja allkirjastamise tugi" />
+  <String Id="chromepluginpolicy" Value="Chrome laiendus aktiveeritakse automaatselt" />
+  <String Id="firefoxplugin" Value="Firefox isikutuvastamise ja allkirjastamise tugi" />
+  <String Id="minidriver" Value="Eesti ID-kaardi tugi" />
+  <String Id="certsynchronizer" Value="Kustuta pärast ID-kaardi välja võtmist sertifikaadid arvutist" />
+  <String Id="edgeplugin" Value="Edge isikutuvastamise ja allkirjastamise tugi" />
+  <String Id="edgepluginpolicy" Value="Edge laiendus aktiveeritakse automaatselt" />
+  <String Id="SupportedWindows" Value="Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 10 või uuemat 64-bitist operatsioonisüsteemi." />
 </WixLocalization>
