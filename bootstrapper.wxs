@@ -103,14 +103,8 @@
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]"/>
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4).x64.en-US.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
-        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
-        <MsiProperty Name="REINSTALLMODE" Value="amus"/>
-      </MsiPackage>
-      <MsiPackage Id="qdigidoc4.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4).x64.et-EE.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
+      <MsiPackage Id="qdigidoc4.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc4).x64.msi" DownloadUrl="$(var.URL)" Compressed="$(var.embed)">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]"/>
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]"/>
         <MsiProperty Name="REINSTALLMODE" Value="amus"/>

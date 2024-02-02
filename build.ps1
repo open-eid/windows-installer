@@ -7,7 +7,7 @@ param(
    [string]$url = "https://installer.id.ee/media/windows/{2}",
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$updater = "ID-Updater",
-   [string]$qdigidoc4 = "Digidoc4_Client",
+   [string]$qdigidoc4 = "Digidoc4",
    [string]$shellext = "Digidoc_ShellExt",
    [string]$idemia = "AWP",
    [string]$webeid = "web-eid",
@@ -39,7 +39,7 @@ Function GetVersion($find) {
 }
 
 $path = split-path -parent $MyInvocation.MyCommand.Definition
-$qdigidoc4 = GetBaseName $qdigidoc4 10
+$qdigidoc4 = GetBaseName $qdigidoc4 4
 $shellext = GetBaseName $shellext 4
 $updater = GetBaseName $updater 4
 $webeid = GetBaseName $webeid 4
