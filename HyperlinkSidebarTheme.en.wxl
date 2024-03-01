@@ -1,78 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
-<WixLocalization Culture="en-us" Language="1033" xmlns="http://schemas.microsoft.com/wix/2006/localization">
-  <String Id="Caption">[WixBundleName] setup</String>
-  <String Id="Title">[WixBundleName]</String>
-  <String Id="InstallHeader">Welcome!</String>
-  <String Id="InstallMessage">Setup will install [WixBundleName] on your computer. Close all other applications before installing the software. [WixBundleName] allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit.</String>
-  <String Id="InstallVersion">Version [WixBundleVersion]</String>
-  <String Id="ConfirmCancelMessage">Are you sure you want to cancel?</String>
-  <String Id="ExecuteUpgradeRelatedBundleMessage">Previous version</String>
-  <String Id="HelpHeader">Setup help</String>
-  <String Id="HelpText">/install | /repair | /uninstall | /layout [directory] - installs, repairs, uninstalls or
-   creates a complete local copy of the bundle in directory. Install is the default.
-
-/passive | /quiet -  displays minimal UI with no prompts or displays no UI and
-   no prompts. By default UI and all prompts are displayed.
-
-/norestart   - suppress any attempts to restart. By default UI will prompt before restart.
-/log log.txt - logs to a specific file. By default a log file is created in %TEMP%.</String>
-  <String Id="HelpCloseButton">&amp;Close</String>
-  <String Id="InstallLicenseLinkText">[WixBundleName] &lt;a href="#"&gt;license terms&lt;/a&gt;.</String>
-  <String Id="InstallAcceptCheckbox">I &amp;agree to the license terms and conditions</String>
-  <String Id="InstallOptionsButton">C&amp;ustomize</String>
-  <String Id="InstallInstallButton">&amp;Install</String>
-  <String Id="InstallCloseButton">&amp;Close</String>
-  <String Id="OptionsHeader">Setup options</String>
-  <String Id="OptionsLocationLabel">Install location:</String>
-  <String Id="OptionsBrowseButton">&amp;Browse</String>
-  <String Id="OptionsOkButton">&amp;OK</String>
-  <String Id="OptionsCancelButton">&amp;Cancel</String>
-  <String Id="ProgressHeader">Setup progress</String>
-  <String Id="ProgressLabel">Processing:</String>
-  <String Id="OverallProgressPackageText">Initializing...</String>
-  <String Id="ProgressCancelButton">&amp;Cancel</String>
-  <String Id="ModifyHeader">Modify setup</String>
-  <String Id="ModifyRepairButton">&amp;Repair</String>
-  <String Id="ModifyUninstallButton">&amp;Uninstall all</String>
-  <String Id="ModifyCloseButton">&amp;Close</String>
-  <String Id="SuccessRepairHeader">Repair completed successfully.</String>
-  <String Id="SuccessUninstallHeader">Uninstall completed</String>
-  <String Id="SuccessInstallHeader">Installation completed successfully.</String>
-  <String Id="SuccessInstallMessage">
-
-Restart the web browser and make sure that the extension named Web eID is activated in the web browser.
-The guide can be found &lt;a href="https://www.id.ee/en/article/configuring-browsers-for-using-id-card/"&gt;here&lt;/a&gt;.</String>
-  <String Id="SuccessHeader">Setup successful</String>
-  <String Id="SuccessLaunchButton">&amp;Launch ID-card utility</String>
-  <String Id="SuccessRestartText">You must restart your computer before you can use the software.</String>
-  <String Id="SuccessRestartButton">&amp;Restart</String>
-  <String Id="SuccessCloseButton">&amp;Close</String>
-  <String Id="FailureHeader">Setup failed</String>
-  <String Id="FailureInstallHeader">Installation failed</String>
-  <String Id="FailureUninstallHeader">Uninstall failed</String>
-  <String Id="FailureRepairHeader">Repair failed</String>
-  <String Id="FailureHyperlinkLogText">Operation failed. Please ensure that internet connection is established and then try again. You can find help for installing the software on the id.ee website.</String>
-  <String Id="FailureHyperlinkLogLink">&lt;a href="#"&gt;For more information see the log file&lt;/a&gt;.</String>
-  <String Id="FailureRestartText">You must restart your computer to complete the rollback of the software.</String>
-  <String Id="FailureRestartButton">&amp;Restart</String>
-  <String Id="FailureCloseButton">&amp;Close</String>
-  <String Id="FilesInUseHeader">Files in use</String>
-  <String Id="FilesInUseLabel">The following applications are using files that need to be updated:</String>
-  <String Id="FilesInUseCloseRadioButton">Close the &amp;applications and attempt to restart them.</String>
-  <String Id="FilesInUseDontCloseRadioButton">&amp;Do not close the applications. A reboot will be required.</String>
-  <String Id="FilesInUseOkButton">&amp;OK</String>
-  <String Id="FilesInUseCancelButton">&amp;Cancel</String>
-  <String Id="ChangeLogLink">&lt;a href="https://www.id.ee/en/article/id-software-versions-info-release-notes/"&gt;Changelog&lt;/a&gt;</String>
-  <String Id="OptionsCustomizeInstall">Customize install</String>
-  <String Id="OptionsDesktop">Create ID-software icons on my desktop</String>
-  <String Id="OptionsStartMenu">Create ID-card software icons in my Start Menu Programs folder</String>
-  <String Id="qdigidoc4">DigiDoc4 Client</String>
-  <String Id="chromeplugin">Chrome authentication and signing support</String>
-  <String Id="chromepluginpolicy">Chrome extension will be activated automatically</String>
-  <String Id="firefoxplugin">Firefox authentication and signing support</String>
-  <String Id="minidriver">Estonian ID-card support</String>
-  <String Id="certsynchronizer">Delete the ID-card certificates from the computer upon removing the card</String>
-  <String Id="edgeplugin">Edge authentication and signing support</String>
-  <String Id="edgepluginpolicy">Edge extension will be activated automatically</String>
-  <String Id="SupportedWindows">You are using an unsupported operating system. You'll need Windows 10 or later 64-bit operating system to successfully install ID-software.</String>
+﻿<WixLocalization Culture="en-us" Language="1033" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+  <String Id="Caption" Value="[WixBundleName] setup" />
+  <String Id="Title" Value="[WixBundleName]" />
+  <String Id="InstallHeader" Value="Welcome!" />
+  <String Id="InstallMessage" Value="Setup will install [WixBundleName] on your computer. Close all other applications before installing the software. [WixBundleName] allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit." />
+  <String Id="InstallMessageOptions" Value="Setup will install [WixBundleName] on your computer. Close all other applications before installing the software. [WixBundleName] allows you to use your ID-card electronically, digitally sign documents and encrypt documents for safe transfer. Click Customize to modify installation options, Install to perform standard installation or Close to exit." />
+  <String Id="InstallVersion" Value="Version [WixBundleVersion]" />
+  <String Id="ConfirmCancelMessage" Value="Are you sure you want to cancel?" />
+  <String Id="ExecuteUpgradeRelatedBundleMessage" Value="Previous version" />
+  <String Id="HelpHeader" Value="Setup help" />
+  <String Id="HelpText" Value="/install | /repair | /uninstall | /layout [directory] - installs, repairs, uninstalls or&#xA;   creates a complete local copy of the bundle in directory. Install is the default.&#xA;&#xA;/passive | /quiet -  displays minimal UI with no prompts or displays no UI and&#xA;   no prompts. By default UI and all prompts are displayed.&#xA;&#xA;/norestart   - suppress any attempts to restart. By default UI will prompt before restart.&#xA;/log log.txt - logs to a specific file. By default a log file is created in %TEMP%." />
+  <String Id="HelpCloseButton" Value="&amp;Close" />
+  <String Id="InstallLicenseLinkText" Value="[WixBundleName] &lt;a href=&quot;#&quot;&gt;license terms&lt;/a&gt;." />
+  <String Id="InstallAcceptCheckbox" Value="I &amp;agree to the license terms and conditions" />
+  <String Id="InstallOptionsButton" Value="C&amp;ustomize" />
+  <String Id="InstallInstallButton" Value="&amp;Install" />
+  <String Id="InstallCancelButton" Value="&amp;Close" />
+  <String Id="OptionsHeader" Value="Setup options" />
+  <String Id="OptionsLocationLabel" Value="Install location:" />
+  <String Id="OptionsBrowseButton" Value="&amp;Browse" />
+  <String Id="OptionsOkButton" Value="&amp;OK" />
+  <String Id="OptionsCancelButton" Value="&amp;Cancel" />
+  <String Id="ProgressHeader" Value="Setup progress" />
+  <String Id="ProgressLabel" Value="Processing:" />
+  <String Id="OverallProgressPackageText" Value="Initializing..." />
+  <String Id="ProgressCancelButton" Value="&amp;Cancel" />
+  <String Id="ModifyHeader" Value="Modify setup" />
+  <String Id="ModifyRepairButton" Value="&amp;Repair" />
+  <String Id="ModifyUninstallButton" Value="&amp;Uninstall all" />
+  <String Id="ModifyCancelButton" Value="&amp;Close" />
+  <String Id="SuccessRepairHeader" Value="Repair completed successfully." />
+  <String Id="SuccessUninstallHeader" Value="Uninstall completed" />
+  <String Id="SuccessInstallHeader" Value="Installation completed successfully." />
+  <String Id="SuccessInstallMessage" Value="Restart the web browser and make sure that the extension named Web eID is activated in the web browser.&#xA;The guide can be found &lt;a href=&quot;https://www.id.ee/en/article/configuring-browsers-for-using-id-card/&quot;&gt;here&lt;/a&gt;." />
+  <String Id="SuccessHeader" Value="Setup successful" />
+  <String Id="SuccessLaunchButton" Value="&amp;Launch ID-card utility" />
+  <String Id="SuccessRestartText" Value="You must restart your computer before you can use the software." />
+  <String Id="SuccessRestartButton" Value="&amp;Restart" />
+  <String Id="SuccessCloseButton" Value="&amp;Close" />
+  <String Id="FailureHeader" Value="Setup failed" />
+  <String Id="FailureInstallHeader" Value="Installation failed" />
+  <String Id="FailureUninstallHeader" Value="Uninstall failed" />
+  <String Id="FailureRepairHeader" Value="Repair failed" />
+  <String Id="FailureHyperlinkLogText" Value="Operation failed. Please ensure that internet connection is established and then try again. You can find help for installing the software on the id.ee website." />
+  <String Id="FailureHyperlinkLogLink" Value="&lt;a href=&quot;#&quot;&gt;For more information see the log file&lt;/a&gt;." />
+  <String Id="FailureRestartText" Value="You must restart your computer to complete the rollback of the software." />
+  <String Id="FailureRestartButton" Value="&amp;Restart" />
+  <String Id="FailureCloseButton" Value="&amp;Close" />
+  <String Id="FilesInUseHeader" Value="Files in use" />
+  <String Id="FilesInUseLabel" Value="The following applications are using files that need to be updated:" />
+  <String Id="FilesInUseCloseRadioButton" Value="Close the &amp;applications and attempt to restart them." />
+  <String Id="FilesInUseDontCloseRadioButton" Value="&amp;Do not close the applications. A reboot will be required." />
+  <String Id="FilesInUseOkButton" Value="&amp;OK" />
+  <String Id="FilesInUseCancelButton" Value="&amp;Cancel" />
+  <String Id="ChangeLogLink" Value="&lt;a href=&quot;https://www.id.ee/en/article/id-software-versions-info-release-notes/&quot;&gt;Changelog&lt;/a&gt;" />
+  <String Id="OptionsCustomizeInstall" Value="Customize install" />
+  <String Id="OptionsDesktop" Value="Create ID-software icons on my desktop" />
+  <String Id="OptionsStartMenu" Value="Create ID-card software icons in my Start Menu Programs folder" />
+  <String Id="qdigidoc4" Value="DigiDoc4 Client" />
+  <String Id="chromeplugin" Value="Chrome authentication and signing support" />
+  <String Id="chromepluginpolicy" Value="Chrome extension will be activated automatically" />
+  <String Id="firefoxplugin" Value="Firefox authentication and signing support" />
+  <String Id="minidriver" Value="Estonian ID-card support" />
+  <String Id="certsynchronizer" Value="Delete the ID-card certificates from the computer upon removing the card" />
+  <String Id="edgeplugin" Value="Edge authentication and signing support" />
+  <String Id="edgepluginpolicy" Value="Edge extension will be activated automatically" />
+  <String Id="SupportedWindows" Value="You are using an unsupported operating system. You'll need Windows 10 or later 64-bit operating system to successfully install ID-software." />
 </WixLocalization>

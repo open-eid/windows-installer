@@ -1,53 +1,50 @@
-<?xml version='1.0'?>
-<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
-  <Product Id='*' Name='Open-EID Metapackage' Language='1033' Version='$(var.MSI_VERSION)'
-           UpgradeCode='42137cbc-8356-4ac4-9295-735f258b5abb' Manufacturer='RIA'>
-    <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
-    <Media Id='1' />
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="Open-EID Metapackage" Language="1033" Version="$(var.MSI_VERSION)"
+        UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Manufacturer="RIA" InstallerVersion="500">
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
-      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
-    <Property Id='CHROMESUPPORT' Value="0"/>
-    <Property Id='EDGESUPPORT' Value="0"/>
-    <Property Id='FORCECHROMEEXTENSIONACTIVATION2' Value="0"/>
-    <Property Id='FORCEEDGEEXTENSIONACTIVATION2' Value="0"/>
-    <Property Id='FIREFOXSUPPORT' Value="0"/>
-    <Property Id='MINIDRIVERINSTALL' Value="0"/>
-    <Property Id='QDIGIDOC4INSTALL' Value="0"/>
-    <Property Id='AUTOUPDATE' Value="0"/>
-    <Property Id='ICONSDESKTOP' Value="0"/>
-    <Property Id='STARTUPBOOSTENABLEDSET' Value='0'/>
-    <Property Id='STARTUPBOOSTENABLEDVALUE' Value='0'/>
-    <Directory Id='TARGETDIR' Name='SourceDir'/>
-    <Feature Id='MainFeature' Level='1'>
-      <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='ChromeSupport' Value='[CHROMESUPPORT]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='EdgeSupport' Value='[EDGESUPPORT]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='FORCECHROMEEXTENSIONACTIVATION2' Value='[FORCECHROMEEXTENSIONACTIVATION2]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='FORCEEDGEEXTENSIONACTIVATION2' Value='[FORCEEDGEEXTENSIONACTIVATION2]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='FirefoxSupport' Value='[FIREFOXSUPPORT]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='MinidriverInstall' Value='[MINIDRIVERINSTALL]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='Qdigidoc4Install' Value='[QDIGIDOC4INSTALL]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='AutoUpdate' Value='[AUTOUPDATE]' Type='integer' />
-        <RegistryValue Root='HKMU' Key='SOFTWARE\[Manufacturer]\Open-EID'
-                       Name='IconsDesktop' Value='[ICONSDESKTOP]' Type='integer' />
+        "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first." />
+    <Property Id="CHROMESUPPORT" Value="0" />
+    <Property Id="EDGESUPPORT" Value="0" />
+    <Property Id="FORCECHROMEEXTENSIONACTIVATION2" Value="0" />
+    <Property Id="FORCEEDGEEXTENSIONACTIVATION2" Value="0" />
+    <Property Id="FIREFOXSUPPORT" Value="0" />
+    <Property Id="MINIDRIVERINSTALL" Value="0" />
+    <Property Id="QDIGIDOC4INSTALL" Value="0" />
+    <Property Id="AUTOUPDATE" Value="0" />
+    <Property Id="ICONSDESKTOP" Value="0" />
+    <Property Id="STARTUPBOOSTENABLEDSET" Value="0" />
+    <Property Id="STARTUPBOOSTENABLEDVALUE" Value="0" />
+    
+    <Feature Id="MainFeature" Level="1">
+      <Component Id="Content" Directory="TARGETDIR" Transitive="yes">
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="ChromeSupport" Value="[CHROMESUPPORT]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="EdgeSupport" Value="[EDGESUPPORT]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="FORCECHROMEEXTENSIONACTIVATION2" Value="[FORCECHROMEEXTENSIONACTIVATION2]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="FORCEEDGEEXTENSIONACTIVATION2" Value="[FORCEEDGEEXTENSIONACTIVATION2]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="FirefoxSupport" Value="[FIREFOXSUPPORT]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="MinidriverInstall" Value="[MINIDRIVERINSTALL]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="Qdigidoc4Install" Value="[QDIGIDOC4INSTALL]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="AutoUpdate" Value="[AUTOUPDATE]" Type="integer" />
+        <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                       Name="IconsDesktop" Value="[ICONSDESKTOP]" Type="integer" />
       </Component>
-      <Component Id='SetEdgeStartupBoost' Directory='TARGETDIR' Transitive="yes" Permanent='yes'>
-        <Condition><![CDATA[(STARTUPBOOSTENABLEDSET = 1)]]></Condition>
-        <RegistryValue Root='HKLM' Type='integer' Name='StartupBoostEnabled' Value='[STARTUPBOOSTENABLEDVALUE]'
-            Key='SOFTWARE\Policies\Microsoft\Edge' />
+      <Component Id="SetEdgeStartupBoost" Directory="TARGETDIR" Transitive="yes" Permanent="yes"
+          Condition="(STARTUPBOOSTENABLEDSET = 1)">
+        <RegistryValue Root="HKLM" Type="integer" Name="StartupBoostEnabled" Value="[STARTUPBOOSTENABLEDVALUE]" Key="SOFTWARE\Policies\Microsoft\Edge" />
       </Component>
-      <Component Id='RemoveEdgeStartupBoost' Directory='TARGETDIR' Transitive="yes" Guid="1bd81ad3-772c-4935-bffe-50d6cbf8727b">
-        <Condition><![CDATA[(STARTUPBOOSTENABLEDSET = 0)]]></Condition>
-        <RemoveRegistryValue Root='HKLM' Key='SOFTWARE\Policies\Microsoft\Edge' Name='StartupBoostEnabled' />
+      <Component Id="RemoveEdgeStartupBoost" Directory="TARGETDIR" Transitive="yes" Guid="1bd81ad3-772c-4935-bffe-50d6cbf8727b"
+          Condition="(STARTUPBOOSTENABLEDSET = 0)">
+        <RemoveRegistryValue Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Name="StartupBoostEnabled" />
       </Component>
     </Feature>
-  </Product>
+  </Package>
 </Wix>

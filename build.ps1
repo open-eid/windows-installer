@@ -1,8 +1,6 @@
 #powershell -ExecutionPolicy ByPass -File build.ps1
 param(
-   [string]$candle = "$env:WIX\bin\candle.exe",
-   [string]$light = "$env:WIX\bin\light.exe",
-   [string]$insignia = "$env:WIX\bin\insignia.exe",
+   [string]$wix = "wix.exe",
    [string]$msiversion = (Get-Date -Format "%y.%M.%d.0"),
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
    [string]$updater = "ID-Updater",
@@ -47,26 +45,24 @@ Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /td SHA256 "$filename"
 }
-& $candle -nologo -ext WixUtilExtension "$path\browserrestart.wxs" "-dMSI_VERSION=$msiversion"
-& $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.en-US.wxl" -cultures:en-US -out browserrestart.en-US.msi browserrestart.wixobj
-& $light -nologo -ext WixUtilExtension -loc "$path\browserrestart.et-EE.wxl" -cultures:et-EE -out browserrestart.et-EE.msi browserrestart.wixobj
-& $candle -nologo "$path\metainfo.wxs" "-dMSI_VERSION=$msiversion"
-& $light -nologo -out metainfo.msi metainfo.wixobj
+& $wix build -nologo -ext WixToolset.Util.wixext "$path\browserrestart.wxs" -d "MSI_VERSION=$msiversion" `
+    -loc "$path\browserrestart.en-US.wxl" -culture en-US -out browserrestart.en-US.msi
+& $wix build -nologo -ext WixToolset.Util.wixext "$path\browserrestart.wxs" -d "MSI_VERSION=$msiversion" `
+    -loc "$path\browserrestart.et-EE.wxl" -culture et-EE -out browserrestart.et-EE.msi
+& $wix build -nologo "$path\metainfo.wxs" -d "MSI_VERSION=$msiversion" -out metainfo.msi
 if($sign) {
     Sign("browserrestart.en-US.msi")
     Sign("browserrestart.et-EE.msi")
     Sign("metainfo.msi")
 }
-& $candle "$path\bootstrapper.wxs" -nologo -ext WixBalExtension -ext WixUtilExtension `
-    "-dMSI_VERSION=$msiversion" "-dpath=$path" "-didemia=$idemia" "-dupdater=$updater" `
-    "-dwebeid=$webeid" "-dqdigidoc4=$qdigidoc4" "-dshellext=$shellext" `
-
-& $light bootstrapper.wixobj -nologo -ext WixBalExtension -out "$filename.exe"
+& $wix build "$path\bootstrapper.wxs" -nologo -ext WixToolset.Bal.wixext -ext WixToolset.Util.wixext `
+    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "idemia=$idemia" -d "updater=$updater" `
+    -d "webeid=$webeid" -d "qdigidoc4=$qdigidoc4" -d "shellext=$shellext" -out "$filename.exe"
 if($sign) {
     cp "$filename.exe" "unsigned"
-    & $insignia -nologo -ib "$filename.exe" -o "$filename.engine.exe"
+    & $wix burn detach -nologo "$filename.exe" -engine "$filename.engine.exe"
     Sign("$filename.engine.exe")
-    & $insignia -nologo -ab "$filename.engine.exe" "$filename.exe" -o "$filename.exe"
+    & $wix burn reattach -nologo "$filename.exe" -engine "$filename.engine.exe" -o "$filename.exe"
     Sign("$filename.exe")
     Remove-Item "$filename.engine.exe"
 }

@@ -1,36 +1,28 @@
-<?xml version='1.0'?>
-<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'
-     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <Product Id='*' Name='Open-EID Browser Restart' Language='1033' Version='$(var.MSI_VERSION)'
-           UpgradeCode='471cf7f5-b418-4463-9a55-e3895c8519e0' Manufacturer='RIA' Codepage="utf-8">
-    <Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine"/>
-    <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Package Name="Open-EID Browser Restart" Language="1033" Version="$(var.MSI_VERSION)"
+        UpgradeCode="471cf7f5-b418-4463-9a55-e3895c8519e0" Manufacturer="RIA" InstallerVersion="500">
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
-      "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first."/>
-    <Property Id='RESTARTCHROME' Value="0"/>
-    <Property Id='RESTARTEDGE' Value="0"/>
-    <Property Id='RESTARTFIREFOX' Value="0"/>
-    <Directory Id='TARGETDIR' Name='SourceDir'/>
+        "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first." />
+    <Property Id="RESTARTCHROME" Value="0" />
+    <Property Id="RESTARTEDGE" Value="0" />
+    <Property Id="RESTARTFIREFOX" Value="0" />
+    
     <util:CloseApplication Id="CloseBrowsersChrome" CloseMessage="yes" Target="chrome.exe"
-      Description="!(loc.restartChrome)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes">
-      <![CDATA[(RESTARTCHROME = 1)]]>
-    </util:CloseApplication>
+        Description="!(loc.restartChrome)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes" Condition="(RESTARTCHROME = 1)" />
     <util:CloseApplication Id="CloseBrowsersEdge" CloseMessage="yes" Target="msedge.exe"
-      Description="!(loc.restartEdge)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes">
-      <![CDATA[(RESTARTEDGE = 1)]]>
-    </util:CloseApplication>
+        Description="!(loc.restartEdge)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes" Condition="(RESTARTEDGE = 1)" />
     <util:CloseApplication Id="CloseBrowsersFirefox" CloseMessage="yes" Target="firefox.exe"
-      Description="!(loc.restartFirefox)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes">
-      <![CDATA[(RESTARTFIREFOX = 1)]]>
-    </util:CloseApplication>
+        Description="!(loc.restartFirefox)" PromptToContinue="yes" RebootPrompt="no" ElevatedCloseMessage="yes" Condition="(RESTARTFIREFOX = 1)" />
     <InstallExecuteSequence>
-      <Custom Action="WixCloseApplications" After="WriteRegistryValues" />
+      <Custom Action="Wix4CloseApplications_X64" After="WriteRegistryValues" />
     </InstallExecuteSequence>
-    <Feature Id='MainFeature' Level='1'>
-      <Component Id='Content' Directory='TARGETDIR' Transitive="yes">
-        <RegistryValue Root='HKLM' Type='integer' Name='StartupBoostEnabled' Value='0'
-            Key='SOFTWARE\Policies\Microsoft\Edge' />
+    <Feature Id="MainFeature" Level="1">
+      <Component Id="Content" Directory="TARGETDIR" Transitive="yes">
+        <RegistryValue Root="HKLM" Type="integer" Name="StartupBoostEnabled" Value="0"
+            Key="SOFTWARE\Policies\Microsoft\Edge" />
       </Component>
     </Feature>
-  </Product>
+  </Package>
 </Wix>
