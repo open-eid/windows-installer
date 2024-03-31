@@ -102,11 +102,7 @@
           SourceFile="$(var.qdigidoc4).x64.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
-      </MsiPackage>
-
-      <MsiPackage Id="shellext.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext).x64.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="SHELL_EXTENSION" Value="1" />
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
