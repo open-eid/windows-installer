@@ -9,14 +9,14 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
         cd windows-installer
 
 2. Download dependencies to packages folder
-   * Digidoc4*.msi
-   * ID-Updater*.msi
-   * web-eid*.msi
-   * AWP*.msi
+   * Digidoc4*x64.msi
+   * ID-Updater*x64.msi
+   * web-eid*x64.msi
+   * AWP*x64*.msi
 
 3. Run build.ps1 script, optional parameter -msiversion
 
-        powershell -ExecutionPolicy ByPass -File build.ps1 -msiversion 3.12.0.0
+        powershell -ExecutionPolicy ByPass -File build.ps1
 
 4. Execute
 
