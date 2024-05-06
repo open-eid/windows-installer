@@ -7,10 +7,8 @@
     <Font Id="1" Height="-24" Weight="500" Foreground="FFFFFF">Segoe UI</Font><!-- title -->
     <Font Id="2" Height="-22" Weight="500" Foreground="graytext">Segoe UI</Font><!-- header -->
     <Font Id="3" Height="-12" Weight="500" Foreground="windowtext" Background="window">Segoe UI</Font><!-- text -->
-    <Font Id="4" Height="-12" Weight="500" Foreground="ff0000" Background="FFFFFF" Underline="yes">Segoe UI</Font><!-- link -->
-    <Font Id="5" Height="-18" Weight="500" Foreground="666666">Segoe UI</Font><!-- success -->
 
-    <Window Width="500" Height="434" HexStyle="100a0000" FontId="0" Caption="#(loc.Caption)">
+    <Window Width="493" Height="434" HexStyle="100a0000" FontId="0" Caption="#(loc.Caption)" IconFile="ID.ico">
         <Page Name="Help">
             <ImageControl X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
             <Label X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Label>
@@ -32,6 +30,7 @@
                 <Text Condition="WixStdBASuppressOptionsUI">#(loc.InstallMessage)</Text>
                 <Text Condition="NOT WixStdBASuppressOptionsUI">#(loc.InstallMessageOptions)</Text>
             </Label>
+            <Hypertext X="185" Y="-111" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.ChangeLogLink)</Hypertext>
             <Hypertext Name="EulaHyperlink" X="185" Y="-111" Width="-11" Height="17" TabStop="yes" FontId="3" HideWhenDisabled="yes">#(loc.InstallLicenseLinkText)</Hypertext>
             <Label Name="InstallVersion" X="185" Y="-81" Width="-11" Height="17" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBAShowVersion">#(loc.InstallVersion)</Label>
             <Checkbox Name="EulaAcceptCheckbox" X="185" Y="-51" Width="-11" Height="17" TabStop="yes" FontId="3" HideWhenDisabled="yes">#(loc.InstallAcceptCheckbox)</Checkbox>
@@ -86,12 +85,9 @@
             <Button Name="ProgressCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ProgressCancelButton)</Button>
         </Page>
         <Page Name="Modify">
-            <!--ImageControl X="11" Y="11" Width="165" Height="400" ImageFile="logoside.png"/>
-            <Label X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Label>
-            <Label X="185" Y="50" Width="-11" Height="30" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Label-->
             <ImageControl X="0" Y="0" Width="493" Height="58" ImageFile="logo.png"/>
             <Label X="11" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Label>
-            <Label X="11" Y="66" Width="-11" Height="30" TabStop="yes" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Label>
+            <Label X="11" Y="66" Width="-11" Height="30" TabStop="yes" FontId="2" DisablePrefix="yes">#(loc.ModifyHeader)</Label>
             <Checkbox Name="MinidriverInstall" X="30" Y="102" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.minidriver)</Checkbox>
             <Checkbox Name="Qdigidoc4Install" X="30" Y="124" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.qdigidoc4)</Checkbox>
             <Static X="30" Y="143" Width="-30" Height="1" />
@@ -103,8 +99,8 @@
             <Static X="30" Y="214" Width="-30" Height="1" />
             <Checkbox Name="IconsDesktop" X="30" Y="217" Width="-11" Height="17" TabStop="yes" FontId="3">#(loc.OptionsDesktop)</Checkbox>
             <Button Name="ModifyUpdateButton" X="11" Y="-11" Width="200" Height="23" TabStop="yes" FontId="0" EnableCondition="WixStdBAUpdateAvailable" HideWhenDisabled="yes">#(loc.UpdateButton)</Button>
-            <Button Name="RepairButton" X="-171" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
-            <Button Name="UninstallButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.ModifyUninstallButton)</Button>
+            <Button Name="RepairButton" X="-196" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.ModifyRepairButton)</Button>
+            <Button Name="UninstallButton" X="-91" Y="-11" Width="100" Height="23" TabStop="yes" FontId="0">#(loc.ModifyUninstallButton)</Button>
             <Button Name="ModifyCancelButton" X="-11" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0">
                 <Text>#(loc.ModifyCancelButton)</Text>
                 <CloseWindowAction />
@@ -115,18 +111,19 @@
             <Label X="185" Y="11" Width="-11" Height="32" FontId="1" DisablePrefix="yes">#(loc.Title)</Label>
             <Label X="185" Y="50" Width="-11" Height="30" FontId="2" TabStop="yes" DisablePrefix="yes">
                 <Text>#(loc.SuccessHeader)</Text>
-            </Label>
-            <Hypertext X="185" Y="80" Width="-11" Height="220" FontId="5" TabStop="yes" DisablePrefix="yes">
                 <Text Condition="WixBundleAction = 2">#(loc.SuccessLayoutHeader)</Text>
                 <Text Condition="WixBundleAction = 3">#(loc.SuccessUnsafeUninstallHeader)</Text>
                 <Text Condition="WixBundleAction = 4">#(loc.SuccessUninstallHeader)</Text>
                 <Text Condition="WixBundleAction = 5">#(loc.SuccessCacheHeader)</Text>
-                <Text Condition="WixBundleAction = 6">#(loc.SuccessInstallHeader) #(loc.SuccessInstallMessage)</Text>
+                <Text Condition="WixBundleAction = 6">#(loc.SuccessInstallHeader)</Text>
                 <Text Condition="WixBundleAction = 7">#(loc.SuccessModifyHeader)</Text>
                 <Text Condition="WixBundleAction = 8">#(loc.SuccessRepairHeader)</Text>
+            </Label>
+            <Hypertext X="185" Y="80" Width="-11" Height="220" FontId="3" TabStop="yes" DisablePrefix="yes">
+                <Text Condition="WixBundleAction = 6">#(loc.SuccessInstallMessage)</Text>
             </Hypertext>
             <Button Name="LaunchButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>
-            <Label X="185" Y="-51" Width="400" Height="34" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBARestartRequired">
+            <Label X="185" Y="-51" Width="-11" Height="34" TabStop="yes" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBARestartRequired">
                 <Text>#(loc.SuccessRestartText)</Text>
                 <Text Condition="WixBundleAction = 3">#(loc.SuccessUninstallRestartText)</Text>
             </Label>
@@ -149,7 +146,8 @@
                 <Text Condition="WixBundleAction = 7">#(loc.FailureModifyHeader)</Text>
                 <Text Condition="WixBundleAction = 8">#(loc.FailureRepairHeader)</Text>
             </Label>
-            <Hypertext Name="FailureLogFileLink" X="185" Y="-100" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes">#(loc.FailureHyperlinkLogText)</Hypertext>
+            <Hypertext X="185" Y="121" Width="-11" Height="35" FontId="3" TabStop="yes" VisibleCondition="">#(loc.FailureHyperlinkLogHelp)</Hypertext>
+            <Hypertext Name="FailureLogFileLink" X="185" Y="156" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes">#(loc.FailureHyperlinkLogText)</Hypertext>
             <Hypertext Name="FailureMessageText" X="185" Y="-57" Width="-11" Height="80" FontId="3" TabStop="yes" HideWhenDisabled="yes" />
             <Label X="185" Y="-57" Width="-11" Height="80" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBARestartRequired">#(loc.FailureRestartText)</Label>
             <Button Name="FailureRestartButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.FailureRestartButton)</Button>

@@ -1,3 +1,24 @@
+Packaging version [24.09](https://github.com/open-eid/osx-installer/releases/tag/v24.09) release notes
+--------------------------------------------
+- Removed Gemalto legacy card drivers
+- Use locale neutral DigiDoc4 installer
+- Make installer offline
+- Port installer to WIX 5
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v23.07...v23.09)
+
+Packaging version [23.07](https://github.com/open-eid/osx-installer/releases/tag/v23.07) release notes
+--------------------------------------------
+- No functional changes
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v23.03...v23.07)
+
+Packaging version [23.03](https://github.com/open-eid/osx-installer/releases/tag/v23.03) release notes
+--------------------------------------------
+- Update translations
+
+[Full Changelog](https://github.com/open-eid/osx-installer/compare/v22.11...v23.03)
+
 Packaging version [22.11](https://github.com/open-eid/osx-installer/releases/tag/v22.11) release notes
 --------------------------------------------
 - Deploy only X64 Shell Extension

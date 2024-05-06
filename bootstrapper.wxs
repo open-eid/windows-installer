@@ -3,7 +3,7 @@
      xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
-        Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
+      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
@@ -11,8 +11,9 @@
           LogoSideFile="$(var.path)\dlgbmp.bmp"
           ThemeFile="$(var.path)\HyperlinkSidebarTheme.xml"
           Theme="hyperlinkSidebarLicense" />
-        <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl" />
-        <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl" />
+        <Payload Name="1033\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.en.wxl" Compressed="yes" />
+        <Payload Name="1061\thm.wxl" SourceFile="$(var.path)\HyperlinkSidebarTheme.et.wxl" Compressed="yes" />
+        <Payload Name="ID.ico" SourceFile="$(var.path)\ID.ico" Compressed="yes" />
     </BootstrapperApplication>
 
     <bal:Condition Message="#(loc.SupportedWindows)" Condition="VersionNT &gt;= v10.0 AND VersionNT64" />
@@ -31,28 +32,28 @@
     <Variable Name="InstallFolder" Type="formatted" Value="[ProgramFiles6432Folder]Open-EID" />
 
     <?define REGPath = "Software\[WixBundleManufacturer]\Open-EID"?>
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupportExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ChromeSupport" Variable="ChromeSupport" Condition="ChromeSupportExists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupportExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="EdgeSupport" Variable="EdgeSupport" Condition="EdgeSupportExists" />
+    <util:ProductSearch Id="OpenEID_Installed" UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Variable="Installed" /><!-- metainfo.msi -->
+    <util:ProductSearch Id="WebEID_Installed" UpgradeCode="4f0e0fef-0dbc-481b-9d81-08921740f781" Variable="WebEIDInstalled" />
+    <util:RegistrySearch Variable="ChromeSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
+      Key="SOFTWARE\Google\Chrome\Extensions\ncibgoaomkmdpilpocfeponihegamlic" Value="update_url" After="OpenEID_Installed" />
+    <util:RegistrySearch Variable="EdgeSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
+      Key="SOFTWARE\Microsoft\Edge\Extensions\gnmckgbandlkacikdndelhfghdejfido" Value="update_url" After="OpenEID_Installed" />
+    <util:RegistrySearch Variable="FirefoxSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
+      Key="SOFTWARE\Mozilla\NativeMessagingHosts\eu.webeid" Bitness="always64" After="OpenEID_Installed" />
     <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2Exists" Result="exists"/-->
     <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceChromeExtensionActivation2" Variable="ForceChromeExtensionActivation2" Condition="ForceChromeExtensionActivation2Exists"/-->
     <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2Exists" Result="exists"/-->
     <!--util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="ForceEdgeExtensionActivation2" Variable="ForceEdgeExtensionActivation2" Condition="ForceEdgeExtensionActivation2Exists"/-->
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupportExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="FirefoxSupport" Variable="FirefoxSupport" Condition="FirefoxSupportExists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4InstallExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4Install" Condition="Qdigidoc4InstallExists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists" />
-    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledSet" Result="exists" />
-    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledValue" Condition="StartupBoostEnabledSet" />
-    <util:ProductSearch Id="OpenEID_Installed" UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Variable="Installed" /><!-- metainfo.msi -->
-    <util:ProductSearch Id="WebEID_Installed" UpgradeCode="4f0e0fef-0dbc-481b-9d81-08921740f781" Variable="WebEIDInstalled" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists" Id="MinidriverInstallExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists" After="MinidriverInstallExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4InstallExists" Result="exists" Id="Qdigidoc4InstallExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4Install" Condition="Qdigidoc4InstallExists" After="Qdigidoc4InstallExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists" Id="AutoUpdateExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists" After="AutoUpdateExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists" Id="IconsDesktopExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists" After="IconsDesktopExists" />
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledSet" Result="exists" Id="StartupBoostEnabledSet" />
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledValue" Condition="StartupBoostEnabledSet" After="StartupBoostEnabledSet" />
 
     <Chain>
       <MsiPackage Id="BrowserRestart.EN" ForcePerMachine="yes" SourceFile="browserrestart.en-US.msi" Compressed="yes"
@@ -71,26 +72,26 @@
       </MsiPackage>
 
       <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.idemia).x64.en-US.msi" Compressed="yes">
+          SourceFile="$(var.idemia).en-US.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
         <MsiProperty Name="INSTALL_DRIVER" Value="1" />
       </MsiPackage>
       <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
-          SourceFile="$(var.idemia).x64.et-EE.msi" Compressed="yes">
+          SourceFile="$(var.idemia).et-EE.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
         <MsiProperty Name="INSTALL_DRIVER" Value="1" />
       </MsiPackage>
 
-      <MsiPackage Id="Updater.X64" ForcePerMachine="yes" SourceFile="$(var.updater).x64.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
+      <MsiPackage Id="Updater" ForcePerMachine="yes" SourceFile="$(var.updater)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]" />
       </MsiPackage>
 
-      <MsiPackage Id="WebEID.X64" InstallCondition="(ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1)" ForcePerMachine="yes"
-          SourceFile="$(var.webeid).x64.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
+      <MsiPackage Id="WebEID" InstallCondition="ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1" ForcePerMachine="yes"
+          SourceFile="$(var.webeid)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]" />
         <MsiProperty Name="CHROMEPOLICY" Value="[ForceChromeExtensionActivation2]" />
         <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]" />
@@ -98,23 +99,21 @@
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]" />
       </MsiPackage>
 
-      <MsiPackage Id="qdigidoc4.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4).x64.msi" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
+      <MsiPackage Id="DigiDoc4" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
+          SourceFile="$(var.qdigidoc4)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
       </MsiPackage>
 
-      <MsiPackage Id="shellext.X64" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext).x64.msi" Compressed="yes">
+      <MsiPackage Id="shellext" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
+          SourceFile="$(var.shellext)" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="MSIRMSHUTDOWN" Value="2" />
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
-        <MsiProperty Name="ChromeSupport" Value="[ChromeSupport]" />
-        <MsiProperty Name="EdgeSupport" Value="[EdgeSupport]" />
         <MsiProperty Name="ForceChromeExtensionActivation2" Value="[ForceChromeExtensionActivation2]" />
         <MsiProperty Name="ForceEdgeExtensionActivation2" Value="[ForceEdgeExtensionActivation2]" />
-        <MsiProperty Name="FirefoxSupport" Value="[FirefoxSupport]" />
         <MsiProperty Name="MinidriverInstall" Value="[MinidriverInstall]" />
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]" />
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]" />

@@ -1,6 +1,8 @@
 ﻿<WixLocalization Culture="et-ee" Language="1061" xmlns="http://wixtoolset.org/schemas/v4/wxl">
-  <String Id="Caption" Value="eID tarkvara paigaldus" />
+  <String Id="Caption" Value="eID tarkvara paigaldus (Version)" />
   <String Id="Title" Value="eID tarkvara" />
+  <String Id="CheckingForUpdatesLabel" Value="Checking for updates" />
+  <String Id="UpdateButton" Value="&amp;Update to version [WixStdBAUpdateAvailable]" />
   <String Id="InstallHeader" Value="Tere tulemast!" />
   <String Id="InstallMessage" Value="Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu." />
   <String Id="InstallMessageOptions" Value="Jätkamisel paigaldatakse arvutisse ID-tarkvara. Enne tarkvara paigaldamist sulge kõik muud programmid. ID-tarkvara võimaldab digitaalselt allkirjastada ja krüpteerida dokumente, samuti saad veebibrauseris ID-kaardi abil teenustesse sisse logida ja seal tegevusi kinnitada. Paigalduse kohandamiseks klõpsa nupul Valikud. Paigalduse jätkamiseks klõpsa käsul Edasi või viisardist väljumiseks käsul Loobu." />
@@ -28,34 +30,43 @@
   <String Id="ModifyRepairButton" Value="&amp;Paranda" />
   <String Id="ModifyUninstallButton" Value="&amp;Eemalda kõik" />
   <String Id="ModifyCancelButton" Value="&amp;Sulge" />
-  <String Id="SuccessRepairHeader" Value="Tarkvara parandus õnnestus" />
-  <String Id="SuccessUninstallHeader" Value="Tarkvara eemaldatud" />
+  <String Id="SuccessHeader" Value="Toiming õnnestus" />
+  <String Id="SuccessCacheHeader" Value="Cache õnnestus" />
   <String Id="SuccessInstallHeader" Value="Tarkvara paigaldus õnnestus!" />
   <String Id="SuccessInstallMessage" Value="Taaskäivita veebilehitseja ning veendu, et Web eID nimeline laiendus on veebilehitsejas aktiveeritud.&#xA;Juhend on leitav &lt;a href=&quot;https://www.id.ee/artikkel/veebibrauserite-seadistamine-id-kaardi-kasutamiseks/&quot;&gt;siit&lt;/a&gt;." />
-  <String Id="SuccessHeader" Value="Toiming õnnestus" />
-  <String Id="SuccessLaunchButton" Value="&amp;Käivita ID-kaardi haldusvahend" /><!--Seda teadet ei kuvata.-->
+  <String Id="SuccessLayoutHeader" Value="Layout successfully completed" />
+  <String Id="SuccessModifyHeader" Value="Modify successfully completed" />
+  <String Id="SuccessRepairHeader" Value="Tarkvara parandus õnnestus" />
+  <String Id="SuccessUninstallHeader" Value="Tarkvara eemaldatud" />
+  <String Id="SuccessUnsafeUninstallHeader" Value="Tarkvara eemaldatud" />
+  <String Id="SuccessLaunchButton" Value="&amp;Käivita" />
   <String Id="SuccessRestartText" Value="Enne tarkvara kasutamist tuleb arvuti taaskäivitada." />
+  <String Id="SuccessUninstallRestartText" Value="You must restart your computer to complete the removal of the software." />
   <String Id="SuccessRestartButton" Value="&amp;Taaskäivita" />
   <String Id="SuccessCloseButton" Value="&amp;Sulge" />
   <String Id="FailureHeader" Value="Toiming ebaõnnestus" />
+  <String Id="FailureCacheHeader" Value="Cache failed" />
   <String Id="FailureInstallHeader" Value="Tarkvara paigaldus ebaõnnestus" />
-  <String Id="FailureUninstallHeader" Value="Tarkvara eemaldamine ebaõnnestus" />
+  <String Id="FailureLayoutHeader" Value="Layout failed" />
+  <String Id="FailureModifyHeader" Value="Modify failed" />
   <String Id="FailureRepairHeader" Value="Tarkvara parandus ebaõnnestus" />
-  <String Id="FailureHyperlinkLogText" Value="Toiming ebaõnnestus. Palun veendu, et internetiühendus on olemas ja proovi uuesti. Tarkvara paigalduse kohta leiad abi id.ee veebilehelt." />
-  <String Id="FailureHyperlinkLogLink" Value="&lt;a href=&quot;#&quot;&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;." />
+  <String Id="FailureUninstallHeader" Value="Tarkvara eemaldamine ebaõnnestus" />
+  <String Id="FailureUnsafeUninstallHeader" Value="Tarkvara eemaldamine ebaõnnestus" />
+  <String Id="FailureHyperlinkLogHelp" Value="Toiming ebaõnnestus. Tarkvara paigalduse kohta leiad abi &lt;a href=&quot;https://www.id.ee/&quot;&gt;id.ee&lt;/a&gt; veebilehelt." />
+  <String Id="FailureHyperlinkLogText" Value="&lt;a href=&quot;#&quot;&gt;Rohkem informatsiooni leiad logifailist&lt;/a&gt;." />
   <String Id="FailureRestartText" Value="Muudatuste tagasivõtmiseks tuleb arvuti taaskäivitada." />
   <String Id="FailureRestartButton" Value="&amp;Taaskäivita" />
   <String Id="FailureCloseButton" Value="&amp;Sulge" />
-  <String Id="FilesInUseHeader" Value="Failid on kasutuses" />
-  <String Id="FilesInUseLabel" Value="Allnimetatud rakendused kasutavad faile, mida tuleb uuendada." />
+  <String Id="FilesInUseTitle" Value="Failid on kasutuses" />
+  <String Id="FilesInUseLabel" Value="Allnimetatud rakendused kasutavad faile, mida tuleb uuendada:" />
+  <String Id="FilesInUseNetfxCloseRadioButton" Value="Close the &amp;applications." />
   <String Id="FilesInUseCloseRadioButton" Value="Sulge &amp;rakendused ja proovi need taaskäivitada." />
   <String Id="FilesInUseDontCloseRadioButton" Value="&amp;Ära sulge rakendusi. Arvuti tuleb taaskäivitada." />
-  <String Id="FilesInUseOkButton" Value="&amp;OK" />
-  <String Id="FilesInUseCancelButton" Value="&amp;Katkesta" />
+  <String Id="FilesInUseRetryButton" Value="&amp;Korda" />
+  <String Id="FilesInUseIgnoreButton" Value="&amp;Ignoreeri" />
+  <String Id="FilesInUseExitButton" Value="&amp;Sulge" />
   <String Id="ChangeLogLink" Value="&lt;a href=&quot;https://www.id.ee/artikkel/id-tarkvara-versioonide-info-release-notes/&quot;&gt;Muudatuste loetelu&lt;/a&gt;" />
-  <String Id="OptionsCustomizeInstall" Value="Kohanda paigaldust" />
   <String Id="OptionsDesktop" Value="Paigalda ID-tarkvara ikoonid töölauale" />
-  <String Id="OptionsStartMenu" Value="Lisa ID-kaardi tarkvara ikoonid Start-menüüsse" /><!--Seda teadet ei kuvata.-->
   <String Id="qdigidoc4" Value="DigiDoc4 klient" />
   <String Id="chromeplugin" Value="Chrome isikutuvastamise ja allkirjastamise tugi" />
   <String Id="chromepluginpolicy" Value="Chrome laiendus aktiveeritakse automaatselt" />
