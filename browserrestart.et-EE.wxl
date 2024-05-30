@@ -1,5 +1,0 @@
-﻿<WixLocalization Culture="et-EE" xmlns="http://wixtoolset.org/schemas/v4/wxl">
-    <String Id="restartChrome" Overridable="yes" Value="Paigaldamise jätkamiseks peab veebilehitseja Google Chrome olema suletud. Veebilehitseja sulgemiseks vajuta Ignoreeri (Ignore) või sulge brauser ja vajuta Proovi uuesti (Retry). Paigaldamise katkestamiseks vajuta Katkesta (Abort)." />
-    <String Id="restartEdge" Overridable="yes" Value="Paigaldamise jätkamiseks peab veebilehitseja Microsoft Edge olema suletud. Veebilehitseja sulgemiseks vajuta Ignoreeri (Ignore) või sulge brauser ja vajuta Proovi uuesti (Retry). Paigaldamise katkestamiseks vajuta Katkesta (Abort)." />
-    <String Id="restartFirefox" Overridable="yes" Value="Paigaldamise jätkamiseks peab veebilehitseja Firefox olema suletud. Veebilehitseja sulgemiseks vajuta Ignoreeri (Ignore) või sulge brauser ja vajuta Proovi uuesti (Retry). Paigaldamise katkestamiseks vajuta Katkesta (Abort)." />
-</WixLocalization>
