@@ -33,7 +33,6 @@
 
     <?define REGPath = "Software\[WixBundleManufacturer]\Open-EID"?>
     <util:ProductSearch Id="OpenEID_Installed" UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Variable="Installed" /><!-- metainfo.msi -->
-    <util:ProductSearch Id="WebEID_Installed" UpgradeCode="4f0e0fef-0dbc-481b-9d81-08921740f781" Variable="WebEIDInstalled" />
     <util:RegistrySearch Variable="ChromeSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
       Key="SOFTWARE\Google\Chrome\Extensions\ncibgoaomkmdpilpocfeponihegamlic" Value="update_url" After="OpenEID_Installed" />
     <util:RegistrySearch Variable="EdgeSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
@@ -52,25 +51,8 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists" After="AutoUpdateExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists" Id="IconsDesktopExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists" After="IconsDesktopExists" />
-    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledSet" Result="exists" Id="StartupBoostEnabledSet" />
-    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Policies\Microsoft\Edge" Value="StartupBoostEnabled" Variable="StartupBoostEnabledValue" Condition="StartupBoostEnabledSet" After="StartupBoostEnabledSet" />
 
     <Chain>
-      <MsiPackage Id="BrowserRestart.EN" ForcePerMachine="yes" SourceFile="browserrestart.en-US.msi" Compressed="yes"
-          InstallCondition="NOT UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
-        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]" />
-        <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]" />
-        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]" />
-        <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]" />
-      </MsiPackage>
-      <MsiPackage Id="BrowserRestart.ET" ForcePerMachine="yes" SourceFile="browserrestart.et-EE.msi" Compressed="yes"
-          InstallCondition="UserLanguageID = 1061 AND Installed &gt; v0.0.0.0 AND WebEIDInstalled = v0.0.0.0 AND NoBrowserRestart = 0 AND ((ChromeSupport AND ForceChromeExtensionActivation2) OR FirefoxSupport)">
-        <MsiProperty Name="TARGETDIR" Value="[InstallFolder]" />
-        <MsiProperty Name="RESTARTCHROME" Value="[ForceChromeExtensionActivation2]" />
-        <MsiProperty Name="RESTARTEDGE" Value="[ForceEdgeExtensionActivation2]" />
-        <MsiProperty Name="RESTARTFIREFOX" Value="[FirefoxSupport]" />
-      </MsiPackage>
-
       <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).en-US.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
@@ -118,8 +100,6 @@
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]" />
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]" />
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]" />
-        <MsiProperty Name="StartupBoostEnabledSet" Value="[StartupBoostEnabledSet]" />
-        <MsiProperty Name="StartupBoostEnabledValue" Value="[StartupBoostEnabledValue]" />
       </MsiPackage>
     </Chain>
   </Bundle>
