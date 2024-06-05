@@ -119,7 +119,7 @@
                 <Text Condition="WixBundleAction = 7">#(loc.SuccessModifyHeader)</Text>
                 <Text Condition="WixBundleAction = 8">#(loc.SuccessRepairHeader)</Text>
             </Label>
-            <Hypertext X="185" Y="80" Width="-11" Height="220" FontId="3" TabStop="yes" DisablePrefix="yes">
+            <Hypertext X="185" Y="91" Width="-11" Height="220" FontId="3" TabStop="yes" DisablePrefix="yes">
                 <Text Condition="WixBundleAction = 6">#(loc.SuccessInstallMessage)</Text>
             </Hypertext>
             <Button Name="LaunchButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>

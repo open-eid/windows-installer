@@ -14,11 +14,15 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
    * web-eid*x64.msi
    * AWP*x64*.msi
 
-3. Run build.ps1 script, optional parameter -msiversion
+4. Install WIX toolset
+
+   https://wixtoolset.org/docs/intro/#nettool
+
+5. Run build.ps1 script, optional parameter -msiversion
 
         powershell -ExecutionPolicy ByPass -File build.ps1
 
-4. Execute
+6. Execute
 
         Open-EID.exe
 
