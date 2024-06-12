@@ -1,5 +1,5 @@
 ﻿<WixLocalization Culture="et-ee" Language="1061" xmlns="http://wixtoolset.org/schemas/v4/wxl">
-  <String Id="Caption" Value="eID tarkvara paigaldus (Version)" />
+  <String Id="Caption" Value="eID tarkvara paigaldus [WixBundleVersion]" />
   <String Id="Title" Value="eID tarkvara" />
   <String Id="CheckingForUpdatesLabel" Value="Checking for updates" />
   <String Id="UpdateButton" Value="&amp;Update to version [WixStdBAUpdateAvailable]" />
