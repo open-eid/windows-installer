@@ -28,14 +28,8 @@ Function Sign($filename) {
     signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
         /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /td SHA256 "$filename"
 }
-& wix build -nologo -ext WixToolset.Util.wixext "$path\browserrestart.wxs" -d "MSI_VERSION=$msiversion" `
-    -loc "$path\browserrestart.en-US.wxl" -culture en-US -out browserrestart.en-US.msi
-& wix build -nologo -ext WixToolset.Util.wixext "$path\browserrestart.wxs" -d "MSI_VERSION=$msiversion" `
-    -loc "$path\browserrestart.et-EE.wxl" -culture et-EE -out browserrestart.et-EE.msi
 & wix build -nologo "$path\metainfo.wxs" -d "MSI_VERSION=$msiversion" -out metainfo.msi
 if($sign) {
-    Sign("browserrestart.en-US.msi")
-    Sign("browserrestart.et-EE.msi")
     Sign("metainfo.msi")
 }
 & wix build -nologo -ext WixToolset.BootstrapperApplications.wixext -ext WixToolset.Util.wixext "$path\bootstrapper.wxs" `
