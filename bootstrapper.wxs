@@ -58,12 +58,14 @@
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
         <MsiProperty Name="INSTALL_DRIVER" Value="1" />
+        <Provides Key="{E8616345-2F3F-46E8-B8CC-11B6E5B701D2}"/>
       </MsiPackage>
       <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia).et-EE.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
         <MsiProperty Name="INSTALL_DRIVER" Value="1" />
+        <Provides Key="{6D591292-39B5-4DC3-AE3D-ED51D6B7F808}"/>
       </MsiPackage>
 
       <MsiPackage Id="Updater" ForcePerMachine="yes" SourceFile="$(var.updater)" Compressed="yes">
@@ -91,6 +93,7 @@
           SourceFile="$(var.shellext)" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="MSIRMSHUTDOWN" Value="2" />
+        <Provides Key="{EA515788-340A-428E-8DE6-F79C84CBBFCA}"/>
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
