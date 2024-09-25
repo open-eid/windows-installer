@@ -3,18 +3,12 @@
         UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Manufacturer="RIA" InstallerVersion="500">
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
         "A newer version of [ProductName] is already installed. If you are trying to downgrade, please uninstall the newer version first." />
-    <Property Id="FORCECHROMEEXTENSIONACTIVATION2" Value="0" />
-    <Property Id="FORCEEDGEEXTENSIONACTIVATION2" Value="0" />
     <Property Id="MINIDRIVERINSTALL" Value="0" />
     <Property Id="QDIGIDOC4INSTALL" Value="0" />
     <Property Id="AUTOUPDATE" Value="0" />
     <Property Id="ICONSDESKTOP" Value="0" />
 
     <Component Id="Content" Directory="TARGETDIR" Transitive="yes">
-      <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
-                     Name="FORCECHROMEEXTENSIONACTIVATION2" Value="[FORCECHROMEEXTENSIONACTIVATION2]" Type="integer" />
-      <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
-                     Name="FORCEEDGEEXTENSIONACTIVATION2" Value="[FORCEEDGEEXTENSIONACTIVATION2]" Type="integer" />
       <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
                      Name="MinidriverInstall" Value="[MINIDRIVERINSTALL]" Type="integer" />
       <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
