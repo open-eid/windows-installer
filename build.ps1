@@ -9,8 +9,10 @@ param(
    [string]$shellext = (Get-ChildItem "Digidoc_ShellExt*x64.msi"),
    [string]$webeid = (Get-ChildItem "web-eid*x64.msi"),
    [string]$idemia = (Get-ChildItem "idplug-classic-*-Estonia_64bit.msi"),
-   [string]$thales = (Get-ChildItem "SmartCard_Client_*.msi"),
-   [string]$thales_certdel = (Get-ChildItem "CertDelApp_*.msi"),
+   [string]$thales_x64 = (Get-ChildItem "SmartCard_Client_64*.msi"),
+   [string]$thales_arm64 = (Get-ChildItem "SmartCard_Client_arm64*.msi"),
+   [string]$certdel_x64 = (Get-ChildItem "CertDelApp_64*.msi"),
+   [string]$certdel_arm64 = (Get-ChildItem "CertDelApp_arm64*.msi"),
    [string]$sign = $null
 )
 
@@ -24,8 +26,8 @@ if($sign) {
     Sign("$path\RemoveAWPBlock.mst")
 }
 & wix build -nologo -ext WixToolset.BootstrapperApplications.wixext -ext WixToolset.Util.wixext "$path\bootstrapper.wxs" `
-    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "updater=$updater" `
-    -d "idemia=$idemia" -d "thales=$thales" -d "thales_certdel=$thales_certdel" `
+    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "updater=$updater" -d "idemia=$idemia" `
+    -d "thales_x64=$thales_x64" -d "thales_arm64=$thales_arm64" -d "certdel_x64=$certdel_x64" -d "certdel_arm64=$certdel_arm64" `
     -d "webeid=$webeid" -d "qdigidoc4=$qdigidoc4" -d "shellext=$shellext" -out "$filename.exe"
 if($sign) {
     & wix burn detach -nologo "$filename.exe" -engine "$filename.engine.exe"

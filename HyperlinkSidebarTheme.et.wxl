@@ -76,4 +76,5 @@
   <String Id="edgeplugin" Value="Edge isikutuvastamise ja allkirjastamise tugi" />
   <String Id="edgepluginpolicy" Value="Edge laiendus aktiveeritakse automaatselt" />
   <String Id="SupportedWindows" Value="Kasutate mittetoetatud operatsioonisüsteemi. ID-tarkvara paigaldamiseks on vaja Windows 10 või uuemat 64-bitist operatsioonisüsteemi." />
+  <String Id="ARM64Warning" Value="Eesti kaarditootja IDEMIA väljastatud ID-kaarte (väljastatud enne 11.2025) ei saa Windows ARM seadmetes elektroonseteks toiminguteks kasutada." />
 </WixLocalization>
