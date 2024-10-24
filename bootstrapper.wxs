@@ -51,16 +51,18 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdate" Condition="AutoUpdateExists" After="AutoUpdateExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists" Id="IconsDesktopExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists" After="IconsDesktopExists" />
+    <util:RegistrySearch Id="DetectARM64Processor" Root="HKLM" Result="value" Variable="ARCH"
+      Key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment" Value="PROCESSOR_ARCHITECTURE" />
 
     <Chain>
-      <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="IDEMIA.en_US.X64" InstallCondition="NOT UserLanguageID = 1061 AND MinidriverInstall = 1 AND NOT ARCH=&quot;ARM64&quot;" ForcePerMachine="yes"
           SourceFile="$(var.idemia).en-US.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
         <MsiProperty Name="INSTALL_DRIVER" Value="1" />
         <Provides Key="{E8616345-2F3F-46E8-B8CC-11B6E5B701D2}"/>
       </MsiPackage>
-      <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND MinidriverInstall = 1" ForcePerMachine="yes"
+      <MsiPackage Id="IDEMIA.et_EE.X64" InstallCondition="UserLanguageID = 1061 AND MinidriverInstall = 1 AND NOT ARCH=&quot;ARM64&quot;" ForcePerMachine="yes"
           SourceFile="$(var.idemia).et-EE.msi" Compressed="yes">
         <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLCERTSYNCHRONIZER" Value="[InstallCertSynchronizer]" />
