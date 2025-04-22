@@ -47,47 +47,11 @@
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktopExists" Result="exists" Id="IconsDesktopExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="IconsDesktop" Variable="IconsDesktop" Condition="IconsDesktopExists" After="IconsDesktopExists" />
 
-    <util:ProductSearch Variable="AWP_5_3_5_EN" ProductCode="{E8616345-2F3F-46E8-B8CC-11B6E5B701D2}" />
-    <util:ProductSearch Variable="AWP_5_3_5_ET" ProductCode="{6D591292-39B5-4DC3-AE3D-ED51D6B7F808}" />
-    <util:ProductSearch Variable="AWP_5_3_4_EN" ProductCode="{82B38741-DD3F-4CFE-A379-DC9D3B5979D8}" />
-    <util:ProductSearch Variable="AWP_5_3_4_ET" ProductCode="{4D4EA8EC-8250-4D1D-94DE-088B6688ACDB}" />
-    <util:ProductSearch Variable="AWP_5_3_3_EN" ProductCode="{3883C327-19F6-4301-8660-BD4B17FB63CB}" />
-    <util:ProductSearch Variable="AWP_5_3_3_ET" ProductCode="{CC15A913-C014-48D4-B466-F0CE76C459C7}" />
-    <util:ProductSearch Variable="AWP_5_3_2_EN" ProductCode="{00B1E4F6-17E7-430B-AC68-78F2583763C8}" />
-    <util:ProductSearch Variable="AWP_5_3_2_ET" ProductCode="{299E6366-6AAC-4CCE-BE39-218BC44C0C31}" />
-    <util:ProductSearch Variable="AWP_5_3_1_EN" ProductCode="{811CEA74-3814-408F-B09B-F9C7FF271725}" />
-    <util:ProductSearch Variable="AWP_5_3_1_ET" ProductCode="{CD591B98-0FD2-49D9-974B-29B337084CC2}" />
-    <util:ProductSearch Variable="AWP_5_3_0_EN" ProductCode="{72555BBB-6AAA-4975-9B74-EDC6377CA370}" />
-    <util:ProductSearch Variable="AWP_5_3_0_ET" ProductCode="{C66CD92C-959A-4E2F-A325-AC5F38FA24B4}" />
-
     <Chain>
-      <ExePackage Id="UninstallAWP1" DisplayName="Remove AWP Minidriver 1" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {E8616345-2F3F-46E8-B8CC-11B6E5B701D2} /quiet /norestart" DetectCondition="AWP_5_3_5_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP2" DisplayName="Remove AWP Minidriver 2" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {6D591292-39B5-4DC3-AE3D-ED51D6B7F808} /quiet /norestart" DetectCondition="AWP_5_3_5_ET &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP3" DisplayName="Remove AWP Minidriver 3" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {82B38741-DD3F-4CFE-A379-DC9D3B5979D8} /quiet /norestart" DetectCondition="AWP_5_3_4_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP4" DisplayName="Remove AWP Minidriver 4" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {4D4EA8EC-8250-4D1D-94DE-088B6688ACDB} /quiet /norestart" DetectCondition="AWP_5_3_4_ET &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP5" DisplayName="Remove AWP Minidriver 5" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {3883C327-19F6-4301-8660-BD4B17FB63CB} /quiet /norestart" DetectCondition="AWP_5_3_3_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP6" DisplayName="Remove AWP Minidriver 6" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {CC15A913-C014-48D4-B466-F0CE76C459C7} /quiet /norestart" DetectCondition="AWP_5_3_3_ET &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP7" DisplayName="Remove AWP Minidriver 7" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {00B1E4F6-17E7-430B-AC68-78F2583763C8} /quiet /norestart" DetectCondition="AWP_5_3_2_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP8" DisplayName="Remove AWP Minidriver 8" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {299E6366-6AAC-4CCE-BE39-218BC44C0C31} /quiet /norestart" DetectCondition="AWP_5_3_2_ET &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP9" DisplayName="Remove AWP Minidriver 9" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {811CEA74-3814-408F-B09B-F9C7FF271725} /quiet /norestart" DetectCondition="AWP_5_3_1_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP10" DisplayName="Remove AWP Minidriver 10" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe"  InstallArguments="/c msiexec /x {CD591B98-0FD2-49D9-974B-29B337084CC2} /quiet /norestart" DetectCondition="AWP_5_3_1_ET &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP11" DisplayName="Remove AWP Minidriver 11" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {72555BBB-6AAA-4975-9B74-EDC6377CA370} /quiet /norestart" DetectCondition="AWP_5_3_0_EN &gt; v0.0.0.0" />
-      <ExePackage Id="UninstallAWP12" DisplayName="Remove AWP Minidriver 12" Cache="remove" Compressed="yes" PerMachine="yes" Vital="no" Permanent="yes"
-        SourceFile="cmd.exe" InstallArguments="/c msiexec /x {C66CD92C-959A-4E2F-A325-AC5F38FA24B4} /quiet /norestart" DetectCondition="AWP_5_3_0_ET &gt; v0.0.0.0" />
-
       <MsiPackage Id="IDEMIA" InstallCondition="MinidriverInstall = 1" ForcePerMachine="yes"
           SourceFile="$(var.idemia)" Compressed="yes">
+        <Payload SourceFile="$(var.path)\RemoveAWPBlock.mst" Name="RemoveAWPBlock.mst" Compressed="yes" />
+        <MsiProperty Name="TRANSFORMS" Value="RemoveAWPBlock.mst" />
         <MsiProperty Name="INSTALLDIR" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALL64DIR" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLDIR_MINIDRIVER_EESTI" Value="[InstallFolder]\Idemia" />

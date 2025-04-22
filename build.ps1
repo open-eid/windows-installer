@@ -19,6 +19,7 @@ Function Sign($filename) {
 & wix build -nologo "$path\metainfo.wxs" -d "MSI_VERSION=$msiversion" -out metainfo.msi
 if($sign) {
     Sign("metainfo.msi")
+    Sign("$path\RemoveAWPBlock.mst")
 }
 & wix build -nologo -ext WixToolset.BootstrapperApplications.wixext -ext WixToolset.Util.wixext "$path\bootstrapper.wxs" `
     -d "MSI_VERSION=$msiversion" -d "path=$path" -d "idemia=$idemia" -d "updater=$updater" `
