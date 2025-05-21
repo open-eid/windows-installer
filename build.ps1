@@ -8,21 +8,9 @@ param(
    [string]$qdigidoc4 = (Get-ChildItem "Digidoc4*x64.msi"),
    [string]$shellext = (Get-ChildItem "Digidoc_ShellExt*x64.msi"),
    [string]$webeid = (Get-ChildItem "web-eid*x64.msi"),
-   [string]$idemia = "AWP",
+   [string]$idemia = (Get-ChildItem "idplug-classic-*-Estonia_64bit.msi"),
    [string]$sign = $null
 )
-
-Function GetBaseName($find, $substring) {
-    $list = Get-ChildItem "$find*"
-    if($list -is [system.array]) {
-        $find = $list[0].BaseName
-    } else {
-        $find = $list.BaseName
-    }
-    return $find.Substring(0, $find.Length - $substring)
-}
-
-$idemia = GetBaseName $idemia 6
 
 Function Sign($filename) {
     & signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
