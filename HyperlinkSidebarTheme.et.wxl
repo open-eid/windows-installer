@@ -40,7 +40,7 @@
   <String Id="SuccessUninstallHeader" Value="Tarkvara eemaldatud" />
   <String Id="SuccessUnsafeUninstallHeader" Value="Tarkvara eemaldatud" />
   <String Id="SuccessLaunchButton" Value="&amp;Käivita" />
-  <String Id="SuccessRestartText" Value="Enne tarkvara kasutamist tuleb arvuti taaskäivitada." />
+  <String Id="SuccessRestartText" Value="Seadistuse lõpuleviimiseks taaskäivitage arvuti.&#xA;Mõned komponendid ei pruugi enne süsteemi taaskäivitamist ootuspäraselt töötada." />
   <String Id="SuccessUninstallRestartText" Value="You must restart your computer to complete the removal of the software." />
   <String Id="SuccessRestartButton" Value="&amp;Taaskäivita" />
   <String Id="SuccessCloseButton" Value="&amp;Sulge" />

@@ -40,7 +40,7 @@
   <String Id="SuccessUninstallHeader" Value="Uninstall completed" />
   <String Id="SuccessUnsafeUninstallHeader" Value="Uninstall completed" />
   <String Id="SuccessLaunchButton" Value="&amp;Launch" />
-  <String Id="SuccessRestartText" Value="You must restart your computer before you can use the software." />
+  <String Id="SuccessRestartText" Value="Please restart your computer to finalize the setup.&#xA;Some components may not function correctly until the system is rebooted." />
   <String Id="SuccessUninstallRestartText" Value="You must restart your computer to complete the removal of the software." />
   <String Id="SuccessRestartButton" Value="&amp;Restart" />
   <String Id="SuccessCloseButton" Value="&amp;Close" />

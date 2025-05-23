@@ -123,7 +123,7 @@
                 <Text Condition="WixBundleAction = 6">#(loc.SuccessInstallMessage)</Text>
             </Hypertext>
             <Button Name="LaunchButton" X="-91" Y="-11" Width="75" Height="23" TabStop="yes" FontId="0" HideWhenDisabled="yes">#(loc.SuccessLaunchButton)</Button>
-            <Label X="185" Y="-51" Width="-11" Height="34" TabStop="yes" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBARestartRequired">
+            <Label X="185" Y="-68" Width="-11" Height="51" TabStop="yes" FontId="3" DisablePrefix="yes" VisibleCondition="WixStdBARestartRequired">
                 <Text>#(loc.SuccessRestartText)</Text>
                 <Text Condition="WixBundleAction = 3">#(loc.SuccessUninstallRestartText)</Text>
             </Label>
