@@ -17,6 +17,8 @@
                      Name="AutoUpdate" Value="[AUTOUPDATE]" Type="integer" />
       <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
                      Name="IconsDesktop" Value="[ICONSDESKTOP]" Type="integer" />
+      <ServiceControl Id="ControlCertPropSvcStop" Name="CertPropSvc" Stop="install" Wait="yes" />
+      <ServiceControl Id="ControlCertPropSvcStart" Name="CertPropSvc" Start="install" Wait="no" />
     </Component>
   </Package>
 </Wix>
