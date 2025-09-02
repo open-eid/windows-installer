@@ -117,6 +117,13 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Mozilla\PKCS11Modules\idemiapkcs11firefox]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Oberthur Technologies]
 
+;IDplug
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Estonian eID Device]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Estonian eID Device on Cosmo X]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"IDplug UI"=-
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\idplug-ui.exe]
+
 ; Web eID - 64-bit
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\FEF0E0F4CBD0B184D918802971047F18]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ncibgoaomkmdpilpocfeponihegamlic]
@@ -1290,7 +1297,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\C29DC66CA959F2E43A52CAF583AF424B]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_amd64_fc3777ad9f4e3049]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{C66CD92C-959A-4E2F-A325-AC5F38FA24B4}"=-
+"C:\\Windows\\Installer\\{C66CD92C-959A-4E2F-A325-AC5F38FA24B4}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\FDC7CC66C34CDB845A52D9456EB002DE]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\521D979F66400E84380DFF19C4B79026]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\EA78DE7F4B6B5514CB628410DBDF35E2]
@@ -1345,7 +1352,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\7577ED88C4068534DAF9E685ABD50744]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_x86_fc3777ad9f4e3049]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{88DE7757-604C-4358-AD9F-6E58BA5D7044}\\"=-
+"C:\\Windows\\Installer\\{88DE7757-604C-4358-AD9F-6E58BA5D7044}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{72555BBB-6AAA-4975-9B74-EDC6377CA370}]
 [-HKEY_CLASSES_ROOT\Installer\Features\BBB55527AAA65794B947DE6C73C73A07]
@@ -1652,7 +1659,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\89B195DC2DF09D9479B4923B7380C42C]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_amd64_85fff5d52113426f]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{CD591B98-0FD2-49D9-974B-29B337084CC2}"=-
+"C:\\Windows\\Installer\\{CD591B98-0FD2-49D9-974B-29B337084CC2}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\46B22A204220DB1448D2F524A771E2A4]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\71D5688A92F71AC4ABECA9E4FD407B70]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F52B21EDB05D00341BDF4035CB510E2B]
@@ -1665,7 +1672,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\4905453FCBA3611488EBA8F80F9BE574]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_x86_85fff5d52113426f]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{F3545094-3ABC-4116-88BE-8A8FF0B95E47}\\"=-
+"C:\\Windows\\Installer\\{F3545094-3ABC-4116-88BE-8A8FF0B95E47}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{811CEA74-3814-408F-B09B-F9C7FF271725}]
 [-HKEY_CLASSES_ROOT\Installer\Features\47AEC1184183F8040BB99F7CFF727152]
@@ -1973,7 +1980,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\6636E992CAA6ECC4EB9312B84CC4C013]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_amd64_03cf6c34e60befc4]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{299E6366-6AAC-4CCE-BE39-218BC44C0C31}"=-
+"C:\\Windows\\Installer\\{299E6366-6AAC-4CCE-BE39-218BC44C0C31}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{299E6366-6AAC-4CCE-BE39-218BC44C0C31}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\52BC6A6722DE68201363EB57952414F8CB2F4E99]
 ; AWP - 32-bit (unikaalsed)
@@ -1983,7 +1990,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\065E9626FDF05DD46BA336096B6D7B26]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_x86_03cf6c34e60befc4]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{6269E560-0FDF-4DD5-B63A-6390B6D6B762}\\"=-
+"C:\\Windows\\Installer\\{6269E560-0FDF-4DD5-B63A-6390B6D6B762}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{00B1E4F6-17E7-430B-AC68-78F2583763C8}]
 [-HKEY_CLASSES_ROOT\Installer\Features\6F4E1B007E71B034CA86872F8573368C]
@@ -2178,7 +2185,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\319A51CC410C4D844B660FEC674C957C]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_amd64_83009ec1c1f21d15]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{CC15A913-C014-48D4-B466-F0CE76C459C7}"=-
+"C:\\Windows\\Installer\\{CC15A913-C014-48D4-B466-F0CE76C459C7}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{CC15A913-C014-48D4-B466-F0CE76C459C7}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\8B20008AE5DD9988EC2D06314A1C082F652454E2]
 ; AWP - 32-bit (unikaalsed)
@@ -2188,7 +2195,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\90ADAA27B09CD2C42811B1BF7FEC2B5F]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_x86_83009ec1c1f21d15]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{72AADA09-C90B-4C2D-8211-1BFBF7CEB2F5}\\"=-
+"C:\\Windows\\Installer\\{72AADA09-C90B-4C2D-8211-1BFBF7CEB2F5}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{3883C327-19F6-4301-8660-BD4B17FB63CB}]
 [-HKEY_CLASSES_ROOT\Installer\Features\723C38836F9110346806DBB471BF36BC]
@@ -2379,7 +2386,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Products\CE8AE4D40528D1D449ED80B86688CABD]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\CE8AE4D40528D1D449ED80B86688CABD]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{4D4EA8EC-8250-4D1D-94DE-088B6688ACDB}"=-
+"C:\\Windows\\Installer\\{4D4EA8EC-8250-4D1D-94DE-088B6688ACDB}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{4D4EA8EC-8250-4D1D-94DE-088B6688ACDB}]
 
 ; AWP - 32-bit (unikaalsed)
@@ -2388,7 +2395,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Products\B7DD14BF8BB426842B7DFFE8A776F36E]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\B7DD14BF8BB426842B7DFFE8A776F36E]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{FB41DD7B-4BB8-4862-B2D7-FF8E7A673FE6}\\"=-
+"C:\\Windows\\Installer\\{FB41DD7B-4BB8-4862-B2D7-FF8E7A673FE6}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{82B38741-DD3F-4CFE-A379-DC9D3B5979D8}]
 [-HKEY_CLASSES_ROOT\Installer\Features\14783B28F3DDEFC43A97CDD9B395978D]
@@ -2897,7 +2904,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\292195D65B933CD4EAD3DE156D7B8F80]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_amd64_ffc46e08d080e1d9]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{6D591292-39B5-4DC3-AE3D-ED51D6B7F808}"=-
+"C:\\Windows\\Installer\\{6D591292-39B5-4DC3-AE3D-ED51D6B7F808}\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{6D591292-39B5-4DC3-AE3D-ED51D6B7F808}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\64F9B36F91C5AD6F7588ECA0FA81E10D2CBA7631]
 ; AWP - 32-bit (unikaalsed)
@@ -2907,7 +2914,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\3A617CCCBB7F04E41B664B9061840422]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DIFx\DriverStore\estidminidriver.inf_x86_ffc46e08d080e1d9]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\Windows\Installer\{CCC716A3-F7BB-4E40-B166-B40916484022}\\"=-
+"C:\\Windows\\Installer\\{CCC716A3-F7BB-4E40-B166-B40916484022}\\"=-
 ; AWP en_us - en-US 64-bit (unikaalsed)
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{E8616345-2F3F-46E8-B8CC-11B6E5B701D2}]
 [-HKEY_CLASSES_ROOT\Installer\Features\5436168EF3F28E648BCC116B5E7B102D]
@@ -3712,21 +3719,6 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{0F348240-2B2C-4AB6-AEF4-1147623D4905}_v4.7.0.5322]
 [-HKEY_CLASSES_ROOT\Installer\Features\042843F0C2B26BA4EA4F117426D39450]
 [-HKEY_CLASSES_ROOT\Installer\Products\042843F0C2B26BA4EA4F117426D39450]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\E5576F443EE9BE950B8042175AA439EC]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\D175A80C3FFA7C75CB36301138FC83BB]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\0858C324AA484F4598D0E24CF0A29B61]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\168B7823563CA14508D3A3B7EE20F697]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\15F834A73A66BBC53A1A29DF488A350A]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F03D03E772D84585E9A692D8E1F3EF36]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\97FC9460D26960C5C98381385BD4C5D8]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F7ADA67463AD8A05EA550EFD60406D70]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\0266C67D9F703925C98224762792FB88]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\EBF962106EABD485EB488516B33628A7]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\7CB4F40DDB7840B5B932704E392D3F1C]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\004EE3FAFF72D4F5B9973D1E949A5846]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F411F1B8C5BDFE956AE0D57BFC335073]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\D275D777097DAD75D8757999FDAD427D]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\21D6648994D2F6057A9A83987EC0870D]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\042843F0C2B26BA4EA4F117426D39450]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0F348240-2B2C-4AB6-AEF4-1147623D4905}]
 
@@ -3743,12 +3735,13 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{5FBF3885-332F-4E02-B7C8-589775D00818}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{5FBF3885-332F-4E02-B7C8-589775D00818}]
 
-; IDEMIA Idplug - 64-bit
+; IDplug
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{FE5E72FA-C675-4F4E-8FFE-A24FA6CA362B}]
 [-HKEY_CLASSES_ROOT\Installer\Features\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
 [-HKEY_CLASSES_ROOT\Installer\Products\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
+"C:\\Windows\\Installer\\{FE5E72FA-C675-4F4E-8FFE-A24FA6CA362B}\\"=-
 
 ; Web eID - 64-bit
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{2CB93F63-8A32-4550-B731-2ED6ACD74712}_v2.7.0.906]
@@ -3769,21 +3762,6 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{A4468B2F-8F46-47D0-8FCD-BCCFE354BE28}_v4.8.0.5355]
 [-HKEY_CLASSES_ROOT\Installer\Features\F2B8644A64F80D74F8DCCBFC3E45EB82]
 [-HKEY_CLASSES_ROOT\Installer\Products\F2B8644A64F80D74F8DCCBFC3E45EB82]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\E5576F443EE9BE950B8042175AA439EC]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\D175A80C3FFA7C75CB36301138FC83BB]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\0858C324AA484F4598D0E24CF0A29B61]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\168B7823563CA14508D3A3B7EE20F697]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\15F834A73A66BBC53A1A29DF488A350A]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F03D03E772D84585E9A692D8E1F3EF36]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\97FC9460D26960C5C98381385BD4C5D8]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F7ADA67463AD8A05EA550EFD60406D70]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\0266C67D9F703925C98224762792FB88]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\EBF962106EABD485EB488516B33628A7]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\7CB4F40DDB7840B5B932704E392D3F1C]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\004EE3FAFF72D4F5B9973D1E949A5846]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\F411F1B8C5BDFE956AE0D57BFC335073]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\D275D777097DAD75D8757999FDAD427D]
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\21D6648994D2F6057A9A83987EC0870D]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\F2B8644A64F80D74F8DCCBFC3E45EB82]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{A4468B2F-8F46-47D0-8FCD-BCCFE354BE28}]
 
@@ -3793,3 +3771,23 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Products\962C3AB880050014E869F48A4A20A2FE]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\962C3AB880050014E869F48A4A20A2FE]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{8BA3C269-5008-4100-8E96-4FA8A4022AEF}]
+
+; ----- Open-EID 25.8.18.8398 -----
+
+; eID software - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{33CBC182-0761-4B46-B756-2C5AD7F4817B}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{33CBC182-0761-4B46-B756-2C5AD7F4817B}]
+
+; DigiDoc4 Client - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{DE087297-3C89-4779-92B0-5A6AECBDA008}_v4.8.2.5375]
+[-HKEY_CLASSES_ROOT\Installer\Features\792780ED98C39774290BA5A6CEDB0A80]
+[-HKEY_CLASSES_ROOT\Installer\Products\792780ED98C39774290BA5A6CEDB0A80]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\792780ED98C39774290BA5A6CEDB0A80]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{DE087297-3C89-4779-92B0-5A6AECBDA008}]
+
+; Open-EID Metapackage
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{801F9A25-36A0-42BC-9F30-416F616E7923}_v25.8.18.8398]
+[-HKEY_CLASSES_ROOT\Installer\Features\52A9F1080A63CB24F90314F616E69732]
+[-HKEY_CLASSES_ROOT\Installer\Products\52A9F1080A63CB24F90314F616E69732]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\52A9F1080A63CB24F90314F616E69732]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{801F9A25-36A0-42BC-9F30-416F616E7923}]
