@@ -58,6 +58,10 @@
         <MsiProperty Name="PKCS11" Value="0" />
         <MsiProperty Name="IDPLUG_SERVICES" Value="[InstallCertSynchronizer]" />
       </MsiPackage>
+      <MsiPackage Id="THALES.X64" InstallCondition="MinidriverInstall = 1" ForcePerMachine="yes"
+          SourceFile="$(var.thales)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+      </MsiPackage>
 
       <MsiPackage Id="Updater" ForcePerMachine="yes" SourceFile="$(var.updater)" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
