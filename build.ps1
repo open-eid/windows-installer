@@ -9,6 +9,7 @@ param(
    [string]$shellext = (Get-ChildItem "Digidoc_ShellExt*x64.msi"),
    [string]$webeid = (Get-ChildItem "web-eid*x64.msi"),
    [string]$idemia = (Get-ChildItem "idplug-classic-*-Estonia_64bit.msi"),
+   [string]$thales = (Get-ChildItem "SmartCard_Client_*.msi"),
    [string]$sign = $null
 )
 
@@ -22,7 +23,7 @@ if($sign) {
     Sign("$path\RemoveAWPBlock.mst")
 }
 & wix build -nologo -ext WixToolset.BootstrapperApplications.wixext -ext WixToolset.Util.wixext "$path\bootstrapper.wxs" `
-    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "idemia=$idemia" -d "updater=$updater" `
+    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "idemia=$idemia" -d "thales=$thales" -d "updater=$updater" `
     -d "webeid=$webeid" -d "qdigidoc4=$qdigidoc4" -d "shellext=$shellext" -out "$filename.exe"
 if($sign) {
     & wix burn detach -nologo "$filename.exe" -engine "$filename.engine.exe"
