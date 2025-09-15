@@ -76,4 +76,5 @@
   <String Id="edgeplugin" Value="Edge authentication and signing support" />
   <String Id="edgepluginpolicy" Value="Edge extension will be activated automatically" />
   <String Id="SupportedWindows" Value="You are using an unsupported operating system. You'll need Windows 10 or later 64-bit operating system to successfully install ID-software." />
+  <String Id="ARM64Warning" Value="ID-cards issued by the Estonian card manufacturer IDEMIA (issued before 11.2025) cannot be used electronically on Windows ARM devices." />
 </WixLocalization>
