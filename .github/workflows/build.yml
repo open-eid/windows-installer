@@ -1,0 +1,52 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  macos:
+    name: Build on Windows
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+    - name: Download Updater package
+      uses: dawidd6/action-download-artifact@v11
+      with:
+        workflow: build.yml
+        workflow_conclusion: ""
+        branch: master
+        name: msi_143_x64
+        repo: open-eid/updater
+    - name: Download DigiDoc4 package
+      uses: dawidd6/action-download-artifact@v11
+      with:
+        workflow: build.yml
+        branch: master
+        name: msi_143_x64
+        repo: open-eid/DigiDoc4-Client
+    - name: Download Web-eID packages
+      uses: dawidd6/action-download-artifact@v11
+      with:
+        workflow: cmake-windows.yml
+        branch: main
+        repo: web-eid/web-eid-app
+    - name: Install WiX
+      run: |
+        dotnet tool install --global wix --version 6.0.2
+        wix extension -g add WixToolset.UI.wixext/6.0.2
+        wix extension -g add WixToolset.Util.wixext/6.0.2
+        wix extension -g add WixToolset.BootstrapperApplications.wixext/6.0.2
+    - name: Build
+      env:
+        BUILD_NUBMER: ${{ github.run_number }}
+        VER_SUFFIX: .GITHUB
+      run: |
+        curl -O -L https://installer.id.ee/media/win/Open-EID.zip
+        unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*' 'ID-Updater*'
+        move web-eid*-x64*/src/app/web-eid_*.x64.msi .
+        pwsh build.ps1
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows
+        path: Open-EID_*.exe

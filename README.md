@@ -14,6 +14,8 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
    * [ID-Updater*x64.msi](https://github.com/open-eid/updater/releases)
    * [web-eid*x64.msi](https://github.com/web-eid/web-eid-app/releases)
    * [idplug-classic-*-Estonia_64bit.msi](https://installer.id.ee/media/win/Open-EID.zip)
+   * [SmartCard_Client_*.msi](https://installer.id.ee/media/win/Open-EID.zip)
+   * [CertDelApp_*.msi](https://installer.id.ee/media/win/Open-EID.zip)
 
 4. Install WIX toolset
 
