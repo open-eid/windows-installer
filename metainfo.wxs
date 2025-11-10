@@ -7,6 +7,7 @@
     <Property Id="QDIGIDOC4INSTALL" Value="0" />
     <Property Id="AUTOUPDATE" Value="0" />
     <Property Id="ICONSDESKTOP" Value="0" />
+    <Property Id="INSTALLCERTSYNCHRONIZER" Value="0" />
 
     <Component Id="Content" Directory="TARGETDIR" Transitive="yes">
       <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
@@ -17,6 +18,8 @@
                      Name="AutoUpdate" Value="[AUTOUPDATE]" Type="integer" />
       <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
                      Name="IconsDesktop" Value="[ICONSDESKTOP]" Type="integer" />
+      <RegistryValue Root="HKMU" Key="SOFTWARE\[Manufacturer]\Open-EID"
+                     Name="InstallCertSynchronizer" Value="[INSTALLCERTSYNCHRONIZER]" Type="integer" />
       <ServiceControl Id="ControlCertPropSvcStop" Name="CertPropSvc" Stop="install" Wait="yes" />
       <ServiceControl Id="ControlCertPropSvcStart" Name="CertPropSvc" Start="install" Wait="no" />
     </Component>

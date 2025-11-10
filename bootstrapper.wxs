@@ -40,6 +40,8 @@
       Key="SOFTWARE\Mozilla\NativeMessagingHosts\eu.webeid" Bitness="always64" After="OpenEID_Installed" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists" Id="MinidriverInstallExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstall" Condition="MinidriverInstallExists" After="MinidriverInstallExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="InstallCertSynchronizer" Variable="InstallCertSynchronizerExists" Result="exists" Id="InstallCertSynchronizerExists" />
+    <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="InstallCertSynchronizer" Variable="InstallCertSynchronizer" Condition="InstallCertSynchronizerExists" After="InstallCertSynchronizerExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4InstallExists" Result="exists" Id="Qdigidoc4InstallExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="Qdigidoc4Install" Variable="Qdigidoc4Install" Condition="Qdigidoc4InstallExists" After="Qdigidoc4InstallExists" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="AutoUpdate" Variable="AutoUpdateExists" Result="exists" Id="AutoUpdateExists" />
@@ -110,6 +112,7 @@
         <MsiProperty Name="Qdigidoc4Install" Value="[Qdigidoc4Install]" />
         <MsiProperty Name="AutoUpdate" Value="[AutoUpdate]" />
         <MsiProperty Name="IconsDesktop" Value="[IconsDesktop]" />
+        <MsiProperty Name="InstallCertSynchronizer" Value="[InstallCertSynchronizer]" />
       </MsiPackage>
     </Chain>
   </Bundle>
