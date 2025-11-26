@@ -23,6 +23,10 @@ Windows Registry Editor Version 5.00
 "C:\\Program Files\\Minidriver\\"=-
 "C:\\Program Files\\Minidriver\\ESTID\\"=-
 "C:\\Program Files\\Open-EID\\"=-
+"C:\\Program Files\\Open-EID\\Idemia\\"=-
+"C:\\Program Files\\Open-EID\\res\\"=-
+"C:\\Program Files\\Open-EID\\tls\\"=-
+"C:\\Program Files\\Open-EID\\styles\\"=-
 "C:\\Program Files\\Open-EID\\certs\\"=-
 "C:\\Program Files\\Open-EID\\imageformats\\"=-
 "C:\\Program Files\\Open-EID\\platforms\\"=-
@@ -32,6 +36,8 @@ Windows Registry Editor Version 5.00
 "C:\\Program Files\\TeRa Client\\platforms\\"=-
 "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\ID-kaart\\"=-
 "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TeRa Client\\"=-
+"C:\\ProgramData\\IDEMIA\\"=-
+"C:\\ProgramData\\IDEMIA\\IDPlugClassic\\"=-
 [-HKEY_LOCAL_MACHINE\SOFTWARE\RIA]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Estonian ID Card]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\RIA]
@@ -62,6 +68,11 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\64FC6FB45CA3A5B46A89B6B70B858400]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\AA5D8152EBBAFBA42B9F5DC66BB658D5]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\582D268B9EBAD3F40A75954542692DA7]
+
+;Thalese minidraiver
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Estonia eID MAV5.1 Card]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Estonia eID MAV5.1 Card CL]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Gemplus\Cryptography\EstoniaID]
 
 ; AWP
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\42D0AC01174B55749A207614B55777AC]
@@ -3736,12 +3747,27 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{5FBF3885-332F-4E02-B7C8-589775D00818}]
 
 ; IDplug
-[-HKEY_CLASSES_ROOT\Installer\Dependencies\{FE5E72FA-C675-4F4E-8FFE-A24FA6CA362B}]
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{FE5E72FA-C675-4F4E-8FFE-A24FA6CA362B}_v4.4.0.897]
 [-HKEY_CLASSES_ROOT\Installer\Features\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
 [-HKEY_CLASSES_ROOT\Installer\Products\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\AF27E5EF576CE4F4F8EF2AF46AAC63B2]
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\Folders]
-"C:\\Windows\\Installer\\{FE5E72FA-C675-4F4E-8FFE-A24FA6CA362B}\\"=-
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\16585031FA0864047B072B81E427F81D]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\C955B8F50A6917446AAF2512F1657B62]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\7B410F44069A6E14596C4D2543635DD5]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B81BFD6E8983A27449194B2DDB88F221]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\74FFC0EA9EBB3B74395BD3902A5CF529]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\89F30EA59E30FD949A35590A4E4314FF]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\6889CEEF6970C204ABF9B53807B52A0E]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\5DE3E504124693C418AD2F3BE4296D60]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\C8815D5CDB7A4B54FB270FF8F11BF74A]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\A4FC8F0A7FF130C49A798F1798C67CCB]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\A7A3EF1250889274D84E9A245C3230BE]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\62FC0EF64DA5CB340AA4558379A8B399]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B366D743AAFCECA4599D5D968294FA09]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B366D743AAFCECA4599D5D968294FA09]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\A4C24BB7BEBB6414FB26B0633082E6C4]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\B44F7A0680A64D64CB6940B16934E417]
+
 
 ; Web eID - 64-bit
 [-HKEY_CLASSES_ROOT\Installer\Dependencies\{2CB93F63-8A32-4550-B731-2ED6ACD74712}_v2.7.0.906]
@@ -3791,3 +3817,44 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Installer\Products\52A9F1080A63CB24F90314F616E69732]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\52A9F1080A63CB24F90314F616E69732]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{801F9A25-36A0-42BC-9F30-416F616E7923}]
+
+; ----- Open-EID 25.10.23.8403 -----
+
+; eID software - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{DF5112B3-AAE7-44E3-8F9B-B9F33CDE0DC9}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{DF5112B3-AAE7-44E3-8F9B-B9F33CDE0DC9}]
+
+; Web eID - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{3051BB90-C815-4090-9E19-B25866C55077}_v2.8.0.913]
+[-HKEY_CLASSES_ROOT\Installer\Features\09BB1503518C0904E9912B85665C0577]
+[-HKEY_CLASSES_ROOT\Installer\Products\09BB1503518C0904E9912B85665C0577]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\09BB1503518C0904E9912B85665C0577]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{3051BB90-C815-4090-9E19-B25866C55077}]
+
+; Open-EID Updater - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{403BD808-ECD0-4761-9C63-D17E992C3C0C}_v3.18.0.5475]
+[-HKEY_CLASSES_ROOT\Installer\Features\808DB3040DCE1674C9361DE799C2C3C0]
+[-HKEY_CLASSES_ROOT\Installer\Products\808DB3040DCE1674C9361DE799C2C3C0]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\808DB3040DCE1674C9361DE799C2C3C0]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{403BD808-ECD0-4761-9C63-D17E992C3C0C}]
+
+; DigiDoc4 Client - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{F2B7CD9F-64A3-4581-B406-22806F7CA12B}_v4.9.0.5378]
+[-HKEY_CLASSES_ROOT\Installer\Features\F9DC7B2F3A4618544B602208F6C71AB2]
+[-HKEY_CLASSES_ROOT\Installer\Products\F9DC7B2F3A4618544B602208F6C71AB2]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\F9DC7B2F3A4618544B602208F6C71AB2]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{F2B7CD9F-64A3-4581-B406-22806F7CA12B}]
+
+; Open-EID Metapackage
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{0ABB9591-6435-4717-9B34-039C1FE15915}_v25.10.23.8403]
+[-HKEY_CLASSES_ROOT\Installer\Features\1959BBA053467174B94330C9F11E9551]
+[-HKEY_CLASSES_ROOT\Installer\Products\1959BBA053467174B94330C9F11E9551]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\1959BBA053467174B94330C9F11E9551]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{0ABB9591-6435-4717-9B34-039C1FE15915}]
+
+; Thales minidraiver
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{883A9D1A-7338-4846-A4A9-A82286497D0A}_v8.00.0013.001]
+[-HKEY_CLASSES_ROOT\Installer\Features\A1D9A388833764844A9A8A226894D7A0]
+[-HKEY_CLASSES_ROOT\Installer\Products\A1D9A388833764844A9A8A226894D7A0]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A1D9A388833764844A9A8A226894D7A0]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\6232D3577314E1049A6BF1C6276A33A4]
