@@ -5,14 +5,17 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
 
 1. Fetch the source
 
-        git clone --recursive https://github.com/open-eid/windows-installer
+        git clone https://github.com/open-eid/windows-installer
         cd windows-installer
 
 2. Download dependencies to packages folder
    * [Digidoc4*x64.msi](https://github.com/open-eid/DigiDoc4-Client/releases)
+   * [Digidoc4*arm64.msi](https://github.com/open-eid/DigiDoc4-Client/releases)
    * [Digidoc_ShellExt*x64.msi](https://github.com/open-eid/DigiDoc4-Client/releases)
    * [ID-Updater*x64.msi](https://github.com/open-eid/updater/releases)
+   * [ID-Updater*arm64.msi](https://github.com/open-eid/updater/releases)
    * [web-eid*x64.msi](https://github.com/web-eid/web-eid-app/releases)
+   * [web-eid*arm64.msi](https://github.com/web-eid/web-eid-app/releases)
    * [idplug-classic-*-Estonia_64bit.msi](https://installer.id.ee/media/win/Open-EID.zip)
    * [SmartCard_Client_*.msi](https://installer.id.ee/media/win/Open-EID.zip)
    * [CertDelApp_*.msi](https://installer.id.ee/media/win/Open-EID.zip)
@@ -20,6 +23,11 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
 4. Install WIX toolset
 
    https://wixtoolset.org/docs/intro/#nettool
+
+        dotnet tool install --global wix --version 6.0.2
+        wix extension -g add WixToolset.UI.wixext/6.0.2
+        wix extension -g add WixToolset.Util.wixext/6.0.2
+        wix extension -g add WixToolset.BootstrapperApplications.wixext/6.0.2
 
 5. Run build.ps1 script, optional parameter -msiversion
 

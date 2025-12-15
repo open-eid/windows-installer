@@ -4,10 +4,13 @@ param(
    [string]$build_number = $(if ($null -eq $env:BUILD_NUMBER) {"0"} else {$env:BUILD_NUMBER}),
    [string]$msiversion = (Get-Date -Format "%y.%M.%d.$build_number"),
    [string]$filename = "Open-EID-$msiversion$env:VER_SUFFIX",
-   [string]$updater = (Get-ChildItem "ID-Updater*x64.msi"),
-   [string]$qdigidoc4 = (Get-ChildItem "Digidoc4*x64.msi"),
+   [string]$updater_x64 = (Get-ChildItem "ID-Updater*x64.msi"),
+   [string]$updater_arm64 = (Get-ChildItem "ID-Updater*arm64.msi"),
+   [string]$qdigidoc4_x64 = (Get-ChildItem "Digidoc4*x64.msi"),
+   [string]$qdigidoc4_arm64 = (Get-ChildItem "Digidoc4*arm64.msi"),
    [string]$shellext = (Get-ChildItem "Digidoc_ShellExt*x64.msi"),
-   [string]$webeid = (Get-ChildItem "web-eid*x64.msi"),
+   [string]$webeid_x64 = (Get-ChildItem "web-eid*x64.msi"),
+   [string]$webeid_arm64 = (Get-ChildItem "web-eid*arm64.msi"),
    [string]$idemia = (Get-ChildItem "idplug-classic-*-Estonia_64bit.msi"),
    [string]$thales_x64 = (Get-ChildItem "SmartCard_Client_64*.msi"),
    [string]$thales_arm64 = (Get-ChildItem "SmartCard_Client_arm64*.msi"),
@@ -26,9 +29,10 @@ if($sign) {
     Sign("$path\RemoveAWPBlock.mst")
 }
 & wix build -nologo -ext WixToolset.BootstrapperApplications.wixext -ext WixToolset.Util.wixext "$path\bootstrapper.wxs" `
-    -d "MSI_VERSION=$msiversion" -d "path=$path" -d "updater=$updater" -d "idemia=$idemia" `
+    -out "$filename.exe" -d "MSI_VERSION=$msiversion" -d "path=$path" -d "idemia=$idemia" -d "shellext=$shellext" `
     -d "thales_x64=$thales_x64" -d "thales_arm64=$thales_arm64" -d "certdel_x64=$certdel_x64" -d "certdel_arm64=$certdel_arm64" `
-    -d "webeid=$webeid" -d "qdigidoc4=$qdigidoc4" -d "shellext=$shellext" -out "$filename.exe"
+    -d "webeid_x64=$webeid_x64" -d "qdigidoc4_x64=$qdigidoc4_x64"  -d "updater_x64=$updater_x64" `
+    -d "webeid_arm64=$webeid_arm64" -d "qdigidoc4_arm64=$qdigidoc4_arm64" -d "updater_arm64=$updater_arm64"
 if($sign) {
     & wix burn detach -nologo "$filename.exe" -engine "$filename.engine.exe"
     Sign("$filename.engine.exe")

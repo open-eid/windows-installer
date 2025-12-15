@@ -8,45 +8,60 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Download Updater package
       uses: dawidd6/action-download-artifact@v11
       with:
         workflow: build.yml
-        workflow_conclusion: ""
-        branch: master
-        name: msi_143_x64
+        branch: arm64
+        name_is_regexp: true
+        name: msi_143_[x64|arm64]
+        merge_multiple: true
         repo: open-eid/updater
     - name: Download DigiDoc4 package
       uses: dawidd6/action-download-artifact@v11
       with:
         workflow: build.yml
-        branch: master
-        name: msi_143_x64
+        branch: arm64
+        name_is_regexp: true
+        name: msi_143_[x64|arm64]
+        merge_multiple: true
         repo: open-eid/DigiDoc4-Client
     - name: Download Web-eID packages
       uses: dawidd6/action-download-artifact@v11
       with:
         workflow: cmake-windows.yml
-        branch: main
+        branch: coverity_scan
+        name_is_regexp: true
+        name: web-eid-app-windows-build-[x64|arm64]-*
+        merge_multiple: true
         repo: web-eid/web-eid-app
-    - name: Install WiX
+    - name: Cache Open-EID
+      id: cache-open-eid
+      uses: actions/cache@v5
+      with:
+        path: |
+          Open-EID.zip
+          ~/.dotnet/tools
+          ~/.wix
+        key: ${{ runner.os }}-open-eid
+    - name: Install dependencies
+      if: steps.cache-open-eid.outputs.cache-hit != 'true'
       run: |
         dotnet tool install --global wix --version 6.0.2
         wix extension -g add WixToolset.UI.wixext/6.0.2
         wix extension -g add WixToolset.Util.wixext/6.0.2
         wix extension -g add WixToolset.BootstrapperApplications.wixext/6.0.2
+        curl -O -L https://installer.id.ee/media/win/Open-EID.zip
     - name: Build
       env:
         BUILD_NUBMER: ${{ github.run_number }}
         VER_SUFFIX: .GITHUB
       run: |
-        curl -O -L https://installer.id.ee/media/win/Open-EID.zip
         unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*' 'ID-Updater*'
-        move web-eid*-x64*/src/app/web-eid_*.x64.msi .
         pwsh build.ps1
     - name: Archive artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: windows
-        path: Open-EID_*.exe
+        path: Open-EID-*.exe
