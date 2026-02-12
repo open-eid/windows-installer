@@ -116,13 +116,7 @@
           ForcePerMachine="yes" SourceFile="$(var.qdigidoc4_arm64)" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
-      </MsiPackage>
-
-      <MsiPackage Id="shellext" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext)" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
-        <MsiProperty Name="MSIRMSHUTDOWN" Value="2" />
-        <Provides Key="{EA515788-340A-428E-8DE6-F79C84CBBFCA}"/>
+        <MsiProperty Name="SHELL_EXTENSION" Value="1" />
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
