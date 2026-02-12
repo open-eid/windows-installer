@@ -79,13 +79,26 @@
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
       </MsiPackage>
 
-      <MsiPackage Id="Updater" ForcePerMachine="yes" SourceFile="$(var.updater)" Compressed="yes">
+      <MsiPackage Id="Updater.X64" ForcePerMachine="yes" SourceFile="$(var.updater_x64)" InstallCondition="NOT ARCH=&quot;ARM64&quot;" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]" />
+      </MsiPackage>
+      <MsiPackage Id="Updater.ARM64" ForcePerMachine="yes" SourceFile="$(var.updater_arm64)" InstallCondition="ARCH=&quot;ARM64&quot;" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="AUTO_UPDATE" Value="[AutoUpdate]" />
       </MsiPackage>
 
-      <MsiPackage Id="WebEID" InstallCondition="ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1" ForcePerMachine="yes"
-          SourceFile="$(var.webeid)" Compressed="yes">
+      <MsiPackage Id="WebEID.X64" InstallCondition="(ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1) AND NOT ARCH=&quot;ARM64&quot;"
+          ForcePerMachine="yes" SourceFile="$(var.webeid_x64)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]" />
+        <MsiProperty Name="CHROMEPOLICY" Value="[ForceChromeExtensionActivation2]" />
+        <MsiProperty Name="EDGEINSTALL" Value="[EdgeSupport]" />
+        <MsiProperty Name="EDGEPOLICY" Value="[ForceEdgeExtensionActivation2]" />
+        <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]" />
+      </MsiPackage>
+      <MsiPackage Id="WebEID.ARM64" InstallCondition="(ChromeSupport = 1 OR EdgeSupport = 1 OR FirefoxSupport = 1) AND ARCH=&quot;ARM64&quot;"
+          ForcePerMachine="yes" SourceFile="$(var.webeid_arm64)" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="CHROMEINSTALL" Value="[ChromeSupport]" />
         <MsiProperty Name="CHROMEPOLICY" Value="[ForceChromeExtensionActivation2]" />
@@ -94,8 +107,13 @@
         <MsiProperty Name="FIREFOXINSTALL" Value="[FirefoxSupport]" />
       </MsiPackage>
 
-      <MsiPackage Id="DigiDoc4" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.qdigidoc4)" Compressed="yes">
+      <MsiPackage Id="DigiDoc4.X64" InstallCondition="Qdigidoc4Install = 1 AND NOT ARCH=&quot;ARM64&quot;"
+          ForcePerMachine="yes" SourceFile="$(var.qdigidoc4_x64)" Compressed="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
+      </MsiPackage>
+      <MsiPackage Id="DigiDoc4.ARM64" InstallCondition="Qdigidoc4Install = 1 AND ARCH=&quot;ARM64&quot;"
+          ForcePerMachine="yes" SourceFile="$(var.qdigidoc4_arm64)" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
       </MsiPackage>
