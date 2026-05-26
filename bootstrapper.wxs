@@ -36,6 +36,10 @@
       Key="SOFTWARE\Google\Chrome\Extensions\ncibgoaomkmdpilpocfeponihegamlic" Value="update_url" After="OpenEID_Installed" />
     <util:RegistrySearch Variable="EdgeSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
       Key="SOFTWARE\Microsoft\Edge\Extensions\gnmckgbandlkacikdndelhfghdejfido" Value="update_url" After="OpenEID_Installed" />
+    <util:RegistrySearch Variable="ForceChromeExtensionActivation2" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
+      Key="SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" Value="56790" Bitness="always32" After="OpenEID_Installed" />
+    <util:RegistrySearch Variable="ForceEdgeExtensionActivation2" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
+      Key="SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" Value="56790" Bitness="always32" After="OpenEID_Installed" />
     <util:RegistrySearch Variable="FirefoxSupport" Condition="Installed &gt; v0.0.0.0" Result="exists" Root="HKLM"
       Key="SOFTWARE\Mozilla\NativeMessagingHosts\eu.webeid" Bitness="always64" After="OpenEID_Installed" />
     <util:RegistrySearch Root="HKLM" Key="$(var.REGPath)" Value="MinidriverInstall" Variable="MinidriverInstallExists" Result="exists" Id="MinidriverInstallExists" />
