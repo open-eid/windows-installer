@@ -5,7 +5,7 @@
      xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
-      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
+      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="https://www.id.ee">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
@@ -122,13 +122,6 @@
           ForcePerMachine="yes" SourceFile="$(var.qdigidoc4_arm64)" Compressed="yes">
         <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="DESKTOP_SHORTCUT" Value="[IconsDesktop]" />
-      </MsiPackage>
-
-      <MsiPackage Id="shellext" InstallCondition="Qdigidoc4Install = 1" ForcePerMachine="yes"
-          SourceFile="$(var.shellext)" Compressed="yes">
-        <MsiProperty Name="APPLICATIONFOLDER" Value="[InstallFolder]" />
-        <MsiProperty Name="MSIRMSHUTDOWN" Value="2" />
-        <Provides Key="{EA515788-340A-428E-8DE6-F79C84CBBFCA}"/>
       </MsiPackage>
 
       <MsiPackage Id="MetaInfo" ForcePerMachine="yes" SourceFile="metainfo.msi" Compressed="yes">
