@@ -10,25 +10,25 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
     - name: Download Updater package
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: build.yml
-        branch: arm64
+        branch: master
         name_is_regexp: true
         name: msi_143_[x64|arm64]
         merge_multiple: true
         repo: open-eid/updater
     - name: Download DigiDoc4 package
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: build.yml
-        branch: arm64
+        branch: master
         name_is_regexp: true
         name: msi_143_[x64|arm64]
         merge_multiple: true
         repo: open-eid/DigiDoc4-Client
     - name: Download Web-eID packages
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: cmake-windows.yml
         branch: coverity_scan
@@ -61,7 +61,7 @@ jobs:
         unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*' 'ID-Updater*'
         pwsh build.ps1
     - name: Archive artifacts
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: windows
         path: Open-EID-*.exe
