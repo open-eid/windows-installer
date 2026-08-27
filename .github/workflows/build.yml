@@ -10,30 +10,30 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
     - name: Download Updater package
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: build.yml
-        branch: arm64
+        branch: master
         name_is_regexp: true
         name: msi_143_[x64|arm64]
         merge_multiple: true
         repo: open-eid/updater
     - name: Download DigiDoc4 package
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: build.yml
-        branch: arm64
+        branch: master
         name_is_regexp: true
         name: msi_143_[x64|arm64]
         merge_multiple: true
         repo: open-eid/DigiDoc4-Client
     - name: Download Web-eID packages
-      uses: dawidd6/action-download-artifact@v11
+      uses: dawidd6/action-download-artifact@v21
       with:
         workflow: cmake-windows.yml
-        branch: coverity_scan
+        branch: main
         name_is_regexp: true
-        name: web-eid-app-windows-build-[x64|arm64]-*
+        name: web-eid-app-windows-[0-9]*
         merge_multiple: true
         repo: web-eid/web-eid-app
     - name: Cache Open-EID
@@ -58,10 +58,12 @@ jobs:
         BUILD_NUBMER: ${{ github.run_number }}
         VER_SUFFIX: .GITHUB
       run: |
-        unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*' 'ID-Updater*'
+        mv arm64\src\app\RelWithDebInfo\*.arm64.msi .
+        mv x64\src\app\RelWithDebInfo\*.x64.msi .
+        unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*'
         pwsh build.ps1
     - name: Archive artifacts
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: windows
         path: Open-EID-*.exe
