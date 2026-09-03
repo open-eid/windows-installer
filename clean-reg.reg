@@ -118,6 +118,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\AuthentICCardv220T1]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\AuthentICCardv220T154]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\Estonian eID Device]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\Estonian eID Device on Cosmo X]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\IDOneClassic]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\IDOneClassicT0]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais\SmartCards\IDOneClassicTokenUSB]
@@ -299,6 +300,14 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\.scs]
 [-HKEY_CLASSES_ROOT\qdigidoc4.scs]
 [-HKEY_CLASSES_ROOT\qdigidocclient.scs]
+
+; DigiDoc4 4.11.x koondas laiendid kolme jagatud ProgID alla (varem oli
+; iga laiendi jaoks oma qdigidoc4.<laiend>). Leitud 26.8.27.8434 Revo
+; paigaldusjäljendist -- ametlik uninstaller eemaldab need, aga katkise
+; paigalduse korral jäävad alles, mis on just selle skripti kasutusjuht.
+[-HKEY_CLASSES_ROOT\qdigidoc4.crypto]
+[-HKEY_CLASSES_ROOT\qdigidoc4.document]
+[-HKEY_CLASSES_ROOT\qdigidoc4.timestamp]
 [-HKEY_CLASSES_ROOT\Installer\UpgradeCodes\27023976E9AA3E546B798D5243F972D3]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\27023976E9AA3E546B798D5243F972D3]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\FCAE9A613D5BCDF4E8F90CC3F84AD6FF]
@@ -4129,3 +4138,29 @@ Windows Registry Editor Version 5.00
 [-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{CA970D2B-C393-4445-8E7C-7C8058F958A1}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Components\7488EA07C9106685C8455548AD98DB14]
 
+; ----- Open-EID 26.8.27.8434 -----
+
+; eID software - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{EC1170C7-D462-4670-9547-6A1D995CF6AC}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{EC1170C7-D462-4670-9547-6A1D995CF6AC}]
+
+; DigiDoc4 Client - 64-bit
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{C136E872-9131-480E-86C7-957DE6EDAC4A}_v4.11.1.5434]
+[-HKEY_CLASSES_ROOT\Installer\Features\278E631C1319E084687C59D76EDECAA4]
+[-HKEY_CLASSES_ROOT\Installer\Products\278E631C1319E084687C59D76EDECAA4]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\278E631C1319E084687C59D76EDECAA4]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{C136E872-9131-480E-86C7-957DE6EDAC4A}]
+
+; DigiDoc4 Client - ARM64
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{29A0989E-0966-4A47-B33F-CA416F59A786}_v4.11.1.5434]
+[-HKEY_CLASSES_ROOT\Installer\Features\E9890A92669074A43BF3AC14F6957A68]
+[-HKEY_CLASSES_ROOT\Installer\Products\E9890A92669074A43BF3AC14F6957A68]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\E9890A92669074A43BF3AC14F6957A68]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{29A0989E-0966-4A47-B33F-CA416F59A786}]
+
+; Open-EID Metapackage
+[-HKEY_CLASSES_ROOT\Installer\Dependencies\{6EB66DC5-93DF-408D-8DE1-CEF87BBA8B1B}_v26.8.27.8434]
+[-HKEY_CLASSES_ROOT\Installer\Features\5CD66BE6FD39D804D81EEC8FB7ABB8B1]
+[-HKEY_CLASSES_ROOT\Installer\Products\5CD66BE6FD39D804D81EEC8FB7ABB8B1]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\5CD66BE6FD39D804D81EEC8FB7ABB8B1]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{6EB66DC5-93DF-408D-8DE1-CEF87BBA8B1B}]
