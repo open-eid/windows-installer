@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Estonian Information System Authority
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
 name: CI
 on: [push, pull_request]
 permissions:
@@ -65,3 +68,9 @@ jobs:
       with:
         name: windows
         path: Open-EID-*.exe
+  copyright:
+    name: Check copyright headers
+    uses: open-eid/.github/.github/workflows/copyright.yml@b2d87c7447ebcc01beb54c84f3978a81c1d64877 # master
+    with:
+      # Upstream default list does not cover .reg
+      extensions: ps1 reg wxl wxs xml yml

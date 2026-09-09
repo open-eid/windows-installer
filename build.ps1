@@ -1,4 +1,6 @@
 #powershell -ExecutionPolicy ByPass -File build.ps1
+# SPDX-FileCopyrightText: Estonian Information System Authority
+# SPDX-License-Identifier: LGPL-2.1-or-later
 param(
    [string]$path = $PSScriptRoot,
    [string]$build_number = $(if ($null -eq $env:BUILD_NUMBER) {"0"} else {$env:BUILD_NUMBER}),

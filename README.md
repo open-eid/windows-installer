@@ -3,6 +3,9 @@ windows-installer
 
 A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and browser plugins.
 
+ * License: LGPL-2.1-or-later
+ * &copy; Estonian Information System Authority
+
 1. Fetch the source
 
         git clone https://github.com/open-eid/windows-installer
