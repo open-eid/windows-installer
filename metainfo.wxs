@@ -1,4 +1,6 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+﻿<!-- SPDX-FileCopyrightText: Estonian Information System Authority -->
+<!-- SPDX-License-Identifier: LGPL-2.1-or-later -->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Package Name="Open-EID Metapackage" Language="1033" Version="$(var.MSI_VERSION)"
         UpgradeCode="42137cbc-8356-4ac4-9295-735f258b5abb" Manufacturer="RIA" InstallerVersion="500">
     <MajorUpgrade AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" DowngradeErrorMessage=
