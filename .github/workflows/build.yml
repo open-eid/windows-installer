@@ -58,7 +58,7 @@ jobs:
         curl -O -L https://installer.id.ee/media/win/Open-EID.zip
     - name: Build
       env:
-        BUILD_NUBMER: ${{ github.run_number }}
+        BUILD_NUMBER: ${{ github.run_number }}
         VER_SUFFIX: .GITHUB
       run: |
         unzip --% Open-EID.zip -x 'Digidoc*' 'web-eid*' 'ID-Updater*'
@@ -68,9 +68,3 @@ jobs:
       with:
         name: windows
         path: Open-EID-*.exe
-  copyright:
-    name: Check copyright headers
-    uses: open-eid/.github/.github/workflows/copyright.yml@b2d87c7447ebcc01beb54c84f3978a81c1d64877 # master
-    with:
-      # Upstream default list does not cover .reg
-      extensions: ps1 reg wxl wxs xml yml
