@@ -5,7 +5,7 @@
      xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
   <Bundle Name="eID software" Version="$(var.MSI_VERSION)" Manufacturer="RIA"
       UpgradeCode="f1c4d351-269d-4bee-8cdb-6ea70c968875"
-      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="http://www.id.ee">
+      Copyright="RIA" IconSourceFile="$(var.path)\ID.ico" AboutUrl="https://www.id.ee">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication
           LicenseUrl=""
@@ -56,8 +56,6 @@
     <Chain>
       <MsiPackage Id="IDEMIA" InstallCondition="MinidriverInstall = 1 AND NOT ARCH=&quot;ARM64&quot;" ForcePerMachine="yes"
           SourceFile="$(var.idemia)" Compressed="yes">
-        <Payload SourceFile="$(var.path)\RemoveAWPBlock.mst" Name="RemoveAWPBlock.mst" Compressed="yes" />
-        <MsiProperty Name="TRANSFORMS" Value="RemoveAWPBlock.mst" />
         <MsiProperty Name="INSTALLDIR" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALL64DIR" Value="[InstallFolder]" />
         <MsiProperty Name="INSTALLDIR_MINIDRIVER_EESTI" Value="[InstallFolder]\Idemia" />
