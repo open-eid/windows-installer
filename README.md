@@ -41,7 +41,7 @@ A WIX bootstrapper EXE with DigiDoc4 Client and package with various drivers and
         Open-EID.exe
 
 ## Support
-Official builds are provided through official distribution point [id.ee](https://www.id.ee/en/article/install-id-software/). If you want support, you need to be using official builds. Contact our support via [www.id.ee](http://www.id.ee) for assistance.
+Official builds are provided through official distribution point [id.ee](https://www.id.ee/en/article/install-id-software/). If you want support, you need to be using official builds. Contact our support via [www.id.ee](https://www.id.ee) for assistance.
 
 
 Source code is provided on "as is" terms with no warranty (see license for more information). Do not file Github issues with generic support requests.
