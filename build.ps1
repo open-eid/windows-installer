@@ -22,7 +22,7 @@ param(
 )
 
 Function Sign($filename) {
-    & signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du http://installer.id.ee `
+    & signtool.exe sign /a /v /s MY /n "$sign" /fd SHA256 /du https://installer.id.ee `
         /tr http://timestamp.digicert.com /td SHA256 "$filename"
 }
 & wix build -nologo "$path\metainfo.wxs" -d "MSI_VERSION=$msiversion" -out metainfo.msi
